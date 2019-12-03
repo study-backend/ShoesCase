@@ -18,7 +18,7 @@ public class GoodsReviewDTO {
 	private String title;
 	private String content;
 	private int score; //만족도 (0~5)
-	private String createDate; //db의 log용
+	private String createDate; //db의 log용 & 화면에 띄울 작성일
 	private String updateDate; //db의 log용
 	
 	public GoodsReviewDTO() {}
