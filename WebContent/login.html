@@ -2,10 +2,11 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR:400,500,700,900&display=swap&subset=korean" rel="stylesheet">
 <title>Insert title here</title>
 <style type="text/css">
 	/*공통*/
-	a{color:#000; text-decoration:none;}
+	a{color:#000; text-decoration:none; font-family: 'Noto Sans KR', sans-serif;}
 	a:hover{color:#000; font-weight:bold;}
 	ul li{list-style: none;}
 		
@@ -20,14 +21,15 @@
 	#nav input { }
 	
 	/* section */
-	#section{width:355px; height:400px; margin:auto; border:1px solid pink;}
-	#section h3{text-align:center;}
-	#section label{font-size:13px;}
-	#section .log{width:350px; height:50px; border:0; outline:0; border-radius:5px; border:1px solid gray;}
-	#section #search{float:right;}
-	#section button{width:354px; height:56px; margin-top:20px; background-color:purple; border-radius:5px; outline:0;}
-	#section button span{font-size:13px; color:white;}
 	
+	#section{width:355px; height:600px; margin:auto; border:1px solid pink;}
+	#section h3{text-align:center;}
+ 	#section .log{width:350px; height:50px; border:0; outline:0; border-radius:5px; border:1px solid gray;}
+	#section #search{float:right;}
+	#blogin{width:354px; height:56px; margin-top:20px; color:#FFFFFF; background-color:#5F0080; border-radius:5px; outline:0;}
+	#bsignup{width:354px; height:56px; margin-top:20px; color:#5F0080 ; background-color:#FFFFFF; border-radius:5px; outline:0;}
+	#section button span{font-size:16px; }
+	#login{height: 100.5px; margin-top: 50px; font-size:30px}
 	/* footer */
 	#footer{width:1000px; height:100px; border:1px solid green; margin:auto;}
 </style>
@@ -51,15 +53,16 @@
 		<input type="text">
 	</div>
 	<div id="section">
-		<h3 >로그인</h3>
+		
+		<div id="login"><h3>로그인</h3></div>
 		<input type="text" class="log" placeholder="아이디를 입력해주세요."><br><br>
 		<input type="password" class="log" placeholder="비밀번호를 입력해주세요."><br>
 		<input type="checkbox"><span>보안접속</span>
 		<div id="search">
 			<a href="#">아이디 찾기</a> | <a href="#">비밀번호 찾기</a>
 		</div>
-		<button type="submit"><span>로그인</span></button>
-		<button type="submit"><span>회원가입</span></button>
+		<button type="submit" id="blogin"><span>로그인</span></button>
+		<button type="submit" id="bsignup"><span>회원가입</span></button>
 	</div>
 	<div id="footer">
 	
