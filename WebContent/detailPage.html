@@ -11,9 +11,19 @@
 	body{height:100%;}
 	
 	/* detail */
-	#detail{width:1200px; height:1020px; border:1px solid red; margin:auto;}
+	#detail{width:1100px; height:1020px; border:1px solid red; margin:auto;}
 	#detail #detail_img{width:430px; height:550px; border:1px solid blue; display:inline-block;}
-	#detail #detail_infor{width:700px; height:950px; border:1px solid red; display:inline-block; float:right;}
+	#detail #detail_infor{width:600px; height:550px; border:1px solid red; display:inline-block; float:right;}
+	#detail #main_title{font-size:24px; font-style:bold; margin:20px;}
+	#detail #sub_title {margin-top:-15px; margin-left:20px;}
+	#detail #member_price{margin-top:20px; margin-left:20px; color:#333333;}
+	#detail #price {margin-left:20px; color:#333333;}
+	#detail #price .price{font-size:30px; color:#333333;}
+	#detail #price .dc{font-size:30px; color:red;}
+	#detail #discount{margin-left:20px; text-decoration:line-through; color:gray;}
+	#detail #not_login {margin-top:20px; margin-left:20px; font-size:14px; color:#333333;}
+	#a span {margin-top:30px; margin-left:20px;}
+	 
 	
 </style>
 </head>
@@ -21,10 +31,55 @@
 	<div id="detail">
 		<div id="detail_img"></div>
 		<div id="detail_infor">
-			<div>
-				<h3>나이키신발</h3>
+			<div id="main_title">
+				<strong>나이키에어맥스</strong>
 			</div>
+			<div id="sub_title">
+				<span>최고의 신발</span>
+			</div>
+			<div id="member_price">
+				<span>회원할인가</span>
+			</div>
+			<div id="price">
+				<span class="price">20,000</span>
+				<span class="won">원</span>
+				<sapn class="dc">15%</sapn>
+			</div>
+			<div id="discount">
+				<span>3000원</span>
+			</div>
+			<div id="not_login">
+				<span>로그인 후, 회원할인가와 적립혜택이 제공됩니다.</span>
+			</div>
+			<br>
+			<hr>
+			<div id="a">
+				<span class="fitst">판매단위</span><span class="second">1켤레</span>
+				<br>
+				<span class="fitst">중량/용량</span><span class="second">200g</span>
+				<hr>
+			</div>
+			<div id="a">
+				<span class="fitst">색상</span>
+				<select name="color">
+				    <option value="">색상선택</option>
+				    <option value="black">black</option>
+				    <option value="white" selected="selected">white</option>
+				    <option value="blue">blue</option>
+				    <option value="blue">blue</option>
+				</select>
+				<br>
+				<span class="fitst">사이즈</span>
+				<hr>
+			</div>
+			
+			
+			
+			
+			
+			
 		</div>
+		
 	</div>
 </body>
 </html>

@@ -185,4 +185,3 @@ public class AccountDTO {
       this.deleteDate = deleteDate;
    }
 }
-
