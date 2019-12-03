@@ -11,7 +11,8 @@ public class LoginController implements Controller{
 	@Override
 	public ModelAndView handleRequest(HttpServletRequest request, HttpServletResponse response)
 			throws SQLException, IOException {
-		// TODO Auto-generated method stub
+		System.out.println("∂∞∫¡¡ª...");
+	
 		return null;
 	}
 

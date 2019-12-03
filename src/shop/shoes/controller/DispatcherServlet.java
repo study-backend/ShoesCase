@@ -13,7 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 /**
  * Servlet implementation class DispatcherServlet
  */
-@WebServlet(urlPatterns = {"/elec"} , loadOnStartup = 1)
+@WebServlet(urlPatterns = {"/front"} , loadOnStartup = 1)
 public class DispatcherServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	Map<String, Controller> map;
@@ -24,8 +24,10 @@ public class DispatcherServlet extends HttpServlet {
 	}
     
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException  {
-		String key = request.getParameter("command");
-		if(key==null) key = "list";
+		String key = request.getParameter("key");
+		System.out.println(key);
+		
+		if(key==null) key = "login";
 		
 		try {
 		   ModelAndView mv = map.get(key).handleRequest(request, response);
@@ -36,7 +38,7 @@ public class DispatcherServlet extends HttpServlet {
 				request.getRequestDispatcher(mv.getViewName()).forward(request, response);
 			}
 		
-		}catch (SQLException | IOException  e) {
+		}catch (Exception  e) {
 			e.printStackTrace();
 			request.setAttribute("errorMsg", e.getMessage());
 			request.getRequestDispatcher("errorView/error.jsp").forward(request, response);
