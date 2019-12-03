@@ -2,7 +2,7 @@ package shop.shoes.model;
 
 public class AccountDTO {
 
-	private long account;
+	private long accountId;
     private String loginId;
     private String loginPwd;
     private String name;
@@ -21,11 +21,11 @@ public class AccountDTO {
     
     public AccountDTO() { }
 
-	public AccountDTO(long account, String loginId, String loginPwd, String name, String phone, String email, String addr,
+	public AccountDTO(long accountId, String loginId, String loginPwd, String name, String phone, String email, String addr,
 			char sex, String birthday, String loginDate, String logoutDate, int termsVersion, String termsAgreeDate,
 			String creteDate, String updateDate, String deleteDate) {
 		super();
-		this.account = account;
+		this.accountId = accountId;
 		this.loginId = loginId;
 		this.loginPwd = loginPwd;
 		this.name = name;
@@ -44,11 +44,11 @@ public class AccountDTO {
 	}
     
     public long getAccount() {
-		return account;
+		return accountId;
 	}
 
 	public void setAccount(long account) {
-		this.account = account;
+		this.accountId = account;
 	}
 
 	public String getLoginId() {
