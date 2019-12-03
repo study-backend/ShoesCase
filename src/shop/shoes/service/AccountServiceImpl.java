@@ -9,8 +9,7 @@ import shop.shoes.model.AccountDTO;
 public class AccountServiceImpl implements AccountService {
 	private static AccountDAO accountDAO  = new AccountDAOImpl();
 
-	@Override
-	public int signin(AccountDTO account) throws Exception {
+	public int  signin(AccountDTO account) throws Exception {
 		
 		int result = 0;
 		AccountDTO acc = accountDAO.selectById(account.getAccountId());
@@ -34,7 +33,6 @@ public class AccountServiceImpl implements AccountService {
 		
 	}
 
-	@Override
 	public int signUp(AccountDTO account)  throws Exception{
 		int result = 0;
 		result = accountDAO.insert(account);
@@ -48,7 +46,7 @@ public class AccountServiceImpl implements AccountService {
 		
 		return result;
 	}
-
+	
 	@Override
 	public int findPassword(AccountDTO account)  throws Exception{
 		int result = 0;

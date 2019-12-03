@@ -16,8 +16,8 @@ public class AccountDTO {
     private Date birthday;
     //private Date loginDate;
     //private Date logoutDate;
-    private int termsVersion;	// 占쏙옙占쏙옙占쏙옙占쏙옙 占쏙옙占실쇽옙(占쏙옙占쏙옙 占쏙옙크占쌀거띰옙 占쏙옙占쏙옙灌占� 占쏙옙占쏙옙 占쏙옙(1)
-    private Date termsAgreeDate;	// 회占쏙옙占쏙옙占쌉놂옙짜占쏙옙 占쏙옙占쏙옙
+    private int termsVersion;	
+    private Date termsAgreeDate;	
     private Date createDate;
     private Date updateDate;
     private Date deleteDate;

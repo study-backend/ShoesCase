@@ -9,14 +9,15 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import shop.shoes.model.AccountDTO;
+import shop.shoes.service.AccountService;
+import shop.shoes.service.AccountServiceImpl;
 import shop.shoes.service.ShoesShopService;
 
 public class UserRegisterController implements Controller{
 
 	@Override
 	public ModelAndView handleRequest(HttpServletRequest request, HttpServletResponse response)
-			throws SQLException, IOException {
-
+			throws Exception {
 		
 		String loginId  = request.getParameter("id");
 		String loginPwd  = request.getParameter("pwd");
@@ -31,7 +32,9 @@ public class UserRegisterController implements Controller{
 		Date birthday = java.sql.Date.valueOf(birth_year + birth);
 		
 		AccountDTO dto = new AccountDTO(loginId, loginPwd, name, phone, email, addr, sex, birthday);
-		ShoesShopService service = new ShoesShopService();
+		AccountService service = new AccountServiceImpl();
+		
+		service.signUp(dto);
 		
 		ModelAndView mv = new ModelAndView("", true);
 		return mv;
