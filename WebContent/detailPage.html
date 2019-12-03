@@ -16,12 +16,12 @@
 	#detail #detail_infor{width:600px; height:550px; border:1px solid red; display:inline-block; float:right;}
 	#detail #main_title{font-size:24px; font-style:bold; margin:20px;}
 	#detail #sub_title {margin-top:-15px; margin-left:20px;}
-	#detail #member_price{margin-top:20px; margin-left:20px; color:#333333;}
-	#detail #price {margin-left:20px; color:#333333;}
-	#detail #price .price{font-size:30px; color:#333333;}
+	#detail #member_price{margin-top:20px; margin-left:20px;}
+	#detail #price {margin-left:20px;}
+	#detail #price .price{font-size:30px;}
 	#detail #price .dc{font-size:30px; color:red;}
-	#detail #discount{margin-left:20px; text-decoration:line-through; color:gray;}
-	#detail #not_login {margin-top:20px; margin-left:20px; font-size:14px; color:#333333;}
+	#detail #discount{margin-left:20px; text-decoration:line-through;}
+	#detail #not_login {margin-top:20px; margin-left:20px;}
 	#a span {margin-top:30px; margin-left:20px;}
 	 
 	
@@ -54,32 +54,44 @@
 			<br>
 			<hr>
 			<div id="a">
-				<span class="fitst">판매단위</span><span class="second">1켤레</span>
+				<span class="fitst">판매 단위</span><span class="second">1켤레</span>
 				<br>
 				<span class="fitst">중량/용량</span><span class="second">200g</span>
 				<hr>
 			</div>
 			<div id="a">
 				<span class="fitst">색상</span>
-				<select name="color">
-				    <option value="">색상선택</option>
-				    <option value="black">black</option>
-				    <option value="white" selected="selected">white</option>
-				    <option value="blue">blue</option>
-				    <option value="blue">blue</option>
+				<select id ="selec">
+					<option value="black">black</option>
+					<option value="white" selected="selected"> white</option>
+					<option value="red">red</option>
+					<option value="blue">blue</option>
+					<option value="gray">gray</option>
 				</select>
 				<br>
 				<span class="fitst">사이즈</span>
+				<select id ="selec">
+					<option value="230">230</option>
+					<option value="235"> 235</option>
+					<option value="240">240</option>
+					<option value="245">245</option>
+					<option value="250" selected="selected">250</option>
+					<option value="255">255</option>
+					<option value="260">260</option>
+					<option value="265">265</option>
+					<option value="270">270</option>
+					<option value="275">275</option>
+				</select>
 				<hr>
 			</div>
-			
-			
-			
-			
-			
-			
+			<div id="a">
+				<span class="fitst">구매 수량</span>
+				<br>
+				<button type="button" class="btn_down">-</button>
+				<input type="number" >
+				<button type="button" class="btn_up">+</button>
+				<hr>	
 		</div>
-		
 	</div>
 </body>
 </html>
