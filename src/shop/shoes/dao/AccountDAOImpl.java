@@ -3,7 +3,6 @@ package shop.shoes.dao;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -137,6 +136,45 @@ public class AccountDAOImpl implements AccountDAO {
 		}
 		
 		return result;
+	}
+
+	@Override
+	public AccountDTO selectById(long accountId) throws Exception {
+		Connection con = null;
+		PreparedStatement ps = null;
+		ResultSet rs = null;
+		AccountDTO account = new AccountDTO();
+		String sql = "SELECT * FROM account WHERE account_id = ";
+		try {
+			con = DbUtil.getConnection();
+			ps = con.prepareStatement(sql);
+			ps.setLong(1, accountId);
+			rs = ps.executeQuery();
+			
+			if(rs.next()) {
+				// 개노가다.. 18..
+				account = new AccountDTO(rs.getLong("ACCOUNT_ID")
+						, rs.getString("LOGIN_ID")
+						, rs.getString("LOGIN_PWD")
+						, rs.getString("NAME")
+						, rs.getString("PHONE")
+						, rs.getString("EMAIL")
+						, rs.getString("ADDR")
+						, rs.getString("SEX").charAt(0)
+						, rs.getDate("BIRTHDAY")
+						//, rs.getDate("LOGIN_DATE")
+						//, rs.getDate("LOGOUT_DATE")
+						, rs.getInt("TERMS_VERSION")
+						, rs.getDate("TERMS_AGREE_DATE")
+						, rs.getDate("CREATE_DATE")
+						, rs.getDate("UPDATE_DATE")
+						, rs.getDate("DELETE_DATE"));
+			}
+			
+		}finally {
+			DbUtil.dbClose(rs, ps, con);		
+		}
+		return account;
 	}
 	
 }
