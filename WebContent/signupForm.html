@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+<!--    <style>
+    td {padding: 0px}
+
+    </style>-->
+</head>
+<body style="margin: 0px">
+<div style="height: 180px; width: 100%; background-color: #0c5460; text-align: center;"> Header 자리 </div>
+
+<div class="signUpTitle" style="margin-top: 100px; margin-bottom: 10px">
+    <h2 style="text-align: center; margin: 0px;">회원가입</h2>
+
+    <div class="boardWrite" style="margin-top: 30px">
+    <table class="inForm" style="width: 50%; margin: auto; border: solid 2px #6f42c1 ">
+        <tbody>
+        <tr>
+            <td class="idCol" width="140">아이디*</td>
+            <td class="idCol2">
+                <div style="height: 40px">
+                <input type="text" option="regId" placeholder="6자 이상의 영문 혹은 영문과 숫자를 조합" style="width: 300px">
+                </div>
+            </td>
+        </tr>
+
+        <tr>
+            <td class="pwCol"> 비밀번호*</td>
+            <td class="pwCol2">
+                <input type="password" option="regPass" placeholder="비밀번호를 입력해주세요" style="width: 300px">
+            </td>
+        </tr>
+
+        <tr>
+            <td class="checkPwCol">비밀번호확인*</td>
+            <td class="checkPwCol2">
+                <input type="password" option="regPass" placeholder="비밀번호를 한번 더 입력해주세요" style="width: 300px" >
+            </td>
+        </tr>
+
+        <tr>
+            <td class="memberCols1">이름*</td>
+            <td class="memberCols2">
+                <input type="text" name="name" placeholder="고객님의 이름을 입력해주세요" style="width: 300px">
+            </td>
+        </tr>
+
+        <tr>
+            <td class="memberEmail"> 이메일*</td>
+            <td class="memberEmail2">
+                <input type="text" name="email" size="30" option="regEmail" placeholder="예: marketkurly@kurly.com"  style="width: 300px">
+            </td>
+
+        </tr>
+        <tr>
+            <td class="memberPhone"> 휴대폰*</td>
+            <td class="memberPhone2">
+
+                </div>
+                <div class="phone_num">
+                    <input type="text" pattern="[0-9]*" name="mobileInp" placeholder="숫자만 입력해주세요" style="width: 300px">
+                </div>
+                <div class="cert_confirm_row">
+                    <input type="text" name="auth_code" id="auth_code" value="" size="" maxlength="6" label="인증번호 확인" disabled="" class="inp_confirm" >
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td class="memberCols1">배송 주소</td>
+            <td class="memberCols2">
+                <div class="field_address">
+                    <input type="hidden" name="zonecode" id="zonecode" size="5" readonly="" value="" label="주소를 선택해 주세요.">
+                    <input type="hidden" name="zipcode[]" id="zipcode0" size="3" readonly="" value="" label="주소를 선택해 주세요.">
+                    <input type="hidden" name="zipcode[]" id="zipcode1" size="3" readonly="" value="" label="주소를 선택해 주세요.">
+                    <input type="hidden" name="address" id="address" readonly="" value="" label="주소를 선택해 주세요.">
+                    <input type="hidden" name="road_address" id="road_address" value="">
+                    <a href="javascript:void(0)" id="btnAddressSearch" onclick="javascript:popup('../proc/popup_address.php',530,500)">
+<span class="bhs_button">
+<span class="ico"></span>
+<span class="txt">주소 검색</span>
+</span>
+                    </a>
+                    <p class="txt_guide">
+                        <span class="txt txt_case1">배송가능여부를 확인할 수 있습니다.</span>
+                    </p>
+                    <div id="addressView">
+                        <div class="view_address"></div>
+                    </div>
+                </div>
+                <div class="field_address lst">
+                    <input type="text" name="address_sub" id="address_sub" value="" onkeyup="SameAddressSub(this)" oninput="SameAddressSub(this)" label="세부주소" placeholder="세부주소를 입력해주세요." class="byteTotext">
+                    <p class="txt_guide">
+<span class="txt">
+<span id="div_road_address"></span>
+<span id="div_road_address_sub"></span>
+</span>
+                    </p>
+                    <div class="bytes_wrapper chk_bytes">
+                        <span class="bytes">0</span>자 / <span class="limit">50</span>자
+                    </div>
+                </div>
+            </td>
+        </tr>
+        <tr class="select_sex">
+            <td class="memberCols1">성별</td>
+            <td class="memberCols2">
+                <div class="group_radio">
+                    <label class="label_radio">
+                        <input type="radio" name="sex_option" label="성별" value="m">
+                        <span class="text_position">남자</span>
+                    </label>
+                    <label class="label_radio">
+                        <input type="radio" name="sex_option" label="성별" value="w">
+                        <span class="text_position">여자</span>
+                    </label>
+                    <label class="label_radio">
+                        <input type="radio" name="sex_option" label="성별" value="n">
+                        <span class="text_position">선택안함</span>
+                    </label>
+                    <input type="hidden" name="sex" label="성별" value="">
+                </div>
+            </td>
+        </tr>
+        <tr class="birth field_birth">
+            <td class="memberCols1">생년월일</td>
+            <td class="memberCols2">
+                <div class="birth_day">
+                    <input type="text" name="birth_year" id="birth_year" pattern="[0-9]*" value="" label="생년월일" size="4" maxlength="4" placeholder="YYYY">
+                    <span class="bar"><span>/</span></span>
+                    <input type="text" name="birth[]" id="birth_month" pattern="[0-9]*" value="" label="생년월일" size="2" maxlength="2" placeholder="MM">
+                    <span class="bar"><span>/</span></span>
+                    <input type="text" name="birth[]" id="birth_day" pattern="[0-9]*" value="" label="생년월일" size="2" maxlength="2" placeholder="DD">
+                </div>
+                <p class="txt_guide">
+                    <span class="txt bad"></span>
+                </p>
+            </td>
+        </tr>
+
+        </tbody></table>
+</div>
+
+</div>
+</body>
+</html>
