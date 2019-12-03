@@ -34,7 +34,7 @@ public class UserRegisterController implements Controller{
 		AccountDTO dto = new AccountDTO(loginId, loginPwd, name, phone, email, addr, sex, birthday);
 		AccountService service = new AccountServiceImpl();
 		
-		service.signUp(dto);
+		int result = service.signUp(dto);
 		
 		ModelAndView mv = new ModelAndView("", true);
 		return mv;

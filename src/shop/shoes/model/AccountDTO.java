@@ -186,4 +186,4 @@ public class AccountDTO {
       this.deleteDate = deleteDate;
    }
 }
->>>>>>> branch 'master' of https://github.com/study-backend/ShoesCase.git
+
