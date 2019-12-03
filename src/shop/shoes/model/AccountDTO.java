@@ -1,4 +1,3 @@
-
 package shop.shoes.model;
 
 import java.sql.Date;

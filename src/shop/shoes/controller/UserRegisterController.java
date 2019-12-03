@@ -35,8 +35,10 @@ public class UserRegisterController implements Controller{
 		AccountService service = new AccountServiceImpl();
 		
 		int result = service.signUp(dto);
-		
-		ModelAndView mv = new ModelAndView("", true);
+		if(result>0){
+			System.out.println("성공");
+		}
+		ModelAndView mv = new ModelAndView("../loginForm.jsp", true);
 		return mv;
 	}
 	//회원가입
