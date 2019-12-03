@@ -25,6 +25,7 @@ public class ReviewDAOImpl implements ReviewDAO {
 			rs = ps.executeQuery();
 			
 			
+			
 			while(rs.next()) {
 				/**	dto 생성자로 받는 파라미터 8개
 				 * 	int reviewId, int goodsId, int accountId,  String title, String content,
