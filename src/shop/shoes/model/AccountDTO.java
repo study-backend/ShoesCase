@@ -9,7 +9,7 @@ public class AccountDTO {
     private String phone;
     private String email;
     private String addr;
-    private char sex;
+    private String sex;
     private String birthday;
     private String loginDate;
     private String logoutDate;
@@ -22,7 +22,7 @@ public class AccountDTO {
     public AccountDTO() { }
 
 	public AccountDTO(long accountId, String loginId, String loginPwd, String name, String phone, String email, String addr,
-			char sex, String birthday, String loginDate, String logoutDate, int termsVersion, String termsAgreeDate,
+			String sex, String birthday, String loginDate, String logoutDate, int termsVersion, String termsAgreeDate,
 			String creteDate, String updateDate, String deleteDate) {
 		super();
 		this.accountId = accountId;
@@ -99,11 +99,11 @@ public class AccountDTO {
 		this.addr = addr;
 	}
 
-	public char getSex() {
+	public String getSex() {
 		return sex;
 	}
 
-	public void setSex(char sex) {
+	public void setSex(String sex) {
 		this.sex = sex;
 	}
 

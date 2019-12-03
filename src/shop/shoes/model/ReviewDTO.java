@@ -1,39 +1,63 @@
 package shop.shoes.model;
 
 public class ReviewDTO {
+	/**      
+	REVIEW_ID INT PRIMARY KEY,
+    GOODS_ID INT,
+    ACCOUNT_ID INT,
+    REGDATE DATE,
+    TITLE VARCHAR2(20),
+    CONTENT VARCHAR2(200),
+    SCORE INT,
+    CREATE_DATE DATE,
+    UPDATE_DATE DATE
+	 */
+	private int reviewId;
+	private int goodsId;
+	private int accountId;
+	private String title;
+	private String content;
+	private int score; //만족도 (0~5)
+	private String createDate; //db의 log용 & 화면에 띄울 작성일
+	private String updateDate; //db의 log용
+	
+	public ReviewDTO() {}
 
-	private long reviewId;
-    private String title;
-    private String content;
-    private int score;
-    private String createDate;
-    private String updateDate;
-    
-    // 아래 항목은 id만 넣어야 할 수 있다 
-    private long accountId;
-    private long goodsId;
-    
-    public ReviewDTO() {  }
-    
-	public ReviewDTO(long reviewId, String title, String content, int score, String createDate, String updateDate,
-			long accountId, long goodsId) {
+	public ReviewDTO(int reviewId, int goodsId, int accountId,  String title, String content,
+			int score, String createDate, String updateDate) {
 		super();
 		this.reviewId = reviewId;
+		this.goodsId = goodsId;
+		this.accountId = accountId;
 		this.title = title;
 		this.content = content;
 		this.score = score;
 		this.createDate = createDate;
 		this.updateDate = updateDate;
-		this.accountId = accountId;
-		this.goodsId = goodsId;
 	}
-	
-    public long getReviewId() {
+
+	public int getReviewId() {
 		return reviewId;
 	}
 
-	public void setReviewId(long reviewId) {
+	public void setReviewId(int reviewId) {
 		this.reviewId = reviewId;
+	}
+
+	public int getGoodsId() {
+		return goodsId;
+	}
+
+	public void setGoodsId(int goodsId) {
+		this.goodsId = goodsId;
+	}
+
+	public int getAccountId() {
+		return accountId;
+	}
+
+	public void setAccountId(int accountId) {
+		this.accountId = accountId;
 	}
 
 	public String getTitle() {
@@ -75,22 +99,5 @@ public class ReviewDTO {
 	public void setUpdateDate(String updateDate) {
 		this.updateDate = updateDate;
 	}
-
-	public long getAccount() {
-		return this.accountId;
-	}
-
-	public void setAccount(long accountId) {
-		this.accountId = accountId;
-	}
-
-	public long getGoods() {
-		return goodsId;
-	}
-
-	public void setGoods(long goodsId) {
-		this.goodsId = goodsId;
-	}
-    
-    
+	
 }
