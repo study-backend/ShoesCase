@@ -13,7 +13,7 @@ import shop.util.DbUtil;
 public class ReviewDAOImpl implements ReviewDAO {
 
 	@Override
-	public List<GoodsReviewDTO> selectAll() {
+	public List<GoodsReviewDTO> selectAll() throws SQLException {
 		Connection con = null;
 		PreparedStatement ps = null;
 		ResultSet rs = null;
@@ -36,9 +36,8 @@ public class ReviewDAOImpl implements ReviewDAO {
 				
 			}
 			
-		}catch(SQLException e) {
-			e.printStackTrace();
-		}finally {
+		}
+		finally {
 			DbUtil.dbClose(rs, ps, con);
 			
 		}
@@ -46,7 +45,7 @@ public class ReviewDAOImpl implements ReviewDAO {
 	}
 
 	@Override
-	public int insert(GoodsReviewDTO reviewDto) {
+	public int insert(GoodsReviewDTO reviewDto) throws SQLException {
 		Connection con = null;
 		PreparedStatement ps = null;
 		int result =0;
@@ -65,18 +64,18 @@ public class ReviewDAOImpl implements ReviewDAO {
 			
 			
 			
-		}catch(SQLException e) {
-			e.printStackTrace();
-			
 		}finally {
 			DbUtil.dbClose(ps, con);
+			
 		}
+			
+		
 		
 		return result;
 	}
 
 	@Override
-	public int update(GoodsReviewDTO reviewDto) {
+	public int update(GoodsReviewDTO reviewDto)throws SQLException {
 		Connection con = null;
 		PreparedStatement ps = null;
 		int result =0;
@@ -95,9 +94,6 @@ public class ReviewDAOImpl implements ReviewDAO {
 			
 			
 			
-		}catch(SQLException e) {
-			e.printStackTrace();
-			
 		}finally {
 			DbUtil.dbClose(ps, con);
 		}
@@ -106,7 +102,7 @@ public class ReviewDAOImpl implements ReviewDAO {
 	}
 
 	@Override
-	public int delete(int reviewId) {
+	public int delete(int reviewId) throws SQLException{
 		Connection con = null;
 		PreparedStatement ps = null;
 		int result =0;
@@ -119,10 +115,7 @@ public class ReviewDAOImpl implements ReviewDAO {
 			
 			result = ps.executeUpdate();
 			
-			
-			
-		}catch(SQLException e) {
-			e.printStackTrace();
+
 			
 		}finally {
 			DbUtil.dbClose(ps, con);
