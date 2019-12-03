@@ -10,15 +10,11 @@
     <welcome-file>default.jsp</welcome-file>
   </welcome-file-list>
   
-<<<<<<< HEAD
- <context-param>
-    <param-name>fileName</param-name>
-    <param-value>kosta/listener/ActionMapping</param-value>
-=======
-      <context-param>
+
+  <context-param>
   	<param-name>fileName</param-name>
   	<param-value>shop/listener/ActionMapping</param-value>
   
->>>>>>> branch 'master' of https://github.com/study-backend/ShoesCase.git
+
   </context-param>
 </web-app>
