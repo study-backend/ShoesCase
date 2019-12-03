@@ -16,8 +16,8 @@ public class AccountDTO {
     private Date birthday;
     //private Date loginDate;
     //private Date logoutDate;
-    private int termsVersion;	// °³ÀÎÁ¤º¸ µ¿ÀÇ¼­(µû·Î ¸µÅ©ÇÒ°Å¶ó ÇöÀç·Î´Â °íÁ¤ °ª(1)
-    private Date termsAgreeDate;	// È¸¿ø°¡ÀÔ³¯Â¥·Î ¼³Á¤
+    private int termsVersion;	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ç¼ï¿½(ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Å©ï¿½Ò°Å¶ï¿½ ï¿½ï¿½ï¿½ï¿½Î´ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½(1)
+    private Date termsAgreeDate;	// È¸ï¿½ï¿½ï¿½ï¿½ï¿½Ô³ï¿½Â¥ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
     private Date createDate;
     private Date updateDate;
     private Date deleteDate;
@@ -25,15 +25,9 @@ public class AccountDTO {
     public AccountDTO() { }
 
 	public AccountDTO(long accountId, String loginId, String loginPwd, String name, String phone, String email, String addr,
-<<<<<<< HEAD
-			char sex, String birthday, String loginDate, String logoutDate, int termsVersion, String termsAgreeDate,
-			String creteDate, String updateDate, String deleteDate) {
-		super();
-=======
 			char sex, Date birthday, /* Date loginDate, Date logoutDate, */ int termsVersion, Date termsAgreeDate,
 			Date createDate, Date updateDate, Date deleteDate) {
 
->>>>>>> update dto
 		this.accountId = accountId;
 		this.loginId = loginId;
 		this.loginPwd = loginPwd;
@@ -52,21 +46,12 @@ public class AccountDTO {
 		this.deleteDate = deleteDate;
 	}
     
-<<<<<<< HEAD
-    public long getAccount() {
-		return accountId;
-	}
-
-	public void setAccount(long account) {
-		this.accountId = account;
-=======
     public long getAccountId() {
 		return accountId;
 	}
 
 	public void setAccountId(long accountId) {
 		this.accountId = accountId;
->>>>>>> update dto
 	}
 
 	public String getLoginId() {
