@@ -1,6 +1,7 @@
 package shop.shoes.model;
 
 public class ManagerDTO {
+	
 
 	private int idx;
 	private String managerId;
