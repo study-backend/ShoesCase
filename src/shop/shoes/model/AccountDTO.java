@@ -1,7 +1,5 @@
 package shop.shoes.model;
 
-import java.util.List;
-
 public class AccountDTO {
 
 	private long account;
@@ -21,13 +19,11 @@ public class AccountDTO {
     private String updateDate;
     private String deleteDate;
     
-    private List<Review> reviews;
-    
     public AccountDTO() { }
 
 	public AccountDTO(long account, String loginId, String loginPwd, String name, String phone, String email, String addr,
 			char sex, String birthday, String loginDate, String logoutDate, int termsVersion, String termsAgreeDate,
-			String creteDate, String updateDate, String deleteDate, List<Review> reviews) {
+			String creteDate, String updateDate, String deleteDate) {
 		super();
 		this.account = account;
 		this.loginId = loginId;
@@ -45,7 +41,6 @@ public class AccountDTO {
 		this.creteDate = creteDate;
 		this.updateDate = updateDate;
 		this.deleteDate = deleteDate;
-		this.reviews = reviews;
 	}
     
     public long getAccount() {
@@ -174,13 +169,5 @@ public class AccountDTO {
 
 	public void setDeleteDate(String deleteDate) {
 		this.deleteDate = deleteDate;
-	}
-
-	public List<Review> getReviews() {
-		return reviews;
-	}
-
-	public void setReviews(List<Review> reviews) {
-		this.reviews = reviews;
 	}
 }

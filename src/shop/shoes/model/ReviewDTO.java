@@ -9,13 +9,14 @@ public class ReviewDTO {
     private String createDate;
     private String updateDate;
     
-    private AccountDTO account;
-    private GoodsDTO goods;
+    // 아래 항목은 id만 넣어야 할 수 있다 
+    private long accountId;
+    private long goodsId;
     
     public ReviewDTO() {  }
     
 	public ReviewDTO(long reviewId, String title, String content, int score, String createDate, String updateDate,
-			AccountDTO account, GoodsDTO goods) {
+			long accountId, long goodsId) {
 		super();
 		this.reviewId = reviewId;
 		this.title = title;
@@ -23,8 +24,8 @@ public class ReviewDTO {
 		this.score = score;
 		this.createDate = createDate;
 		this.updateDate = updateDate;
-		this.account = account;
-		this.goods = goods;
+		this.accountId = accountId;
+		this.goodsId = goodsId;
 	}
 	
     public long getReviewId() {
@@ -75,20 +76,20 @@ public class ReviewDTO {
 		this.updateDate = updateDate;
 	}
 
-	public AccountDTO getAccount() {
-		return account;
+	public long getAccount() {
+		return this.accountId;
 	}
 
-	public void setAccount(AccountDTO account) {
-		this.account = account;
+	public void setAccount(long accountId) {
+		this.accountId = accountId;
 	}
 
-	public GoodsDTO getGoods() {
-		return goods;
+	public long getGoods() {
+		return goodsId;
 	}
 
-	public void setGoods(GoodsDTO goods) {
-		this.goods = goods;
+	public void setGoods(long goodsId) {
+		this.goodsId = goodsId;
 	}
     
     
