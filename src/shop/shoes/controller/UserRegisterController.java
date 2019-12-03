@@ -16,7 +16,6 @@ public class UserRegisterController implements Controller{
 	@Override
 	public ModelAndView handleRequest(HttpServletRequest request, HttpServletResponse response)
 			throws SQLException, IOException {
-		
 
 		
 		String loginId  = request.getParameter("id");
