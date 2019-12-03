@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+    tr {}
+    td {background-color: white;}
+    input[type="text"] { width:270px; height: 30px; font-size: 16px; margin-left: 36px;}
+    input[type="password"] { width:270px; height: 30px; font-size: 16px; margin-left: 36px}
+    input[type="submit"] { width: 20em;  height: 4em;}
+    .memberCols2 {}
+
+    </style>
+</head>
+<body style="margin: 0px; background-color: whitesmoke">
+<div style="height: 180px; width: 100%; background-color: #0c5460; text-align: center;"> Header 자리</div>
+
+<div class="signUpTitle" style="margin-top: 100px; margin-bottom: 10px">
+    <h2 style="text-align: center; margin: 0px;">회원가입</h2>
+
+    <div class="boardWrite" style="margin-top: 30px">
+        <table class="inForm" style="width: 63%; margin: auto;">
+            <tbody>
+            <tr>
+                <td class="memberCols1" width="140">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp아이디*</td>
+                <td class="memberCols2">
+                    <div style="height: 40px">
+                        <input type="text" name="id" option="regId" placeholder="6자 이상의 영문 혹은 영문과 숫자를 조합">
+                        <span><input type="button" value="중복확인" style="width: 90px;"></span>
+                    </div>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="memberCols1">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp비밀번호*</td>
+                <td class="memberCols2">
+                    <input type="password" name="pwd" option="regPass" placeholder="비밀번호를 입력해주세요">
+                </td>
+            </tr>
+
+            <tr>
+                <td class="memberCols1">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp비밀번호확인*</td>
+                <td class="memberCols2">
+                    <input type="password" name="pwdOk" option="regPass" placeholder="비밀번호를 한번 더 입력해주세요">
+                </td>
+            </tr>
+
+            <tr>
+                <td class="memberCols1">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp이름*</td>
+                <td class="memberCols2">
+                    <input type="text" name="name" placeholder="고객님의 이름을 입력해주세요">
+                </td>
+            </tr>
+
+            <tr>
+                <td class="memberCols1">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp이메일*</td>
+                <td class="memberCols2">
+                    <input type="text" name="email" size="30" option="regEmail" placeholder="예: marketkurly@kurly.com">
+                    <span><input type="button" value="이메일 중복확인"></span>
+                </td>
+
+            </tr>
+            <tr>
+                <td class="memberCols1">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp휴대폰*</td>
+
+                <td class="memberCols2">
+                    <div class="phone_num">
+                        <input type="text" pattern="[0-9]*" name="mobileNum" placeholder="숫자만 입력해주세요" maxlength="11">
+                    </div>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="memberCols1">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp배송 주소</td>
+                <td class="memberCols2">
+                    <div style="margin-top: 11px; margin-left: 36px;">
+                        <input type="button" value="주소 검색" style="margin-bottom: 5px;">
+                    </div>
+                    <div>
+                        &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp배송가능여부를 확인할 수 있습니다.
+                    </div>
+                </td>
+            </tr>
+            <tr class="selectMaleFemale">
+                <td class="memberCols1">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp성별</td>
+                <td class="memberCols2">
+                    <div class="group_radio">
+                        <label class="label_radio">
+                            <input type="radio" name="maleFemale" label="성별" value="m" style="margin-left: 36px;">
+                            <span class="text_position">남자</span>
+                        </label>
+                        <label class="label_radio">
+                            <input type="radio" name="maleFemale" label="성별" value="w">
+                            <span class="text_position">여자</span>
+                        </label>
+                    </div>
+                </td>
+            </tr>
+
+            <tr class="birth field_birth">
+                <td class="memberCols1">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp생년월일</td>
+                <td class="memberCols2">
+                    <div class="birth_day">
+                        <input type="text" name="birthYear" pattern="[0-9]*" value="" label="생년월일" size="5"
+                               maxlength="4" placeholder="YYYY" style="margin-top: 14px; margin-left: 36px;">
+                        <span class="bar"><span>/</span></span>
+                        <input type="text" name="birthMonth" id="birthMonth" pattern="[0-9]*" label="생년월일" size="3"
+                               maxlength="2" placeholder="MM">
+                        <span class="bar"><span>/</span></span>
+                        <input type="text" name="birthDay" id="birthDay" pattern="[0-9]*" label="생년월일" size="3"
+                               maxlength="2" placeholder="DD">
+                    </div>
+                    <p class="txt_guide">
+                        <span class="txt bad"></span>
+                    </p>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div style="text-align: center;">
+    <input type="submit" value="가입하기">
+    </div>
+</div>
+</body>
+</html>
