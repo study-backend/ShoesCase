@@ -10,9 +10,11 @@
     <welcome-file>default.jsp</welcome-file>
   </welcome-file-list>
   
-      <context-param>
+
+  <context-param>
   	<param-name>fileName</param-name>
   	<param-value>shop/listener/ActionMapping</param-value>
   
+
   </context-param>
 </web-app>
