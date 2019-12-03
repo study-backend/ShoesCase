@@ -54,7 +54,7 @@ public class AccountDAOImpl implements AccountDAO {
 		Connection con = null;
 		PreparedStatement ps = null;
 		int result =0;
-		String sql = "INSERT INTO account values(?,?,?,?,?,?,?,?,?,?,sysdate, sysdate,sysdate )";
+		String sql = "INSERT INTO account values(?,?,?,?,?,?,?,?,?,?,sysdate, sysdate,sysdate, sysdate )";
 		
 		try {
 			con = DbUtil.getConnection();
@@ -71,9 +71,7 @@ public class AccountDAOImpl implements AccountDAO {
 			//ps.setDate(10, account.getLoginDate());
 			//ps.setDate(11, account.getLogoutDate());
 			ps.setInt(10, account.getTermsVersion());
-			ps.setDate(11, account.getTermsAgreeDate());
-			ps.setDate(12, account.getCreateDate());
-			ps.setDate(13, account.getUpdateDate());
+			
 			// DELETE_DATE DATE NOT NULL DEFAULT '01-JAN-1900'
 			
 			result = ps.executeUpdate();

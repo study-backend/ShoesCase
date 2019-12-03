@@ -20,16 +20,28 @@ public class UserRegisterController implements Controller{
 			throws Exception {
 		
 		String loginId  = request.getParameter("id");
+	
 		String loginPwd  = request.getParameter("pwd");
 		String name  = request.getParameter("name");
 		String email  = request.getParameter("email");
-		String phone  = request.getParameter("mobileInp");
-		String addr  = request.getParameter("address_sub");
-		char sex  = request.getParameter("sex_option").charAt(0);
 		
-		String birth_year  = request.getParameter("birth_year");
-		String birth  = request.getParameter("birth[]"); 
-		Date birthday = java.sql.Date.valueOf(birth_year + birth);
+		System.out.println(loginId+loginPwd+name+email);
+		
+		String phone  = request.getParameter("mobileNum");
+		String addr  = request.getParameter("address_sub");
+		
+		String sexTest = request.getParameter("maleFemale");
+		char sex;
+		if(sexTest.equals("m")) sex = '남';
+		else sex='여';
+		//char sex  = request.getParameter("sex_option").charAt(0);
+		
+		
+		String birth_year  = request.getParameter("birthYear");
+		
+		String birthMonth  = request.getParameter("birthMonth"); 
+		String birthDay = request.getParameter("birthDay");
+		Date birthday = java.sql.Date.valueOf(birth_year+"-"+ birthMonth+"-"+birthDay);
 		
 		AccountDTO dto = new AccountDTO(loginId, loginPwd, name, phone, email, addr, sex, birthday);
 		AccountService service = new AccountServiceImpl();
@@ -38,7 +50,7 @@ public class UserRegisterController implements Controller{
 		if(result>0){
 			System.out.println("성공");
 		}
-		ModelAndView mv = new ModelAndView("../loginForm.jsp", true);
+		ModelAndView mv = new ModelAndView("../main.html", true);
 		return mv;
 	}
 	//회원가입
