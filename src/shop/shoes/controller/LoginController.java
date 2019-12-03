@@ -11,7 +11,10 @@ public class LoginController implements Controller{
 	@Override
 	public ModelAndView handleRequest(HttpServletRequest request, HttpServletResponse response)
 			throws SQLException, IOException {
-		// TODO Auto-generated method stub
+		String loginId = request.getParameter("loginId");
+		String loginPwd = request.getParameter("loginPwd");
+		System.out.println(loginId + loginPwd +"³ª¿Í¶ó !!");
+	
 		return null;
 	}
 
