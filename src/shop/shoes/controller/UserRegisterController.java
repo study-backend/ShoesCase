@@ -11,7 +11,8 @@ public class UserRegisterController implements Controller{
 	@Override
 	public ModelAndView handleRequest(HttpServletRequest request, HttpServletResponse response)
 			throws SQLException, IOException {
-		// TODO Auto-generated method stub
+		
+		
 		return null;
 	}
 	//회원가입
