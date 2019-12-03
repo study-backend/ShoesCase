@@ -45,6 +45,21 @@ public class AccountDTO {
 		this.updateDate = updateDate;
 		this.deleteDate = deleteDate;
 	}
+    
+
+
+	public AccountDTO(String loginId, String loginPwd, String name, String phone, String email, String addr, char sex,
+			Date birthday) {
+		super();
+		this.loginId = loginId;
+		this.loginPwd = loginPwd;
+		this.name = name;
+		this.phone = phone;
+		this.email = email;
+		this.addr = addr;
+		this.sex = sex;
+		this.birthday = birthday;
+	}
 
 
 

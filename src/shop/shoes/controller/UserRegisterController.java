@@ -1,7 +1,9 @@
 package shop.shoes.controller;
 
 import java.io.IOException;
+import java.sql.Date;
 import java.sql.SQLException;
+import java.text.SimpleDateFormat;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -15,20 +17,25 @@ public class UserRegisterController implements Controller{
 	public ModelAndView handleRequest(HttpServletRequest request, HttpServletResponse response)
 			throws SQLException, IOException {
 		
+
+		
 		String loginId  = request.getParameter("id");
 		String loginPwd  = request.getParameter("pwd");
 		String name  = request.getParameter("name");
 		String email  = request.getParameter("email");
 		String phone  = request.getParameter("mobileInp");
 		String addr  = request.getParameter("address_sub");
-		String sex  = request.getParameter("sex_option");
+		char sex  = request.getParameter("sex_option").charAt(0);
+		
 		String birth_year  = request.getParameter("birth_year");
 		String birth  = request.getParameter("birth[]"); 
-		String birthday = birth_year + birth;
-		AccountDTO dto = new AccountDTO(0, loginId, loginPwd, name, phone, email, addr, sex, birthday, null, null, 0, null, null, null, null)
+		Date birthday = java.sql.Date.valueOf(birth_year + birth);
+		
+		AccountDTO dto = new AccountDTO(loginId, loginPwd, name, phone, email, addr, sex, birthday);
 		ShoesShopService service = new ShoesShopService();
 		
-		return null;
+		ModelAndView mv = new ModelAndView("", true);
+		return mv;
 	}
 	//회원가입
 }
