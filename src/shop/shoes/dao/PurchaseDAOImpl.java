@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import shop.shoes.model.AccountDTO;
-
+import shop.shoes.model.GoodsDTO;
 import shop.shoes.model.PurchaseBasketPaymentDTO;
 import shop.shoes.model.PurchaseGoodsDTO;
 import shop.util.DbUtil;
@@ -20,15 +20,10 @@ public class PurchaseDAOImpl implements PurchaseDAO {
 		Connection con = null;
 		PreparedStatement ps = null;
 		ResultSet rs = null;
-<<<<<<< HEAD
-		PurchaseGoods basket = null;
-		List<PurchaseGoods> list = new ArrayList<PurchaseGoods>();
-		String sql = "select NAME, PRICE, IMG_PATH from PURCHASE_GOODS where BILL_KEY = ?"; //billkey占쏙옙 찾占승곤옙 占승는곤옙占쏙옙 占쏜르곤옙占쏙옙
-=======
+
 		PurchaseGoodsDTO basket = null;
 		List<PurchaseGoodsDTO> list = new ArrayList<PurchaseGoodsDTO>();
 		String sql = "select NAME, PRICE, IMG_PATH from PURCHASE_GOODS where BILL_KEY = ?"; //billkey로 찾는건지 모르겠음
->>>>>>> branch 'master' of https://github.com/study-backend/ShoesCase.git
 		try {
 			con = DbUtil.getConnection();
 			ps= con.prepareStatement(sql);
@@ -180,4 +175,5 @@ public class PurchaseDAOImpl implements PurchaseDAO {
 		}
 		return list;
 	}
+
 }

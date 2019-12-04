@@ -4,18 +4,14 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import shop.shoes.model.*;
+import shop.shoes.service.AccountService;
 import shop.shoes.service.GoodsService;
 import shop.shoes.service.GoodsServiceImpl;
 
 public class GoodsController implements Controller{
 	
-<<<<<<< HEAD
 	// 필요한 service를 여기서 만든다 
-	private static AccountService accountService = new AccountServiceImpl();
-=======
-	// �ʿ��� service�� ���⼭ ����� 
 	private static GoodsService goodsService = new GoodsServiceImpl();
->>>>>>> branch 'master' of https://github.com/study-backend/ShoesCase.git
 	
 	
 	@Override
@@ -38,12 +34,9 @@ public class GoodsController implements Controller{
 
 				switch(data) {
 				
-<<<<<<< HEAD
-					// 로그인
-					case "account": {	
-						AccountDTO account = new AccountDTO();
-						accountService.signin(account);
-=======
+
+					
+
 					// 상품 정보 가져오기
 					case "goodsMain": {	
 						
@@ -56,7 +49,6 @@ public class GoodsController implements Controller{
 					}
 					case "goodsDetail": {
 						goodsService.goodsDetail(null);
->>>>>>> branch 'master' of https://github.com/study-backend/ShoesCase.git
 						break;
 					}
 				}
@@ -67,17 +59,11 @@ public class GoodsController implements Controller{
 				
 				switch(data) {
 				
-<<<<<<< HEAD
-					// 회원 가입
-					case "account": {	
-						AccountDTO account = new AccountDTO();
-						accountService.signUp(account);
-=======
+					
 					// 상품정보 입력
 					case "goods": {	
 						
 						goodsService.insertGoodsList();
->>>>>>> branch 'master' of https://github.com/study-backend/ShoesCase.git
 						break;
 					}
 			}
@@ -88,16 +74,10 @@ public class GoodsController implements Controller{
 				
 				switch(data) {
 				
-<<<<<<< HEAD
-					// 회원정보 수정
-					case "account": {	
-						AccountDTO account = new AccountDTO();
-						accountService.updateUserInfo(account);
-=======
+					
 					// 
 					case "goods": {	
 						
->>>>>>> branch 'master' of https://github.com/study-backend/ShoesCase.git
 						break;
 					}
 				}
@@ -108,16 +88,10 @@ public class GoodsController implements Controller{
 				
 				switch(data) {
 				
-<<<<<<< HEAD
-					// 회원정보 삭제
-					case "account": {	
-						AccountDTO account = new AccountDTO();
-						accountService.deleteUserInfo(account);
-=======
+					
 					// 상품 삭제
 					case "goods": {	
 						
->>>>>>> branch 'master' of https://github.com/study-backend/ShoesCase.git
 						break;
 					}
 				}

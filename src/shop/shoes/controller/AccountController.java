@@ -21,10 +21,7 @@ public class AccountController implements Controller{
 		//System.out.println(uri);
 		
 		// json 변환이 필요함
-<<<<<<< HEAD
-=======
 		String route = request.getParameter("route");
->>>>>>> branch 'master' of https://github.com/study-backend/ShoesCase.git
 		String data = request.getParameter("data");
 		System.out.println(route);
 		
@@ -38,10 +35,7 @@ public class AccountController implements Controller{
 
 				switch(route) {
 				
-<<<<<<< HEAD
-=======
 
->>>>>>> branch 'master' of https://github.com/study-backend/ShoesCase.git
 					// 로그인
 					case "account": {	
 						AccountDTO account = new AccountDTO();
@@ -69,9 +63,6 @@ public class AccountController implements Controller{
 			case "post": {
 				
 				switch(route) {
-				
-<<<<<<< HEAD
-=======
 					// 로그인
 					case "loginin": {	
 						
@@ -80,7 +71,6 @@ public class AccountController implements Controller{
 						break;
 					}
 					
->>>>>>> branch 'master' of https://github.com/study-backend/ShoesCase.git
 					// 회원 가입
 					case "account": {	
 						

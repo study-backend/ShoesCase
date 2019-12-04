@@ -41,16 +41,12 @@ public interface GoodsService {
 	 * */
 	public List<GoodsDTO> goodsSub(CategoryDTO category) throws Exception;
 	
-<<<<<<< HEAD
 
-	public GoodsDetailDTO goodsDetail(GoodsDTO goods) throws Exception ;
-=======
 	/**
 	 * ��ǰ ��ȭ�� ���
 	 * @throws Exception
 	 * */
 	public GoodsDetailDTO goodsDetail(GoodsDTO goods) throws Exception;
->>>>>>> branch 'master' of https://github.com/study-backend/ShoesCase.git
 	
 	/**
 	 * ��ǰ �Է�
