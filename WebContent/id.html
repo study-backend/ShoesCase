@@ -22,7 +22,7 @@
 	#header{width:1254px; height:180px; /* border:1px solid red; */ margin:auto;}
 	#usermenu{width:1050px; height:37px; margin-left:162px; margin-right:40px;}
 	#headerlogo{width:1050px; height:63px; margin-left:102px; margin-right:102px; position: relative;}
-	#logo {display: block; width:200px; height:80px; margin-left:450px; margin-right:500px; margin-bottom: 20px }
+	#logo {display: block; width:200px; height:80px; margin-left:440px; margin-right:500px; margin-bottom: 20px }
 	#headerul {float:right;}
 	#header ul li {margin-top: 15px; margin-left:10px; float:left;}
 	#gnb{width:1254px; height:56px; /* border:1px solid blue; */ }
@@ -61,7 +61,7 @@
 		</div>
 		<div id="headerlogo">
 			<a> 
-			<img id="logo" src="image/LOGO.png" alt="로고">
+			<img id="logo" src="image/LOGO.png" url="dressShoes.html" alt="로고">
 			</a>
 		</div>	
 		<div id="gnb">
@@ -82,17 +82,41 @@
 		</div>
 	</div>
 	<div id="main">
-		<form  method="post" action="#"> 
+		<form  method="post" action="#" id="idsearchForm"> 
 		<div id="login"><h3>아이디 찾기</h3></div>
-		<label class="label">이름</label> <br>
-		<input type="text" class="log" placeholder="고객님의 이름을 입력해주세요."><br><br>
-		<label class="label">이메일</label> <br>
-		<input type="text" class="log" placeholder="가입 시 등록하신 이메일 주소를 입력해주세요."><br><br>
+		<small><b>이름</b></small> <br>
+		<input type="text" class="log" placeholder="  고객님의 이름을 입력해주세요."><br><br>
+		<small><b>이메일</b></small> <br>
+		<input type="text" class="log" placeholder="  가입 시 등록하신 이메일 주소를 입력해주세요."><br><br>
 		 <button type="submit" id="findid"><span>확인</span></button>
 		</div>>
 	</div>
 	<div id="footer">
 	
 	</div>
+	<script>
+	$(function(){
+			$("#findid").click(function(){
+				$.ajax({
+				type : "post" ,
+				url : "api/v1", 
+				dataType : "json", 
+				data : {data: $("#idsearchForm").serialize(),
+				resource: "account",
+				route: "login" 
+				},
+				success : function(result) { 
+					{ result : 0 }
+				},
+				error : function() {
+					alert("아이디 또는 비밀번호를 확인해주세요.");
+				}
+			});//ajax끝
+
+			})
+		});
+	
+	
+	</script>
 </body>
 </html>

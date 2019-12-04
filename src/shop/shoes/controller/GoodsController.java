@@ -33,22 +33,20 @@ public class GoodsController implements Controller{
 			case "get": {
 
 				switch(data) {
-				
-
-					
-
 					// 상품 정보 가져오기
 					case "goodsMain": {	
 						
-						goodsService.goodsMain(null);
+						goodsService.goodsMain();
 						break;
 					}
 					case "goodsSub": {
-						goodsService.goodsSub(null);
+						goodsService.goodsSub(1);
 						break;
 					}
 					case "goodsDetail": {
 						goodsService.goodsDetail(null);
+
+						goodsService.goodsDetail(1);
 						break;
 					}
 				}
@@ -103,7 +101,7 @@ public class GoodsController implements Controller{
 		// result를 json으로 만들어 줘야 함 
 		
 		
-		ModelAndView mv = new ModelAndView("NewFile.html", true, result);
+		ModelAndView mv = new ModelAndView("NewFile.html", true);
 		return mv;
 	}
 

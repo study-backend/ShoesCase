@@ -4,6 +4,7 @@ import java.sql.SQLException;
 import java.util.List;
 
 import shop.shoes.model.ReviewDTO;
+import shop.shoes.model.dto.GoodsReviewDTO;
 
 public interface ReviewDAO {
 	/**
@@ -12,6 +13,8 @@ public interface ReviewDAO {
 	 * 번호(id), 제목, 내용, 작성자, 작성일 순서
 	 */
 	List<ReviewDTO> selectAll() throws SQLException;
+	
+	List<ReviewDTO> selectByGoodId(long goodsId) throws SQLException;
 	
 	/**
 	 * 후기 작성

@@ -1,35 +1,37 @@
 package shop.shoes.model.dto;
 
+import java.util.List;
+
 import shop.shoes.model.CategoryDTO;
 import shop.shoes.model.GoodsDTO;
 
 public class GoodsMainDTO {
 	
 
-	private GoodsDTO goodsList;
-	private CategoryDTO categoryList;
+	private List<GoodsDTO> goodsList;
+	private List<CategoryDTO> categoryList;
 	
 	
-	GoodsMainDTO() { }
+	public GoodsMainDTO() { }
 	
-	GoodsMainDTO(GoodsDTO goodsList, CategoryDTO categoryList) { 
+	public GoodsMainDTO(List<GoodsDTO> goodsList, List<CategoryDTO> categoryList) { 
 		this.goodsList = goodsList;
 		this.categoryList = categoryList;
 	}
 	
-	public GoodsDTO getGoodsList() {
+	public List<GoodsDTO> getGoodsList() {
 		return goodsList;
 	}
 
-	public void setGoodsList(GoodsDTO goodsList) {
+	public void setGoodsList(List<GoodsDTO> goodsList) {
 		this.goodsList = goodsList;
 	}
 
-	public CategoryDTO getReviewList() {
+	public List<CategoryDTO> getCategoryList() {
 		return categoryList;
 	}
 
-	public void setReviewList(CategoryDTO categoryList) {
+	public void setReviewList(List<CategoryDTO> categoryList) {
 		this.categoryList = categoryList;
 	}
 }
