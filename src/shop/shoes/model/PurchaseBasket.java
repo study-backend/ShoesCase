@@ -27,6 +27,13 @@ public class PurchaseBasket {
 	
 	public PurchaseBasket() {}
 
+	
+	public PurchaseBasket(int totalPrice) {
+		super();
+		this.totalPrice = totalPrice;
+	}
+
+
 	public PurchaseBasket(int basketId, int accountId, int totalPrice, String orderDate, String imgPath, int stateCode,
 			String billKey, String deliveryAddr, String createDate, String updateDate) {
 		super();
