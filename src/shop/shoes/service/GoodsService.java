@@ -2,7 +2,6 @@ package shop.shoes.service;
 
 import java.util.List;
 
-import shop.shoes.model.AccountDTO;
 import shop.shoes.model.CategoryDTO;
 import shop.shoes.model.GoodsDTO;
 import shop.shoes.model.GoodsVersionDTO;
