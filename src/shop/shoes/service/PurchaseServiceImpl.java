@@ -17,27 +17,34 @@ public class PurchaseServiceImpl implements PurchaseService {
 	PurchaseDAO dao = new PurchaseDAOImpl();
 	@Override
 	public int insertPurchase(List<GoodsDTO> goodsList, PurchaseBasketDTO basket, 
-					PurchaseBasketPaymentDTO payment, AccountDTO account, PurchaseGoodsDTO purchaseGoodsDTO) {
+					PurchaseBasketPaymentDTO payment, AccountDTO account, PurchaseGoodsDTO purchaseGoodsDTO) throws SQLException{
+		int result = 0;
 		
-		//[0] 빌키 받아오기
+		//[0] 빌키 받아오기 ????
 		
 		//[1] 계정 정보 알아오기
-		
+		Long accountId = account.getAccountId();
 		//[2] basket 정보를 넣어주기 
 		int insertAllBasket = dao.insertAllBasket(basket);
 		//장바구니에서 구매 넘어갈때 들고갈 상품 정보(조회)
 		List<PurchaseGoodsDTO> purchaseGoods = dao.selectProduct(basket.getBillKey());
 		//주문자 정보 조회
-		AccountDTO account = dao.selectOrderer(account.getLoginId());
+		AccountDTO accountDTO = dao.selectOrderer(account.getLoginId());
+		
+		
+		
 		//받는사람 정보 삽입
 		int reciever = dao.recieverInfo(payment);
 		//[3] 구매 payment 정보 넣어주기 
 		int payway = dao.paymentWay(payment.getPaymentType());
 		//[4] 구매할 상품 정보 넣어 주기 (아마 insert?)
 		int insertPurchaseInfo = dao.insertPurchaseInfo(purchaseGoodsDTO);
-		//[5] 구매 완료 시키기  
 		
-		return 0;
+		//[5] 구매 완료 시키기
+		if(accountId != null && insertAllBasket>0 && purchaseGoods != null && accountDTO != null && reciever>0 && payway >0 && insertPurchaseInfo>0) {
+			result = 1;
+		}
+		return result;
 	}
 	
 	public List<PurchaseGoodsDTO> selectOrderHistory(long accountId) throws SQLException{

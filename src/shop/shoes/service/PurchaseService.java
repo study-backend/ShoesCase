@@ -17,7 +17,7 @@ public interface PurchaseService {
 	 * */
 	
 	public int insertPurchase(List<GoodsDTO> goodsList, PurchaseBasketDTO basket, 
-			PurchaseBasketPaymentDTO payment, AccountDTO account,PurchaseGoodsDTO purchaseGoodsDTO);
+			PurchaseBasketPaymentDTO payment, AccountDTO account,PurchaseGoodsDTO purchaseGoodsDTO) throws SQLException;
 	
 	/**
 	 * 구매내역 조회
