@@ -18,40 +18,41 @@ public class UserRegisterController implements Controller{
 	@Override
 	public ModelAndView handleRequest(HttpServletRequest request, HttpServletResponse response)
 			throws Exception {
-		
+
 		String loginId  = request.getParameter("id");
-	
+
 		String loginPwd  = request.getParameter("pwd");
 		String name  = request.getParameter("name");
 		String email  = request.getParameter("email");
-		
+
 		System.out.println(loginId+loginPwd+name+email);
-		
+
 		String phone  = request.getParameter("mobileNum");
 		String addr  = request.getParameter("address_sub");
-		
+
 		String sexTest = request.getParameter("maleFemale");
 		char sex;
-		if(sexTest.equals("m")) sex = '³²';
-		else sex='¿©';
+		if(sexTest.equals("m")) sex = 'ë‚¨';
+		else sex='ì—¬';
 		//char sex  = request.getParameter("sex_option").charAt(0);
-		
-		
+
+
 		String birth_year  = request.getParameter("birthYear");
-		
-		String birthMonth  = request.getParameter("birthMonth"); 
+
+		String birthMonth  = request.getParameter("birthMonth");
 		String birthDay = request.getParameter("birthDay");
 		Date birthday = java.sql.Date.valueOf(birth_year+"-"+ birthMonth+"-"+birthDay);
-		
+
 		AccountDTO dto = new AccountDTO(loginId, loginPwd, name, phone, email, addr, sex, birthday);
 		AccountService service = new AccountServiceImpl();
-		
+
 		int result = service.signUp(dto);
 		if(result>0){
-			System.out.println("¼º°ø");
+			System.out.println("ì„±ê³µ");
 		}
-		ModelAndView mv = new ModelAndView("../main.html", true);
+		String path = request.getContentType();
+		ModelAndView mv = new ModelAndView(path+"/main.html", true);
 		return mv;
 	}
-	//È¸¿ø°¡ÀÔ
+	//íšŒì›ê°€ì…
 }
