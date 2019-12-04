@@ -26,11 +26,13 @@ public interface PurchaseDAO {
 	List<PurchaseGoodsDTO> selectProduct(String billKey) throws SQLException; //선택한 상품 정보 조회(select)
 
 	
-	AccountDTO selectOrderer() throws SQLException;
+	AccountDTO selectOrderer(String loginId) throws SQLException;
 	
 	int recieverInfo(PurchaseBasketPaymentDTO pbp) throws SQLException;
 	
-	int paymentWay(String paymentType) throws SQLException; 
+	int paymentWay(int paymentType) throws SQLException; 
+	
+	int insertPurchaseInfo(PurchaseGoodsDTO purchaseGoods) throws SQLException;
 	
 	
 //	/**
