@@ -13,7 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 /**
  * Servlet implementation class DispatcherServlet
  */
-@WebServlet(urlPatterns = {"/api/v1"} , loadOnStartup = 1)
+@WebServlet(urlPatterns = {"/front"} , loadOnStartup = 1)
 public class DispatcherServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	Map<String, Controller> map;
@@ -24,7 +24,7 @@ public class DispatcherServlet extends HttpServlet {
 	}
     
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException  {
-		String key = request.getParameter("resource");
+		String key = request.getParameter("key");
 		System.out.println(key);
 		System.out.println(request.getRequestURI());
 		//System.out.println(request.getRequestURL());

@@ -21,11 +21,7 @@ public interface PurchaseDAO {
 	 * 
 	 * 4. 결제수단 (총금액 출력 되고 밑에 결제수단)
 	 * */
-<<<<<<< HEAD
-	List<PurchaseGoods> selectProduct(String billKey) throws SQLException; //선택한 상품 정보 조회(select)
-=======
 	List<PurchaseGoodsDTO> selectProduct(String billKey) throws SQLException; //선택한 상품 정보 조회(select)
->>>>>>> branch 'master' of https://github.com/study-backend/ShoesCase.git
 	
 	AccountDTO selectOrderer() throws SQLException;
 	
