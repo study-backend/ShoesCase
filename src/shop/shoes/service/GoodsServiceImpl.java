@@ -70,8 +70,6 @@ public class GoodsServiceImpl implements GoodsService {
 		
 		GoodsMainDTO dto = new GoodsMainDTO(goodsList, categorys);
 		//끝
-		
-		
 		return dto;
 	}
 
@@ -104,11 +102,6 @@ public class GoodsServiceImpl implements GoodsService {
 	public int insertGoodsList() throws Exception {
 		
 		// 이것좀 누가 구현
-		
-		
-		
-		
-		
 		
 		// TODO Auto-generated method stub
 		return 0;
