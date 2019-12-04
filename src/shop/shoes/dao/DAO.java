@@ -4,30 +4,30 @@ import java.util.List;
 
 public interface DAO<T> {
 	/**
-	 * ¸®ºä Å×ÀÌºí ÀüÃ¼ select
-	 * º¸¿©ÁÙ ¼Ó¼º(Å×ÀÌºíÀÇ ÇÊµå)
-	 * ¹øÈ£(id), Á¦¸ñ, ³»¿ë, ÀÛ¼ºÀÚ, ÀÛ¼ºÀÏ ¼ø¼­
+	 * ë¦¬ë·° í…Œì´ë¸” ì „ì²´ select
+	 * ë³´ì—¬ì¤„ ì†ì„±(í…Œì´ë¸”ì˜ í•„ë“œ)
+	 * ë²ˆí˜¸(id), ì œëª©, ë‚´ìš©, ìž‘ì„±ìž, ìž‘ì„±ì¼ ìˆœì„œ
 	 */
 	List<T> selectAll();
 	
 	/**
-	 * ÈÄ±â ÀÛ¼º
-	 * ¹øÈ£, ÀÛ¼ºÀÏ, ÀÛ¼ºÀÚ ÀÚµ¿»ý¼º
-	 * Á¦¸ñ, ³»¿ë¸¸ Àû¾î¼­ ÀÛ¼º
+	 * í›„ê¸° ìž‘ì„±
+	 * ë²ˆí˜¸, ìž‘ì„±ì¼, ìž‘ì„±ìž ìžë™ìƒì„±
+	 * ì œëª©, ë‚´ìš©ë§Œ ì ì–´ì„œ ìž‘ì„±
 	 * 
 	 */
 	int insert(T reviewDto);
 	
 	
 	/**
-	 * ¼öÁ¤
-	 * Á¦¸ñ, ³»¿ë ¼öÁ¤
+	 * ìˆ˜ì •
+	 * ì œëª©, ë‚´ìš© ìˆ˜ì •
 	 */
 	int update(T reviewDto);
 	
 	
 	/**
-	 * »èÁ¦
+	 * ì‚­ì œ
 	 */
 	int delete(int id);
 	
