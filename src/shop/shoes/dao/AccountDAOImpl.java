@@ -54,23 +54,23 @@ public class AccountDAOImpl implements AccountDAO {
 		Connection con = null;
 		PreparedStatement ps = null;
 		int result =0;
-		String sql = "INSERT INTO account values(?,?,?,?,?,?,?,?,?,?,sysdate, sysdate,sysdate, sysdate )";
+		String sql = "INSERT INTO account values(seq_no_accountId.nextval,?,?,?,?,?,?,?,?,?,sysdate, sysdate,sysdate, sysdate )";
 		
 		try {
 			con = DbUtil.getConnection();
 			ps = con.prepareStatement(sql);
-			ps.setLong(1, account.getAccountId());
-			ps.setString(2, account.getLoginId());
-			ps.setString(3, account.getLoginPwd());
-			ps.setString(4, account.getName());
-			ps.setString(5, account.getPhone());
-			ps.setString(6, account.getEmail());
-			ps.setString(7, account.getAddr());
-			ps.setString(8, String.valueOf(account.getSex()));
-			ps.setDate(9, account.getBirthday());
+		//	ps.setLong(1, account.getAccountId());
+			ps.setString(1, account.getLoginId());
+			ps.setString(2, account.getLoginPwd());
+			ps.setString(3, account.getName());
+			ps.setString(4, account.getPhone());
+			ps.setString(5, account.getEmail());
+			ps.setString(6, account.getAddr());
+			ps.setString(7, String.valueOf(account.getSex()));
+			ps.setDate(8, account.getBirthday());
 			//ps.setDate(10, account.getLoginDate());
 			//ps.setDate(11, account.getLogoutDate());
-			ps.setInt(10, account.getTermsVersion());
+			ps.setInt(9, account.getTermsVersion());
 
 			
 			result = ps.executeUpdate();

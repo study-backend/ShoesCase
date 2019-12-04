@@ -41,10 +41,7 @@ public class AccountController implements Controller{
 
 				switch(route) {
 				
-<<<<<<< HEAD
 
-=======
->>>>>>> branch 'master' of https://github.com/study-backend/ShoesCase.git
 					// 로그인
 					case "account": {	
 						AccountDTO account = new AccountDTO();
@@ -126,10 +123,7 @@ public class AccountController implements Controller{
 			case "post": {
 				
 				switch(route) {
-<<<<<<< HEAD
-=======
 				
->>>>>>> branch 'master' of https://github.com/study-backend/ShoesCase.git
 					// 로그인
 					case "loginin": {	
 						

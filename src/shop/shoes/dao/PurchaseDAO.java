@@ -35,16 +35,12 @@ public interface PurchaseDAO {
 	int insertPurchaseInfo(PurchaseGoodsDTO purchaseGoods) throws SQLException;
 	
 	
-//	/**
-//	 * 장바구니 조회(select)
-//	 * */
-//	List<GoodsDTO> selectAllBasket(String billKey) throws SQLException;
+	/**
+	 * 장바구니 정보 넣어주기(insert)
+	 * */
+	int insertAllBasket(PurchaseBasketDTO basket) throws SQLException;
 	
-	
-//	/**
-//	 * 환불기능
-//	 * */
-//	int deletePurchase(PurchaseGoods purchaseGoods) throws SQLException;
+
 	
 	/**
 	 * 장바구니 조회(select)

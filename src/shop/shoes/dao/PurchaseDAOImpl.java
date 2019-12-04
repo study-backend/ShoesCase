@@ -9,6 +9,7 @@ import java.util.List;
 
 import shop.shoes.model.AccountDTO;
 import shop.shoes.model.GoodsDTO;
+import shop.shoes.model.PurchaseBasketDTO;
 import shop.shoes.model.PurchaseBasketPaymentDTO;
 import shop.shoes.model.PurchaseGoodsDTO;
 import shop.util.DbUtil;
@@ -105,31 +106,30 @@ public class PurchaseDAOImpl implements PurchaseDAO {
 		return result;
 	}
 
-
-//	@Override
-//	public List<GoodsDTO> selectAllBasket(String billKey) throws SQLException{
-//		Connection con = null;
-//		PreparedStatement ps = null;
-//		ResultSet rs = null;
-//		GoodsDTO goods = null;
-//		List<GoodsDTO> list = new ArrayList<GoodsDTO>();
-//		String sql = "select B1.IMG_PATH, G1.NAME, G1.COUNT, G1.PRICE, B1.TOTAL_PRICE"
-//				+ " from PURCHASE_GOODS G1 inner join PURCHASE_BASKET B1 on "
-//				+ "G1.PURCHASE_BASKET_ID = B1.PURCHASE_BASKET_ID where G1.BILL_KEY = ?";
-//		try {
-//			con = DbUtil.getConnection();
-//			ps= con.prepareStatement(sql);
-//			ps.setString(1, billKey);
-//			rs = ps.executeQuery();
-//			while(rs.next()) {
-//				
-//			}
-//		}
-//		finally {
-//			DbUtil.dbClose(rs, ps, con);
-//		}
-//		return list;
-//	}
+	@Override
+	public int insertAllBasket(PurchaseBasketDTO basket) throws SQLException{
+		Connection con = null;
+		PreparedStatement ps = null;
+		int result = 0;
+		String sql = "insert into PURCHASE_BASKET(PURCHASE_BASKET_ID, ACCOUNT_ID, TOTAL_PRICE, ORDER_DATE, "
+				+ "IMG_PATH, STATE_CODE, BILL_KEY, DELEVERY_ADDR, CREATE_DATE, UPDATE_DATE) values(?,?,?,?,?,?,?,?,sysdate,sysdate)";
+		try {
+			con = DbUtil.getConnection();
+			ps= con.prepareStatement(sql);
+			ps.setLong(1, basket.getBasketId());
+			ps.setLong(2, basket.getAccountId());
+			ps.setInt(3, basket.getTotalPrice());
+			ps.setString(4, basket.getOrderDate());
+			ps.setString(5, basket.getImgPath());
+			ps.setInt(6, basket.getStateCode());
+			ps.setString(7, basket.getBillKey());
+			ps.setString(8, basket.getDeliveryAddr());
+		}
+		finally {
+			DbUtil.dbClose(ps, con);
+		}
+		return result;
+	}
 	
 	
 	//환불기능 나중에 시간되면 하는걸로
