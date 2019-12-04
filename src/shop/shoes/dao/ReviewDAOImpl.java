@@ -79,6 +79,7 @@ public class ReviewDAOImpl implements ReviewDAO {
 		Connection con = null;
 		PreparedStatement ps = null;
 		int result =0;
+		
 		String sql = "update review set title= ?, content= ?, score = ?, create_date=sysdate "
 				+ "where review_id=?";
 		try {

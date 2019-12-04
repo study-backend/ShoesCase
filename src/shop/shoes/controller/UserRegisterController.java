@@ -51,7 +51,8 @@ public class UserRegisterController implements Controller{
 			System.out.println("성공");
 		}
 		String path = request.getContentType();
-		ModelAndView mv = new ModelAndView(path+"/main.html", true);
+		ModelAndView mv = new ModelAndView();
+		mv.setViewName("main.html");
 		return mv;
 	}
 	//회원가입
