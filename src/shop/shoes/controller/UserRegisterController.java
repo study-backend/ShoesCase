@@ -45,12 +45,18 @@ public class UserRegisterController implements Controller{
 		
 		AccountDTO dto = new AccountDTO(loginId, loginPwd, name, phone, email, addr, '1', null);
 		AccountService service = new AccountServiceImpl();
+
+
+		int result = service.signUp(dto);
+		if(result>0){
+			System.out.println("성공");
+		}
+	//	String path = request.getContentType();
+		ModelAndView mv = new ModelAndView();
+		mv.setViewName("main.html");
+
 		
-		//int result = service.signUp(dto);
-		//if(result>0){
-			//System.out.println("����");
-		//}
-		ModelAndView mv = new ModelAndView("../main.html", true);
+		
 		return mv;
 	}
 }
