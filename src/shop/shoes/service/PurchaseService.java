@@ -8,6 +8,7 @@ import shop.shoes.model.GoodsDTO;
 import shop.shoes.model.PurchaseBasketDTO;
 import shop.shoes.model.PurchaseBasketPaymentDTO;
 import shop.shoes.model.PurchaseGoodsDTO;
+import shop.shoes.model.dto.PurchasePageDTO;
 
 public interface PurchaseService {
 
@@ -18,6 +19,14 @@ public interface PurchaseService {
 	
 	public int insertPurchase(List<GoodsDTO> goodsList, PurchaseBasketDTO basket, 
 			PurchaseBasketPaymentDTO payment, AccountDTO account,PurchaseGoodsDTO purchaseGoodsDTO) throws SQLException;
+	
+	/**
+	 * 장바구니에서 구매 넘어갈때 들고갈 상품 정보(조회)
+	 * 주문자 정보 조회
+	 * 같이 뿌려주는 작업
+	 * */
+	public PurchasePageDTO selectProduct(String loginId, String billKey) throws SQLException;
+	
 	
 	/**
 	 * 구매내역 조회
