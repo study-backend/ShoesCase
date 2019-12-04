@@ -83,7 +83,7 @@
 		</div>
 	</div>
 	<div id="main">
-		<form  method="post" action="#"> 
+		<form  method="post" action="#" id="idsearchForm"> 
 		<div id="login"><h3>아이디 찾기</h3></div>
 		<small><b>이름</b></small> <br>
 		<input type="text" class="log" placeholder="  고객님의 이름을 입력해주세요."><br><br>
@@ -95,5 +95,29 @@
 	<div id="footer">
 	
 	</div>
+	<script>
+	$(function(){
+			$("#findid").click(function(){
+				$.ajax({
+				type : "post" ,
+				url : "api/v1", 
+				dataType : "json", 
+				data : {data: $("#idsearchForm").serialize(),
+				resource: "account",
+				route: "login" 
+				},
+				success : function(result) { 
+					{ result : 0 }
+				},
+				error : function() {
+					alert("아이디 또는 비밀번호를 확인해주세요.");
+				}
+			});//ajax끝
+
+			})
+		});
+	
+	
+	</script>
 </body>
 </html>
