@@ -1,7 +1,7 @@
 package shop.shoes.controller;
 
 import java.io.IOException;
-import java.sql.SQLException;
+import java.io.PrintWriter;
 import java.util.Map;
 
 import javax.servlet.ServletException;
@@ -44,7 +44,7 @@ public class DispatcherServlet extends HttpServlet {
 		
 		if(key == null) 
 			key = "home";
-		
+
 		try {
 		   ModelAndView mv = map.get(key).handleRequest(request, response);
 
@@ -52,11 +52,17 @@ public class DispatcherServlet extends HttpServlet {
 		   System.out.println(mv.getViewName());
 		   System.out.println("이동하자");
 		   
-		   if(mv.isRedirect()) {//redirect방식
-				response.sendRedirect("NewFile.html");
-			}else {//forward이동
-				request.getRequestDispatcher(mv.getViewName()).forward(request, response);
-			}
+		   if(mv.isResultData() == true) {
+				PrintWriter out = response.getWriter();
+				//out.println(mv.getResult());
+		   }
+		   
+		   
+//		   if(mv.isRedirect()) {//redirect방식
+//				response.sendRedirect("NewFile.html");
+//			}else {//forward이동
+//				request.getRequestDispatcher(mv.getViewName()).forward(request, response);
+//			}
 		
 		}catch (Exception  e) {
 			e.printStackTrace();

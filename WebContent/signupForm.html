@@ -146,7 +146,8 @@ $(document).ready(function() {
 				  url: "api/v1"  ,
 				  dataType: "json"   ,  // 서버에게 받은 응답결과 type(json, text, xml)
 				  data: { data : $("#loginForm").serialize(),
-					  	  resource : "account" 
+					  	  resource : "account" ,
+					  	  route: "signup"
 					  	 },		// 서버에게 전송할 param
 				  success: function(result) {
 					  

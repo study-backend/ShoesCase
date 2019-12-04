@@ -11,30 +11,51 @@
 	body{height:100%;}
 	
 	/* detail */
-	#detail{width:1100px; height:1020px; margin:auto; }
-	#detail #detail_img{width:430px; height:500px; border:1px solid red; display:inline-block;}
-	#detail #detail_infor{width:600px; height:500px; border:1px solid red; display:inline-block; float:right;}
+	#detail{width:1100px; margin:auto; }
+	#detail #detail_img{width:430px; height:500px; display:flex; overflow:hidden; align-items:center; justify-content:center;}
+	#detail #detail_infor{width:450px; height:500px; display:inline-block; float:right;}
 	#detail #main_title{font-size:24px; font-style:bold; margin:20px;}
 	#detail #sub_title {margin-top:-15px; margin-left:20px;}
 	#detail #member_price{margin-top:20px; margin-left:20px;}
 	#detail #price {margin-left:20px;}
-	#detail #discount{margin-left:20px; text-decoration:line-through;}
+	#detail #price .price{font-size: 25px;}
+	#detail #price .dc{font-size: 20px; color:red;} 
+	#detail #discount{margin-left:50px; text-decoration:line-through; color:gray;}
 	#detail #not_login {margin-top:20px; margin-left:20px;}
+	
+	
+	
+	
 	#a span {margin-top:30px; margin-left:20px; margin-bottom:30px;}
+	#detail #not_login {margin-top:20px; margin-left:20px;}
 	#detail_infor table{margin-top:30px; margin-left:20px; margin-bottom:30px;}
 	#detail_infor table td:nth-child(1){width:100px;}
 	#detail_infor table td:nth-child(2){width:60px;}
 	#detail_infor table td:nth-child(3){width:200px;}
+	#detail input{width:50px;}
+	#detail #total_price{width:420px; height:80px; float:right;}
+	
+	#detail #total_price .tpsT{font-size:32px; font-style:bold;}
 	
 	
-	 
+	#detail #long_img{margin:auto; width:1000px; height:100%; display:flex; overflow:hidden; align-items:center; justify-content:center;}
+	
+	#product {width:1000px; margin:auto; text-align:center;}
+	#product table{display:inline-block;}
+	#product table th {background-color:#CBA3E9; width:700px; height:35px; font-size:20px; color:white;}
+	#product table td {background-color:#F5F5F5;}
+	
+	#product table td:nth-child(1){width:6%;}
+	#product table td:nth-child(2){width:30%;}
+	#product table td:nth-child(3){width:12%;}
+	#product table td:nth-child(4){width:20%;}
+	#product table td:nth-child(5){width:12%;}
+	#product table td:nth-child(6){width:20%;}
+	button{width:200px; height:50px; color:white; background-color:#CBA3E9; border-radius:5px;}
 </style>
 </head>
 <body>
 	<div id="detail">
-		<div id="img">
-			<img src="">
-		</div>
 		<div id="detail_infor">
 			<table>
 				<div id="main_title">
@@ -79,32 +100,39 @@
 				<tr>
 					<td>구매수량</td><td></td>
 					<td>
-						<button type="button" class="btn_down"></button>
 						<input type="number" id="number">
-						<button type="button" class="btn_up"></button>
 					</td>
 				</tr>
 			</table>
 			<hr>
 			<div id="total_price">
-				<div>
-					<span>총 상품금액</span><span>20,000</span><span>원</span>
+					<span class="tpsO">총 상품금액</span><span class="tpsT">20,000</span><span class="tpsTh">원</span>
 					<button type="button">장바구니 담기</button>
-				</div>
 			</div>
 	
 		</div>
 		<div id="detail_img">
-			<img src="">
+			<img src="image/sneakers/andy.png">
 		</div>
+		<div id="long_img"> 
+			<img src="image/sneakers/andy01.png">
+		</div>
+		
+		
 	</div>
+	
 	<div id="product">
 		<table>
 			<tr>
-				<th colspan='5'>상품후기</th>
+				<th colspan='6'>상품후기</th>
 			</tr>
 			<tr>
-				<td>제목</td><td>구매자</td><td>만족도</td><td>작성자</td><td>작성일</td>
+				<td>글번호</td>
+				<td>제목</td>
+				<td>구매자</td>
+				<td>만족도</td>
+				<td>작성자</td>
+				<td>작성일</td>
 			</tr>
 		</table>
 		<button type="button">후기쓰기</button>

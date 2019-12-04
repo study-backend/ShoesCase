@@ -94,7 +94,7 @@ public class ProductBasketController implements Controller{
 		// result를 json으로 만들어 줘야 함 
 		
 		
-		ModelAndView mv = new ModelAndView("NewFile.html", true, result);
+		ModelAndView mv = new ModelAndView("NewFile.html", true);
 		return mv;
 	}
 
