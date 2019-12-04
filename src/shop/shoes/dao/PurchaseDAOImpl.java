@@ -120,7 +120,6 @@ public class PurchaseDAOImpl implements PurchaseDAO {
 	}
 
 
-
 	@Override
 	public List<GoodsDTO> selectAllBasket() throws SQLException{
 		Connection con = null;
