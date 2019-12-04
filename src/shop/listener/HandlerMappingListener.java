@@ -21,6 +21,7 @@ public class HandlerMappingListener implements ServletContextListener {
     public void contextDestroyed(ServletContextEvent arg0)  { }
 
     public void contextInitialized(ServletContextEvent e)  { 
+    	System.out.println("HandlerMappingListener start");
     	ServletContext application = e.getServletContext();
     	String fileName = application.getInitParameter("fileName");
     	
@@ -34,10 +35,10 @@ public class HandlerMappingListener implements ServletContextListener {
     	try {
 	    	for(String key : keys) {
 	    		String value = rb.getString(key);
+	    		
 	    		//System.out.println(key+" = " + value);
 	    		//String을 -> 객체로 생성한다.
-	    	  Controller con=
-	    	   (Controller)Class.forName(value).newInstance();
+	    	  Controller con= (Controller)Class.forName(value).newInstance();
 	    		//System.out.println(con);
 	    		map.put(key, con);
 	    	}

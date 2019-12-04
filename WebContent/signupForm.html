@@ -143,7 +143,7 @@ $(document).ready(function() {
 			  
 			  $.ajax({
 				  type: "post" ,
-				  url: "api/v1"  ,
+				  url: "api"  ,
 				  dataType: "json"   ,  // 서버에게 받은 응답결과 type(json, text, xml)
 				  data: { data : $("#loginForm").serialize(),
 					  	  resource : "account" ,

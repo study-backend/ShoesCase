@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR:400,500|Pacifico&display=swap&subset=korean" rel="stylesheet">
 <title>Insert title here</title>
+<script type="text/javascript" src="./js/jquery-3.4.1.min.js"></script>
 <style type="text/css">
 	/*공통*/
 	#header, #container {position: relative;}
@@ -51,7 +52,31 @@
 	/* footer */
 	#footer{width:1254px; height:100px; /* border:1px solid green; */ margin:auto;}
 </style>
+<script>
+		$(function(){
+			$("#blogin").click(function(){
+				console.log("1111");
+				$.ajax({
+				type : "post" ,
+				url : "/api/v1", 
+				dataType : "json", 
+				data : {data: $("#loginForm").serialize(),
+						resource: "account",
+						route: "login" 
+				},
+				success : function(result) { 
+					{ result : 0 }
+				},
+				error : function(error) {
+					console.log(error);
+					//alert("아이디 또는 비밀번호를 확인해주세요.");
+				}
+			});//ajax끝
 
+			})
+		});
+		
+		</script>
 </head>
 <body>
 <div id="container"> 
@@ -89,7 +114,7 @@
 		</div>
 	</div>
 	<div id="main">
-		<form  method="post" action="/front" id="loginForm">
+		<form  method="post"  id="loginForm">
 		<div id="login"><h3>로그인</h3></div>
 		<input type="text" name="loginId" class="log" placeholder="아이디를 입력해주세요."><br><br>
 		<input type="password" name="loginPwd" class="log" placeholder="비밀번호를 입력해주세요."><br>
@@ -100,29 +125,7 @@
 		<button type="submit" class="m_button" id="blogin"><span>로그인</span></button></p>
 		<button type="submit" class="m_button" id="bsignup"><span>회원가입</span></button>
 		</form>
-		<script>
-		$(function(){
-			$("#blogin").click(function(){
-				$.ajax({
-				type : "post" ,
-				url : "api/v1", 
-				dataType : "json", 
-				data : {data: $("#loginForm").serialize(),
-				resource: "account",
-				route: "login" 
-				},
-				success : function(result) { 
-					{ result : 0 }
-				},
-				error : function() {
-					alert("아이디 또는 비밀번호를 확인해주세요.");
-				}
-			});//ajax끝
-
-			})
-		});
 		
-		</script>
 	</div>
 	<div id="footer">
 	
