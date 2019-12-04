@@ -106,7 +106,6 @@ public class PurchaseDAOImpl implements PurchaseDAO {
 		return result;
 	}
 
-
 	@Override
 	public int insertAllBasket(PurchaseBasketDTO basket) throws SQLException{
 		Connection con = null;
