@@ -113,7 +113,7 @@ public class AccountDAOImpl implements AccountDAO {
 	}
 
 	@Override
-	public int delete(int accountId) throws Exception {
+	public int delete(long accountId) throws Exception {
 		Connection con = null;
 		PreparedStatement ps = null;
 		int result =0;

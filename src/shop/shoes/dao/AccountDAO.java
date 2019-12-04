@@ -30,7 +30,7 @@ public interface AccountDAO {
 	/**
 	 * 삭제
 	 */
-	int delete(int accountId) throws Exception;
+	int delete(long accountId) throws Exception;
 	
 	// 로그인 확인
 	AccountDTO selectById(long accountId) throws Exception;
