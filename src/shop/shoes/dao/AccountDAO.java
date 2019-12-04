@@ -1,7 +1,9 @@
 package shop.shoes.dao;
 
+import java.sql.SQLException;
 import java.util.List;
 
+import shop.shoes.common.GlobalException;
 import shop.shoes.model.AccountDTO;
 
 public interface AccountDAO {
@@ -33,7 +35,7 @@ public interface AccountDAO {
 	int delete(long accountId) throws Exception;
 	
 	// 로그인 확인
-	AccountDTO selectById(long accountId) throws Exception;
+	AccountDTO selectById(String loginId) throws GlobalException, SQLException;
 	
 	/**
 	 * 아이디 찾기

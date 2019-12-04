@@ -1,14 +1,21 @@
 package shop.shoes.controller;
 
 import java.io.PrintWriter;
+import java.sql.Date;
+import java.sql.SQLException;
+import java.util.Calendar;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import net.sf.json.JSONArray;
+import shop.shoes.common.GlobalException;
 import shop.shoes.model.*;
+import shop.shoes.model.request.LoginRequest;
+import shop.shoes.model.request.SignupRequest;
 import shop.shoes.service.AccountService;
 import shop.shoes.service.AccountServiceImpl;
+import shop.util.JsonUtil;
 
 public class AccountController implements Controller{
 	
@@ -16,7 +23,7 @@ public class AccountController implements Controller{
 	private static AccountService accountService = new AccountServiceImpl();
 
 	@Override
-	public ModelAndView handleRequest(HttpServletRequest request, HttpServletResponse response) throws Exception {
+	public ModelAndView handleRequest(HttpServletRequest request, HttpServletResponse response) throws GlobalException, Exception {
 			
 		//String uri = request.getRequestURI();
 		//System.out.println(uri);
@@ -30,42 +37,19 @@ public class AccountController implements Controller{
 		// return 에 대한 부분 필요 
 		String result = "{}";
 		
-		
+
 		
 		ModelAndView mv = new ModelAndView();
 		
 		String httpMethod = request.getMethod();
+		
+		System.out.println(httpMethod);
+		
 		switch (httpMethod) {
 
-			case "get": {
+			case "GET": {
 
 				switch(route) {
-				
-
-					// 로그인
-					case "account": {	
-						AccountDTO account = new AccountDTO();
-						int code = accountService.signin(account);
-						if(code == 1) {
-							result = "{ result : 1 }";
-							mv.setViewName("what.html");
-							mv.setRedirect(true);
-							JSONArray json = JSONArray.fromObject(result);
-							//mv.setResult(json);
-							mv.setResultData(true);
-							System.out.println(json.toString());
-						} else {
-							result = "{ result : 0 }";
-							mv.setViewName("what.html");
-							mv.setRedirect(true);
-							JSONArray json = JSONArray.fromObject(result);
-							//mv.setResult(json);
-							mv.setResultData(true);
-							System.out.println(json.toString());
-						}
-						
-						break;
-					}
 					
 					case "findId" : {
 						String name = request.getParameter("name");
@@ -120,64 +104,55 @@ public class AccountController implements Controller{
 
 				break;
 			}
-			case "post": {
+			case "POST": {
 				
 				switch(route) {
 				
 					// 로그인
-					case "loginin": {	
-						
+					case "login": {	
+	
+						LoginRequest req = JsonUtil.fromJson(data, LoginRequest.class);		
 						AccountDTO account = new AccountDTO();
-						int code = accountService.signin(account);
-						if(code == 1) {
-							result = "{ result : 1 }";
-							mv.setViewName("what.html");
-							mv.setRedirect(true);
-							JSONArray json = JSONArray.fromObject(result);
-							//mv.setResult(json);
-							mv.setResultData(true);
-							System.out.println(json.toString());
-						} else {
-							result = "{ result : 0 }";
-							mv.setViewName("what.html");
-							mv.setRedirect(true);
-							JSONArray json = JSONArray.fromObject(result);
-							//mv.setResult(json);
-							mv.setResultData(true);
-							System.out.println(json.toString());
-						}
+						account.setLoginId(req.getLoginId());
+						account.setLoginPwd(req.getLoginPwd());
+						
+						int r = accountService.signin(account);
+						System.out.println(JsonUtil.toJson(r));
+
+						mv.setViewName("id.html");
+						mv.setRedirect(true);
+
 						break;
 					}
 					
 					// 회원 가입
 					case "account": {	
-						
+						SignupRequest req = JsonUtil.fromJson(data, SignupRequest.class);		
 						AccountDTO account = new AccountDTO();
-						int code = accountService.signUp(account);
-						if(code == 1) {
-							result = "{ result : 1 }";
-							mv.setViewName("what.html");
-							mv.setRedirect(true);
-							JSONArray json = JSONArray.fromObject(result);
-							//mv.setResult(json);
-							mv.setResultData(true);
-							System.out.println(json.toString());
-						} else {
-							result = "{ result : 0 }";
-							mv.setViewName("what.html");
-							mv.setRedirect(true);
-							JSONArray json = JSONArray.fromObject(result);
-							//mv.setResult(json);
-							mv.setResultData(true);
-							System.out.println(json.toString());
-						}
+						account.setLoginId(req.getId());
+						account.setLoginPwd(req.getPwd());
+						account.setName(req.getName());
+						account.setEmail(req.getEmail());
+						account.setPhone(req.getMobileNum());
+						account.setBirthday(new Date(Integer.parseInt(req.getBirthYear()), Integer.parseInt(req.getBirthMonth()), Integer.parseInt(req.getBirthDay()) ));
+						account.setCreteDate(new Date(Calendar.getInstance().getTime().getTime()));
+						account.setUpdateDate(new Date(Calendar.getInstance().getTime().getTime()));
+						account.setTermsAgreeDate(new Date(Calendar.getInstance().getTime().getTime()));
+						account.setDeleteDate(Date.valueOf("1900-01-01"));
+						account.setAddr("우리집");
+						
+						int code = accountService.signup(account);
+						System.out.println(JsonUtil.toJson(code));
+						mv.setViewName("login.html");
+						mv.setRedirect(false);
+		
 						break;
 					}
 			}
 				
 				break;
 			}
-			case "patch" : {
+			case "PATCH" : {
 				
 				switch(route) {
 				
@@ -208,7 +183,7 @@ public class AccountController implements Controller{
 				
 				break;
 			}
-			case "delete" : {
+			case "DELETE" : {
 				
 				switch(route) {
 				

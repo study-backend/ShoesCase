@@ -26,7 +26,7 @@ table, th, td {border: 1px solid black; width:"100%" }
     <h2 style="text-align: center; margin: 0px;">회원가입</h2>
 
     <div class="boardWrite" style="margin-top: 30px">
-    <form method="post" action="<%= application.getContextPath() %>/front?key=userRegist">
+    <form method="post" action="/front?key=userRegist">
         <table class="inForm" style="width: 63%; margin: auto;">
             <tbody>
             <tr>

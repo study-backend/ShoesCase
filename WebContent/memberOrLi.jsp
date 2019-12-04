@@ -53,7 +53,7 @@
         <c:otherwise>
             <div style="width: 740px; padding-top: 40px; padding-bottom : 40px; border-top: 2px solid purple; border-bottom: 1px solid lightgray;">
                 <table>
-            <c:forEach var="purchaseItem" items="${list}">
+         
 
                     <tr>
                         <td rowspan="2">${purchaseItem.img}</td>

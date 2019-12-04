@@ -12,14 +12,30 @@ import javax.servlet.annotation.WebListener;
 
 import shop.shoes.controller.Controller;
 
-
-
-
+/**
+ * Application Lifecycle Listener implementation class HandlerMappingListener2
+ *
+ */
 @WebListener
 public class HandlerMappingListener implements ServletContextListener {
 
-    public void contextDestroyed(ServletContextEvent arg0)  { }
+    /**
+     * Default constructor. 
+     */
+    public HandlerMappingListener() {
+        // TODO Auto-generated constructor stub
+    }
 
+	/**
+     * @see ServletContextListener#contextDestroyed(ServletContextEvent)
+     */
+    public void contextDestroyed(ServletContextEvent sce)  { 
+         // TODO Auto-generated method stub
+    }
+
+	/**
+     * @see ServletContextListener#contextInitialized(ServletContextEvent)
+     */
     public void contextInitialized(ServletContextEvent e)  { 
     	System.out.println("HandlerMappingListener start");
     	ServletContext application = e.getServletContext();
@@ -35,10 +51,10 @@ public class HandlerMappingListener implements ServletContextListener {
     	try {
 	    	for(String key : keys) {
 	    		String value = rb.getString(key);
+	    		System.out.println(key+" = " + value);
 	    		
-	    		//System.out.println(key+" = " + value);
 	    		//String을 -> 객체로 생성한다.
-	    	  Controller con= (Controller)Class.forName(value).newInstance();
+	    	    Controller con= (Controller)Class.forName(value).newInstance();
 	    		//System.out.println(con);
 	    		map.put(key, con);
 	    	}
@@ -50,12 +66,3 @@ public class HandlerMappingListener implements ServletContextListener {
     }
 	
 }
-
-
-
-
-
-
-
-
-

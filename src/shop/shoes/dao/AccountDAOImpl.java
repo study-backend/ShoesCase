@@ -3,9 +3,11 @@ package shop.shoes.dao;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import shop.shoes.common.GlobalException;
 import shop.shoes.model.AccountDTO;
 import shop.util.DbUtil;
 
@@ -24,7 +26,7 @@ public class AccountDAOImpl implements AccountDAO {
 			rs = ps.executeQuery();
 			
 			while(rs.next()) {
-				// 개노가다.. 18..
+
 				list.add(new AccountDTO(rs.getLong("ACCOUNT_ID")
 						, rs.getString("LOGIN_ID")
 						, rs.getString("LOGIN_PWD")
@@ -54,7 +56,7 @@ public class AccountDAOImpl implements AccountDAO {
 		Connection con = null;
 		PreparedStatement ps = null;
 		int result =0;
-		String sql = "INSERT INTO account values(seq_no_accountId.nextval,?,?,?,?,?,?,?,?,?,sysdate, sysdate,sysdate, sysdate )";
+		String sql = "INSERT INTO account values(seq_Id.nextval,?,?,?,?,?,?,?,?,?,?, ?,?, ? )";
 		
 		try {
 			con = DbUtil.getConnection();
@@ -68,9 +70,14 @@ public class AccountDAOImpl implements AccountDAO {
 			ps.setString(6, account.getAddr());
 			ps.setString(7, String.valueOf(account.getSex()));
 			ps.setDate(8, account.getBirthday());
+			ps.setInt(9, account.getTermsVersion());
+			ps.setDate(10, account.getTermsAgreeDate());
+			ps.setDate(11, account.getCreateDate());
+			ps.setDate(12, account.getUpdateDate());
+			ps.setDate(13, account.getDeleteDate());
+			
 			//ps.setDate(10, account.getLoginDate());
 			//ps.setDate(11, account.getLogoutDate());
-			ps.setInt(9, account.getTermsVersion());
 
 			
 			result = ps.executeUpdate();
@@ -135,20 +142,20 @@ public class AccountDAOImpl implements AccountDAO {
 	}
 
 	@Override
-	public AccountDTO selectById(long accountId) throws Exception {
+	public AccountDTO selectById(String loginId) throws GlobalException, SQLException {
 		Connection con = null;
 		PreparedStatement ps = null;
 		ResultSet rs = null;
-		AccountDTO account = new AccountDTO();
-		String sql = "SELECT * FROM account WHERE account_id = ";
+		AccountDTO account = null;
+		String sql = "SELECT * FROM account WHERE login_id = ?";
 		try {
 			con = DbUtil.getConnection();
 			ps = con.prepareStatement(sql);
-			ps.setLong(1, accountId);
+			ps.setString(1, loginId);
 			rs = ps.executeQuery();
 			
 			if(rs.next()) {
-				// 개노가다.. 18..
+
 				account = new AccountDTO(rs.getLong("ACCOUNT_ID")
 						, rs.getString("LOGIN_ID")
 						, rs.getString("LOGIN_PWD")
