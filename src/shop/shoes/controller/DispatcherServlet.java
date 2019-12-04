@@ -48,7 +48,6 @@ public class DispatcherServlet extends HttpServlet {
 		try {
 		   ModelAndView mv = map.get(key).handleRequest(request, response);
 
-		   
 		   System.out.println(mv.getViewName());
 		   System.out.println("이동하자");
 		   
