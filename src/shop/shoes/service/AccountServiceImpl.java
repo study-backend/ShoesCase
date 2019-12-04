@@ -69,5 +69,34 @@ public class AccountServiceImpl implements AccountService {
 		
 		return result;
 	}
+	
+	public int updateUserInfo(AccountDTO account) throws Exception {
+		int result = 0;
+		result = accountDAO.update(account);
+		if(result == 1) {
+			
+			result = 1;
+			
+		} else {
+			throw new Exception("계정 수정 실패");
+		}
+		
+		return result;
+	}
+
+	@Override
+	public int deleteUserInfo(AccountDTO account) throws Exception {
+		int result = 0;
+		result = accountDAO.delete(account.getAccountId());
+		if(result == 1) {
+			
+			result = 1;
+			
+		} else {
+			throw new Exception("계정 수정 실패");
+		}
+		
+		return result;
+	}
 
 }

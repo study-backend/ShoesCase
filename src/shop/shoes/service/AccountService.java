@@ -23,6 +23,16 @@ public interface AccountService {
 	 * */
 	public int findPassword(AccountDTO account) throws Exception;
 	
+	/**
+	 * 회원정보 수정
+	 * */
+	public int updateUserInfo(AccountDTO account) throws Exception;
+	
+	/**
+	 * 회원정보 삭제
+	 * */
+	public int deleteUserInfo(AccountDTO account) throws Exception;
+	
 	// 세션 만료 확인 
 	
 	
