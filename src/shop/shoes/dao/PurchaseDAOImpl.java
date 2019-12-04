@@ -22,7 +22,7 @@ public class PurchaseDAOImpl implements PurchaseDAO {
 		ResultSet rs = null;
 		PurchaseGoods basket = null;
 		List<PurchaseGoods> list = new ArrayList<PurchaseGoods>();
-		String sql = "select NAME, PRICE, IMG_PATH from PURCHASE_GOODS where BILL_KEY = ?"; //billkey·Î Ã£´Â°Ô ¸Â´Â°ÇÁö ¸ð¸£°ÚÀ½
+		String sql = "select NAME, PRICE, IMG_PATH from PURCHASE_GOODS where BILL_KEY = ?"; //billkeyï¿½ï¿½ Ã£ï¿½Â°ï¿½ ï¿½Â´Â°ï¿½ï¿½ï¿½ ï¿½ð¸£°ï¿½ï¿½ï¿½
 		try {
 			con = DbUtil.getConnection();
 			ps= con.prepareStatement(sql);

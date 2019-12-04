@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import shop.shoes.model.AccountDTO;
 import shop.shoes.service.AccountService;
 import shop.shoes.service.AccountServiceImpl;
-import shop.shoes.service.ShoesShopService;
+import shop.shoes.service.PurchaseService;
 
 public class UserRegisterController implements Controller{
 
