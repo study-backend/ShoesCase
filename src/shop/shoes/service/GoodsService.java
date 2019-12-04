@@ -32,7 +32,7 @@ public interface GoodsService {
 	public List<GoodsDTO> goodsSub(CategoryDTO category) throws Exception;
 	
 
-	public GoodsDetailDTO goodsDetail(GoodsDTO goods) throws Exception;
+	public GoodsDetailDTO goodsDetail(GoodsDTO goods) throws Exception ;
 	
 
 	public int insertGoodsList() throws Exception;

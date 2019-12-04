@@ -13,6 +13,7 @@ import shop.shoes.model.dto.GoodsDetailDTO;
 import shop.shoes.model.dto.GoodsMainDTO;
 
 public class GoodsServiceImpl implements GoodsService {
+	
 
 	@Override
 	public List<GoodsDTO> selectByCatagory(String categoryName) throws Exception { 
@@ -57,7 +58,12 @@ public class GoodsServiceImpl implements GoodsService {
 
 	@Override
 	public GoodsDetailDTO goodsDetail(GoodsDTO goods) throws Exception {
-		// TODO Auto-generated method stub
+		
+		
+		
+		
+		
+		
 		return null;
 	}
 

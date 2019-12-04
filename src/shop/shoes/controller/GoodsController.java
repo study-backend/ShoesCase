@@ -9,7 +9,7 @@ import shop.shoes.service.AccountServiceImpl;
 
 public class GoodsController implements Controller{
 	
-	// ÇÊ¿äÇÑ service¸¦ ¿©±â¼­ ¸¸µç´Ù 
+	// í•„ìš”í•œ serviceë¥¼ ì—¬ê¸°ì„œ ë§Œë“ ë‹¤ 
 	private static AccountService accountService = new AccountServiceImpl();
 	
 	
@@ -20,10 +20,10 @@ public class GoodsController implements Controller{
 		//String uri = request.getRequestURI();
 		//System.out.println(uri);
 		
-		// json º¯È¯ÀÌ ÇÊ¿äÇÔ
+		// json ë³€í™˜ì´ í•„ìš”í•¨
 		String data = request.getParameter("data");
 		
-		// return ¿¡ ´ëÇÑ ºÎºĞ ÇÊ¿ä 
+		// return ì— ëŒ€í•œ ë¶€ë¶„ í•„ìš” 
 		String result = "";
 		
 		String httpMethod = request.getMethod();
@@ -33,7 +33,7 @@ public class GoodsController implements Controller{
 
 				switch(data) {
 				
-					// ·Î±×ÀÎ
+					// ë¡œê·¸ì¸
 					case "account": {	
 						AccountDTO account = new AccountDTO();
 						accountService.signin(account);
@@ -47,7 +47,7 @@ public class GoodsController implements Controller{
 				
 				switch(data) {
 				
-					// È¸¿ø °¡ÀÔ
+					// íšŒì› ê°€ì…
 					case "account": {	
 						AccountDTO account = new AccountDTO();
 						accountService.signUp(account);
@@ -61,7 +61,7 @@ public class GoodsController implements Controller{
 				
 				switch(data) {
 				
-					// È¸¿øÁ¤º¸ ¼öÁ¤
+					// íšŒì›ì •ë³´ ìˆ˜ì •
 					case "account": {	
 						AccountDTO account = new AccountDTO();
 						accountService.updateUserInfo(account);
@@ -75,7 +75,7 @@ public class GoodsController implements Controller{
 				
 				switch(data) {
 				
-					// È¸¿øÁ¤º¸ »èÁ¦
+					// íšŒì›ì •ë³´ ì‚­ì œ
 					case "account": {	
 						AccountDTO account = new AccountDTO();
 						accountService.deleteUserInfo(account);
@@ -87,7 +87,7 @@ public class GoodsController implements Controller{
 			}
 		}
 		
-		// result¸¦ jsonÀ¸·Î ¸¸µé¾î Áà¾ß ÇÔ 
+		// resultë¥¼ jsonìœ¼ë¡œ ë§Œë“¤ì–´ ì¤˜ì•¼ í•¨ 
 		
 		
 		ModelAndView mv = new ModelAndView("NewFile.html", true, result);
