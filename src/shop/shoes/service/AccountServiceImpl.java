@@ -17,16 +17,16 @@ public class AccountServiceImpl implements AccountService {
 			
 			if(acc.getLoginPwd().equals(account.getLoginPwd()) == true) {
 				
-				// Ãß°¡°ËÁõ (ip?, ¼¼¼ÇÅ¸ÀÓ?.. ÀÏ´Ü pass
+				// ì¶”ê°€ê²€ì¦ (ip?, ì„¸ì…˜íƒ€ì„?.. ì¼ë‹¨ pass
 				result = 1;
 				
 			} else {
-				throw new Exception("ÆĞ½º¿öµå°¡ Æ²¸³´Ï´Ù");
+				throw new Exception("íŒ¨ìŠ¤ì›Œë“œê°€ í‹€ë¦½ë‹ˆë‹¤");
 			}
 			
 			
 		} else {
-			throw new Exception("°èÁ¤ÀÌ ¾ø½À´Ï´Ù");
+			throw new Exception("ê³„ì •ì´ ì—†ìŠµë‹ˆë‹¤");
 		}
 		
 		return result;
@@ -41,7 +41,7 @@ public class AccountServiceImpl implements AccountService {
 			result = 1;
 			
 		} else {
-			throw new Exception("°èÁ¤ Ãß°¡ ½ÇÆĞ");
+			throw new Exception("ê³„ì • ì¶”ê°€ ì‹¤íŒ¨");
 		}
 		
 		return result;
@@ -55,16 +55,16 @@ public class AccountServiceImpl implements AccountService {
 			
 			if(acc.getEmail().equals(account.getEmail()) == true) {
 				
-				// ºñ¹Ğ¹øÈ£ ÃÊ±âÈ­ ÀÌ¸ŞÀÏ ¹ß¼Û ... ÀÏ´Ü º¸·ù SMTP¸¦ ÅëÇÑ ±¸Çö ÇÊ¿ä
+				// ë¹„ë°€ë²ˆí˜¸ ì´ˆê¸°í™” ì´ë©”ì¼ ë°œì†¡ ... ì¼ë‹¨ ë³´ë¥˜ SMTPë¥¼ í†µí•œ êµ¬í˜„ í•„ìš”
 				result = 1;
 				
 			} else {
-				throw new Exception("ÀÌ¸ŞÀÏÀÌ Æ²¸³´Ï´Ù");
+				throw new Exception("ì´ë©”ì¼ì´ í‹€ë¦½ë‹ˆë‹¤");
 			}
 			
 			
 		} else {
-			throw new Exception("°èÁ¤ÀÌ ¾ø½À´Ï´Ù");
+			throw new Exception("ê³„ì •ì´ ì—†ìŠµë‹ˆë‹¤");
 		}
 		
 		return result;
@@ -78,7 +78,7 @@ public class AccountServiceImpl implements AccountService {
 			result = 1;
 			
 		} else {
-			throw new Exception("°èÁ¤ ¼öÁ¤ ½ÇÆĞ");
+			throw new Exception("ê³„ì • ìˆ˜ì • ì‹¤íŒ¨");
 		}
 		
 		return result;
@@ -93,7 +93,7 @@ public class AccountServiceImpl implements AccountService {
 			result = 1;
 			
 		} else {
-			throw new Exception("°èÁ¤ ¼öÁ¤ ½ÇÆĞ");
+			throw new Exception("ê³„ì • ìˆ˜ì • ì‹¤íŒ¨");
 		}
 		
 		return result;

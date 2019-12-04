@@ -12,51 +12,34 @@ import shop.shoes.model.dto.GoodsMainDTO;
 public interface GoodsService {
 
 	/**
-	 * ī�װ����� ���� ��ǰ ������(list) : ��ǰ�̸�, ��ǰ����, ��ǰ����
-	 * dao���� select�� ������ ��Ʈ�ѷ��� ����
+	 * 카테고리에 대한 상품 정보들(list) : 상품이름, 상품사진, 상품가격
+	 * dao에서 select된 데이터 컨트롤러로 전송
 	 */
 	List<GoodsDTO> selectByCatagory(String categoryName) throws Exception;
 	
 	
 	/**
-	 * ��ǰ ���� Ŭ���� �� ���������� ��ǰ������ ���� select
-	 * ���� �̹��� ����, ��ǰ�̸�, ����, ����, ������, ����, �Ѱ���, ū�̹��� ����
-	 * �� ���� �̹Ƿ� dto ��ü �Ѱ���
+	 * 상품 사진 클릭시 상세 페이지에서 상품에대한 정보 select
+	 * 작은 이미지 사진, 상품이름, 색상, 가격, 사이즈, 수량, 총가격, 큰이미지 사진
+	 * 상세 정보 이므로 dto 객체 한개임
 	 * */
 	GoodsDTO selectOneProduct(long goodsId) throws Exception;
 	
-	/**
-	 * 상품 메인화면 출력
-	 * @throws Exception 
-	 * 
-	 * */
+
 	public GoodsMainDTO goodsMain(GoodsVersionDTO version) throws Exception; 
 	
-	/**
-	 * 상품 카테고리별 보기
-	 * @throws Exception
-	 * */
+
 	public List<GoodsDTO> goodsSub(CategoryDTO category) throws Exception;
 	
-	/**
-	 * 상품상세보기
-	 * @throws Exception
-	 * */
+
 	public GoodsDetailDTO goodsDetail(GoodsDTO goods) throws Exception;
 	
-	/**
-	 * 상품 입력(벌크입력)
-	 * 
-	 * */
+
 	public int insertGoodsList() throws Exception;
 	
-	/**
-	 * (보류) 상품수정
-	 * */
+
 	public int updateGoods(GoodsDTO goods) throws Exception;
 	
-	/**
-	 * (보류) 상품삭제
-	 * */
+
 	public int deleteGoods(GoodsDTO goods) throws Exception;
 }
