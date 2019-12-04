@@ -12,13 +12,16 @@
     .memberCols2 {}
 
     </style>
+    <script type="text/javascript" src="./js/jquery-3.4.1.min.js"></script>
+    
 </head>
 <body style="margin: 0px; background-color: whitesmoke">
 <div style="height: 180px; width: 100%; background-color: #0c5460; text-align: center;"> Header 자리</div>
 
 <div class="signUpTitle" style="margin-top: 100px; margin-bottom: 10px">
     <h2 style="text-align: center; margin: 0px;">회원가입</h2>
-
+	<form name="loginForm" method="post" id="loginForm">
+	
     <div class="boardWrite" style="margin-top: 30px">
         <table class="inForm" style="width: 63%; margin: auto;">
             <tbody>
@@ -120,8 +123,46 @@
         </table>
     </div>
     <div style="text-align: center;">
-    <input type="submit" value="가입하기">
+    <input type="submit" value="가입하기" id="btn">
     </div>
+    
+    </form>
 </div>
+<script type="text/javascript">
+$(document).ready(function() {
+	$("#btn").click(function() {
+		  // 상태 확인 변수
+		  let state = true;
+		  console.log($("#loginForm").serialize());
+		  
+		  // 모두 값이 있다면 등록한다
+		  if(state) {
+			  console.log($("#loginForm").serialize());
+			  
+			  
+			  
+			  $.ajax({
+				  type: "post" ,
+				  url: "api/v1"  ,
+				  dataType: "json"   ,  // 서버에게 받은 응답결과 type(json, text, xml)
+				  data: { data : $("#loginForm").serialize(),
+					  	  resource : "account" 
+					  	 },		// 서버에게 전송할 param
+				  success: function(result) {
+					  
+						  alert("등록되었습니다 ");
+						  
+						  
+					 
+				  },
+				  error: function(err) {
+					  console.log(err + "- 오류 발생")
+				  }      
+			  });
+		  }
+		  
+	  });
+});
+</script>
 </body>
 </html>

@@ -37,14 +37,13 @@
 	
 	/* main */
 	#main{width:355px; height:600px; margin:auto; /* border:1px solid pink; */}
-	#main h3{text-align:center;}
- 	#main .log{width:350px; height:50px; border:0; outline:0; border-radius:5px; border:1px solid gray;}
-	#lable{font-size: 10px}
-	#findid{width:354px; height:56px; margin-top:20px; color:#FFFFFF; background-color:#5F0080; border-radius:5px; outline:0;}
-	#main button span{font-size:16px; }
-	#login{height: 100.5px; margin-top: 50px; font-size:30px}
-	#loginS{width:300px; height:300px; border:1px solid red; margin:auto;}
-	
+	#main h2{text-align:center;  margin-left:40px;}
+	#search{text-align:center; margin-top: 50px; margin-right:20spx;}
+	#foundimg{margin-top:20px; margin-left:22px;}
+	#idsearch{width:350px; height:200px }
+	#textbox{margin: auto; }
+	#idtext{height:50px; margin-left:115px; text-align:center; border:white;}
+	#found{width:354px; height:56px; margin-top:25px; margin-left:18px; color:#FFFFFF; background-color:#5F0080; border-radius:5px; outline:0;}
 	/* footer */
 	#footer{width:1000px; height:100px; border:1px solid green; margin:auto;}
 </style>
@@ -84,11 +83,14 @@
 		</div>
 	</div>
 	<div id="main">
-		<div id="login"><h3>비밀번호 찾기</h3></div>
-		<div id="loginS">
-		
+		<div class="search"><h2>아이디 찾기</h2></div>
+		<div id="foundimg">
+		<img id="idsearch" src="image/idsearch.png">
 		</div>
-		<button type="submit" id="findid" src="#"><span>인증번호 받기</span></button>
+		<div id="textbox" >
+		<input type="text" id="idtext" value="아이디나오는곳">	
+		</div>
+		<button type="button" id="found" onclick="location.href='login.html'"><span>확인</span></button>
 	</div>
 	</form>
 	<div id="footer">
