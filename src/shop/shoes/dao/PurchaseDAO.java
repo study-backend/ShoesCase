@@ -6,6 +6,7 @@ import java.util.List;
 import shop.shoes.model.AccountDTO;
 import shop.shoes.model.GoodsDTO;
 import shop.shoes.model.PurchaseBasket;
+import shop.shoes.model.PurchaseBasketPayment;
 import shop.shoes.model.PurchaseGoods;
 
 public interface PurchaseDAO {
@@ -25,22 +26,21 @@ public interface PurchaseDAO {
 	
 	AccountDTO selectOrderer() throws SQLException;
 	
-	int recieverInfo() throws SQLException;
+	int recieverInfo(PurchaseBasketPayment pbp) throws SQLException;
+	
+	int paymentWay(String paymentType) throws SQLException; 
 	
 	
-	int paymentWay() throws SQLException; 
+//	/**
+//	 * 장바구니 조회(select)
+//	 * */
+//	List<GoodsDTO> selectAllBasket(String billKey) throws SQLException;
 	
 	
-	/**
-	 * 장바구니 조회(select)
-	 * */
-	List<GoodsDTO> selectAllBasket(String billKey) throws SQLException;
-	
-	
-	/**
-	 * 장바구니 삭제(delete) 제품 아이디 마다 삭제 가능하겠지??
-	 * */
-	int deleteBasket(GoodsDTO goods) throws SQLException;
+//	/**
+//	 * 환불기능
+//	 * */
+//	int deletePurchase(PurchaseGoods purchaseGoods) throws SQLException;
 	
 	/**
 	 * 마이컬리에서 주문내역 조회
