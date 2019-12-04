@@ -84,12 +84,11 @@ public class GoodsServiceImpl implements GoodsService {
 	}
 
 	@Override
-<<<<<<< HEAD
 	public GoodsDetailDTO goodsDetail(GoodsDTO goods) throws Exception {
 
 		// TODO Auto-generated method stub
 		return null;
-=======
+	}
 	public GoodsDetailDTO goodsDetail(long goodsId) throws Exception {
 		//[1] 상세상품의 정보를 가져온다 
 		GoodsDTO goods = goodsDAO.selectOneProduct(goodsId);
@@ -99,7 +98,6 @@ public class GoodsServiceImpl implements GoodsService {
 		GoodsDetailDTO dto = new GoodsDetailDTO(goods, reviewList);
 		
 		return dto;
->>>>>>> branch 'master' of https://github.com/study-backend/ShoesCase.git
 	}
 
 	@Override
