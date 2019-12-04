@@ -27,7 +27,6 @@ public interface PurchaseDAO {
 	
 	int recieverInfo() throws SQLException;
 	
-	PurchaseBasket selectTotalPrice(int basketId) throws SQLException;
 	
 	int paymentWay() throws SQLException; 
 	
@@ -35,7 +34,7 @@ public interface PurchaseDAO {
 	/**
 	 * 장바구니 조회(select)
 	 * */
-	List<GoodsDTO> selectAllBasket() throws SQLException;
+	List<GoodsDTO> selectAllBasket(String billKey) throws SQLException;
 	
 	
 	/**

@@ -79,27 +79,7 @@ public class PurchaseDAOImpl implements PurchaseDAO {
 		return result;
 	}
 
-	@Override
-	public PurchaseBasket selectTotalPrice(int basketId) throws SQLException {
-		Connection con = null;
-		PreparedStatement ps = null;
-		ResultSet rs = null;
-		PurchaseBasket basket = null;
-		String sql = "select TOTAL_PRICE from PURCHASE_BASKET where PURCHASE_BASKET_ID = ?;";
-		try {
-			con = DbUtil.getConnection();
-			ps= con.prepareStatement(sql);
-			ps.setInt(1, basketId);
-			rs = ps.executeQuery();
-			if(rs.next()) {
-				basket = new PurchaseBasket(rs.getInt(1));
-			}
-		}
-		finally {
-			DbUtil.dbClose(rs, ps, con);
-		}
-		return basket;
-	}
+
 	
 	@Override
 	public int paymentWay() throws SQLException{
@@ -121,19 +101,20 @@ public class PurchaseDAOImpl implements PurchaseDAO {
 
 
 	@Override
-	public List<GoodsDTO> selectAllBasket() throws SQLException{
+	public List<GoodsDTO> selectAllBasket(String billKey) throws SQLException{
 		Connection con = null;
 		PreparedStatement ps = null;
 		ResultSet rs = null;
-		
+		GoodsDTO goods = null;
 		List<GoodsDTO> list = new ArrayList<GoodsDTO>();
-		String sql = "select from PURCHASE_GOODS G1 inner join PURCHASE_BASKET B1 on G1.PURCHASE_BASKET_ID = B1.PURCHASE_BASKET_ID where";
+		String sql = "select B1.IMG_PATH, G1.NAME, G1.COUNT, G1.PRICE, B1.TOTAL_PRICE"
+				+ " from PURCHASE_GOODS G1 inner join PURCHASE_BASKET B1 on "
+				+ "G1.PURCHASE_BASKET_ID = B1.PURCHASE_BASKET_ID where G1.BILL_KEY = ?";
 		try {
 			con = DbUtil.getConnection();
 			ps= con.prepareStatement(sql);
-			
+			ps.setString(1, billKey);
 			rs = ps.executeQuery();
-			
 			while(rs.next()) {
 				
 			}
@@ -161,6 +142,7 @@ public class PurchaseDAOImpl implements PurchaseDAO {
 		}
 		return result;
 	}
+	
 
 	@Override
 	public List<PurchaseGoods> selectOrderHistory(AccountDTO account) throws SQLException{
