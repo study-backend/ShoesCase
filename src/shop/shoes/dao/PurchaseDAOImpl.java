@@ -127,7 +127,7 @@ public class PurchaseDAOImpl implements PurchaseDAO {
 		ResultSet rs = null;
 		
 		List<GoodsDTO> list = new ArrayList<GoodsDTO>();
-		String sql = "";
+		String sql = "select from PURCHASE_GOODS G1 inner join PURCHASE_BASKET B1 on G1.PURCHASE_BASKET_ID = B1.PURCHASE_BASKET_ID where";
 		try {
 			con = DbUtil.getConnection();
 			ps= con.prepareStatement(sql);
