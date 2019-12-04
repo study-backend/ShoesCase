@@ -1,15 +1,15 @@
 package shop.shoes.model;
 
-public class PurchaseStatic {
+public class PurchaseStaticDTO {
 	private String saleDate;
 	private int goodsId;
 	private int paymentType;
 	private int saleCount;
 	private int salePrice;
 	
-	public PurchaseStatic() {}
+	public PurchaseStaticDTO() {}
 	
-	public PurchaseStatic(String saleDate, int goodsId, int paymentType, int saleCount, int salePrice) {
+	public PurchaseStaticDTO(String saleDate, int goodsId, int paymentType, int saleCount, int salePrice) {
 		super();
 		this.saleDate = saleDate;
 		this.goodsId = goodsId;

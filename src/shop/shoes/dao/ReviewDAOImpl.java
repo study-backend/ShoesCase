@@ -7,17 +7,17 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import shop.shoes.model.dto.GoodsReviewDTO;
+import shop.shoes.model.ReviewDTO;
 import shop.util.DbUtil;
 
 public class ReviewDAOImpl implements ReviewDAO {
 
 	@Override
-	public List<GoodsReviewDTO> selectAll() throws SQLException {
+	public List<ReviewDTO> selectAll() throws SQLException {
 		Connection con = null;
 		PreparedStatement ps = null;
 		ResultSet rs = null;
-		List<GoodsReviewDTO> list = new ArrayList<GoodsReviewDTO>();
+		List<ReviewDTO> list = new ArrayList<ReviewDTO>();
 		String sql = "select * from review";
 		try {
 			con = DbUtil.getConnection();
@@ -27,11 +27,11 @@ public class ReviewDAOImpl implements ReviewDAO {
 			
 			
 			while(rs.next()) {
-				/**	dto ª˝º∫¿⁄∑Œ πﬁ¥¬ ∆ƒ∂ÛπÃ≈Õ 8∞≥
+				/**	dto ÏÉùÏÑ±ÏûêÎ°ú Î∞õÎäî ÌååÎùºÎØ∏ÌÑ∞ 8Í∞ú
 				 * 	int reviewId, int goodsId, int accountId,  String title, String content,
 					int score, String createDate, String updateDate 
 				 */
-				list.add(new GoodsReviewDTO(rs.getInt(1), rs.getInt(2), rs.getInt(3), rs.getString(4), rs.getString(5),
+				list.add(new ReviewDTO(rs.getInt(1), rs.getInt(2), rs.getInt(3), rs.getString(4), rs.getString(5),
 						rs.getInt(6), rs.getString(7), rs.getString(8)));
 				
 			}
@@ -45,7 +45,7 @@ public class ReviewDAOImpl implements ReviewDAO {
 	}
 
 	@Override
-	public int insert(GoodsReviewDTO reviewDto) throws SQLException {
+	public int insert(ReviewDTO reviewDto) throws SQLException {
 		Connection con = null;
 		PreparedStatement ps = null;
 		int result =0;
@@ -75,10 +75,11 @@ public class ReviewDAOImpl implements ReviewDAO {
 	}
 
 	@Override
-	public int update(GoodsReviewDTO reviewDto)throws SQLException {
+	public int update(ReviewDTO reviewDto)throws SQLException {
 		Connection con = null;
 		PreparedStatement ps = null;
 		int result =0;
+		
 		String sql = "update review set title= ?, content= ?, score = ?, create_date=sysdate "
 				+ "where review_id=?";
 		try {
@@ -122,6 +123,38 @@ public class ReviewDAOImpl implements ReviewDAO {
 		}
 		
 		return result;
+	}
+
+	@Override
+	public ReviewDTO selectByReviewId(int reviewId) throws SQLException {
+		Connection con = null;
+		PreparedStatement ps = null;
+		ResultSet rs = null;
+		ReviewDTO reviewDTO = null;
+		String sql = "select * from review where review_id=?";
+		try {
+			con = DbUtil.getConnection();
+			ps= con.prepareStatement(sql);
+			rs = ps.executeQuery();
+			
+			
+			
+			if(rs.next()) {
+				/**	dto ÏÉùÏÑ±ÏûêÎ°ú Î∞õÎäî ÌååÎùºÎØ∏ÌÑ∞ 8Í∞ú
+				 * 	int reviewId, int goodsId, int accountId,  String title, String content,
+					int score, String createDate, String updateDate 
+				 */
+				reviewDTO = new ReviewDTO(rs.getInt(1), rs.getInt(2), rs.getInt(3), rs.getString(4), rs.getString(5),
+						rs.getInt(6), rs.getString(7), rs.getString(8));
+				
+			}
+			
+		}
+		finally {
+			DbUtil.dbClose(rs, ps, con);
+			
+		}
+		return reviewDTO;
 	}
 
 }

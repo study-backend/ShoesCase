@@ -6,14 +6,14 @@ import shop.shoes.model.AccountDTO;
 
 public interface AccountDAO {
 	/**
-	 * Å×ÀÌºí ÀüÃ¼ select
-	 * º¸¿©ÁÙ ¼Ó¼º(Å×ÀÌºíÀÇ ÇÊµå)
-	 * ¹øÈ£(id)
+	 * í…Œì´ë¸” ì „ì²´ select
+	 * ë³´ì—¬ì¤„ ì†ì„±(í…Œì´ë¸”ì˜ í•„ë“œ)
+	 * ë²ˆí˜¸(id)
 	 */
 	List<AccountDTO> selectAll() throws Exception;
 	
 	/**
-	 * °èÁ¤ Ãß°¡
+	 * ê³„ì • ì¶”ê°€
 	 * 
 	 * 
 	 */
@@ -21,17 +21,27 @@ public interface AccountDAO {
 	
 	
 	/**
-	 * ¼öÁ¤
-	 * Á¦¸ñ, ³»¿ë ¼öÁ¤
+	 * ìˆ˜ì •
+	 * ì œëª©, ë‚´ìš© ìˆ˜ì •
 	 */
 	int update(AccountDTO account) throws Exception;
 	
 	
 	/**
-	 * »èÁ¦
+	 * ì‚­ì œ
 	 */
 	int delete(long accountId) throws Exception;
 	
-	// ·Î±×ÀÎ È®ÀÎ
+	// ë¡œê·¸ì¸ í™•ì¸
 	AccountDTO selectById(long accountId) throws Exception;
+	
+	/**
+	 * ì•„ì´ë”” ì°¾ê¸°
+	 * */
+	int idFind(String name, String email) throws Exception;
+	
+	/**
+	 * ë¹„ë°€ë²ˆí˜¸ ì°¾ê¸°
+	 * */
+	int pwdFind(String name, String loginId, String email) throws Exception;
 }

@@ -4,26 +4,31 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import shop.shoes.model.*;
-import shop.shoes.service.AccountService;
-import shop.shoes.service.AccountServiceImpl;
+import shop.shoes.service.GoodsService;
+import shop.shoes.service.GoodsServiceImpl;
 
 public class GoodsController implements Controller{
 	
-	// ÇÊ¿äÇÑ service¸¦ ¿©±â¼­ ¸¸µç´Ù 
+<<<<<<< HEAD
+	// í•„ìš”í•œ serviceë¥¼ ì—¬ê¸°ì„œ ë§Œë“ ë‹¤ 
 	private static AccountService accountService = new AccountServiceImpl();
+=======
+	// ï¿½Ê¿ï¿½ï¿½ï¿½ serviceï¿½ï¿½ ï¿½ï¿½ï¿½â¼­ ï¿½ï¿½ï¿½ï¿½ï¿½ 
+	private static GoodsService goodsService = new GoodsServiceImpl();
+>>>>>>> branch 'master' of https://github.com/study-backend/ShoesCase.git
 	
 	
-
 	@Override
 	public ModelAndView handleRequest(HttpServletRequest request, HttpServletResponse response) throws Exception {
 			
 		//String uri = request.getRequestURI();
 		//System.out.println(uri);
 		
-		// json º¯È¯ÀÌ ÇÊ¿äÇÔ
+		// json ë³€í™˜ì´ í•„ìš”í•¨
 		String data = request.getParameter("data");
+		System.out.println(data);
 		
-		// return ¿¡ ´ëÇÑ ºÎºĞ ÇÊ¿ä 
+		// return ì— ëŒ€í•œ ë¶€ë¶„ í•„ìš” 
 		String result = "";
 		
 		String httpMethod = request.getMethod();
@@ -33,10 +38,25 @@ public class GoodsController implements Controller{
 
 				switch(data) {
 				
-					// ·Î±×ÀÎ
+<<<<<<< HEAD
+					// ë¡œê·¸ì¸
 					case "account": {	
 						AccountDTO account = new AccountDTO();
 						accountService.signin(account);
+=======
+					// ìƒí’ˆ ì •ë³´ ê°€ì ¸ì˜¤ê¸°
+					case "goodsMain": {	
+						
+						goodsService.goodsMain(null);
+						break;
+					}
+					case "goodsSub": {
+						goodsService.goodsSub(null);
+						break;
+					}
+					case "goodsDetail": {
+						goodsService.goodsDetail(null);
+>>>>>>> branch 'master' of https://github.com/study-backend/ShoesCase.git
 						break;
 					}
 				}
@@ -47,10 +67,17 @@ public class GoodsController implements Controller{
 				
 				switch(data) {
 				
-					// È¸¿ø °¡ÀÔ
+<<<<<<< HEAD
+					// íšŒì› ê°€ì…
 					case "account": {	
 						AccountDTO account = new AccountDTO();
 						accountService.signUp(account);
+=======
+					// ìƒí’ˆì •ë³´ ì…ë ¥
+					case "goods": {	
+						
+						goodsService.insertGoodsList();
+>>>>>>> branch 'master' of https://github.com/study-backend/ShoesCase.git
 						break;
 					}
 			}
@@ -61,10 +88,16 @@ public class GoodsController implements Controller{
 				
 				switch(data) {
 				
-					// È¸¿øÁ¤º¸ ¼öÁ¤
+<<<<<<< HEAD
+					// íšŒì›ì •ë³´ ìˆ˜ì •
 					case "account": {	
 						AccountDTO account = new AccountDTO();
 						accountService.updateUserInfo(account);
+=======
+					// 
+					case "goods": {	
+						
+>>>>>>> branch 'master' of https://github.com/study-backend/ShoesCase.git
 						break;
 					}
 				}
@@ -75,10 +108,16 @@ public class GoodsController implements Controller{
 				
 				switch(data) {
 				
-					// È¸¿øÁ¤º¸ »èÁ¦
+<<<<<<< HEAD
+					// íšŒì›ì •ë³´ ì‚­ì œ
 					case "account": {	
 						AccountDTO account = new AccountDTO();
 						accountService.deleteUserInfo(account);
+=======
+					// ìƒí’ˆ ì‚­ì œ
+					case "goods": {	
+						
+>>>>>>> branch 'master' of https://github.com/study-backend/ShoesCase.git
 						break;
 					}
 				}
@@ -87,7 +126,7 @@ public class GoodsController implements Controller{
 			}
 		}
 		
-		// result¸¦ jsonÀ¸·Î ¸¸µé¾î Áà¾ß ÇÔ 
+		// resultë¥¼ jsonìœ¼ë¡œ ë§Œë“¤ì–´ ì¤˜ì•¼ í•¨ 
 		
 		
 		ModelAndView mv = new ModelAndView("NewFile.html", true, result);

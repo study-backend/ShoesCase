@@ -1,6 +1,6 @@
 package shop.shoes.model;
 
-public class PurchaseBasket {
+public class PurchaseBasketDTO {
 	/*
 	 * 
 	PURCHASE_BASKET_ID NUMBER(19) CONSTRAINT id_purchase_basket_pk PRIMARY KEY,
@@ -25,9 +25,16 @@ public class PurchaseBasket {
 	private String createDate;
 	private String updateDate;
 	
-	public PurchaseBasket() {}
+	public PurchaseBasketDTO() {}
 
-	public PurchaseBasket(int basketId, int accountId, int totalPrice, String orderDate, String imgPath, int stateCode,
+	
+	public PurchaseBasketDTO(int totalPrice) {
+		super();
+		this.totalPrice = totalPrice;
+	}
+
+
+	public PurchaseBasketDTO(int basketId, int accountId, int totalPrice, String orderDate, String imgPath, int stateCode,
 			String billKey, String deliveryAddr, String createDate, String updateDate) {
 		super();
 		this.basketId = basketId;

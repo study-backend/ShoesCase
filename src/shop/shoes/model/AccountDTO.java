@@ -5,7 +5,7 @@ import java.sql.Timestamp;
 
 public class AccountDTO {
 
-   private long accountId;
+    private long accountId;
     private String loginId;
     private String loginPwd;
     private String name;
@@ -25,8 +25,18 @@ public class AccountDTO {
     public AccountDTO() { }
 
    
-    
-    public AccountDTO(long accountId, String loginId, String loginPwd, String name, String phone, String email,
+
+
+
+	public AccountDTO(String name, String phone, String email, String addr) {
+		super();
+		this.name = name;
+		this.phone = phone;
+		this.email = email;
+		this.addr = addr;
+	}
+
+	public AccountDTO(long accountId, String loginId, String loginPwd, String name, String phone, String email,
          String addr, char sex, Date birthday, int termsVersion, Date termsAgreeDate, Date createDate,
          Date updateDate, Date deleteDate) {
       super();

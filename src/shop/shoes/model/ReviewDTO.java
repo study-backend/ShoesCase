@@ -15,13 +15,36 @@ public class ReviewDTO {
 	private int reviewId;
 	private int goodsId;
 	private int accountId;
+	private String reviewPwd; // ë¦¬ë·° pwd ì¶”ê°€
 	private String title;
 	private String content;
-	private int score; //¸¸Á·µµ (0~5)
-	private String createDate; //dbÀÇ log¿ë & È­¸é¿¡ ¶ç¿ï ÀÛ¼ºÀÏ
-	private String updateDate; //dbÀÇ log¿ë
+	private int score; //ë§Œì¡±ë„ (0~5)
+	private String createDate; //dbì˜ logìš© & í™”ë©´ì— ë„ìš¸ ì‘ì„±ì¼
+	private String updateDate; //dbì˜ logìš©
 	
 	public ReviewDTO() {}
+
+	public String getReviewPwd() {
+		return reviewPwd;
+	}
+
+	public void setReviewPwd(String reviewPwd) {
+		this.reviewPwd = reviewPwd;
+	}
+
+	public ReviewDTO(int reviewId, int goodsId, int accountId, String reviewPwd, String title, String content,
+			int score, String createDate, String updateDate) {
+		super();
+		this.reviewId = reviewId;
+		this.goodsId = goodsId;
+		this.accountId = accountId;
+		this.reviewPwd = reviewPwd;
+		this.title = title;
+		this.content = content;
+		this.score = score;
+		this.createDate = createDate;
+		this.updateDate = updateDate;
+	}
 
 	public ReviewDTO(int reviewId, int goodsId, int accountId,  String title, String content,
 			int score, String createDate, String updateDate) {

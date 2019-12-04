@@ -17,16 +17,16 @@ public class AccountServiceImpl implements AccountService {
 			
 			if(acc.getLoginPwd().equals(account.getLoginPwd()) == true) {
 				
-				// Ãß°¡°ËÁõ (ip?, ¼¼¼ÇÅ¸ÀÓ?.. ÀÏ´Ü pass
+				// ì¶”ê°€ê²€ì¦ (ip?, ì„¸ì…˜íƒ€ì„?.. ì¼ë‹¨ pass
 				result = 1;
 				
 			} else {
-				throw new Exception("ÆĞ½º¿öµå°¡ Æ²¸³´Ï´Ù");
+				throw new Exception("íŒ¨ìŠ¤ì›Œë“œê°€ í‹€ë¦½ë‹ˆë‹¤");
 			}
 			
 			
 		} else {
-			throw new Exception("°èÁ¤ÀÌ ¾ø½À´Ï´Ù");
+			throw new Exception("ê³„ì •ì´ ì—†ìŠµë‹ˆë‹¤");
 		}
 		
 		return result;
@@ -41,46 +41,21 @@ public class AccountServiceImpl implements AccountService {
 			result = 1;
 			
 		} else {
-			throw new Exception("°èÁ¤ Ãß°¡ ½ÇÆĞ");
+			throw new Exception("ê³„ì • ì¶”ê°€ ì‹¤íŒ¨");
 		}
-		
 		return result;
 	}
 	
-	@Override
-	public int findPassword(AccountDTO account)  throws Exception{
-		int result = 0;
-		AccountDTO acc = accountDAO.selectById(account.getAccountId());
-		if(acc != null) {
-			
-			if(acc.getEmail().equals(account.getEmail()) == true) {
-				
-				// ºñ¹Ğ¹øÈ£ ÃÊ±âÈ­ ÀÌ¸ŞÀÏ ¹ß¼Û ... ÀÏ´Ü º¸·ù SMTP¸¦ ÅëÇÑ ±¸Çö ÇÊ¿ä
-				result = 1;
-				
-			} else {
-				throw new Exception("ÀÌ¸ŞÀÏÀÌ Æ²¸³´Ï´Ù");
-			}
-			
-			
-		} else {
-			throw new Exception("°èÁ¤ÀÌ ¾ø½À´Ï´Ù");
-		}
-		
-		return result;
-	}
+
 	
 	public int updateUserInfo(AccountDTO account) throws Exception {
 		int result = 0;
 		result = accountDAO.update(account);
 		if(result == 1) {
-			
 			result = 1;
-			
 		} else {
-			throw new Exception("°èÁ¤ ¼öÁ¤ ½ÇÆĞ");
+			throw new Exception("ê³„ì • ìˆ˜ì • ì‹¤íŒ¨");
 		}
-		
 		return result;
 	}
 
@@ -89,13 +64,34 @@ public class AccountServiceImpl implements AccountService {
 		int result = 0;
 		result = accountDAO.delete(account.getAccountId());
 		if(result == 1) {
-			
 			result = 1;
-			
 		} else {
-			throw new Exception("°èÁ¤ ¼öÁ¤ ½ÇÆĞ");
+			throw new Exception("ê³„ì • ìˆ˜ì • ì‹¤íŒ¨");
 		}
-		
+		return result;
+	}
+
+	@Override
+	public int idFind(String name, String email) throws Exception {
+		int result = 0;
+		result = accountDAO.idFind(name, email);
+		if(result == 1) {
+			result = 1;
+		} else {
+			throw new Exception("ì•„ì´ë”” ì°¾ê¸° ì‹¤íŒ¨");
+		}
+		return result;
+	}
+
+	@Override
+	public int pwdFind(String name, String loginId, String email) throws Exception {
+		int result = 0;
+		result = accountDAO.pwdFind(name, loginId, email);
+		if(result == 1) {
+			result = 1;
+		} else {
+			throw new Exception("ë¹„ë°€ë²ˆí˜¸ ì°¾ê¸° ì‹¤íŒ¨");
+		}
 		return result;
 	}
 

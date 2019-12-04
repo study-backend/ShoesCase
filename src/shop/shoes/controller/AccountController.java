@@ -9,7 +9,7 @@ import shop.shoes.service.AccountServiceImpl;
 
 public class AccountController implements Controller{
 	
-	// ÇÊ¿äÇÑ service¸¦ ¿©±â¼­ ¸¸µç´Ù 
+	// í•„ìš”í•œ serviceë¥¼ ì—¬ê¸°ì„œ ë§Œë“ ë‹¤ 
 	private static AccountService accountService = new AccountServiceImpl();
 	
 	
@@ -20,10 +20,15 @@ public class AccountController implements Controller{
 		//String uri = request.getRequestURI();
 		//System.out.println(uri);
 		
-		// json º¯È¯ÀÌ ÇÊ¿äÇÔ
+		// json ë³€í™˜ì´ í•„ìš”í•¨
+<<<<<<< HEAD
+=======
+		String route = request.getParameter("route");
+>>>>>>> branch 'master' of https://github.com/study-backend/ShoesCase.git
 		String data = request.getParameter("data");
+		System.out.println(route);
 		
-		// return ¿¡ ´ëÇÑ ºÎºĞ ÇÊ¿ä 
+		// return ì— ëŒ€í•œ ë¶€ë¶„ í•„ìš” 
 		String result = "";
 		
 		String httpMethod = request.getMethod();
@@ -31,24 +36,54 @@ public class AccountController implements Controller{
 
 			case "get": {
 
-				switch(data) {
+				switch(route) {
 				
-					// ·Î±×ÀÎ
+<<<<<<< HEAD
+=======
+
+>>>>>>> branch 'master' of https://github.com/study-backend/ShoesCase.git
+					// ë¡œê·¸ì¸
 					case "account": {	
 						AccountDTO account = new AccountDTO();
 						accountService.signin(account);
 						break;
 					}
+					
+					case "findId" : {
+						String name = request.getParameter("name");
+						String email = request.getParameter("email");
+						accountService.idFind(name, email);
+					}
+					
+					case "findPwd" : {
+						String name = request.getParameter("name");
+						String loginId = request.getParameter("loginId");
+						String email = request.getParameter("email");
+						accountService.pwdFind(name, loginId, email);
+					}
+
 				}
 
 				break;
 			}
 			case "post": {
 				
-				switch(data) {
+				switch(route) {
 				
-					// È¸¿ø °¡ÀÔ
+<<<<<<< HEAD
+=======
+					// ë¡œê·¸ì¸
+					case "loginin": {	
+						
+						AccountDTO account = new AccountDTO();
+						accountService.signin(account);
+						break;
+					}
+					
+>>>>>>> branch 'master' of https://github.com/study-backend/ShoesCase.git
+					// íšŒì› ê°€ì…
 					case "account": {	
+						
 						AccountDTO account = new AccountDTO();
 						accountService.signUp(account);
 						break;
@@ -59,9 +94,9 @@ public class AccountController implements Controller{
 			}
 			case "patch" : {
 				
-				switch(data) {
+				switch(route) {
 				
-					// È¸¿øÁ¤º¸ ¼öÁ¤
+					// íšŒì›ì •ë³´ ìˆ˜ì •
 					case "account": {	
 						AccountDTO account = new AccountDTO();
 						accountService.updateUserInfo(account);
@@ -73,9 +108,9 @@ public class AccountController implements Controller{
 			}
 			case "delete" : {
 				
-				switch(data) {
+				switch(route) {
 				
-					// È¸¿øÁ¤º¸ »èÁ¦
+					// íšŒì›ì •ë³´ ì‚­ì œ
 					case "account": {	
 						AccountDTO account = new AccountDTO();
 						accountService.deleteUserInfo(account);
@@ -87,7 +122,7 @@ public class AccountController implements Controller{
 			}
 		}
 		
-		// result¸¦ jsonÀ¸·Î ¸¸µé¾î Áà¾ß ÇÔ 
+		// resultë¥¼ jsonìœ¼ë¡œ ë§Œë“¤ì–´ ì¤˜ì•¼ í•¨ 
 		
 		
 		ModelAndView mv = new ModelAndView("NewFile.html", true, result);
