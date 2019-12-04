@@ -1,24 +1,62 @@
 package shop.shoes.service;
 
-import java.sql.SQLException;
 import java.util.List;
 
+import shop.shoes.model.AccountDTO;
+import shop.shoes.model.CategoryDTO;
 import shop.shoes.model.GoodsDTO;
+import shop.shoes.model.GoodsVersionDTO;
+import shop.shoes.model.dto.GoodsDetailDTO;
+import shop.shoes.model.dto.GoodsMainDTO;
 
 public interface GoodsService {
-	
-	
+
 	/**
-	 * Ä«Å×°í¸®¿¡ ´ëÇÑ »óÇ° Á¤º¸µé(list) : »óÇ°ÀÌ¸§, »óÇ°»çÁø, »óÇ°°¡°Ý
-	 * dao¿¡¼­ selectµÈ µ¥ÀÌÅÍ ÄÁÆ®·Ñ·¯·Î Àü¼Û
+	 * Ä«ï¿½×°ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ç° ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½(list) : ï¿½ï¿½Ç°ï¿½Ì¸ï¿½, ï¿½ï¿½Ç°ï¿½ï¿½ï¿½ï¿½, ï¿½ï¿½Ç°ï¿½ï¿½ï¿½ï¿½
+	 * daoï¿½ï¿½ï¿½ï¿½ selectï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Æ®ï¿½Ñ·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	 */
 	List<GoodsDTO> selectByCatagory(String categoryName) throws Exception;
 	
 	
 	/**
-	 * »óÇ° »çÁø Å¬¸¯½Ã »ó¼¼ ÆäÀÌÁö¿¡¼­ »óÇ°¿¡´ëÇÑ Á¤º¸ select
-	 * ÀÛÀº ÀÌ¹ÌÁö »çÁø, »óÇ°ÀÌ¸§, »ö»ó, °¡°Ý, »çÀÌÁî, ¼ö·®, ÃÑ°¡°Ý, Å«ÀÌ¹ÌÁö »çÁø
-	 * »ó¼¼ Á¤º¸ ÀÌ¹Ç·Î dto °´Ã¼ ÇÑ°³ÀÓ
+	 * ï¿½ï¿½Ç° ï¿½ï¿½ï¿½ï¿½ Å¬ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ç°ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ select
+	 * ï¿½ï¿½ï¿½ï¿½ ï¿½Ì¹ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½, ï¿½ï¿½Ç°ï¿½Ì¸ï¿½, ï¿½ï¿½ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½, ï¿½Ñ°ï¿½ï¿½ï¿½, Å«ï¿½Ì¹ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	 * ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ì¹Ç·ï¿½ dto ï¿½ï¿½Ã¼ ï¿½Ñ°ï¿½ï¿½ï¿½
 	 * */
-	GoodsDTO selectOneProduct(long goodsId) throws SQLException;
+	GoodsDTO selectOneProduct(long goodsId) throws Exception;
+	
+	/**
+	 * ìƒí’ˆ ë©”ì¸í™”ë©´ ì¶œë ¥
+	 * @throws Exception 
+	 * 
+	 * */
+	public GoodsMainDTO goodsMain(GoodsVersionDTO version) throws Exception; 
+	
+	/**
+	 * ìƒí’ˆ ì¹´í…Œê³ ë¦¬ë³„ ë³´ê¸°
+	 * @throws Exception
+	 * */
+	public List<GoodsDTO> goodsSub(CategoryDTO category) throws Exception;
+	
+	/**
+	 * ìƒí’ˆìƒì„¸ë³´ê¸°
+	 * @throws Exception
+	 * */
+	public GoodsDetailDTO goodsDetail(GoodsDTO goods) throws Exception;
+	
+	/**
+	 * ìƒí’ˆ ìž…ë ¥(ë²Œí¬ìž…ë ¥)
+	 * 
+	 * */
+	public int insertGoodsList() throws Exception;
+	
+	/**
+	 * (ë³´ë¥˜) ìƒí’ˆìˆ˜ì •
+	 * */
+	public int updateGoods(GoodsDTO goods) throws Exception;
+	
+	/**
+	 * (ë³´ë¥˜) ìƒí’ˆì‚­ì œ
+	 * */
+	public int deleteGoods(GoodsDTO goods) throws Exception;
 }
