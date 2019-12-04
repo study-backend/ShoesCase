@@ -1,4 +1,3 @@
-
 package shop.shoes.model;
 
 import java.sql.Date;
@@ -186,4 +185,3 @@ public class AccountDTO {
       this.deleteDate = deleteDate;
    }
 }
->>>>>>> branch 'master' of https://github.com/study-backend/ShoesCase.git

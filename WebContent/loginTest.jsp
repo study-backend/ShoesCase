@@ -1,8 +1,9 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR:400,500|Pacifico&display=swap&subset=korean" rel="stylesheet">
 <title>Insert title here</title>
 <style type="text/css">
 	/*공통*/
@@ -31,7 +32,7 @@
 	.gnb_ul{width:1150px; height:56px; float:left; height:55px; }
 	.gnb_li {float:left; width:190; height:55;}
 	.gnb_li a{width:190; height:55; padding: 16px 50px 0 48px; font-size:18px;}	
-	#side_search{position: absolute; right:135px; top:110px; width:240px; height:40px; /* border:1px solid green */; border-radius:18px; background-color:#F7F7F7;}
+	#side_search{position: absolute; right:135px; top:110px; width:270px; height:40px; /* border:1px solid green */; border-radius:18px; background-color:#F7F7F7;}
 	#searchimg{position:absolute; right:10px; top:5px; width:40px; height:30px;}
 	#basketimg{position:absolute; right:75px; top:106px; width:50px; height:50px;}
 	/* main */
@@ -47,7 +48,6 @@
 	/* footer */
 	#footer{width:1254px; height:100px; /* border:1px solid green; */ margin:auto;}
 </style>
-
 </head>
 <body>
 <div id="container"> 
@@ -66,11 +66,11 @@
 		<div id="gnb">
 			<div id="gnbin">
 			<ul class="gnb_ul">
-				<li class="gnb_li"><a href="#"><span>전체카테고리</span></a>  |</li>
-				<li class="gnb_li"><a href="#"><span>운동화</span></a>  |</li>
-				<li class="gnb_li"><a href="#"><span>구두</span></a>  |</li>
-				<li class="gnb_li"><a href="#"><span>샌들</span></a>  |</li>
-				<li class="gnb_li"><a href="#"><span>부츠</span></a>  |</li>
+				<li class="gnb_li"><a href="#"><span>전체카테고리</span></a></li>
+				<li class="gnb_li"><a href="#"><span>운동화</span></a></li>
+				<li class="gnb_li"><a href="#"><span>구두</span></a></li>
+				<li class="gnb_li"><a href="#"><span>샌들</span></a></li>
+				<li class="gnb_li"><a href="#"><span>부츠</span></a></li>
 			</ul>
 			</div>
 			<img src="image/basket.png" id="basketimg">
@@ -81,16 +81,16 @@
 		</div>
 	</div>
 	<div id="main">
-		<form  method="post" action="/front">
+		<form  method="post" action="<%= application.getContextPath() %>/front?key=login">
 		<div id="login"><h3>로그인</h3></div>
 		<input type="text" name="loginId" class="log" value="아이디를 입력해주세요."><br><br>
 		<input type="password" name="loginPwd" class="log" placeholder="비밀번호를 입력해주세요."><br>
 		<input type="checkbox"><span>보안접속</span>
 		<div id="search">
-			<a href="id.html">아이디 찾기</a> | <a href="pw.html">비밀번호 찾기</a>
+			<a href="#">아이디 찾기</a> | <a href="#">비밀번호 찾기</a>
 		</div>
 		<input type="submit" id="blogin" value="로그인"><span></span></p>
-		<button type="submit" id="bsignup"><span>회원가입</span></button>
+		<button type="submit" id="bsignup" src="signupForm.html"><span>회원가입</span></button>
 		</form>
 	</div>
 	<div id="footer">

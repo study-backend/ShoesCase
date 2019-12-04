@@ -11,7 +11,9 @@ public class LoginController implements Controller{
 	@Override
 	public ModelAndView handleRequest(HttpServletRequest request, HttpServletResponse response)
 			throws SQLException, IOException {
-		System.out.println("떠봐좀...");
+		String loginId = request.getParameter("loginId");
+		String loginPwd = request.getParameter("loginPwd");
+		System.out.println(loginId + loginPwd +"나와라 !!");
 	
 		return null;
 	}
