@@ -2,7 +2,7 @@ package shop.shoes.model;
 
 import java.util.List;
 
-public class PurchaseGoods {
+public class PurchaseGoodsDTO {
     private long purchaseGoodId;
     private int stateCode;
     private String name;
@@ -14,15 +14,16 @@ public class PurchaseGoods {
     private long goodsId;
     private String createDate;
     private String updateDate;
+    private long accountId;
     
     private BillKeyDTO billDto;
     
-    private List<PurchaseBasket> PurchaseList;
+    private List<PurchaseBasketDTO> PurchaseList;
     
-    public PurchaseGoods() {} 
+    public PurchaseGoodsDTO() {} 
     
     
-	public PurchaseGoods(String name, double price, String imagPath) {
+	public PurchaseGoodsDTO(String name, double price, String imagPath) {
 		super();
 		this.name = name;
 		this.price = price;
@@ -30,8 +31,16 @@ public class PurchaseGoods {
 	}
 
 
-	public PurchaseGoods(long purchaseGoodId, int stateCode, String name, int count, double price, String imagPath,
-			String billKey, long purchaseBasketId, long goodsId, String createDate, String updateDate) {
+	public PurchaseGoodsDTO(int stateCode, String name, String billKey) {
+		super();
+		this.stateCode = stateCode;
+		this.name = name;
+		this.billKey = billKey;
+	}
+
+
+	public PurchaseGoodsDTO(long purchaseGoodId, int stateCode, String name, int count, double price, String imagPath,
+			String billKey, long purchaseBasketId, long goodsId, String createDate, String updateDate, long accountId) {
 		super();
 		this.purchaseGoodId = purchaseGoodId;
 		this.stateCode = stateCode;
@@ -44,6 +53,7 @@ public class PurchaseGoods {
 		this.goodsId = goodsId;
 		this.createDate = createDate;
 		this.updateDate = updateDate;
+		this.accountId = accountId;
 	}
 
 	
@@ -55,11 +65,11 @@ public class PurchaseGoods {
 		this.billDto = billDto;
 	}
 
-	public List<PurchaseBasket> getPurchaseList() {
+	public List<PurchaseBasketDTO> getPurchaseList() {
 		return PurchaseList;
 	}
 
-	public void setPurchaseList(List<PurchaseBasket> purchaseList) {
+	public void setPurchaseList(List<PurchaseBasketDTO> purchaseList) {
 		PurchaseList = purchaseList;
 	}
 
@@ -149,6 +159,16 @@ public class PurchaseGoods {
 
 	public void setUpdateDate(String updateDate) {
 		this.updateDate = updateDate;
+	}
+
+
+	public long getAccountId() {
+		return accountId;
+	}
+
+
+	public void setAccountId(long accountId) {
+		this.accountId = accountId;
 	}
     
 }

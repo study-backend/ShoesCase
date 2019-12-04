@@ -5,7 +5,7 @@ import java.sql.Timestamp;
 
 public class AccountDTO {
 
-   private long accountId;
+    private long accountId;
     private String loginId;
     private String loginPwd;
     private String name;

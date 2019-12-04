@@ -1,16 +1,18 @@
 package shop.shoes.service;
 
+import java.sql.SQLException;
 import java.util.List;
 
 import shop.shoes.model.GoodsDTO;
-import shop.shoes.model.PurchaseBasket;
-import shop.shoes.model.PurchaseBasketPayment;
+import shop.shoes.model.PurchaseBasketDTO;
+import shop.shoes.model.PurchaseBasketPaymentDTO;
+import shop.shoes.model.PurchaseGoodsDTO;
 
 public class PurchaseServiceImpl implements PurchaseService {
 	// 필요한 dAO 목록.....
 
 	@Override
-	public int insertPurchase(List<GoodsDTO> goodsList, PurchaseBasket basket, PurchaseBasketPayment payment) {
+	public int insertPurchase(List<GoodsDTO> goodsList, PurchaseBasketDTO basket, PurchaseBasketPaymentDTO payment) {
 		
 		// 구매 알고리즘
 		
@@ -28,5 +30,9 @@ public class PurchaseServiceImpl implements PurchaseService {
 		
 		return 0;
 	}
-
+	
+	public List<PurchaseGoodsDTO> selectOrderHistory(long accountId) throws SQLException{
+		
+		return null;
+	}
 }

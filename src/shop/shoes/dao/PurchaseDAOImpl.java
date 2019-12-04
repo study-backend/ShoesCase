@@ -8,21 +8,20 @@ import java.util.ArrayList;
 import java.util.List;
 
 import shop.shoes.model.AccountDTO;
-import shop.shoes.model.GoodsDTO;
-import shop.shoes.model.PurchaseBasket;
-import shop.shoes.model.PurchaseBasketPayment;
-import shop.shoes.model.PurchaseGoods;
+
+import shop.shoes.model.PurchaseBasketPaymentDTO;
+import shop.shoes.model.PurchaseGoodsDTO;
 import shop.util.DbUtil;
 
 public class PurchaseDAOImpl implements PurchaseDAO {
 
 	@Override
-	public List<PurchaseGoods> selectProduct(String billKey) throws SQLException{
+	public List<PurchaseGoodsDTO> selectProduct(String billKey) throws SQLException{
 		Connection con = null;
 		PreparedStatement ps = null;
 		ResultSet rs = null;
-		PurchaseGoods basket = null;
-		List<PurchaseGoods> list = new ArrayList<PurchaseGoods>();
+		PurchaseGoodsDTO basket = null;
+		List<PurchaseGoodsDTO> list = new ArrayList<PurchaseGoodsDTO>();
 		String sql = "select NAME, PRICE, IMG_PATH from PURCHASE_GOODS where BILL_KEY = ?"; //billkey로 찾는건지 모르겠음
 		try {
 			con = DbUtil.getConnection();
@@ -31,7 +30,8 @@ public class PurchaseDAOImpl implements PurchaseDAO {
 			rs = ps.executeQuery();
 			
 			while(rs.next()) {
-				basket = new PurchaseGoods(rs.getString(1), rs.getInt(2), rs.getString(3));
+				basket = new PurchaseGoodsDTO(rs.getString(1), rs.getInt(2), rs.getString(3));
+				list.add(basket);
 			}
 		}
 		finally {
@@ -62,7 +62,7 @@ public class PurchaseDAOImpl implements PurchaseDAO {
 	}
 
 	@Override
-	public int recieverInfo(PurchaseBasketPayment pbp) throws SQLException{
+	public int recieverInfo(PurchaseBasketPaymentDTO pbp) throws SQLException{
 		Connection con = null;
 		PreparedStatement ps = null;
 		int result = 0;
@@ -151,21 +151,22 @@ public class PurchaseDAOImpl implements PurchaseDAO {
 	
 
 	@Override
-	public List<PurchaseGoods> selectOrderHistory(AccountDTO account) throws SQLException{
+	public List<PurchaseGoodsDTO> selectOrderHistory(long accountId) throws SQLException{
 		Connection con = null;
 		PreparedStatement ps = null;
 		ResultSet rs = null;
 		
-		List<PurchaseGoods> list = new ArrayList<PurchaseGoods>();
-		String sql = "select BILL_KEY, NAME, STATE_CODE, CREATE_DATE, from PURCHASE_GOODS where ";
+		List<PurchaseGoodsDTO> list = new ArrayList<PurchaseGoodsDTO>();
+		String sql = "select STATE_CODE, NAME, BILL_KEY from PURCHASE_GOODS where ACCOUNT_ID=?";
 		try {
 			con = DbUtil.getConnection();
 			ps= con.prepareStatement(sql);
-			
+			ps.setLong(1, accountId);
 			rs = ps.executeQuery();
-			
 			while(rs.next()) {
-				
+				PurchaseGoodsDTO purchaseGoods = new PurchaseGoodsDTO(rs.getInt(1), rs.getString(2),
+													rs.getString(3));
+				list.add(purchaseGoods);
 			}
 		}
 		finally {
@@ -173,7 +174,4 @@ public class PurchaseDAOImpl implements PurchaseDAO {
 		}
 		return list;
 	}
-
-
-
 }
