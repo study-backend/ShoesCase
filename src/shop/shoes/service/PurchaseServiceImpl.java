@@ -7,6 +7,7 @@ import shop.shoes.model.PurchaseBasket;
 import shop.shoes.model.PurchaseBasketPayment;
 
 public class PurchaseServiceImpl implements PurchaseService {
+	// 필요한 dAO 목록.....
 
 	@Override
 	public int insertPurchase(List<GoodsDTO> goodsList, PurchaseBasket basket, PurchaseBasketPayment payment) {
