@@ -81,7 +81,6 @@ public class AccountDAOImpl implements AccountDAO {
 		
 		return result;
 	}
-
 	@Override
 	public int update(AccountDTO account) throws Exception {
 		Connection con = null;
