@@ -26,37 +26,37 @@ public interface GoodsService {
 	GoodsDTO selectOneProduct(long goodsId) throws Exception;
 	
 	/**
-	 * ���������� ��ǰ���� ��������
+	 * 상품 메인화면 출력
 	 * @throws Exception 
 	 * 
 	 * */
 	public GoodsMainDTO goodsMain(GoodsVersionDTO version) throws Exception; 
 	
 	/**
-	 * ī�װ��� �� ȭ�� ��ǰ���� �������� 
+	 * 상품 카테고리별 보기
 	 * @throws Exception
 	 * */
 	public List<GoodsDTO> goodsSub(CategoryDTO category) throws Exception;
 	
 	/**
-	 * �������� ����
+	 * 상품상세보기
 	 * @throws Exception
 	 * */
 	public GoodsDetailDTO goodsDetail(GoodsDTO goods) throws Exception;
 	
 	/**
-	 * ��ǰ ���� �߰�
+	 * 상품 입력(벌크입력)
 	 * 
 	 * */
 	public int insertGoodsList() throws Exception;
 	
 	/**
-	 * ��ǰ ���� ����
+	 * (보류) 상품수정
 	 * */
 	public int updateGoods(GoodsDTO goods) throws Exception;
 	
 	/**
-	 * ��ǰ ���� ����
+	 * (보류) 상품삭제
 	 * */
 	public int deleteGoods(GoodsDTO goods) throws Exception;
 }
