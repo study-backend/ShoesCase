@@ -12,14 +12,14 @@ public class GoodsServiceImpl implements GoodsService {
 
 	@Override
 	public List<GoodsDTO> selectByCatagory(String categoryName) throws Exception { 
-		//dao¿¡¼­ ¾ò¾î¿Â Ä«Å×°í¸® list¸¦ ÀúÀåÇØ¼­ ÄÁÆ®·Ñ·¯·Î ¸®ÅÏ
+		//daoì—ì„œ ì–»ì–´ì˜¨ ì¹´í…Œê³ ë¦¬ listë¥¼ ì €ì¥í•´ì„œ ì»¨íŠ¸ë¡¤ëŸ¬ë¡œ ë¦¬í„´
 		
 		List<GoodsDTO> list =new ArrayList<GoodsDTO>();
 		GoodsDAO goodsDAO = new GoodsDAOImpl();
 				
 		list = goodsDAO.selectByCatagory(categoryName);
 		
-		if(list==null) { //°Ë»öµÈ °Í ¾øÀ½ or Ä«Å×°í¸® ¾øÀ½ or ´Ù¸¥ÀÌÀ¯·Î ¿¡·¯
+		if(list==null) { //ê²€ìƒ‰ëœ ê²ƒ ì—†ìŒ or ì¹´í…Œê³ ë¦¬ ì—†ìŒ or ë‹¤ë¥¸ì´ìœ ë¡œ ì—ëŸ¬
 			
 		}
 		
@@ -29,12 +29,12 @@ public class GoodsServiceImpl implements GoodsService {
 
 	@Override
 	public GoodsDTO selectOneProduct(long goodsId) throws SQLException {
-		GoodsDTO goodsDTO = new GoodsDTO(); //dao °¬´Ù¿Í¼­ ´ãÀ» dto ¼±¾ğ
-		GoodsDAO goodsDAO = new GoodsDAOImpl(); // dao ¼±¾ğ
+		GoodsDTO goodsDTO = new GoodsDTO(); //dao ê°”ë‹¤ì™€ì„œ ë‹´ì„ dto ì„ ì–¸
+		GoodsDAO goodsDAO = new GoodsDAOImpl(); // dao ì„ ì–¸
 		
 		goodsDTO = goodsDAO.selectOneProduct(goodsId);
 		if(goodsDTO==null) {
-			//dto°¡ °Ë»ö ¾øÀ½ or ´Ù¸¥ÀÌÀ¯·Î ¿¡·¯
+			//dtoê°€ ê²€ìƒ‰ ì—†ìŒ or ë‹¤ë¥¸ì´ìœ ë¡œ ì—ëŸ¬
 		}
 		return goodsDTO;
 	}

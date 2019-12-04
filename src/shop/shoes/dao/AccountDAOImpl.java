@@ -24,7 +24,7 @@ public class AccountDAOImpl implements AccountDAO {
 			rs = ps.executeQuery();
 			
 			while(rs.next()) {
-				// °³³ë°¡´Ù.. 18..
+				// ê°œë…¸ê°€ë‹¤.. 18..
 				list.add(new AccountDTO(rs.getLong("ACCOUNT_ID")
 						, rs.getString("LOGIN_ID")
 						, rs.getString("LOGIN_PWD")
@@ -148,7 +148,7 @@ public class AccountDAOImpl implements AccountDAO {
 			rs = ps.executeQuery();
 			
 			if(rs.next()) {
-				// °³³ë°¡´Ù.. 18..
+				// ê°œë…¸ê°€ë‹¤.. 18..
 				account = new AccountDTO(rs.getLong("ACCOUNT_ID")
 						, rs.getString("LOGIN_ID")
 						, rs.getString("LOGIN_PWD")

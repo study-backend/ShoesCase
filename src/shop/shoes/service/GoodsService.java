@@ -11,18 +11,11 @@ import shop.shoes.model.dto.GoodsMainDTO;
 
 public interface GoodsService {
 
-	/**
-	 * ī�װ����� ���� ��ǰ ������(list) : ��ǰ�̸�, ��ǰ����, ��ǰ����
-	 * dao���� select�� ������ ��Ʈ�ѷ��� ����
-	 */
+
 	List<GoodsDTO> selectByCatagory(String categoryName) throws Exception;
 	
 	
-	/**
-	 * ��ǰ ���� Ŭ���� �� ���������� ��ǰ������ ���� select
-	 * ���� �̹��� ����, ��ǰ�̸�, ����, ����, ������, ����, �Ѱ���, ū�̹��� ����
-	 * �� ���� �̹Ƿ� dto ��ü �Ѱ���
-	 * */
+
 	GoodsDTO selectOneProduct(long goodsId) throws Exception;
 	
 	/**
