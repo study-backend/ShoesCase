@@ -32,8 +32,8 @@ public class UserRegisterController implements Controller{
 
 		String sexTest = request.getParameter("maleFemale");
 		char sex;
-		if(sexTest.equals("m")) sex = '남';
-		else sex='여';
+		//if(sexTest.equals("m")) sex = '��';
+		//else sex='��';
 		//char sex  = request.getParameter("sex_option").charAt(0);
 
 
@@ -41,18 +41,16 @@ public class UserRegisterController implements Controller{
 
 		String birthMonth  = request.getParameter("birthMonth");
 		String birthDay = request.getParameter("birthDay");
-		Date birthday = java.sql.Date.valueOf(birth_year+"-"+ birthMonth+"-"+birthDay);
-
-		AccountDTO dto = new AccountDTO(loginId, loginPwd, name, phone, email, addr, sex, birthday);
+		//Date birthday = java.sql.Date.valueOf(birth_year+"-"+ birthMonth+"-"+birthDay);
+		
+		AccountDTO dto = new AccountDTO(loginId, loginPwd, name, phone, email, addr, '1', null);
 		AccountService service = new AccountServiceImpl();
-
-		int result = service.signUp(dto);
-		if(result>0){
-			System.out.println("성공");
-		}
-		String path = request.getContentType();
-		ModelAndView mv = new ModelAndView(path+"/main.html", true);
+		
+		//int result = service.signUp(dto);
+		//if(result>0){
+			//System.out.println("����");
+		//}
+		ModelAndView mv = new ModelAndView("../main.html", true);
 		return mv;
 	}
-	//회원가입
 }

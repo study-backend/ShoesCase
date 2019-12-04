@@ -13,7 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 /**
  * Servlet implementation class DispatcherServlet
  */
-@WebServlet(urlPatterns = {"/front"} , loadOnStartup = 1)
+@WebServlet(urlPatterns = {"/api/v1"} , loadOnStartup = 1)
 public class DispatcherServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	Map<String, Controller> map;
@@ -24,16 +24,36 @@ public class DispatcherServlet extends HttpServlet {
 	}
     
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException  {
-		String key = request.getParameter("key");
+		String key = request.getParameter("resource");
 		System.out.println(key);
+		System.out.println(request.getRequestURI());
+		//System.out.println(request.getRequestURL());
 		
-		if(key==null) key = "login";
+		//String uri = request.getRequestURI();
+		//int length = uri.indexOf("/api/v1/"); 
+		//String fullSentence = uri.substring((length + 8) , uri.length());
+		//int size = fullSentence.indexOf("/");
+		//System.out.println(size);
+		//String resource = null;
+		//if(size <= 0) {
+		//	resource = fullSentence;
+		//} else {
+		//	resource = fullSentence.substring(fullSentence.indexOf("/"));
+		//}
+		//System.out.println(resource);
+		
+		if(key == null) 
+			key = "home";
 		
 		try {
 		   ModelAndView mv = map.get(key).handleRequest(request, response);
+
+		   
+		   System.out.println(mv.getViewName());
+		   System.out.println("이동하자");
 		   
 		   if(mv.isRedirect()) {//redirect방식
-				response.sendRedirect(mv.getViewName());
+				response.sendRedirect("NewFile.html");
 			}else {//forward이동
 				request.getRequestDispatcher(mv.getViewName()).forward(request, response);
 			}
