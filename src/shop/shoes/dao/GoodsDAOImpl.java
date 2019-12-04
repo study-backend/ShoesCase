@@ -13,18 +13,18 @@ import shop.util.DbUtil;
 public class GoodsDAOImpl implements GoodsDAO {
 
 	@Override
-	public List<GoodsDTO> selectByCatagory(int categoryId) throws SQLException {
+	public List<GoodsDTO> selectByCatagory(String categoryName) throws SQLException {
 		Connection con = null;
 		PreparedStatement ps = null;
 		ResultSet rs = null;
 		GoodsDTO goodsDto = null;
 		List<GoodsDTO> list = new ArrayList<GoodsDTO>();
 		String sql = "select PRICE, NAME, IMG_PATH  from GOODS G1 INNER JOIN CATEGORY_MAP G2 ON "
-				+ " G1.GOODS_ID = G2.CATEGORY_ID INNER JOIN CATEGORY G3 ON G2.CATEGORY_ID = G3.CATEGORY_ID where CATEGORY_ID=?";
+				+ " G1.GOODS_ID = G2.CATEGORY_ID INNER JOIN CATEGORY G3 ON G2.CATEGORY_ID = G3.CATEGORY_ID where G3.NAME=?";
 		try {
 			con = DbUtil.getConnection();
 			ps= con.prepareStatement(sql);
-			ps.setInt(1, categoryId);
+			ps.setString(1, categoryName);
 			rs = ps.executeQuery();
 			
 			while(rs.next()) {

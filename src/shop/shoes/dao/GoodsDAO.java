@@ -12,7 +12,7 @@ public interface GoodsDAO {
 	 * 카테고리 클릭 시 해당하는 신발 상품 조회(select)
 	 * 보여줄 속성 : 상품이름, 상품사진, 상품가격
 	 * */
-	List<GoodsDTO> selectByCatagory(int categoryId) throws SQLException;
+	List<GoodsDTO> selectByCatagory(String categoryName) throws SQLException;
 	
 	/**
 	 * 상품 사진 클릭시 상세 페이지에서 상품에대한 정보 select
