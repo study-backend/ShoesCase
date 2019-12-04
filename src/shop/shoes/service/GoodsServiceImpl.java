@@ -25,7 +25,6 @@ public class GoodsServiceImpl implements GoodsService {
 		
 		return list;
 		
-		
 	}
 
 	@Override
