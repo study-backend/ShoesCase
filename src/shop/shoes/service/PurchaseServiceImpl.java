@@ -3,6 +3,8 @@ package shop.shoes.service;
 import java.sql.SQLException;
 import java.util.List;
 
+import shop.shoes.dao.PurchaseDAO;
+import shop.shoes.dao.PurchaseDAOImpl;
 import shop.shoes.model.GoodsDTO;
 import shop.shoes.model.PurchaseBasketDTO;
 import shop.shoes.model.PurchaseBasketPaymentDTO;
@@ -32,7 +34,10 @@ public class PurchaseServiceImpl implements PurchaseService {
 	}
 	
 	public List<PurchaseGoodsDTO> selectOrderHistory(long accountId) throws SQLException{
+		PurchaseDAO purchaseDAO = new PurchaseDAOImpl();
+		List<PurchaseGoodsDTO> list = purchaseDAO.selectOrderHistory(accountId);
 		
-		return null;
+		
+		return list;
 	}
 }
