@@ -39,7 +39,10 @@
 	#basketimg{position:absolute; right:75px; top:106px; width:50px; height:50px;}
 	
 	/* cart */
-	#carthead{margin:auto; margin-left:570px; margin-bottom:20px; }
+	#carthead{margin:auto; margin-left:570px; margin-bottom:20px;}
+	table{border-spacing:0;}
+	th{border-top-color:#5F0080}
+	#all_select{width:200px; height:50px}
 	button{
 	 float: left;
     width: 88px;
@@ -48,7 +51,7 @@
     padding-bottom: 2px;
     border: 1px solid #5f0080;
     background-color: #fff;
-    color: #5f0080;
+    color: #5F0080;
     letter-spacing: -0.3px;
     text-align: center;
     }
@@ -97,21 +100,28 @@ table, th, td {border: 1px solid black; width:"100%" }
 							<div id="carthead"> 
 							<h1>장바구니</h1>
 							</div>
-							<table>
+							<colgroup>
+								<col style="width: 375px;">
+								<col style="width: 432px;">
+								<col style="width: 115px;">
+								<col style="width: 110px;">
+								<col style="width: auto;">
+							</colgroup>
+							<thead>
 								<tr>
-									<th id="thSelect"><div class="all_select">
-											<label class="label_check"><input type="checkbox"
-												name="allCheck" class="ico_check"></label> <span class="tit">
-												전체선택 (<span class="num_count">0</span>/<span
-												class="num_total">0</span>)
-											</span>
-										</div></th>
+									<th id="thselect"><div id="all_select">
+											<label class="label_check"><input type="checkbox" name="allCheck" class="ico_check"></label> 
+												<span class="tit">전체선택 
+												(<span class="num_count">0</span>/<span class="num_total">0</span>)
+												</span>
+										</div>
+									</th>
 									<th id="thInfo">상품 정보</th>
 									<th id="thCount">수량</th>
 									<th id="thCost">상품금액</th>
 									<th id="thDelete"><span class="screen_out">삭제선택</span></th>
 								</tr>
-							</table>
+							</thead>
 						</table>
 						<div id="viewGoods">
 						<hr>

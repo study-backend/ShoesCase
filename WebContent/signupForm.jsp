@@ -13,7 +13,7 @@
 	}
 	#centerWindow { position:absolute; width:100px; height:100px; top:50%; left:50%; margin-top:-50px; margin-left:-50px; }
 
-table, th, td {border: 1px solid black; width:"100%" }
+table, th, td {border: 1px solid black; width:"100%";}
 </style>
 </head>
 <body>
