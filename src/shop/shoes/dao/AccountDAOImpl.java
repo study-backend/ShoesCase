@@ -172,5 +172,44 @@ public class AccountDAOImpl implements AccountDAO {
 		}
 		return account;
 	}
-	
+
+	//
+	@Override
+	public int idFind(String name, String email) throws Exception {
+		Connection con = null;
+		PreparedStatement ps = null;
+		int result =0;
+		String sql = "select LOGIN_ID from ACCOUNT where NAME=?, EMAIL=?";
+		
+		try {
+			con = DbUtil.getConnection();
+			ps = con.prepareStatement(sql);
+			ps.setString(1, name);
+			ps.setString(2, email);
+			result = ps.executeUpdate();
+		}finally {
+			DbUtil.dbClose(ps, con);
+		}
+		return result;
+	}
+
+	@Override
+	public int pwdFind(String name, String loginId, String email) throws Exception{
+		Connection con = null;
+		PreparedStatement ps = null;
+		int result =0;
+		String sql = "select LOGIN_PWD from ACCOUNT where NAME=?, LOGIN_ID=?, EMAIL=?";
+		
+		try {
+			con = DbUtil.getConnection();
+			ps = con.prepareStatement(sql);
+			ps.setString(1, name);
+			ps.setString(2, loginId);
+			ps.setString(3, email);
+			result = ps.executeUpdate();
+		}finally {
+			DbUtil.dbClose(ps, con);
+		}
+		return result;
+	}
 }

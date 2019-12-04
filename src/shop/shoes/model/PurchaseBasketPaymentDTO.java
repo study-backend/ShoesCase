@@ -1,6 +1,6 @@
 package shop.shoes.model;
 
-public class PurchaseBasketPayment {
+public class PurchaseBasketPaymentDTO {
 	private int purchaseBasketId;
 	private int paymentType;
 	private int price;
@@ -10,9 +10,9 @@ public class PurchaseBasketPayment {
 	private String createDate;
 	private String updateDate;
 	
-	public PurchaseBasketPayment() {}
+	public PurchaseBasketPaymentDTO() {}
 
-	public PurchaseBasketPayment(int purchaseBasketId, int paymentType, int price, String recieverName,
+	public PurchaseBasketPaymentDTO(int purchaseBasketId, int paymentType, int price, String recieverName,
 			String recieverPhone, String deliveryComment, String createDate, String updateDate) {
 		super();
 		this.purchaseBasketId = purchaseBasketId;

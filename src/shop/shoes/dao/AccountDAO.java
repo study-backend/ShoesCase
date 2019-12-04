@@ -34,4 +34,14 @@ public interface AccountDAO {
 	
 	// 로그인 확인
 	AccountDTO selectById(long accountId) throws Exception;
+	
+	/**
+	 * 아이디 찾기
+	 * */
+	int idFind(String name, String email) throws Exception;
+	
+	/**
+	 * 비밀번호 찾기
+	 * */
+	int pwdFind(String name, String loginId, String email) throws Exception;
 }

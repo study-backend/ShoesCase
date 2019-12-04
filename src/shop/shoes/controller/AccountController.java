@@ -21,7 +21,12 @@ public class AccountController implements Controller{
 		//System.out.println(uri);
 		
 		// json 변환이 필요함
+<<<<<<< HEAD
+=======
+		String route = request.getParameter("route");
+>>>>>>> branch 'master' of https://github.com/study-backend/ShoesCase.git
 		String data = request.getParameter("data");
+		System.out.println(route);
 		
 		// return 에 대한 부분 필요 
 		String result = "";
@@ -31,24 +36,54 @@ public class AccountController implements Controller{
 
 			case "get": {
 
-				switch(data) {
+				switch(route) {
 				
+<<<<<<< HEAD
+=======
+
+>>>>>>> branch 'master' of https://github.com/study-backend/ShoesCase.git
 					// 로그인
 					case "account": {	
 						AccountDTO account = new AccountDTO();
 						accountService.signin(account);
 						break;
 					}
+					
+					case "findId" : {
+						String name = request.getParameter("name");
+						String email = request.getParameter("email");
+						accountService.idFind(name, email);
+					}
+					
+					case "findPwd" : {
+						String name = request.getParameter("name");
+						String loginId = request.getParameter("loginId");
+						String email = request.getParameter("email");
+						accountService.pwdFind(name, loginId, email);
+					}
+
 				}
 
 				break;
 			}
 			case "post": {
 				
-				switch(data) {
+				switch(route) {
 				
+<<<<<<< HEAD
+=======
+					// 로그인
+					case "loginin": {	
+						
+						AccountDTO account = new AccountDTO();
+						accountService.signin(account);
+						break;
+					}
+					
+>>>>>>> branch 'master' of https://github.com/study-backend/ShoesCase.git
 					// 회원 가입
 					case "account": {	
+						
 						AccountDTO account = new AccountDTO();
 						accountService.signUp(account);
 						break;
@@ -59,7 +94,7 @@ public class AccountController implements Controller{
 			}
 			case "patch" : {
 				
-				switch(data) {
+				switch(route) {
 				
 					// 회원정보 수정
 					case "account": {	
@@ -73,7 +108,7 @@ public class AccountController implements Controller{
 			}
 			case "delete" : {
 				
-				switch(data) {
+				switch(route) {
 				
 					// 회원정보 삭제
 					case "account": {	

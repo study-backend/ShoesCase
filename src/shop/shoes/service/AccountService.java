@@ -17,11 +17,7 @@ public interface AccountService {
 	 * */
 	public int signUp(AccountDTO account) throws Exception;
 	
-	/**
-	 * 패스워드 찾기
-	 * 
-	 * */
-	public int findPassword(AccountDTO account) throws Exception;
+
 	
 	/**
 	 * 회원정보 수정
@@ -35,6 +31,14 @@ public interface AccountService {
 	
 	// 세션 만료 확인 
 	
+	/**
+	 * 아이디 찾기
+	 * */
+	public int idFind(String name, String email) throws Exception;
 	
-	// ???
+	/**
+	 * 비밀번호 찾기
+	 * */
+	public int pwdFind(String name, String loginId, String email) throws Exception;
+
 }

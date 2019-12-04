@@ -58,12 +58,16 @@ public class GoodsServiceImpl implements GoodsService {
 
 	@Override
 	public GoodsDetailDTO goodsDetail(GoodsDTO goods) throws Exception {
+<<<<<<< HEAD
 		
 		
 		
 		
 		
 		
+=======
+		// TODO Auto-generated method stub
+>>>>>>> branch 'master' of https://github.com/study-backend/ShoesCase.git
 		return null;
 	}
 
