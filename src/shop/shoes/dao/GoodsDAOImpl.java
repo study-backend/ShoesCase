@@ -37,6 +37,32 @@ public class GoodsDAOImpl implements GoodsDAO {
 		}
 		return list;
 	}
+	
+	@Override
+	public List<GoodsDTO> selectByCatagoryId(long categoryId) throws SQLException {
+		Connection con = null;
+		PreparedStatement ps = null;
+		ResultSet rs = null;
+		GoodsDTO goodsDto = null;
+		List<GoodsDTO> list = new ArrayList<GoodsDTO>();
+		String sql = "select PRICE, NAME, IMG_PATH  from GOODS G1 INNER JOIN CATEGORY_MAP G2 ON "
+				+ " G1.GOODS_ID = G2.CATEGORY_ID INNER JOIN CATEGORY G3 ON G2.CATEGORY_ID = G3.CATEGORY_ID where G3.ID=?";
+		try {
+			con = DbUtil.getConnection();
+			ps= con.prepareStatement(sql);
+			ps.setLong(1, categoryId);
+			rs = ps.executeQuery();
+			
+			while(rs.next()) {
+				goodsDto = new GoodsDTO(rs.getDouble(1), rs.getString(2), rs.getString(3)); //생성자 오버로딩 했음
+				list.add(goodsDto);
+			}
+		}
+		finally {
+			DbUtil.dbClose(rs, ps, con);
+		}
+		return list;
+	}
 
 	@Override
 	public GoodsDTO selectOneProduct(long goodsId) throws SQLException {
@@ -64,5 +90,12 @@ public class GoodsDAOImpl implements GoodsDAO {
 		}
 		return goodsDto;
 	}
+
+	@Override
+	public List<GoodsDTO> selectByVersionId(long versionId) throws SQLException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 
 }

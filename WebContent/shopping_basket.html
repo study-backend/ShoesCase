@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+<style type="text/css">
+	
+	#product {width:1000px; margin:auto; text-align:center;}
+	#product table{display:inline-block;}
+	#product table th {background-color:#CBA3E9; width:700px; height:35px; font-size:20px; color:white;}
+	#product table td {background-color:#F5F5F5;}
+	
+	#product table td:nth-child(1){width:10%;}
+	#product table td:nth-child(2){width:30%;}
+	#product table td:nth-child(3){width:20%;}
+	#product table td:nth-child(4){width:10%;}
+	#product table td:nth-child(5){width:20%;}
+	#product table td:nth-child(6){width:10%;}
+	
+	button{width:200px; height:50px; color:white; background-color:#CBA3E9; border-radius:5px;}
+	
+</style>
+</head>
+<body>
+	<div id="product">
+		<table>
+			<tr>
+				<th colspan='6'>장바구니</th>
+			</tr>
+			<tr>
+				<td>전체선택</td>
+				<td>사진</td>
+				<td>이름</td>
+				<td>수량</td>
+				<td>금액</td>
+				<td>삭제</td>
+			</tr>
+		</table>
+		<div>
+			총 결제액: <input type="text">	
+		</div>
+		
+		<button type="button">주문하기</button>
+</body>
+</html>

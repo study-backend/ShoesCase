@@ -49,9 +49,10 @@ $(document).ready(function(){
 	/* goods */
 	#goods {width:1200px; height:700px; margin:auto;}
 	#goods h2 {width:1200px; height:80px; text-align:center; }
-	#goods ul li {width:230px; height:500px; border:1px solid blue; margin-left:40px; float:left;}
-	#goods #list_goods div{width:230px; height:350px; background-color:red;}
+	#goods ul li {width:230px; height:500px; margin-left:40px; float:left;   }
+	#goods #list_goods div{width:230px; height:350px;   display:flex; overflow:hidden; align-items:center; justify-content:center;}
 	#goods #list_goods #gL_a {font-size:30px; display:block;}
+	
 	
 	/* md */
 	#md {width:1200px; height:700px; margin:auto;}
@@ -105,23 +106,39 @@ $(document).ready(function(){
 		<div id="list_goods">
 			<ul>
 				<li class="gL">
-					<a href="#"><div></div></a>
+					<a href="#">
+					<div>
+						<img src="image/mainImage/big.jpg">
+					</div>
+					</a>
 					<a href="#" id="gL_a">나이키</a>
 					<span>20,000원</span>	
 				</li>
 				<li class="gL">
-					<a href="#"><div></div></a>
+					<a href="#">
+						<div>
+							<img src="image/mainImage/boston.jpg">
+						</div>
+					</a>
 					<a href="#" id="gL_a">아디다스</a>
 					<span>20,000원</span>	
 				</li>
 				<li class="gL">
-					<a href="#"><div></div></a>
-					<a href="#" id="gL_a">퓨마</a>
+					<a href="#">
+						<div>
+							<img src="image/mainImage/andy.png">
+						</div>
+					</a>
+					<a href="#" id="gL_a">아디다스</a>
 					<span>20,000원</span>	
 				</li>
 				<li class="gL">
-					<a href="#"><div></div></a>
-					<a href="#" id="gL_a">반스</a>
+					<a href="#">
+						<div>
+							<img src="image/mainImage/ferry.jpg">
+						</div>
+					</a>
+					<a href="#" id="gL_a">아디다스</a>
 					<span>20,000원</span>	
 				</li>
 			</ul>

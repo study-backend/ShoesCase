@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import shop.shoes.model.ReviewDTO;
+import shop.shoes.model.dto.GoodsReviewDTO;
 import shop.util.DbUtil;
 
 public class ReviewDAOImpl implements ReviewDAO {
@@ -126,26 +127,27 @@ public class ReviewDAOImpl implements ReviewDAO {
 	}
 
 	@Override
-	public ReviewDTO selectByReviewId(int reviewId) throws SQLException {
+	public List<ReviewDTO> selectByGoodId(long goodsId) throws SQLException {
 		Connection con = null;
 		PreparedStatement ps = null;
 		ResultSet rs = null;
-		ReviewDTO reviewDTO = null;
-		String sql = "select * from review where review_id=?";
+		List<ReviewDTO> list = new ArrayList<ReviewDTO>();
+		String sql = "select * from review WHERE goodsId = ?";
 		try {
 			con = DbUtil.getConnection();
 			ps= con.prepareStatement(sql);
+			ps.setLong(1, goodsId);
 			rs = ps.executeQuery();
 			
 			
 			
-			if(rs.next()) {
+			while(rs.next()) {
 				/**	dto 생성자로 받는 파라미터 8개
 				 * 	int reviewId, int goodsId, int accountId,  String title, String content,
 					int score, String createDate, String updateDate 
 				 */
-				reviewDTO = new ReviewDTO(rs.getInt(1), rs.getInt(2), rs.getInt(3), rs.getString(4), rs.getString(5),
-						rs.getInt(6), rs.getString(7), rs.getString(8));
+				list.add(new ReviewDTO(rs.getInt(1), rs.getInt(2), rs.getInt(3), rs.getString(4), rs.getString(5),
+						rs.getInt(6), rs.getString(7), rs.getString(8)));
 				
 			}
 			
@@ -154,7 +156,13 @@ public class ReviewDAOImpl implements ReviewDAO {
 			DbUtil.dbClose(rs, ps, con);
 			
 		}
-		return reviewDTO;
+		return list;
+	}
+
+	@Override
+	public ReviewDTO selectByReviewId(int reviewId) throws SQLException {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }

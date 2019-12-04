@@ -33,23 +33,26 @@ public interface GoodsService {
 	 * @throws Exception 
 	 * 
 	 * */
-	public GoodsMainDTO goodsMain(GoodsVersionDTO version) throws Exception; 
+	public GoodsMainDTO goodsMain() throws Exception; 
 	
 	/**
 	 * ��ǰ ī�װ����� ���
 	 * @throws Exception
 	 * */
-	public List<GoodsDTO> goodsSub(CategoryDTO category) throws Exception;
+	public List<GoodsDTO> goodsSub(long categoryId) throws Exception;
 	
 <<<<<<< HEAD
-
-	public GoodsDetailDTO goodsDetail(GoodsDTO goods) throws Exception ;
 =======
+	public GoodsDetailDTO goodsDetail(long goodsId) throws Exception;
+>>>>>>> branch 'master' of https://github.com/study-backend/ShoesCase.git
+
+<<<<<<< HEAD
 	/**
 	 * ��ǰ ��ȭ�� ���
 	 * @throws Exception
 	 * */
 	public GoodsDetailDTO goodsDetail(GoodsDTO goods) throws Exception;
+=======
 >>>>>>> branch 'master' of https://github.com/study-backend/ShoesCase.git
 	
 	/**

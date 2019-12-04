@@ -7,7 +7,15 @@ public class PuchaseController implements Controller {
 
 	@Override
 	public ModelAndView handleRequest(HttpServletRequest request, HttpServletResponse response) throws Exception {
-		// TODO Auto-generated method stub
+
+		//구매로직
+		//[1] 계정정보를 알아온다 
+		
+		//[2] 바스켓 정보를 입력해준다 
+		
+		//[3] 
+		
+		
 		return null;
 	}
 
