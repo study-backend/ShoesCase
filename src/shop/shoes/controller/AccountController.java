@@ -21,8 +21,9 @@ public class AccountController implements Controller{
 		//System.out.println(uri);
 		
 		// json 변환이 필요함
+		String route = request.getParameter("route");
 		String data = request.getParameter("data");
-		System.out.println(data);
+		System.out.println(route);
 		
 		// return 에 대한 부분 필요 
 		String result = "";
@@ -32,8 +33,9 @@ public class AccountController implements Controller{
 
 			case "get": {
 
-				switch(data) {
+				switch(route) {
 				
+
 					// 로그인
 					case "account": {	
 						AccountDTO account = new AccountDTO();
@@ -53,16 +55,26 @@ public class AccountController implements Controller{
 						String email = request.getParameter("email");
 						accountService.pwdFind(name, loginId, email);
 					}
+
 				}
 
 				break;
 			}
 			case "post": {
 				
-				switch(data) {
+				switch(route) {
 				
+					// 로그인
+					case "loginin": {	
+						
+						AccountDTO account = new AccountDTO();
+						accountService.signin(account);
+						break;
+					}
+					
 					// 회원 가입
 					case "account": {	
+						
 						AccountDTO account = new AccountDTO();
 						accountService.signUp(account);
 						break;
@@ -73,7 +85,7 @@ public class AccountController implements Controller{
 			}
 			case "patch" : {
 				
-				switch(data) {
+				switch(route) {
 				
 					// 회원정보 수정
 					case "account": {	
@@ -87,7 +99,7 @@ public class AccountController implements Controller{
 			}
 			case "delete" : {
 				
-				switch(data) {
+				switch(route) {
 				
 					// 회원정보 삭제
 					case "account": {	
