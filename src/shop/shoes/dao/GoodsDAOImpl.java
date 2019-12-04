@@ -39,7 +39,7 @@ public class GoodsDAOImpl implements GoodsDAO {
 	}
 
 	@Override
-	public List<GoodsDTO> selectOneProduct(long goodsId) throws SQLException {
+	public GoodsDTO selectOneProduct(long goodsId) throws SQLException {
 		Connection con = null;
 		PreparedStatement ps = null;
 		ResultSet rs = null;
@@ -62,7 +62,7 @@ public class GoodsDAOImpl implements GoodsDAO {
 		finally {
 			DbUtil.dbClose(rs, ps, con);
 		}
-		return list;
+		return goodsDto;
 	}
 
 }

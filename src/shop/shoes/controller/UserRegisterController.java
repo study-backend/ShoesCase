@@ -54,5 +54,4 @@ public class UserRegisterController implements Controller{
 		ModelAndView mv = new ModelAndView(path+"/main.html", true);
 		return mv;
 	}
-	//회원가입
 }
