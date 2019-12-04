@@ -27,7 +27,7 @@ public class ReviewDAOImpl implements ReviewDAO {
 			
 			
 			while(rs.next()) {
-				/**	dto »ı¼ºÀÚ·Î ¹Ş´Â ÆÄ¶ó¹ÌÅÍ 8°³
+				/**	dto ìƒì„±ìë¡œ ë°›ëŠ” íŒŒë¼ë¯¸í„° 8ê°œ
 				 * 	int reviewId, int goodsId, int accountId,  String title, String content,
 					int score, String createDate, String updateDate 
 				 */

@@ -12,16 +12,16 @@ public interface PurchaseDAO {
 
 	
 	/**
-	 * Àå¹Ù±¸´Ï¿¡¼­ ±¸¸ÅÇÏ±â ´­·¶À» ¶§ ÆäÀÌÁö
-	 * 1. ¼±ÅÃÇÑ »óÇ° Á¤º¸ Á¶È¸(select)
+	 * ìž¥ë°”êµ¬ë‹ˆì—ì„œ êµ¬ë§¤í•˜ê¸° ëˆŒë €ì„ ë•Œ íŽ˜ì´ì§€
+	 * 1. ì„ íƒí•œ ìƒí’ˆ ì •ë³´ ì¡°íšŒ(select)
 	 * 
-	 * 2. ÁÖ¹®ÀÚ Á¤º¸ Á¶È¸(select)
+	 * 2. ì£¼ë¬¸ìž ì •ë³´ ì¡°íšŒ(select)
 	 * 
-	 * 3. ¹Þ´ÂÀÌ Á¤º¸
+	 * 3. ë°›ëŠ”ì´ ì •ë³´
 	 * 
-	 * 4. °áÁ¦¼ö´Ü (ÃÑ±Ý¾× Ãâ·Â µÇ°í ¹Ø¿¡ °áÁ¦¼ö´Ü)
+	 * 4. ê²°ì œìˆ˜ë‹¨ (ì´ê¸ˆì•¡ ì¶œë ¥ ë˜ê³  ë°‘ì— ê²°ì œìˆ˜ë‹¨)
 	 * */
-	List<PurchaseGoods> selectProduct(String billKey) throws SQLException; //¼±ÅÃÇÑ »óÇ° Á¤º¸ Á¶È¸(select)
+	List<PurchaseGoods> selectProduct(String billKey) throws SQLException; //ì„ íƒí•œ ìƒí’ˆ ì •ë³´ ì¡°íšŒ(select)
 	
 	AccountDTO selectOrderer() throws SQLException;
 	
@@ -32,18 +32,18 @@ public interface PurchaseDAO {
 	
 	
 	/**
-	 * Àå¹Ù±¸´Ï Á¶È¸(select)
+	 * ìž¥ë°”êµ¬ë‹ˆ ì¡°íšŒ(select)
 	 * */
 	List<GoodsDTO> selectAllBasket(String billKey) throws SQLException;
 	
 	
 	/**
-	 * Àå¹Ù±¸´Ï »èÁ¦(delete) Á¦Ç° ¾ÆÀÌµð ¸¶´Ù »èÁ¦ °¡´ÉÇÏ°ÚÁö??
+	 * ìž¥ë°”êµ¬ë‹ˆ ì‚­ì œ(delete) ì œí’ˆ ì•„ì´ë”” ë§ˆë‹¤ ì‚­ì œ ê°€ëŠ¥í•˜ê² ì§€??
 	 * */
 	int deleteBasket(GoodsDTO goods) throws SQLException;
 	
 	/**
-	 * ¸¶ÀÌÄÃ¸®¿¡¼­ ÁÖ¹®³»¿ª Á¶È¸
+	 * ë§ˆì´ì»¬ë¦¬ì—ì„œ ì£¼ë¬¸ë‚´ì—­ ì¡°íšŒ
 	 * */
 	List<PurchaseGoods> selectOrderHistory(AccountDTO account) throws SQLException;
 	

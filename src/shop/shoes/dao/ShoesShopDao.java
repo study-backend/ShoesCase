@@ -2,6 +2,6 @@ package shop.shoes.dao;
 
 public interface ShoesShopDao {
 	/**
-	 * ´Ù¿À¿¡¼­ ¸¸µé ±â´Éµé ....
+	 * ë‹¤ì˜¤ì—ì„œ ë§Œë“¤ ê¸°ëŠ¥ë“¤ ....
 	 */
 }

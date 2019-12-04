@@ -50,11 +50,11 @@ public class DispatcherServlet extends HttpServlet {
 
 		   
 		   System.out.println(mv.getViewName());
-		   System.out.println("ÀÌµ¿ÇÏÀÚ");
+		   System.out.println("ì´ë™í•˜ì");
 		   
-		   if(mv.isRedirect()) {//redirect¹æ½Ä
+		   if(mv.isRedirect()) {//redirectë°©ì‹
 				response.sendRedirect("NewFile.html");
-			}else {//forwardÀÌµ¿
+			}else {//forwardì´ë™
 				request.getRequestDispatcher(mv.getViewName()).forward(request, response);
 			}
 		

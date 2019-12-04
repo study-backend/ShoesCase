@@ -9,14 +9,14 @@ import shop.shoes.model.GoodsDTO;
 public interface GoodsDAO {
 
 	/**
-	 * Ä«Å×°í¸® Å¬¸¯ ½Ã ÇØ´çÇÏ´Â ½Å¹ß »óÇ° Á¶È¸(select)
-	 * º¸¿©ÁÙ ¼Ó¼º : »óÇ°ÀÌ¸§, »óÇ°»çÁø, »óÇ°°¡°Ý
+	 * ì¹´í…Œê³ ë¦¬ í´ë¦­ ì‹œ í•´ë‹¹í•˜ëŠ” ì‹ ë°œ ìƒí’ˆ ì¡°íšŒ(select)
+	 * ë³´ì—¬ì¤„ ì†ì„± : ìƒí’ˆì´ë¦„, ìƒí’ˆì‚¬ì§„, ìƒí’ˆê°€ê²©
 	 * */
 	List<GoodsDTO> selectByCatagory(String categoryName) throws SQLException;
 	
 	/**
-	 * »óÇ° »çÁø Å¬¸¯½Ã »ó¼¼ ÆäÀÌÁö¿¡¼­ »óÇ°¿¡´ëÇÑ Á¤º¸ select
-	 * ÀÛÀº ÀÌ¹ÌÁö »çÁø, »óÇ°ÀÌ¸§, »ö»ó, °¡°Ý, »çÀÌÁî, ¼ö·®, ÃÑ°¡°Ý, Å«ÀÌ¹ÌÁö »çÁø
+	 * ìƒí’ˆ ì‚¬ì§„ í´ë¦­ì‹œ ìƒì„¸ íŽ˜ì´ì§€ì—ì„œ ìƒí’ˆì—ëŒ€í•œ ì •ë³´ select
+	 * ìž‘ì€ ì´ë¯¸ì§€ ì‚¬ì§„, ìƒí’ˆì´ë¦„, ìƒ‰ìƒ, ê°€ê²©, ì‚¬ì´ì¦ˆ, ìˆ˜ëŸ‰, ì´ê°€ê²©, í°ì´ë¯¸ì§€ ì‚¬ì§„
 	 * */
 	GoodsDTO selectOneProduct(long goodsId) throws SQLException;
 	

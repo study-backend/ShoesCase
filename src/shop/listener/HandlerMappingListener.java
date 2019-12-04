@@ -26,16 +26,16 @@ public class HandlerMappingListener implements ServletContextListener {
     	
     	Map<String, Controller> map = new HashMap<String, Controller>();
     	
-        //¿ÜºÎ propertiesÆÄÀÏ ·Îµù
-    	//ResourceBundle´Â properties ÀĞ¾î¿À´Â Àü¿ë Å¬·¡½º·Î¼­
-    	//È®ÀåÀÚ´Â »ı·«ÇÑ´Ù.
+        //ì™¸ë¶€ propertiesíŒŒì¼ ë¡œë”©
+    	//ResourceBundleëŠ” properties ì½ì–´ì˜¤ëŠ” ì „ìš© í´ë˜ìŠ¤ë¡œì„œ
+    	//í™•ì¥ìëŠ” ìƒëµí•œë‹¤.
     	ResourceBundle rb = ResourceBundle.getBundle(fileName);
     	Set<String> keys = rb.keySet();
     	try {
 	    	for(String key : keys) {
 	    		String value = rb.getString(key);
 	    		//System.out.println(key+" = " + value);
-	    		//StringÀ» -> °´Ã¼·Î »ı¼ºÇÑ´Ù.
+	    		//Stringì„ -> ê°ì²´ë¡œ ìƒì„±í•œë‹¤.
 	    	  Controller con=
 	    	   (Controller)Class.forName(value).newInstance();
 	    		//System.out.println(con);

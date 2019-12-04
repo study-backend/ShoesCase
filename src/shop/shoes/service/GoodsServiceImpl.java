@@ -6,7 +6,11 @@ import java.util.List;
 
 import shop.shoes.dao.GoodsDAO;
 import shop.shoes.dao.GoodsDAOImpl;
+import shop.shoes.model.CategoryDTO;
 import shop.shoes.model.GoodsDTO;
+import shop.shoes.model.GoodsVersionDTO;
+import shop.shoes.model.dto.GoodsDetailDTO;
+import shop.shoes.model.dto.GoodsMainDTO;
 
 public class GoodsServiceImpl implements GoodsService {
 
@@ -37,6 +41,42 @@ public class GoodsServiceImpl implements GoodsService {
 			//dto가 검색 없음 or 다른이유로 에러
 		}
 		return goodsDTO;
+	}
+
+	@Override
+	public GoodsMainDTO goodsMain(GoodsVersionDTO version) throws Exception {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<GoodsDTO> goodsSub(CategoryDTO category) throws Exception {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public GoodsDetailDTO goodsDetail(GoodsDTO goods) throws Exception {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public int insertGoodsList() throws Exception {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public int updateGoods(GoodsDTO goods) throws Exception {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public int deleteGoods(GoodsDTO goods) throws Exception {
+		// TODO Auto-generated method stub
+		return 0;
 	}
 
 }
