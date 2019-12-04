@@ -22,6 +22,7 @@ public class AccountController implements Controller{
 		
 		// json 변환이 필요함
 		String data = request.getParameter("data");
+		System.out.println(data);
 		
 		// return 에 대한 부분 필요 
 		String result = "";

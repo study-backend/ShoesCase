@@ -18,8 +18,7 @@ public class GoodsDTO {
     private String updateDate;
     private int totalPrice;
     
-    private CategoryMapDTO categoryMap;
-    private CategoryDTO category;
+    private long categoryId;
     
     public GoodsDTO() { }
     
@@ -241,27 +240,14 @@ public class GoodsDTO {
 	}
 
 
-
-	public CategoryMapDTO getCategoryMap() {
-		return categoryMap;
+	public long getCategoryId() {
+		return categoryId;
 	}
 
 
 
-	public void setCategoryMap(CategoryMapDTO categoryMap) {
-		this.categoryMap = categoryMap;
-	}
-
-
-
-	public CategoryDTO getCategory() {
-		return category;
-	}
-
-
-
-	public void setCategory(CategoryDTO category) {
-		this.category = category;
+	public void setCategory(long categoryId) {
+		this.categoryId = categoryId;
 	}
 
 

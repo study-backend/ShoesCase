@@ -13,7 +13,7 @@ $(document).ready(function(){
 	setInterval(function(){
 		$('#section').append($('#section div').first());
 		$('#section div').last().hide();
-		$('#section div').first().fadeIn().show();
+		$('#section div').first().show();
 	}, 3000);
 }) 
 </script>
@@ -32,7 +32,7 @@ $(document).ready(function(){
 	/* nav */	
 	#nav{width:1200px; height:50px; border:1px solid blue; margin:auto; position: sticky; top: 0;}
 	#nav ul .mL{width:100px; height:50px; margin-left:30px; float:left;}
-	#nav .main>li:hover .sub{display:block;}
+	#nav .main>li:hover .sub{display:block; }
 	#nav .main .sub {position:absolute;  height:50px; top:50px; left:40px; display:none;}
 	#nav .main .sub li {width:60px;}
 	
