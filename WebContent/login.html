@@ -23,7 +23,7 @@
 	#header{width:1254px; height:180px; /* border:1px solid red; */ margin:auto;}
 	#usermenu{width:1050px; height:37px; margin-left:162px; margin-right:40px;}
 	#headerlogo{width:1050px; height:63px; margin-left:102px; margin-right:102px; position: relative;}
-	#logo {display: block; width:200px; height:80px; margin-left:450px; margin-right:500px; margin-bottom: 20px }
+	#logo {display: block; width:200px; height:80px; margin-left:440px; margin-right:500px; margin-bottom: 20px }
 	#headerul {float:right;}
 	#header ul li {margin-top: 15px; margin-left:10px; float:left;}
 	#gnb{width:1254px; height:56px; /* border:1px solid blue; */ }
@@ -37,13 +37,14 @@
 	/* main */
 	
 	#main{width:355px; height:600px; margin:auto; /* border:1px solid pink; */}
+	#login{height: 100.5px; margin-top: 50px; font-size:30px}
 	#main h3{text-align:center;}
  	#main .log{width:350px; height:50px; border:0; outline:0; border-radius:5px; border:1px solid gray;}
 	#main #search{float:right;}
-	#blogin{width:354px; height:56px; margin-top:20px; color:#FFFFFF; background-color:#5F0080; border-radius:5px; outline:0;}
-	#bsignup{width:354px; height:56px; margin-top:20px; color:#5F0080 ; background-color:#FFFFFF; border-radius:5px; outline:0;}
-	#main button span{font-size:16px; }
-	#login{height: 100.5px; margin-top: 50px; font-size:30px}
+	.m_button{width:354px; height:56px; margin-top:20px; border-radius:5px; outline:0;}
+	#blogin{color:#FFFFFF; background-color:#5F0080;}
+	#bsignup{color:#5F0080 ; background-color:#FFFFFF;}
+	.m_button span{width:354px; height:56px; margin-top:20px;font-size:16px; }
 	/* footer */
 	#footer{width:1254px; height:100px; /* border:1px solid green; */ margin:auto;}
 </style>
@@ -89,8 +90,8 @@
 		<div id="search">
 			<a href="id.html">아이디 찾기</a> | <a href="pw.html">비밀번호 찾기</a>
 		</div>
-		<input type="submit" id="blogin" value="로그인"><span></span></p>
-		<button type="submit" id="bsignup"><span>회원가입</span></button>
+		<button type="submit" class="m_button" id="blogin"><span>로그인</span></button></p>
+		<button type="submit" class="m_button" id="bsignup"><span>회원가입</span></button>
 		</form>
 	</div>
 	<div id="footer">

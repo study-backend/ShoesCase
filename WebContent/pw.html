@@ -23,7 +23,7 @@
 	#header{width:1254px; height:180px; /* border:1px solid red; */ margin:auto;}
 	#usermenu{width:1050px; height:37px; margin-left:162px; margin-right:40px;}
 	#headerlogo{width:1050px; height:63px; margin-left:102px; margin-right:102px; position: relative;}
-	#logo {display: block; width:200px; height:80px; margin-left:450px; margin-right:500px; margin-bottom: 20px }
+	#logo {display: block; width:200px; height:80px; margin-left:440px; margin-right:500px; margin-bottom: 20px }
 	#headerul {float:right;}
 	#header ul li {margin-top: 15px; margin-left:10px; float:left;}
 	#gnb{width:1254px; height:56px; /* border:1px solid blue; */ }
@@ -39,7 +39,6 @@
 	#main{width:355px; height:600px; margin:auto; /* border:1px solid pink; */}
 	#main h3{text-align:center;}
  	#main .log{width:350px; height:50px; border:0; outline:0; border-radius:5px; border:1px solid gray;}
-	#lable{font-size: 10px}
 	#findpwd{width:354px; height:56px; margin-top:20px; color:#FFFFFF; background-color:#5F0080; border-radius:5px; outline:0;}
 	#main button span{font-size:16px; }
 	#login{height: 100.5px; margin-top: 50px; font-size:30px}
@@ -85,13 +84,15 @@
 	<div id="main">
 		<form  method="post" action="#"> 
 		<div id="login"><h3>비밀번호 찾기</h3></div>
-		<label class="label">이름</label> <br>
+		<small><b>이름</b></small> <br>
 		<input type="text" class="log" placeholder="고객님의 이름을 입력해주세요."><br><br>
-		<label class="label">아이디</label> <br>
+		<small><b>아이디<b></b></small> <br>
 		<input type="text" class="log" placeholder="고객님의 아이디를 입력해주세요."><br><br>
-		<label class="label">이메일</label> <br>
+		<small><b>이메일</b></small> <br>
 		<input type="text" class="log" placeholder="가입 시 등록하신 이메일 주소를 입력해주세요."><br><br>
-		<button type="submit" id="findpwd"><span>확인</span></button>
+		<div> 
+			<button type="submit" id="findpwd"><span>확인</span></button>
+		</div>
 		</form>	
 	</div>
 	 
