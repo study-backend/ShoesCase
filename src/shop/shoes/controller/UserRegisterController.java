@@ -56,7 +56,6 @@ public class UserRegisterController implements Controller{
 		mv.setViewName("main.html");
 
 		
-		
 		return mv;
 	}
 }
