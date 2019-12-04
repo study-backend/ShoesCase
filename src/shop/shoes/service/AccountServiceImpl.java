@@ -43,44 +43,19 @@ public class AccountServiceImpl implements AccountService {
 		} else {
 			throw new Exception("계정 추가 실패");
 		}
-		
 		return result;
 	}
 	
-	@Override
-	public int findPassword(AccountDTO account)  throws Exception{
-		int result = 0;
-		AccountDTO acc = accountDAO.selectById(account.getAccountId());
-		if(acc != null) {
-			
-			if(acc.getEmail().equals(account.getEmail()) == true) {
-				
-				// 비밀번호 초기화 이메일 발송 ... 일단 보류 SMTP를 통한 구현 필요
-				result = 1;
-				
-			} else {
-				throw new Exception("이메일이 틀립니다");
-			}
-			
-			
-		} else {
-			throw new Exception("계정이 없습니다");
-		}
-		
-		return result;
-	}
+
 	
 	public int updateUserInfo(AccountDTO account) throws Exception {
 		int result = 0;
 		result = accountDAO.update(account);
 		if(result == 1) {
-			
 			result = 1;
-			
 		} else {
 			throw new Exception("계정 수정 실패");
 		}
-		
 		return result;
 	}
 
@@ -89,13 +64,34 @@ public class AccountServiceImpl implements AccountService {
 		int result = 0;
 		result = accountDAO.delete(account.getAccountId());
 		if(result == 1) {
-			
 			result = 1;
-			
 		} else {
 			throw new Exception("계정 수정 실패");
 		}
-		
+		return result;
+	}
+
+	@Override
+	public int idFind(String name, String email) throws Exception {
+		int result = 0;
+		result = accountDAO.idFind(name, email);
+		if(result == 1) {
+			result = 1;
+		} else {
+			throw new Exception("아이디 찾기 실패");
+		}
+		return result;
+	}
+
+	@Override
+	public int pwdFind(String name, String loginId, String email) throws Exception {
+		int result = 0;
+		result = accountDAO.pwdFind(name, loginId, email);
+		if(result == 1) {
+			result = 1;
+		} else {
+			throw new Exception("비밀번호 찾기 실패");
+		}
 		return result;
 	}
 

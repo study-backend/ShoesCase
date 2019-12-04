@@ -40,6 +40,19 @@ public class AccountController implements Controller{
 						accountService.signin(account);
 						break;
 					}
+					
+					case "findId" : {
+						String name = request.getParameter("name");
+						String email = request.getParameter("email");
+						accountService.idFind(name, email);
+					}
+					
+					case "findPwd" : {
+						String name = request.getParameter("name");
+						String loginId = request.getParameter("loginId");
+						String email = request.getParameter("email");
+						accountService.pwdFind(name, loginId, email);
+					}
 				}
 
 				break;

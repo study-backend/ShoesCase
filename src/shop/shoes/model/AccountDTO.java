@@ -25,8 +25,10 @@ public class AccountDTO {
     public AccountDTO() { }
 
    
-    
-    public AccountDTO(String name, String phone, String email, String addr) {
+
+
+
+	public AccountDTO(String name, String phone, String email, String addr) {
 		super();
 		this.name = name;
 		this.phone = phone;
