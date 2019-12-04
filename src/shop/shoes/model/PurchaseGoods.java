@@ -21,6 +21,15 @@ public class PurchaseGoods {
     
     public PurchaseGoods() {} 
     
+    
+	public PurchaseGoods(String name, double price, String imagPath) {
+		super();
+		this.name = name;
+		this.price = price;
+		this.imagPath = imagPath;
+	}
+
+
 	public PurchaseGoods(long purchaseGoodId, int stateCode, String name, int count, double price, String imagPath,
 			String billKey, long purchaseBasketId, long goodsId, String createDate, String updateDate) {
 		super();

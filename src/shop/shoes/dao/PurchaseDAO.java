@@ -19,15 +19,17 @@ public interface PurchaseDAO {
 	 * 
 	 * 3. 받는이 정보
 	 * 
-	 * 4. 결제수단 
+	 * 4. 결제수단 (총금액 출력 되고 밑에 결제수단)
 	 * */
-	List<PurchaseBasket> selectProduct() throws SQLException; //선택한 상품 정보 조회(select)
+	List<PurchaseGoods> selectProduct(String billKey) throws SQLException; //선택한 상품 정보 조회(select)
 	
-	List<AccountDTO> selectOrderer() throws SQLException;
+	AccountDTO selectOrderer() throws SQLException;
 	
 	int recieverInfo() throws SQLException;
 	
-	int paymentWay() throws SQLException;
+	PurchaseBasket selectTotalPrice(int basketId) throws SQLException;
+	
+	int paymentWay() throws SQLException; 
 	
 	
 	/**
