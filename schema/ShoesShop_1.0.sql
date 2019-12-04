@@ -149,4 +149,4 @@ CREATE TABLE PURCHASE_STATIC(
     SALE_PRICE NUMBER
 );
 
-
+create sequence seq_no_accountId increment by 1;
