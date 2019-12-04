@@ -239,7 +239,8 @@ public class GoodsDTO {
 		this.updateDate = updateDate;
 	}
 
-	public long getCategory() {
+
+	public long getCategoryId() {
 		return categoryId;
 	}
 

@@ -28,21 +28,38 @@ public interface GoodsService {
 
 	GoodsDTO selectOneProduct(long goodsId) throws Exception;
 	
-
+	/**
+	 * ��ǰ ���� ȭ�� ���(����Ȯ���� ���� ���ο��� �ؾ��� ���̴�)
+	 * @throws Exception 
+	 * 
+	 * */
 	public GoodsMainDTO goodsMain(GoodsVersionDTO version) throws Exception; 
 	
-
+	/**
+	 * ��ǰ ī�װ����� ���
+	 * @throws Exception
+	 * */
 	public List<GoodsDTO> goodsSub(CategoryDTO category) throws Exception;
 	
-
+	/**
+	 * ��ǰ ��ȭ�� ���
+	 * @throws Exception
+	 * */
 	public GoodsDetailDTO goodsDetail(GoodsDTO goods) throws Exception;
 	
-
+	/**
+	 * ��ǰ �Է�
+	 * 
+	 * */
 	public int insertGoodsList() throws Exception;
 	
-
+	/**
+	 * (����) ��ǰ ����
+	 * */
 	public int updateGoods(GoodsDTO goods) throws Exception;
 	
-
+	/**
+	 * (����) ��ǰ ����
+	 * */
 	public int deleteGoods(GoodsDTO goods) throws Exception;
 }
