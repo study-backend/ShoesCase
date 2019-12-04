@@ -13,7 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 /**
  * Servlet implementation class DispatcherServlet
  */
-@WebServlet(urlPatterns = {"/front"} , loadOnStartup = 1)
+@WebServlet(urlPatterns = {"/api/v1"} , loadOnStartup = 1)
 public class DispatcherServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	Map<String, Controller> map;
@@ -24,17 +24,37 @@ public class DispatcherServlet extends HttpServlet {
 	}
     
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException  {
-		String key = request.getParameter("key");
+		String key = request.getParameter("resource");
 		System.out.println(key);
+		System.out.println(request.getRequestURI());
+		//System.out.println(request.getRequestURL());
 		
-		if(key==null) key = "login";
+		//String uri = request.getRequestURI();
+		//int length = uri.indexOf("/api/v1/"); 
+		//String fullSentence = uri.substring((length + 8) , uri.length());
+		//int size = fullSentence.indexOf("/");
+		//System.out.println(size);
+		//String resource = null;
+		//if(size <= 0) {
+		//	resource = fullSentence;
+		//} else {
+		//	resource = fullSentence.substring(fullSentence.indexOf("/"));
+		//}
+		//System.out.println(resource);
+		
+		if(key == null) 
+			key = "home";
 		
 		try {
 		   ModelAndView mv = map.get(key).handleRequest(request, response);
+
 		   
-		   if(mv.isRedirect()) {//redirect¹æ½Ä
-				response.sendRedirect(mv.getViewName());
-			}else {//forwardÀÌµ¿
+		   System.out.println(mv.getViewName());
+		   System.out.println("ì´ë™í•˜ìž");
+		   
+		   if(mv.isRedirect()) {//redirectë°©ì‹
+				response.sendRedirect("NewFile.html");
+			}else {//forwardì´ë™
 				request.getRequestDispatcher(mv.getViewName()).forward(request, response);
 			}
 		

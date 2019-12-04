@@ -3,35 +3,41 @@ package shop.shoes.dao;
 import java.sql.SQLException;
 import java.util.List;
 
-import shop.shoes.model.dto.GoodsReviewDTO;
+import shop.shoes.model.ReviewDTO;
 
 public interface ReviewDAO {
 	/**
-	 * ¸®ºä Å×ÀÌºí ÀüÃ¼ select
-	 * º¸¿©ÁÙ ¼Ó¼º(Å×ÀÌºíÀÇ ÇÊµå)
-	 * ¹øÈ£(id), Á¦¸ñ, ³»¿ë, ÀÛ¼ºÀÚ, ÀÛ¼ºÀÏ ¼ø¼­
+	 * ë¦¬ë·° í…Œì´ë¸” ì „ì²´ select
+	 * ë³´ì—¬ì¤„ ì†ì„±(í…Œì´ë¸”ì˜ í•„ë“œ)
+	 * ë²ˆí˜¸(id), ì œëª©, ë‚´ìš©, ì‘ì„±ì, ì‘ì„±ì¼ ìˆœì„œ
 	 */
-	List<GoodsReviewDTO> selectAll() throws SQLException;
+	List<ReviewDTO> selectAll() throws SQLException;
 	
 	/**
-	 * ÈÄ±â ÀÛ¼º
-	 * ¹øÈ£, ÀÛ¼ºÀÏ, ÀÛ¼ºÀÚ ÀÚµ¿»ı¼º
-	 * Á¦¸ñ, ³»¿ë¸¸ Àû¾î¼­ ÀÛ¼º
+	 * í›„ê¸° ì‘ì„±
+	 * ë²ˆí˜¸, ì‘ì„±ì¼, ì‘ì„±ì ìë™ìƒì„±
+	 * ì œëª©, ë‚´ìš©ë§Œ ì ì–´ì„œ ì‘ì„±
 	 * 
 	 */
-	int insert(GoodsReviewDTO reviewDto) throws SQLException;
+	int insert(ReviewDTO reviewDto) throws SQLException;
 	
 	
 	/**
-	 * ¼öÁ¤
-	 * Á¦¸ñ, ³»¿ë ¼öÁ¤
+	 * ìˆ˜ì •
+	 * ì œëª©, ë‚´ìš© ìˆ˜ì •
 	 */
-	int update(GoodsReviewDTO reviewDto) throws SQLException;
+	int update(ReviewDTO reviewDto) throws SQLException;
 	
 	
 	/**
-	 * »èÁ¦
+	 * ì‚­ì œ
 	 */
 	int delete(int reviewId) throws SQLException;
+	
+	/**
+	 * reviewIdë¥¼ í†µí•œ reviewDTO í•˜ë‚˜ ê²€ìƒ‰(ìˆ˜ì • ì‚­ì œë¥¼ ìœ„í•´)
+	 * 
+	 */
+	ReviewDTO selectByReviewId(int reviewId) throws SQLException;
 	
 }

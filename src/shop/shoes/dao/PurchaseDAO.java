@@ -1,26 +1,72 @@
 package shop.shoes.dao;
 
+import java.sql.SQLException;
+import java.util.List;
+
+import shop.shoes.model.AccountDTO;
+import shop.shoes.model.GoodsDTO;
+import shop.shoes.model.PurchaseBasketDTO;
+import shop.shoes.model.PurchaseBasketPaymentDTO;
+import shop.shoes.model.PurchaseGoodsDTO;
 
 public interface PurchaseDAO {
 
 	/**
-	 * Àå¹Ù±¸´Ï¿¡¼­ ±¸¸ÅÇÏ±â ´­·¶À» ¶§ ÆäÀÌÁö
-	 * 1. ¼±ÅÃÇÑ »óÇ° Á¤º¸ Á¶È¸(select)
+	 * ì¥ë°”êµ¬ë‹ˆì—ì„œ êµ¬ë§¤í•˜ê¸° ëˆŒë €ì„ ë•Œ í˜ì´ì§€
+	 * 1. ì„ íƒí•œ ìƒí’ˆ ì •ë³´ ì¡°íšŒ(select)
 	 * 
-	 * 2. ÁÖ¹®ÀÚ Á¤º¸ Á¶È¸(select)
+	 * 2. ì£¼ë¬¸ì ì •ë³´ ì¡°íšŒ(select)
 	 * 
-	 * 3. ¹è¼ÛÁ¤º¸
+	 * 3. ë°›ëŠ”ì´ ì •ë³´
 	 * 
-	 * 4. °áÁ¦¼ö´Ü 
+	 * 4. ê²°ì œìˆ˜ë‹¨ (ì´ê¸ˆì•¡ ì¶œë ¥ ë˜ê³  ë°‘ì— ê²°ì œìˆ˜ë‹¨)
 	 * */
+<<<<<<< HEAD
+	List<PurchaseGoods> selectProduct(String billKey) throws SQLException; //ì„ íƒí•œ ìƒí’ˆ ì •ë³´ ì¡°íšŒ(select)
+=======
+	List<PurchaseGoodsDTO> selectProduct(String billKey) throws SQLException; //ì„ íƒí•œ ìƒí’ˆ ì •ë³´ ì¡°íšŒ(select)
+>>>>>>> branch 'master' of https://github.com/study-backend/ShoesCase.git
+	
+	AccountDTO selectOrderer() throws SQLException;
+	
+	int recieverInfo(PurchaseBasketPaymentDTO pbp) throws SQLException;
+	
+	int paymentWay(String paymentType) throws SQLException; 
+	
+	
+//	/**
+//	 * ì¥ë°”êµ¬ë‹ˆ ì¡°íšŒ(select)
+//	 * */
+//	List<GoodsDTO> selectAllBasket(String billKey) throws SQLException;
+	
+	
+//	/**
+//	 * í™˜ë¶ˆê¸°ëŠ¥
+//	 * */
+//	int deletePurchase(PurchaseGoods purchaseGoods) throws SQLException;
+	
+	/**
+<<<<<<< HEAD
+	 * ì¥ë°”êµ¬ë‹ˆ ì¡°íšŒ(select)
+=======
+	 * ë§ˆì´ì»¬ë¦¬ì—ì„œ ì£¼ë¬¸ë‚´ì—­ ì¡°íšŒ
+>>>>>>> branch 'master' of https://github.com/study-backend/ShoesCase.git
+	 * */
+<<<<<<< HEAD
+	List<GoodsDTO> selectAllBasket(String billKey) throws SQLException;
 	
 	
 	/**
-	 * Àå¹Ù±¸´Ï Á¶È¸(select)
+	 * ì¥ë°”êµ¬ë‹ˆ ì‚­ì œ(delete) ì œí’ˆ ì•„ì´ë”” ë§ˆë‹¤ ì‚­ì œ ê°€ëŠ¥í•˜ê² ì§€??
 	 * */
-	
+	int deleteBasket(GoodsDTO goods) throws SQLException;
 	
 	/**
-	 * ¸¶ÀÌÄÃ¸®¿¡¼­ ÁÖ¹®³»¿ª Á¶È¸
+	 * ë§ˆì´ì»¬ë¦¬ì—ì„œ ì£¼ë¬¸ë‚´ì—­ ì¡°íšŒ
 	 * */
+	List<PurchaseGoods> selectOrderHistory(AccountDTO account) throws SQLException;
+=======
+	List<PurchaseGoodsDTO> selectOrderHistory(long accountId) throws SQLException;
+>>>>>>> branch 'master' of https://github.com/study-backend/ShoesCase.git
+	
 }

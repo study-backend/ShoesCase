@@ -5,26 +5,40 @@ import shop.shoes.model.AccountDTO;
 public interface AccountService {
 	
 	/**
-	 * ·Î±×ÀÎ
+	 * ë¡œê·¸ì¸
 	 * @throws Exception 
 	 * 
 	 * */
 	public int signin(AccountDTO account) throws Exception; 
 	
 	/**
-	 * È¸¿ø°¡ÀÔ
+	 * íšŒì›ê°€ì…
 	 * 
 	 * */
 	public int signUp(AccountDTO account) throws Exception;
 	
+
+	
 	/**
-	 * ÆĞ½º¿öµå Ã£±â
-	 * 
+	 * íšŒì›ì •ë³´ ìˆ˜ì •
 	 * */
-	public int findPassword(AccountDTO account) throws Exception;
+	public int updateUserInfo(AccountDTO account) throws Exception;
 	
-	// ¼¼¼Ç ¸¸·á È®ÀÎ 
+	/**
+	 * íšŒì›ì •ë³´ ì‚­ì œ
+	 * */
+	public int deleteUserInfo(AccountDTO account) throws Exception;
 	
+	// ì„¸ì…˜ ë§Œë£Œ í™•ì¸ 
 	
-	// ???
+	/**
+	 * ì•„ì´ë”” ì°¾ê¸°
+	 * */
+	public int idFind(String name, String email) throws Exception;
+	
+	/**
+	 * ë¹„ë°€ë²ˆí˜¸ ì°¾ê¸°
+	 * */
+	public int pwdFind(String name, String loginId, String email) throws Exception;
+
 }

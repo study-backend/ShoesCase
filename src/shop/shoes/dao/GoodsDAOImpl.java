@@ -28,7 +28,7 @@ public class GoodsDAOImpl implements GoodsDAO {
 			rs = ps.executeQuery();
 			
 			while(rs.next()) {
-				goodsDto = new GoodsDTO(rs.getDouble(1), rs.getString(2), rs.getString(3)); //»ı¼ºÀÚ ¿À¹ö·Îµù ÇßÀ½
+				goodsDto = new GoodsDTO(rs.getDouble(1), rs.getString(2), rs.getString(3)); //ìƒì„±ì ì˜¤ë²„ë¡œë”© í–ˆìŒ
 				list.add(goodsDto);
 			}
 		}
@@ -39,7 +39,7 @@ public class GoodsDAOImpl implements GoodsDAO {
 	}
 
 	@Override
-	public List<GoodsDTO> selectOneProduct(long goodsId) throws SQLException {
+	public GoodsDTO selectOneProduct(long goodsId) throws SQLException {
 		Connection con = null;
 		PreparedStatement ps = null;
 		ResultSet rs = null;
@@ -55,14 +55,14 @@ public class GoodsDAOImpl implements GoodsDAO {
 			
 			while(rs.next()) {
 				goodsDto = new GoodsDTO(rs.getInt(1), rs.getString(2), rs.getInt(3), rs.getString(4),
-								rs.getString(5), rs.getInt(6), rs.getInt(7), rs.getInt(8)); //»ı¼ºÀÚ ¿À¹ö·Îµù ÇßÀ½
+								rs.getString(5), rs.getInt(6), rs.getInt(7), rs.getInt(8)); //ìƒì„±ì ì˜¤ë²„ë¡œë”© í–ˆìŒ
 				list.add(goodsDto);
 			}
 		}
 		finally {
 			DbUtil.dbClose(rs, ps, con);
 		}
-		return list;
+		return goodsDto;
 	}
 
 }

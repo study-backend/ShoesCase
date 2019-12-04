@@ -17,9 +17,9 @@ public class GoodsReviewDTO {
 	private int accountId;
 	private String title;
 	private String content;
-	private int score; //¸¸Á·µµ (0~5)
-	private String createDate; //dbÀÇ log¿ë & È­¸é¿¡ ¶ç¿ï ÀÛ¼ºÀÏ
-	private String updateDate; //dbÀÇ log¿ë
+	private int score; //ë§Œì¡±ë„ (0~5)
+	private String createDate; //dbì˜ logìš© & í™”ë©´ì— ë„ìš¸ ì‘ì„±ì¼
+	private String updateDate; //dbì˜ logìš©
 	
 	public GoodsReviewDTO() {}
 

@@ -1,14 +1,25 @@
 package shop.shoes.controller;
 
 public class ModelAndView {
-   private String viewName;//°á°úºäÀÇÁ¤º¸
-   private boolean isRedirect;//ÀÌµ¿¹æ½ÄÁ¤º¸(trueÀÌ¸é redirect, falseÀÌ¸é forward)
+   private String viewName;//ê²°ê³¼ë·°ì˜ì •ë³´
+   private boolean isRedirect;//ì´ë™ë°©ì‹ì •ë³´(trueì´ë©´ redirect, falseì´ë©´ forward)
+   private String result; // ê²°ê³¼ data
+   private boolean isResultData = false; 
    
     public ModelAndView() {}
+   
 	public ModelAndView(String viewName, boolean isRedirect) {
 		super();
 		this.viewName = viewName;
 		this.isRedirect = isRedirect;
+	}
+	
+	public ModelAndView(String viewName, boolean isRedirect, String result) {
+		super();
+		this.viewName = viewName;
+		this.isRedirect = isRedirect;
+		this.result = result;
+		this.isResultData = true;
 	}
 	public String getViewName() {
 		return viewName;
@@ -21,6 +32,10 @@ public class ModelAndView {
 	}
 	public void setRedirect(boolean isRedirect) {
 		this.isRedirect = isRedirect;
+	}
+	
+	public boolean isResultData() {
+		return isRedirect;
 	}
    
 

@@ -11,87 +11,103 @@
 	body{height:100%;}
 	
 	/* detail */
-	#detail{width:1100px; height:1020px; border:1px solid red; margin:auto;}
-	#detail #detail_img{width:430px; height:550px; border:1px solid blue; display:inline-block;}
-	#detail #detail_infor{width:600px; height:550px; border:1px solid red; display:inline-block; float:right;}
+	#detail{width:1100px; height:1020px; margin:auto; }
+	#detail #detail_img{width:430px; height:500px; border:1px solid red; display:inline-block;}
+	#detail #detail_infor{width:600px; height:500px; border:1px solid red; display:inline-block; float:right;}
 	#detail #main_title{font-size:24px; font-style:bold; margin:20px;}
 	#detail #sub_title {margin-top:-15px; margin-left:20px;}
 	#detail #member_price{margin-top:20px; margin-left:20px;}
 	#detail #price {margin-left:20px;}
-	#detail #price .price{font-size:30px;}
-	#detail #price .dc{font-size:30px; color:red;}
 	#detail #discount{margin-left:20px; text-decoration:line-through;}
 	#detail #not_login {margin-top:20px; margin-left:20px;}
-	#a span {margin-top:30px; margin-left:20px;}
-	 
+	#a span {margin-top:30px; margin-left:20px; margin-bottom:30px;}
+	#detail_infor table{margin-top:30px; margin-left:20px; margin-bottom:30px;}
+	#detail_infor table td:nth-child(1){width:100px;}
+	#detail_infor table td:nth-child(2){width:60px;}
+	#detail_infor table td:nth-child(3){width:200px;}
 	
+	
+	 
 </style>
 </head>
 <body>
 	<div id="detail">
-		<div id="detail_img"></div>
+		<div id="img">
+			<img src="">
+		</div>
 		<div id="detail_infor">
-			<div id="main_title">
-				<strong>나이키에어맥스</strong>
-			</div>
-			<div id="sub_title">
-				<span>최고의 신발</span>
-			</div>
-			<div id="member_price">
-				<span>회원할인가</span>
-			</div>
-			<div id="price">
-				<span class="price">20,000</span>
-				<span class="won">원</span>
-				<sapn class="dc">15%</sapn>
-			</div>
-			<div id="discount">
-				<span>3000원</span>
-			</div>
-			<div id="not_login">
+			<table>
+				<div id="main_title">
+					<strong>나이키에어맥스</strong>
+				</div>
+				<div id="sub_title">
+					<span>최고의 신발</span>
+				</div>
+				<div id="member_price">
+					<span>회원할인가</span>
+				</div>
+				<div id="price">
+					<span class="price">20,000</span>
+					<span class="won">원</span>
+					<sapn class="dc">15%</sapn>
+				</div>
+				<div id="discount">
+					<span>3000원</span>
+				</div>
+				<div id="not_login">
 				<span>로그인 후, 회원할인가와 적립혜택이 제공됩니다.</span>
 			</div>
-			<br>
 			<hr>
-			<div id="a">
-				<span class="fitst">판매 단위</span><span class="second">1켤레</span>
-				<br>
-				<span class="fitst">중량/용량</span><span class="second">200g</span>
-				<hr>
+				<tr>
+					<td>색상</td><td></td>
+					<td>
+						<select id ="selec">
+						<option value="black">black</option>
+						<option value="white" selected="selected"> white</option>
+						</select>
+					</td>
+				</tr>
+				<tr>
+					<td>사이즈</td><td></td>
+					<td>
+						<select id ="selec">
+							<option value="250" selected="selected">250</option>
+							<option value="255">255</option>
+						</select>
+					</td>
+				</tr>
+				<tr>
+					<td>구매수량</td><td></td>
+					<td>
+						<button type="button" class="btn_down"></button>
+						<input type="number" id="number">
+						<button type="button" class="btn_up"></button>
+					</td>
+				</tr>
+			</table>
+			<hr>
+			<div id="total_price">
+				<div>
+					<span>총 상품금액</span><span>20,000</span><span>원</span>
+					<button type="button">장바구니 담기</button>
+				</div>
 			</div>
-			<div id="a">
-				<span class="fitst">색상</span>
-				<select id ="selec">
-					<option value="black">black</option>
-					<option value="white" selected="selected"> white</option>
-					<option value="red">red</option>
-					<option value="blue">blue</option>
-					<option value="gray">gray</option>
-				</select>
-				<br>
-				<span class="fitst">사이즈</span>
-				<select id ="selec">
-					<option value="230">230</option>
-					<option value="235"> 235</option>
-					<option value="240">240</option>
-					<option value="245">245</option>
-					<option value="250" selected="selected">250</option>
-					<option value="255">255</option>
-					<option value="260">260</option>
-					<option value="265">265</option>
-					<option value="270">270</option>
-					<option value="275">275</option>
-				</select>
-				<hr>
-			</div>
-			<div id="a">
-				<span class="fitst">구매 수량</span>
-				<br>
-				<button type="button" class="btn_down">-</button>
-				<input type="number" >
-				<button type="button" class="btn_up">+</button>
-				<hr>	
+	
 		</div>
+		<div id="detail_img">
+			<img src="">
+		</div>
+	</div>
+	<div id="product">
+		<table>
+			<tr>
+				<th colspan='5'>상품후기</th>
+			</tr>
+			<tr>
+				<td>제목</td><td>구매자</td><td>만족도</td><td>작성자</td><td>작성일</td>
+			</tr>
+		</table>
+		<button type="button">후기쓰기</button>
 	</div>
 </body>
 </html>

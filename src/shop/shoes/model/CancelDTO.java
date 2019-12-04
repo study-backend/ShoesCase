@@ -1,6 +1,6 @@
 package shop.shoes.model;
 
-public class Cancel {
+public class CancelDTO {
 	private int cancelId;
 	private int purchaseGoodsId;
 	private int purchaseBasketId;
@@ -14,9 +14,9 @@ public class Cancel {
 	private String createDate;
 	private String updateDate;
 	
-	public Cancel() {}
+	public CancelDTO() {}
 
-	public Cancel(int cancelId, int purchaseGoodsId, int purchaseBasketId, int price, int stateCode, String reason,
+	public CancelDTO(int cancelId, int purchaseGoodsId, int purchaseBasketId, int price, int stateCode, String reason,
 			String billKey, int goodsId, int itemCount, String itemSn, String createDate, String updateDate) {
 		super();
 		this.cancelId = cancelId;
