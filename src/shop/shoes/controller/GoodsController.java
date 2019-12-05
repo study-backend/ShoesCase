@@ -7,12 +7,13 @@ import shop.shoes.model.*;
 import shop.shoes.service.AccountService;
 import shop.shoes.service.GoodsService;
 import shop.shoes.service.GoodsServiceImpl;
+import shop.util.User;
+import shop.util.UserSessionUtil;
 
 public class GoodsController implements Controller{
 	
 	// 필요한 service를 여기서 만든다 
 	private static GoodsService goodsService = new GoodsServiceImpl();
-	
 	
 	@Override
 	public ModelAndView handleRequest(HttpServletRequest request, HttpServletResponse response) throws Exception {
@@ -20,12 +21,13 @@ public class GoodsController implements Controller{
 		//String uri = request.getRequestURI();
 		//System.out.println(uri);
 		
+		User user = UserSessionUtil.getUserFromSession(request.getSession());
+		
 		// json 변환이 필요함
 		String data = request.getParameter("data");
-		System.out.println(data);
+		System.out.println("data:" + data);
+		System.out.println("user :" + user);
 		
-		// return 에 대한 부분 필요 
-		String result = "";
 		
 		String httpMethod = request.getMethod();
 		switch (httpMethod) {

@@ -1,14 +1,13 @@
 package shop.shoes.controller;
 
-import java.io.PrintWriter;
+
 import java.sql.Date;
-import java.sql.SQLException;
 import java.util.Calendar;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
-import net.sf.json.JSONArray;
 import shop.shoes.common.GlobalException;
 import shop.shoes.model.*;
 import shop.shoes.model.request.LoginRequest;
@@ -16,6 +15,7 @@ import shop.shoes.model.request.SignupRequest;
 import shop.shoes.service.AccountService;
 import shop.shoes.service.AccountServiceImpl;
 import shop.util.JsonUtil;
+import shop.util.User;
 
 public class AccountController implements Controller{
 	
@@ -26,25 +26,17 @@ public class AccountController implements Controller{
 	public ModelAndView handleRequest(HttpServletRequest request, HttpServletResponse response) throws GlobalException, Exception {
 			
 		//String uri = request.getRequestURI();
-		//System.out.println(uri);
-		
+		//System.out.println(uri);		
 		// json 변환이 필요함
 		String route = request.getParameter("route");
 		String data = request.getParameter("data");
 		System.out.println(route);
 		//System.out.println(data);
 		
-		// return 에 대한 부분 필요 
-		String result = "{}";
-		
-
-		
 		ModelAndView mv = new ModelAndView();
 		
 		String httpMethod = request.getMethod();
-		
 		System.out.println(httpMethod);
-		
 		switch (httpMethod) {
 
 			case "GET": {
@@ -56,23 +48,7 @@ public class AccountController implements Controller{
 						String email = request.getParameter("email");
 						int code = accountService.idFind(name, email);
 						
-						if(code == 1) {
-							result = "{ result : 1 }";
-							mv.setViewName("what.html");
-							mv.setRedirect(true);
-							JSONArray json = JSONArray.fromObject(result);
-							//mv.setResult(json);
-							mv.setResultData(true);
-							System.out.println(json.toString());
-						} else {
-							result = "{ result : 0 }";
-							mv.setViewName("what.html");
-							mv.setRedirect(true);
-							JSONArray json = JSONArray.fromObject(result);
-							//mv.setResult(json);
-							mv.setResultData(true);
-							System.out.println(json.toString());
-						}
+					
 					}
 					
 					case "findPwd" : {
@@ -81,23 +57,7 @@ public class AccountController implements Controller{
 						String email = request.getParameter("email");
 						int code = accountService.pwdFind(name, loginId, email);
 						
-						if(code == 1) {
-							result = "{ result : 1 }";
-							mv.setViewName("what.html");
-							mv.setRedirect(true);
-							JSONArray json = JSONArray.fromObject(result);
-							//mv.setResult(json);
-							mv.setResultData(true);
-							System.out.println(json.toString());
-						} else {
-							result = "{ result : 0 }";
-							mv.setViewName("what.html");
-							mv.setRedirect(true);
-							JSONArray json = JSONArray.fromObject(result);
-							//mv.setResult(json);
-							mv.setResultData(true);
-							System.out.println(json.toString());
-						}
+					
 					}
 
 				}
@@ -110,16 +70,22 @@ public class AccountController implements Controller{
 				
 					// 로그인
 					case "login": {	
-	
+						// 후.. 노가다..
 						LoginRequest req = JsonUtil.fromJson(data, LoginRequest.class);		
 						AccountDTO account = new AccountDTO();
 						account.setLoginId(req.getLoginId());
 						account.setLoginPwd(req.getLoginPwd());
 						
-						int r = accountService.signin(account);
-						System.out.println(JsonUtil.toJson(r));
+						AccountDTO user = accountService.signin(account);
+						System.out.println(JsonUtil.toJson(user));
 
-						mv.setViewName("id.html");
+				        if (user != null) {
+				        	 HttpSession session = request.getSession();
+				        	 User loginedUser = new User(user.getLoginId(), user.getLoginPwd(), user.getName(), user.getEmail());
+					         session.setAttribute("user", loginedUser);
+				        }
+
+						mv.setViewName("login.html");
 						mv.setRedirect(true);
 
 						break;
@@ -127,6 +93,7 @@ public class AccountController implements Controller{
 					
 					// 회원 가입
 					case "account": {	
+						// 이름 맞추면 기존걸로 바로 가능할 텐데....
 						SignupRequest req = JsonUtil.fromJson(data, SignupRequest.class);		
 						AccountDTO account = new AccountDTO();
 						account.setLoginId(req.getId());
@@ -160,23 +127,7 @@ public class AccountController implements Controller{
 					case "account": {	
 						AccountDTO account = new AccountDTO();
 						int code = accountService.updateUserInfo(account);
-						if(code == 1) {
-							result = "{ result : 1 }";
-							mv.setViewName("what.html");
-							mv.setRedirect(true);
-							JSONArray json = JSONArray.fromObject(result);
-							//mv.setResult(json);
-							mv.setResultData(true);
-							System.out.println(json.toString());
-						} else {
-							result = "{ result : 0 }";
-							mv.setViewName("what.html");
-							mv.setRedirect(true);
-							JSONArray json = JSONArray.fromObject(result);
-							//mv.setResult(json);
-							mv.setResultData(true);
-							System.out.println(json.toString());
-						}
+						
 						break;
 					}
 				}
@@ -191,23 +142,7 @@ public class AccountController implements Controller{
 					case "account": {	
 						AccountDTO account = new AccountDTO();
 						int code = accountService.deleteUserInfo(account);
-						if(code == 1) {
-							result = "{ result : 1 }";
-							mv.setViewName("what.html");
-							mv.setRedirect(true);
-							JSONArray json = JSONArray.fromObject(result);
-							//mv.setResult(json);
-							mv.setResultData(true);
-							System.out.println(json.toString());
-						} else {
-							result = "{ result : 0 }";
-							mv.setViewName("what.html");
-							mv.setRedirect(true);
-							JSONArray json = JSONArray.fromObject(result);
-							//mv.setResult(json);
-							mv.setResultData(true);
-							System.out.println(json.toString());
-						}
+					
 							
 						break;
 					}
