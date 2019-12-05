@@ -27,7 +27,7 @@ public class ProductSelectByCategoryController implements Controller {
 		ModelAndView mv = new ModelAndView();
 		if(categoryName.equals("sneakers")) {
 			mv.setViewName("sneakers.jsp");
-		}else if(categoryName.equals("gudu")) {
+		}else if(categoryName.equals("dressShoes")) {
 			mv.setViewName("dressShoes.jsp");
 		}else if(categoryName.equals("sandal")) {
 			mv.setViewName("sandal.jsp");

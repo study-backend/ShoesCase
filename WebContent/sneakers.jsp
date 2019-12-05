@@ -124,8 +124,8 @@
 	  </c:if>
 		
 			<li class="sL">
-				<a href="#"><div>${list.imgPath}</div></a>
-				<a href="#" id="sL_a">${list.name}</a>
+				<a href="front?resource=detail&goodsNameOrImg=${list.imgPath}"><div>${list.imgPath}</div></a>
+				<a href="front?resource=detail&goodsNameOrImg=${list.name}" id="sL_a">${list.name}</a>
 				<span>${list.price}</span>	
 			</li>
 	 

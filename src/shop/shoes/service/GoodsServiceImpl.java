@@ -44,11 +44,11 @@ public class GoodsServiceImpl implements GoodsService {
 	}
 
 	@Override
-	public GoodsDTO selectOneProduct(long goodsId) throws SQLException {
+	public GoodsDTO selectOneProduct(String goodsName) throws SQLException {
 		GoodsDTO goodsDTO = new GoodsDTO(); //dao 갔다와서 담을 dto 선언
 		GoodsDAO goodsDAO = new GoodsDAOImpl(); // dao 선언
 		
-		goodsDTO = goodsDAO.selectOneProduct(goodsId);
+		goodsDTO = goodsDAO.selectOneProduct(goodsName);
 		if(goodsDTO==null) {
 			//dto가 검색 없음 or 다른이유로 에러
 		}
@@ -74,9 +74,9 @@ public class GoodsServiceImpl implements GoodsService {
 	}
 
 	@Override
-	public List<GoodsDTO> goodsSub(long categoryId) throws Exception {
+	public List<GoodsDTO> goodsSub(String categoryName) throws Exception {
 		//[1] 카테고리의 상품을 가져온다  
-		List<GoodsDTO> goods = goodsDAO.selectByCatagoryId(categoryId);
+		List<GoodsDTO> goods = goodsDAO.selectByCatagory(categoryName);
 		//끝
 		return goods;
 	}
@@ -87,13 +87,14 @@ public class GoodsServiceImpl implements GoodsService {
 		// TODO Auto-generated method stub
 		return null;
 	}
-	public GoodsDetailDTO goodsDetail(long goodsId) throws Exception {
+	public GoodsDetailDTO goodsDetail(String goodsName) throws Exception {
 		//[1] 상세상품의 정보를 가져온다 
-		GoodsDTO goods = goodsDAO.selectOneProduct(goodsId);
+		GoodsDTO goods = goodsDAO.selectOneProduct(goodsName);
 		//[2] 리뷰정보를 구해온다
 		List<ReviewDTO> reviewList = reviewsDAO.selectByGoodId(goods.getGoodsId());
 		// 끝
 		GoodsDetailDTO dto = new GoodsDetailDTO(goods, reviewList);
+		//GoodsDetailDTO dto = new GoodsDetailDTO(goods); 테스트 위해 썼음
 		
 		return dto;
 	}

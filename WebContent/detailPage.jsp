@@ -1,3 +1,4 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 
@@ -5,39 +6,7 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <script type="text/javascript" src="../js/jquery-3.4.1.min.js"></script>
-<script type="text/javascript">
-	$(document).ready(function(){
-		function selectAll(){
-			  $.ajax({
-				  type:"get",
-				  url:"../selectServlet",
-			      dataType: "json",//서버에게 받은 응답결과 type(text, xml, html, json)
-			      //data : {id: $(this).val() } ,//서버에게 전송할 parameter
-			      success: function(result){
-		   		        var str="";
-		   		         $.each(result, function(index, item){
-		   		        	 str+="<tr>";
-		   		        	 str+="<td>"+(index+1)+"</td>";
-		   		        	 str+="<td><a href='#'>"+item.title+"</a></td>";
-		   		        	 str+="<td>"+item.content+"</td>";
-		   		        	 str+="<td>"+item.score+"</td>";
-		   		        	 str+="<td>"+item.createDate+"</td>";
-		   		        	 str+="<td>"+item.updateDate+"</td>";
-		   		        	 str+="</tr>";
-		   		         })
-		   		         
-		   		        $("#review_t tr:gt(0)").remove();
-		   		        $("#review_t tr:eq(0)").after(str);
-		   		        $("a").css("textDecoration", "none");
-			      } ,
-			      error : function(err){
-			    	  console.log(err+"=> 오류발생");
-			      }
-			  });//ajax끝
-		  }
-	})
 
-</script>
 <style type="text/css">
 	
 
@@ -96,7 +65,7 @@
 		<div id="detail_infor">
 			<table>
 				<div id="main_title">
-					<strong>나이키에어맥스</strong>
+					<strong>${requestScope.goods.name}</strong>
 				</div>
 				<div id="sub_title">
 					<span>최고의 신발</span>
@@ -105,7 +74,7 @@
 					<span>회원할인가</span>
 				</div>
 				<div id="price">
-					<span class="price">20,000</span>
+					<span class="price">${requestScope.goods.price}</span>
 					<span class="won">원</span>
 					<sapn class="dc">15%</sapn>
 				</div>
@@ -120,7 +89,7 @@
 					<td>색상</td><td></td>
 					<td>
 						<select id ="selec">
-						<option value="black">black</option>
+						<option value="black">${requestScope.goods.colorCode}</option>
 						<option value="white" selected="selected"> white</option>
 						</select>
 					</td>
@@ -129,7 +98,7 @@
 					<td>사이즈</td><td></td>
 					<td>
 						<select id ="selec">
-							<option value="250" selected="selected">250</option>
+							<option value="250" selected="selected">${requestScope.goods.sizeCode}</option>
 							<option value="255">255</option>
 						</select>
 					</td>
@@ -143,15 +112,15 @@
 			</table>
 			<hr>
 			<div id="total_price">
-					<span class="tpsO">총 상품금액</span><span class="tpsT">20,000</span><span class="tpsTh">원</span>
+					<span class="tpsO">총 상품금액</span><span class="tpsT">${requestScope.goods.totalPrice}</span><span class="tpsTh">원</span>
 					<a href="shopping_basket.html"><button type="button">장바구니 담기</button></a>
 			</div>
 		</div>
 		<div id="detail_img">
-			<img src="image/sneakers/andy.png">
+			<img src="image/sneakers/${requestScope.goods.imgPath}">
 		</div>
 		<div id="long_img"> 
-			<img src="image/sneakers/andy01.png">
+			<img src="image/sneakers/${requestScope.goods.sumnailPath}">
 		</div>
 	</div>
 	
