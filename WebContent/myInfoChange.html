@@ -2,16 +2,20 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
-    <style>
-        li {list-style: none; padding: 16px;}
+    <link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR:400,500|Pacifico&display=swap&subset=korean" rel="stylesheet">
 
+    <title>Title</title>
+     <style>
+        li {list-style: none; padding: 16px;}
+        a{color:#000; text-decoration:none; font-family: 'Noto Sans KR', sans-serif;}
         a:link {text-decoration: none; color: #333333;}
         a:visited {text-decoration: none; color: #333333;}
         a:active {text-decoration: none; color: #333333;}
         a:hover {text-decoration: none; color: gray;}
-
+        .main{background-color: aqua}
+        #check{color:#FFFFFF; background-color:#5F0080; width:354px; height:56px; margin-top:10px; border-radius:5px; outline:0;}
 	/* footer */
+    .footer{clear: both; margin-left: 400px; margin-top: 10px}
     #footerTable{border: none; }
     #footerTable td{border: none; }
     .f{padding:8px; font-size: 12px;margin-left: 250px;}
@@ -21,87 +25,90 @@
     </style>
 
 </head>
-
+ 
 <body style="margin: 0px;">
+<div class="contrainer">
 <div style="height: 180px; width: 100%; background-color: #0c5460; text-align: center;">
     Header 자리
 </div>
 
-<div class="boardForm1" style="box-sizing: border-box; margin-left: 300px; margin-right: 300px; margin-top: 150px">
+<div class="main">
+    <div class="boardForm1" style="box-sizing: border-box; margin:110px 300px 70px 300px;">
 
-    <div class="boardName" style="float: left; display: block; width: 23%;">
-        <h2>마이슈즈</h2>
-        <div class="boardMenu">
-            <ul class="list_menu" style="padding: 10px">
-                <li style="border: solid 1px gray">
-                    <a href="memberOrLi.jsp">주문 내역</a>
-                </li>
-                <li style="border: solid 1px gray; border-top: none">
-                    <a href="myInfoChange.html">개인 정보 수정</a>
-                </li>
-            </ul>
-        </div>
-    </div>
-
-    <div style="float: left; margin-left: 30px;">
-        <h3 style="padding-bottom: 18px">개인 정보 수정</h3>
-        <div style="border-top: 2px solid purple">
-            <div style="text-align: center">
-                <h3>비밀번호 재확인</h3>
-                <h5>회원님의 정보를 안전하게 보호하기 위해 비밀번호를 다시 한 번 확인해주세요.</h5>
+        <div class="boardName" style="float: left; display: block; width: 23%;">
+            <h2>마이슈즈</h2>
+            <div class="boardMenu">
+                <ul class="list_menu" style="padding: 10px">
+                    <li style="border: solid 1px gray">
+                        <a href="memberOrLi.jsp">주문 내역</a>
+                    </li>
+                    <li style="border: solid 1px gray; border-top: none">
+                        <a href="myInfoChange.html">개인 정보 수정</a>
+                    </li>
+                </ul>
             </div>
-            <div style="border: 2px solid darkgray; text-align: center">
-                <br><br>
-                아이디<br><br>
-                DB에서 아이디 불러오기<br><br>
-                비밀번호<br><br>
+        </div>
+
+        <div style="float:left; margin-left: 100px;">
+            <h3 style="padding-bottom: 18px">개인 정보 수정</h3>
+            <div style="border-top: 2px solid purple">
+                <div style="text-align: center">
+                    <h3>비밀번호 재확인</h3>
+                    <h5>회원님의 정보를 안전하게 보호하기 위해 비밀번호를 다시 한 번 확인해주세요.</h5>
+                </div>
                 <form method="post" action="#">
-                <input type="password">
-                <br><br>
+                <div style="border: 2px solid darkgray; text-align: center">
+                    <br><br>
+                    아이디<br><br>
+                    DB에서 아이디 불러오기<br><br>
+                    비밀번호<br><br>
+                   
+                    <input type="password">
+                    <br><br>
+                </div>
+                <div style="text-align: center">
+                    <br>
+                    <button type="submit" class="m_button" id="check" href.location="inMyInfoChange.jsp"><span>확인</span></button>
+                </div>
+                </form>
             </div>
-        </div>
-        <div style="text-align: center">
-            <br>
-            <input type="submit" value="확인">
-            </form>
         </div>
 
     </div>
-
 </div>
 
-<br><br><br>
-<hr class="footerHr" color="gray"  >
-<table id= "footerTable">
-<tr>
-<td>
-   <div class="f">
-         <p><strong>(주)슈즈케이스</strong>&nbsp;&nbsp;&nbsp;대표이사: 장희정<br>
-         주소: 경기도 성남시 판교로 유스페이스2 B동<br>
-         사업자등록번호: 123-456-7890&nbsp;
-         반품지 주소: 미국 하와이 123-58번지 <br>
-         <em style="margin-left:65px;">Shoes Case 온라인 물류센터(02-1588-9667)</em><br></p>
-         <p class="mt10" style="line-height:1.4">본 상품의 상품이미지 저작권은 ㈜슈즈케이스 <br>내용의 무단복제를 금합니다.</p>
-                        
-         <address class="copyright mt10">COPYRIGHT © SHOES-CASE KOREA CO,LTD. ALL RIGHTS RESERVED.</address>
-   </div>
-
-</td>
-<td>
-   <div class="s">
-       <h2 class="tit_type1 fs16">통합고객센터</h2>
-       <a href="javascript://" class="tel_number">080-701-7770</a>
-       <a href="javascript://" class="tel_number">· 1588-9667</a>
-       <p class="mt15">운영시간 : 월~금 09:00 ~18:00 (12:00 ~13:00 점심시간)<br><em style="margin-left:55px;">주말, 공휴일 휴무</em><br>
-       이메일 : <a href="mailto:abcmartcs@abcmartkorea.com">shoesCase@scmartkorea.com</a></p>
-       <ul class="clearfix">
-       <li><img src="http://image.abcmart.co.kr/nexti/images/abcmart_new/confirm_01.gif" alt=""></li>
-       <li><img src="http://image.abcmart.co.kr/nexti/images/abcmart_new/confirm_02.gif" alt=""></a></li>
-       </ul>
-   </div>
-</td>
-</tr>
-</table>
-
+<div class="footer">
+    <table id= "footerTable">
+        <tr>
+            <td>
+                <div class="f">
+                        <p><strong>(주)슈즈케이스</strong>&nbsp;&nbsp;&nbsp;대표이사: 장희정<br>
+                        주소: 경기도 성남시 판교로 유스페이스2 B동<br>
+                        사업자등록번호: 123-456-7890&nbsp;
+                        반품지 주소: 미국 하와이 123-58번지 <br>
+                        <em style="margin-left:65px;">Shoes Case 온라인 물류센터(02-1588-9667)</em><br></p>
+                        <p class="mt10" style="line-height:1.4">본 상품의 상품이미지 저작권은 ㈜슈즈케이스 <br>내용의 무단복제를 금합니다.</p>
+                                        
+                        <address class="copyright mt10">COPYRIGHT © SHOES-CASE KOREA CO,LTD. ALL RIGHTS RESERVED.</address>
+                </div>
+            </td>
+            
+            <td>
+                <div class="s">
+                    <h2 class="tit_type1 fs16">통합고객센터</h2>
+                    <a href="javascript://" class="tel_number">080-701-7770</a>
+                    <a href="javascript://" class="tel_number">· 1588-9667</a>
+                    <p class="mt15">운영시간 : 월~금 09:00 ~18:00 (12:00 ~13:00 점심시간)<br><em style="margin-left:55px;">주말, 공휴일 휴무</em><br>
+                    이메일 : <a href="mailto:abcmartcs@abcmartkorea.com">shoesCase@scmartkorea.com</a></p>
+                    <ul class="clearfix">
+                    <li><img src="http://image.abcmart.co.kr/nexti/images/abcmart_new/confirm_01.gif" alt=""></li>
+                    <li><img src="http://image.abcmart.co.kr/nexti/images/abcmart_new/confirm_02.gif" alt=""></a></li>
+                    </ul>
+                </div>
+            </td>
+        </tr>
+    </table>
+</div>
+</div>
 </body>
 </html>
