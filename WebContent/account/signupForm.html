@@ -13,6 +13,7 @@
 
     </style>
     <script type="text/javascript" src="../js/jquery-3.4.1.min.js"></script>
+    <script type="text/javascript" src="../js/script.js"></script>
     
 </head>
 <body style="margin: 0px; background-color: whitesmoke">
@@ -131,28 +132,32 @@
 <script type="text/javascript">
 $(document).ready(function() {
 	$("#btn").click(function() {
-		  // 상태 확인 변수
-		  let state = true;
-		  console.log($("#loginForm").serialize());
+		state = true;
 		  
 		  // 모두 값이 있다면 등록한다
 		  if(state) {
-			  console.log($("#loginForm").serialize());
 			  
-			  
+			let str = $("#loginForm").serializeObject();
+			console.log(str);
 			  
 			  $.ajax({
 				  type: "post" ,
-				  url: "/ShoesCase"  ,
+				  url: "/ShoesCase/api/v1"  ,
 				  dataType: "json"   ,  // 서버에게 받은 응답결과 type(json, text, xml)
-				  data: $("#loginForm").serialize(),		// 서버에게 전송할 param
+				  data: { data: JSON.stringify(str),
+					 	  resource: "Account",
+						  route: "account" 
+				  		} ,		// 서버에게 전송할 param
 				  success: function(result) {
+					  
+					  consosle.log(result);
+					  
 					  if(result > 0) {
-						  alert("등록되었습니다 ");
+						  //alert("등록되었습니다 ");
 						  
 						  
 					  } else {
-						  alert("등록되지 않았습니다");
+						  //alert("등록되지 않았습니다");
 					  }
 				  },
 				  error: function(err) {

@@ -169,17 +169,16 @@ $(document).ready(function() {
 	$("#btn").click(function() {
 		  // 상태 확인 변수
 		  let state = true;
-		  console.log($("#loginForm").serialize());
 		  
 		  // 모두 값이 있다면 등록한다
 		  if(state) {
-			  console.log($("#loginForm").serialize());
-			  
-			  
+	  
+			  let str = $("#loginForm").serializeObject();
+			  console.log(str);
 			  
 			  $.ajax({
 				  type: "post" ,
-				  url: "api/v1"  ,
+				  url: "api"  ,
 				  dataType: "json"   ,  // 서버에게 받은 응답결과 type(json, text, xml)
 				  data: { data : $("#loginForm").serialize(),
 					  	  resource : "account" ,

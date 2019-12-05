@@ -50,8 +50,17 @@
 	}
 	#centerWindow { position:absolute; width:100px; height:100px; top:50%; left:50%; margin-top:-50px; margin-left:-50px; }
 
-	table, th, td {border: 1px solid black; width:"100%";}
-	
+
+	table, th, td {border: 1px solid black; width:"100%" }
+
+/* footer */
+    #footerTable{border: none; }
+    #footerTable td{border: none; }
+    .f{padding:8px; font-size: 12px;margin-left: 200px;}
+    .s{padding:8px; font-size: 12px;margin-left: 50px;}
+    .footerHr{border: 0; height: 1px}
+    
+>>>>>>> branch 'master' of https://github.com/study-backend/ShoesCase.git
 </style>
 </head>
 <body>
@@ -96,7 +105,7 @@
     <h2 style="text-align: center; margin: 0px;">회원가입</h2>
 
     <div class="boardWrite" style="margin-top: 30px">
-    <form method="post" action="<%= application.getContextPath() %>/front?key=userRegist">
+    <form method="post" action="/front?key=userRegist">
         <table class="inForm" style="width: 63%; margin: auto;">
             <tbody>
             <tr>
@@ -203,6 +212,40 @@
     </form>
     </div>
 </div>
+
+
+<br><br><br>
+<hr class="footerHr" color="gray"  >
+<table id= "footerTable">
+<tr>
+<td>
+   <div class="f">
+         <p><strong>(주)슈즈케이스</strong>&nbsp;&nbsp;&nbsp;대표이사: 장희정<br>
+         주소: 경기도 성남시 판교로 유스페이스2 B동<br>
+         사업자등록번호: 123-456-7890&nbsp;
+         반품지 주소: 미국 하와이 123-58번지 <br>
+         <em style="margin-left:65px;">Shoes Case 온라인 물류센터(02-1588-9667)</em><br></p>
+         <p class="mt10" style="line-height:1.4">본 상품의 상품이미지 저작권은 ㈜슈즈케이스 <br>내용의 무단복제를 금합니다.</p>
+                        
+         <address class="copyright mt10">COPYRIGHT © SHOES-CASE KOREA CO,LTD. ALL RIGHTS RESERVED.</address>
+   </div>
+
+</td>
+<td>
+   <div class="s">
+       <h2 class="tit_type1 fs16">통합고객센터</h2>
+       <a href="javascript://" class="tel_number">080-701-7770</a>
+       <a href="javascript://" class="tel_number">· 1588-9667</a>
+       <p class="mt15">운영시간 : 월~금 09:00 ~18:00 (12:00 ~13:00 점심시간)<br><em style="margin-left:55px;">주말, 공휴일 휴무</em><br>
+       이메일 : <a href="mailto:abcmartcs@abcmartkorea.com">shoesCase@scmartkorea.com</a></p>
+       <ul class="clearfix">
+       <li><img src="http://image.abcmart.co.kr/nexti/images/abcmart_new/confirm_01.gif" alt=""></li>
+       <li><img src="http://image.abcmart.co.kr/nexti/images/abcmart_new/confirm_02.gif" alt=""></a></li>
+       </ul>
+   </div>
+</td>
+</tr>
+</table>
 
 </body>
 </html>
