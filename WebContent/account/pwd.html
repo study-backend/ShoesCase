@@ -6,38 +6,6 @@
 <title>Insert title here</title>
 <script type="text/javascript" src="../js/jquery-3.4.1.min.js"></script>
 <script type="text/javascript" src="../js/script.js"></script>
-<script>
-		$(function(){
-			$("#blogin").click(function(){
-				
-				let str = $("#idsearchForm").serializeObject();
-				console.log(str);
-				
-				$.ajax({
-				type : "get" ,
-				url : "/ShoesCase/api/v1", 
-				dataType : "json", 
-				data : { data: JSON.stringify(str),
-						 resource: "Account",
-						 route: "findId" 
-				},
-				//contentType: 'application/json; charset=utf-8',
-				success : function(result) { 
-					console.log("1111");
-					if(result == 1) {
-						location.href='foundId.html' 
-					}
-				},
-				error : function(error) {
-					console.log(error);
-					//alert("아이디 또는 비밀번호를 확인해주세요.");
-				}
-			});//ajax끝
-
-			})			
-
-	});
-</script>
 <style type="text/css">
 	/*공통*/
 	#header, #container {position: relative;}
@@ -46,7 +14,8 @@
 	ul li{list-style: none;}
 	h1,h2,h3,h4,h5,p,ul,li{
     margin: 0px;
-    padding: 0px;}
+    padding: 0px;
+}
 
 		
 	/* container */
@@ -72,8 +41,7 @@
 	#main{width:355px; height:600px; margin:auto; /* border:1px solid pink; */}
 	#main h3{text-align:center;}
  	#main .log{width:350px; height:50px; border:0; outline:0; border-radius:5px; border:1px solid gray;}
-	#lable{font-size: 10px}
-	#findid{width:354px; height:56px; margin-top:20px; color:#FFFFFF; background-color:#5F0080; border-radius:5px; outline:0;}
+	#findpwd{width:354px; height:56px; margin-top:20px; color:#FFFFFF; background-color:#5F0080; border-radius:5px; outline:0;}
 	#main button span{font-size:16px; }
 	#login{height: 100.5px; margin-top: 50px; font-size:30px}
 	
@@ -99,7 +67,7 @@
 		</div>
 		<div id="headerlogo">
 			<a> 
-			<img id="logo" src="image/LOGO.png" url="dressShoes.html" alt="로고">
+			<img id="logo" src="image/LOGO.png" alt="로고">
 			</a>
 		</div>	
 		<div id="gnb">
@@ -120,15 +88,43 @@
 		</div>
 	</div>
 	<div id="main">
-		<form  method="post" id="idsearchForm"> 
-		<div id="login"><h3>아이디 찾기</h3></div>
+		<form  method="post" action="#" id="pwdsearchForm"> 
+		<div id="login"><h3>비밀번호 찾기</h3></div>
 		<small><b>이름</b></small> <br>
-		<input type="text" class="log" placeholder="  고객님의 이름을 입력해주세요."><br><br>
+		<input type="text" class="log" placeholder="고객님의 이름을 입력해주세요."><br><br>
+		<small><b>아이디<b></b></small> <br>
+		<input type="text" class="log" placeholder="고객님의 아이디를 입력해주세요."><br><br>
 		<small><b>이메일</b></small> <br>
-		<input type="text" class="log" placeholder="  가입 시 등록하신 이메일 주소를 입력해주세요."><br><br>
-		 <button type="button" id="findid"><span>확인</span></button>
-		</div>>
+		<input type="text" class="log" placeholder="가입 시 등록하신 이메일 주소를 입력해주세요."><br><br>
+		<div> 
+			<button type="submit" id="findpwd"><span>확인</span></button>
+		</div>
+		</form>	
 	</div>
+	 <script>
+	$(function(){
+			$("#findid").click(function(){
+				$.ajax({
+				type : "post" ,
+				url : "api/v1", 
+				dataType : "json", 
+				data : {data: $("#pwdsearchForm").serialize(),
+				resource: "account",
+				route: "login" 
+				},
+				success : function(result) { 
+					{ result : 0 }
+				},
+				error : function() {
+					alert("아이디 또는 비밀번호를 확인해주세요.");
+				}
+			});//ajax끝
+
+			})
+		});
+	
+	
+	</script>
 	<br><br><br>
 <hr class="footerHr" color="gray"  >
 <table id= "footerTable">

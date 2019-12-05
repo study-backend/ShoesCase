@@ -4,9 +4,12 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import shop.shoes.model.*;
+import shop.shoes.model.dto.GoodsMainDTO;
+import shop.shoes.model.request.LoginRequest;
 import shop.shoes.service.AccountService;
 import shop.shoes.service.GoodsService;
 import shop.shoes.service.GoodsServiceImpl;
+import shop.util.JsonUtil;
 import shop.util.User;
 import shop.util.UserSessionUtil;
 
@@ -24,21 +27,28 @@ public class GoodsController implements Controller{
 		User user = UserSessionUtil.getUserFromSession(request.getSession());
 		
 		// json 변환이 필요함
+		String route = request.getParameter("route");
 		String data = request.getParameter("data");
-		System.out.println("data:" + data);
-		System.out.println("user :" + user);
+		System.out.println(route);
+		System.out.println(user);
 		
+		ModelAndView mv = new ModelAndView();
 		
 		String httpMethod = request.getMethod();
+		System.out.println(httpMethod);
 		switch (httpMethod) {
 
-			case "get": {
+			case "GET": {
 
-				switch(data) {
+				switch(route) {
 					// 상품 정보 가져오기
 					case "goodsMain": {	
 						
-						goodsService.goodsMain();
+						GoodsMainDTO dto = goodsService.goodsMain();
+						String json = JsonUtil.toJson(dto);
+						System.out.println(json);
+						mv.setResultData(true);
+						mv.setResult(json);
 						break;
 					}
 					case "goodsSub": {
@@ -46,7 +56,6 @@ public class GoodsController implements Controller{
 						break;
 					}
 					case "goodsDetail": {
-						goodsService.goodsDetail(null);
 
 						goodsService.goodsDetail(1);
 						break;
@@ -55,9 +64,9 @@ public class GoodsController implements Controller{
 
 				break;
 			}
-			case "post": {
+			case "POST": {
 				
-				switch(data) {
+				switch(route) {
 				
 					
 					// 상품정보 입력
@@ -70,9 +79,9 @@ public class GoodsController implements Controller{
 				
 				break;
 			}
-			case "patch" : {
+			case "PATCH" : {
 				
-				switch(data) {
+				switch(route) {
 				
 					
 					// 
@@ -84,9 +93,9 @@ public class GoodsController implements Controller{
 				
 				break;
 			}
-			case "delete" : {
+			case "DELETE" : {
 				
-				switch(data) {
+				switch(route) {
 				
 					
 					// 상품 삭제
@@ -102,8 +111,6 @@ public class GoodsController implements Controller{
 		
 		// result를 json으로 만들어 줘야 함 
 		
-		
-		ModelAndView mv = new ModelAndView("NewFile.html", true);
 		return mv;
 	}
 

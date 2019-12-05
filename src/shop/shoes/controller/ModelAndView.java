@@ -7,7 +7,7 @@ public class ModelAndView {
 
    private String viewName;//결과뷰의정보
    private boolean isRedirect;//이동방식정보(true이면 redirect, false이면 forward)
-   private JSONArray result; // 결과 data
+   private String result; // 결과 data
    private boolean isResultData; 
    
     public ModelAndView() {}
@@ -18,7 +18,7 @@ public class ModelAndView {
 		this.isRedirect = isRedirect;
 	}
 	
-	public ModelAndView(String viewName, boolean isRedirect, JSONArray result) {
+	public ModelAndView(String viewName, boolean isRedirect, String result) {
 		super();
 		this.viewName = viewName;
 		this.isRedirect = isRedirect;
@@ -45,11 +45,11 @@ public class ModelAndView {
 		this.isResultData = isResultData;
 	}
 	
-	public JSONArray getResult() {
+	public String getResult() {
 		return result;
 	}
 
-	public void setResult(JSONArray resultData) {
+	public void setResult(String resultData) {
 		this.result = resultData;
 	}
    

@@ -18,16 +18,16 @@ public class GoodsVersionDAOImpl implements GoodsVersionDAO {
 		Connection con = null;
 		PreparedStatement ps = null;
 		ResultSet rs = null;
-		GoodsVersionDTO version = new GoodsVersionDTO();
-		String sql = "SELECT * FROM goodsversion orderby update_date";
+		GoodsVersionDTO version = null;
+		String sql = "SELECT * FROM goods_version order by update_date desc";
 		try {
 			con = DbUtil.getConnection();
 			ps = con.prepareStatement(sql);
 			rs = ps.executeQuery();
 			
 			if(rs.next()) {
-				// 개노가다.. 18..
-				version = new GoodsVersionDTO();
+				// 개노가다.. 
+				version = new GoodsVersionDTO(rs.getLong(1), rs.getString(2), rs.getDate(3), rs.getDate(4));
 			}
 			
 		}finally {
