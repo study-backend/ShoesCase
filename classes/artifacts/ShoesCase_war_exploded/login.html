@@ -19,8 +19,8 @@
 
 		
 	/* container */
-	#container{width:1254px; height:1189; margin:auto;}
-	
+	#container{width:1254px; height:1189; margin:auto; /* border:red solid 1px; */}
+	#footer{border:red solid 1px;}
 	/* header */
 	#header{width:1254px; height:180px; /* border:1px solid red; */ margin:auto;}
 	#usermenu{width:1050px; height:37px; margin-left:162px; margin-right:40px;}
@@ -29,22 +29,26 @@
 	#header ul {float:right;}
 	#header ul>li {margin-top: 15px; margin-left:10px;}
 	#gnb{width:1254px; height:56px; /* border:1px solid blue; */ }
-	#gnbin{position:relative; width:1150px; height:56px; /* border:1px solid blue; */ margin:0 auto; }
+	#gnbin{position:relative; width:1300px; height:56px; /* border:1px solid blue; */ margin:0 auto; }
 	.gnb_ul{width:1150px; height:56px; float:left; height:55px; }
 	.gnb_li {float:left; width:190; height:55;}
 	.gnb_li a{width:190; height:55; padding: 16px 50px 0 48px; font-size:18px;}
 
-	.gnb_ul:hover .sub{display: block;}
-	.gnb_ul .sub{position:absolute;  height:50px; top:50px; left:40px; display:none; color: black;}
-	.gnb_ul .sub li{width:60px;}
+	/*#nav .main>li:hover .sub{display:block; }
+	#nav .main .sub {position:absolute;  height:50px; top:50px; left:40px; display:none;}
+	#nav .main .sub li {width:60px;}*/
+
+	#gnbin .gnb_ul>a:hover .sub{display:block;}
+	#gnbin .gnb_ul .sub{position:absolute;  height:50px; top:50px; left:40px; display:none;}
+	#gnbin .gnb_ul .sub li{width:60px;}
 	
-	#side_search{position: absolute; right:135px; top:110px; width:240px; height:40px; /* border:1px solid green */; border-radius:18px; background-color:#F7F7F7;}
+	#side_search{position: absolute; right:220px; top:110px; width:240px; height:40px; /* border:1px solid green */; border-radius:18px; background-color:#F7F7F7;}
 	#searchimg{position:absolute; right:10px; top:5px; width:40px; height:30px;}
-	#basketimg{position:absolute; right:75px; top:106px; width:50px; height:50px;}
+	#basketimg{position:absolute; right:150px; top:106px; width:50px; height:50px;}
 	
 	/* main */
 	
-	#main{width:355px; height:600px; margin:auto; /* border:1px solid pink; */}
+	#main{width:355px; height:600px; margin:auto;  /* border:1px solid blue; */ }
 	#login{height: 100.5px; margin-top: 50px; font-size:30px}
 	#main h3{text-align:center;}
  	#main .log{width:350px; height:50px; border:0; outline:0; border-radius:5px; border:1px solid gray;}
@@ -58,7 +62,8 @@
     #footerTable td{border: none; }
     .f{padding:8px; font-size: 12px;margin-left: 200px;}
     .s{padding:8px; font-size: 12px;margin-left: 50px;}
-    .footerHr{border: 0; height: 1px}
+    #footer{}
+	.footerHr{border: 0; height: 1px}
     
 </style>
 <script>
@@ -129,13 +134,7 @@
 		<div id="gnb">
 			<div id="gnbin">
 			<ul class="gnb_ul">
-				<li class="gnb_li"><a href="#"><span>전체카테고리</span></a>  |</li>
-				<ul class="sub">
-					<li><a href="#">운동화</a></li>
-					<li><a href="#">구두</a></li>
-					<li><a href="#">샌들</a></li>
-					<li><a href="#">부츠</a></li>
-    			</ul>
+
 				<li class="gnb_li"><a href="#"><span>운동화</span></a>  |</li>
 				<li class="gnb_li"><a href="#"><span>구두</span></a>  |</li>
 				<li class="gnb_li"><a href="#"><span>샌들</span></a>  |</li>
@@ -148,7 +147,7 @@
 			</div>
 			
 		</div>
-	</div>
+
 	<div id="main">
 		<form  method="post"  id="loginForm">
 		<div id="login"><h3>로그인</h3></div>
@@ -161,64 +160,40 @@
 		<button type="submit" class="m_button" id="blogin"><span>로그인</span></button></p>
 		<button type="submit" class="m_button" id="bsignup"><span>회원가입</span></button>
 		</form>
-<<<<<<< HEAD
-		<script>
-		$(function(){
-			$("#blogin").click(function(){
-				$.ajax({
-				type : "post" ,
-				url : "api/v1", 
-				dataType : "json", 
-				data : {data: $("#loginForm").serialize(),
-				resource: "account",
-				route: "login" 
-				},
-				success : function(result) { 
-					console.log(result);
-				},
-				error : function() {
-					alert("아이디 또는 비밀번호를 확인해주세요.");
-				}
-			});//ajax끝
+	</div>	
+	
+	<div id="footer"> 
+	<table id= "footerTable">
+		<tr>
+			<td>
+			<div class="f">
+					<p><strong>(주)슈즈케이스</strong>&nbsp;&nbsp;&nbsp;대표이사: 장희정<br>
+					주소: 경기도 성남시 판교로 유스페이스2 B동<br>
+					사업자등록번호: 123-456-7890&nbsp;
+					반품지 주소: 미국 하와이 123-58번지 <br>
+					<em style="margin-left:65px;">Shoes Case 온라인 물류센터(02-1588-9667)</em><br></p>
+					<p class="mt10" style="line-height:1.4">본 상품의 상품이미지 저작권은 ㈜슈즈케이스 <br>내용의 무단복제를 금합니다.</p>
+									
+					<address class="copyright mt10">COPYRIGHT © SHOES-CASE KOREA CO,LTD. ALL RIGHTS RESERVED.</address>
+			</div>
 
-			})
-		});
-=======
->>>>>>> branch 'master' of https://github.com/study-backend/ShoesCase.git
-		
+			</td>
+			<td>
+			<div class="s">
+				<h2 class="tit_type1 fs16"><strong>통합고객센터</strong></h2>
+				<a href="javascript://" class="tel_number">080-701-7770</a>
+				<a href="javascript://" class="tel_number">· 1588-9667</a>
+				<p class="mt15">운영시간 : 월~금 09:00 ~18:00 (12:00 ~13:00 점심시간)<br><em style="margin-left:55px;">주말, 공휴일 휴무</em><br>
+				이메일 : <a href="mailto:abcmartcs@abcmartkorea.com">shoesCase@scmartkorea.com</a></p>
+				<div class="clearfix">
+				<div style="margin-left: 15px;"><img src="http://image.abcmart.co.kr/nexti/images/abcmart_new/confirm_01.gif" alt=""></div>
+				<div><img src="http://image.abcmart.co.kr/nexti/images/abcmart_new/confirm_02.gif" alt=""></div>
+				</div>
+			</div>
+			</td>
+		</tr>
+	</table>
 	</div>
-	<br><br><br>
-<hr class="footerHr" color="gray"  >
-<table id= "footerTable">
-<tr>
-<td>
-   <div class="f">
-         <p><strong>(주)슈즈케이스</strong>&nbsp;&nbsp;&nbsp;대표이사: 장희정<br>
-         주소: 경기도 성남시 판교로 유스페이스2 B동<br>
-         사업자등록번호: 123-456-7890&nbsp;
-         반품지 주소: 미국 하와이 123-58번지 <br>
-         <em style="margin-left:65px;">Shoes Case 온라인 물류센터(02-1588-9667)</em><br></p>
-         <p class="mt10" style="line-height:1.4">본 상품의 상품이미지 저작권은 ㈜슈즈케이스 <br>내용의 무단복제를 금합니다.</p>
-                        
-         <address class="copyright mt10">COPYRIGHT © SHOES-CASE KOREA CO,LTD. ALL RIGHTS RESERVED.</address>
-   </div>
-
-</td>
-<td>
-   <div class="s">
-       <h2 class="tit_type1 fs16">통합고객센터</h2>
-       <a href="javascript://" class="tel_number">080-701-7770</a>
-       <a href="javascript://" class="tel_number">· 1588-9667</a>
-       <p class="mt15">운영시간 : 월~금 09:00 ~18:00 (12:00 ~13:00 점심시간)<br><em style="margin-left:55px;">주말, 공휴일 휴무</em><br>
-       이메일 : <a href="mailto:abcmartcs@abcmartkorea.com">shoesCase@scmartkorea.com</a></p>
-       <ul class="clearfix">
-       <li><img src="http://image.abcmart.co.kr/nexti/images/abcmart_new/confirm_01.gif" alt=""></li>
-       <li><img src="http://image.abcmart.co.kr/nexti/images/abcmart_new/confirm_02.gif" alt=""></a></li>
-       </ul>
-   </div>
-</td>
-</tr>
-</table>
 </div>
 </body>
 </html>
