@@ -51,23 +51,24 @@
         </div>
         </c:when>
         <c:otherwise>
-            <div style="width: 740px; padding-top: 40px; padding-bottom : 40px; border-top: 2px solid purple; border-bottom: 1px solid lightgray;">
-                <table>
-         
+        <div style="width: 740px; padding-top: 40px; padding-bottom : 40px; border-top: 2px solid purple; border-bottom: 1px solid lightgray;">
+            <table>
 
+                <c:forEach var="purchaseItem" items="${list}">
                     <tr>
-                        <td rowspan="2">${purchaseItem.img}</td>
-                        <td colspan="2">${purchaseItem.name}</td>
-                        <td rowspan="2">${purchaseItem.state}</td>
+                        <td rowspan="2"><c:out value="${purchaseItem.img}"/></td>
+                        <td colspan="2"><c:out value="${purchaseItem.name}"/></td>
+                        <td rowspan="2"><c:out value="${purchaseItem.state}"/></td>
                     </tr>
                     <tr>
                         <td colspan="2">${purchaseItem.price}</td>
                     </tr>
+                </c:forEach>
 
         </c:otherwise>
         </c:choose>
-                </table>
-            </div>
+            </table>
+        </div>
     </div>
 
 </div>
