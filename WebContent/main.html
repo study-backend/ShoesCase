@@ -16,6 +16,41 @@ $(document).ready(function(){
 		$('#section div').first().show();
 	}, 3000);
 }) 
+
+	function selectAll(){
+		  $.ajax({
+			  type:"get",
+			  url:"../selectServlet",
+		      dataType: "json",//서버에게 받은 응답결과 type(text, xml, html, json)
+		      //data : {id: $(this).val() } ,//서버에게 전송할 parameter
+		      success: function(result){
+	   		        var str="";
+	   		         $.each(result, function(index, item){
+	   		        	 str+="<ul>";
+	   		        	 str+="<li class='gL'>";
+	   		        	 str+="<a href='#'>";
+	   		        	 str+="<div>";
+	   		        	 str+="<img src=''>"
+	   		        	 str+="</div>";
+	   		        	 str+="<a href='#' id='gL_a'>"+item.+"</a>";
+	   		        	 str+="<span>"+item.+"</span>";
+	   		        	 str+="</li>";
+	   		         })
+	   		         
+	   		        $("#list_goods tr:gt(0)").remove();
+	   		        $("#list_goods tr:eq(0)").after(str);
+	   		        $("a").css("textDecoration", "none");
+		      } ,
+		      error : function(err){
+		    	  console.log(err+"=> 오류발생");
+		      }
+		  });//ajax끝
+	  }
+
+
+
+
+
 </script>
 <style type="text/css">
 	/*공통*/
@@ -26,6 +61,7 @@ $(document).ready(function(){
 		
 	/* header */
 	#header{width:1200px; height:100px; border:1px solid red; margin:auto;}
+	#header #headerlogo{display: inline-block; margin:auto;}
 	#header ul {float:right;}
 	#header ul li {margin-left:10px; float:left;}
 	
@@ -76,6 +112,11 @@ $(document).ready(function(){
 			<li><a href="signupForm.jsp">회원가입</a></li>
 			<li><a href="login.html">로그인</a></li>
 		</ul>
+		<div id="headerlogo">
+			<a> 
+			<img id="logo" src="image/LOGO.png" url="dressShoes.html" alt="로고">
+			</a>
+		</div>
 	</div>
 	<div id="nav">
 		<ul class="main">
@@ -87,10 +128,10 @@ $(document).ready(function(){
 					<li><a href="#">부츠</a></li>
 				</ul>
 			</li>
-			<li class="mL"><a href="sneakers.html">운동화</a></li>
-			<li class="mL"><a href="dressShoes.html">구두</a></li>
-			<li class="mL"><a href="sandal.html">샌들</a></li>
-			<li class="mL"><a href="#">부츠</a></li>
+			<li class="mL"><a href="product?categoryName=sneakers">운동화</a></li>
+			<li class="mL"><a href="product?categoryName=gudu">구두</a></li>
+			<li class="mL"><a href="product?categoryName=sandal">샌들</a></li>
+			<li class="mL"><a href="product?categoryName=boots">부츠</a></li>
 		</ul>
 		<input type="text">
 		<button type="submit" id="img_btn"><img src="./image/a.png"></button>

@@ -67,6 +67,7 @@ public class GoodsServiceImpl implements GoodsService {
 		
 		//[2] 최신버전의 상품을 검색해 온다 
 		List<GoodsDTO> goodsList = goodsDAO.selectByVersionId(version.getVersionId());
+		System.out.println("ddd : "+goodsList.size());
 		
 		GoodsMainDTO dto = new GoodsMainDTO(goodsList, categorys);
 		//끝

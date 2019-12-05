@@ -143,3 +143,8 @@ CREATE TABLE PURCHASE_STATIC(
 );
 
 create sequence seq_Id increment by 1;
+
+
+
+commit
+

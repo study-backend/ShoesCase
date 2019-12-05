@@ -22,14 +22,14 @@ public class ProductSelectByCategoryController implements Controller {
 		 */
 		request.setAttribute("list", list);
 		ModelAndView mv = new ModelAndView();
-		if(categoryName.equals("스니커즈")) {
-			mv.setViewName("스니커즈페이지 ");
-		}else if(categoryName.equals("구두")) {
-			mv.setViewName("구두페이지");
-		}else if(categoryName.equals("샌들")) {
-			mv.setViewName("샌들페이지");
-		}else if(categoryName.equals("부츠")) {
-			mv.setViewName("부츠페이지");
+		if(categoryName.equals("sneakers")) {
+			mv.setViewName("sneakers.jsp");
+		}else if(categoryName.equals("gudu")) {
+			mv.setViewName("dressShoes.html");
+		}else if(categoryName.equals("sandal")) {
+			mv.setViewName("sandal.html");
+		}else if(categoryName.equals("boots")) {
+			mv.setViewName("boots.html");
 		}
 		return mv;
 	}
