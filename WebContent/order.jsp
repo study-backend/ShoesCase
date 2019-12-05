@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -120,12 +121,26 @@
 					<th class="infoarea">상품정보</th>
 					<th class="pricearea">상품금액</th>
 				</tr>
-				
+				<c:choose>
+				<!-- 쿠키가 비었을때 -->
+				<c:when test="cookie">
+				<div>
+				장바구니에 상품이 없습니다. 
+				</div>
+				</c:when>
+				<c:otherwise>
+				<!-- 쿠키에 정보가 있을때 -->
+				<c:forEach>
+				</c:forEach>
 				<tr>
 					<td class="imagearea" ><img src=""></td>
 					<td class="infoarea"><div></div></td>
 					<td class="pricearea"><div></div></td>
 				</tr>
+				</c:otherwise>
+				</c:choose>
+				
+				 
 			</table>
 		</div>
 		<hr>
