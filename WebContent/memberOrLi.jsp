@@ -80,7 +80,7 @@
 </div>
 
 <br><br><br>
-<hr class="footerHr" color="gray"  >
+<hr class="footerHr" color="gray">
 <table id= "footerTable">
 <tr>
 <td>
