@@ -40,20 +40,7 @@ public class DispatcherServlet extends HttpServlet {
 		String key = request.getParameter("resource");
 		System.out.println(key);
 		System.out.println(request.getParameter("data"));
-		//System.out.println(request.getRequestURL());
-		
-		//String uri = request.getRequestURI();
-		//int length = uri.indexOf("/api/v1/"); 
-		//String fullSentence = uri.substring((length + 8) , uri.length());
-		//int size = fullSentence.indexOf("/");
-		//System.out.println(size);
-		//String resource = null;
-		//if(size <= 0) {
-		//	resource = fullSentence;
-		//} else {
-		//	resource = fullSentence.substring(fullSentence.indexOf("/"));
-		//}
-		//System.out.println(resource);
+
 		
 		ModelAndView mv = null;
 		if(key == null) 
