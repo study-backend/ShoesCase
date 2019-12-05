@@ -17,7 +17,7 @@
     margin: 0px;
     padding: 0px;
 	}
-	table, th, td {border: 1px solid white; border-collapse: collapse; }
+	table, th, td {border: 1px solid /* white */red; border-collapse: collapse; }
 	hr{margin-top:10px; color:#FAFAFA}
 	/* container */
 	#container{width:1254px; height:1189; margin:auto;}
@@ -90,7 +90,6 @@
 		<div id="gnb">
 			<div id="gnbin">
 			<ul class="gnb_ul">
-				<li class="gnb_li"><a href="#"><span>전체카테고리</span></a>  |</li>
 				<li class="gnb_li"><a href="#"><span>운동화</span></a>  |</li>
 				<li class="gnb_li"><a href="#"><span>구두</span></a>  |</li>
 				<li class="gnb_li"><a href="#"><span>샌들</span></a>  |</li>
@@ -98,7 +97,7 @@
 			</ul>
 			</div>
 			<img src="image/basket.png" id="basketimg">
-			<div id="side_search">
+			<div id="side_search"type="text">
 				<img src="image/search.png" id="searchimg">
 			</div>
 			
@@ -121,24 +120,16 @@
 					<th class="infoarea">상품정보</th>
 					<th class="pricearea">상품금액</th>
 				</tr>
-				<c:choose>
-				<!-- 쿠키가 비었을때 -->
-				<c:when test="cookie">
-				<div>
-				장바구니에 상품이 없습니다. 
-				</div>
-				</c:when>
-				<c:otherwise>
-				<!-- 쿠키에 정보가 있을때 -->
-				<c:forEach>
-				</c:forEach>
+				<%
+				Cookie cookie [] = request.getCookies();
+				%>
+				<c:forEach var="cart" items="<%=cookie%>"> 
 				<tr>
-					<td class="imagearea" ><img src=""></td>
-					<td class="infoarea"><div></div></td>
-					<td class="pricearea"><div></div></td>
+					<td class="imagearea" ><img src="${cart.name }"></td>
+					<td class="infoarea"><div>${cart.name}<br>${cart.name}</div></td>
+					<td class="pricearea"><div>${cart.name}</div></td>
 				</tr>
-				</c:otherwise>
-				</c:choose>
+				</c:forEach>
 				
 				 
 			</table>

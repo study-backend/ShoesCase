@@ -19,7 +19,7 @@
 	#container{width:1254px; height:1189; margin:auto;}
 	
 	/* header */
-	#header{width:1254px; height:180px; /* border:1px solid red; */ margin:auto;}
+	#header{width:1254px; height:100px; /* border:1px solid red; */ margin:auto;}
 	#usermenu{width:1050px; height:37px; margin-left:162px; margin-right:40px;}
 	#headerlogo{width:1050px; height:63px; margin-left:102px; margin-right:102px; position: relative;}
 	#logo {display: block; width:200px; height:80px; margin-left:440px; margin-right:500px; margin-bottom: 20px }
@@ -30,6 +30,10 @@
 	.gnb_ul{width:1150px; height:56px; float:left; height:55px; }
 	.gnb_li {float:left; width:190; height:55;}
 	.gnb_li a{ padding: 16px 50px 0 48px; font-size:18px;}	
+	
+	.gnb_ul .sub{position:absolute; height:50px; top:50px; left:40px; display:none; color: black;}
+	.gnb_ul .sub li{width:60p border:1px solid red}
+
 	#side_search{position: absolute; right:135px; top:110px; width:240px; height:40px; /* border:1px solid green */; border-radius:18px; background-color:#F7F7F7;}
 	#searchimg{position:absolute; right:10px; top:5px; width:40px; height:30px;}
 	#basketimg{position:absolute; right:75px; top:106px; width:50px; height:50px;}
@@ -69,6 +73,12 @@
 			<div id="gnbin">
 			<ul class="gnb_ul">
 				<li class="gnb_li"><a href="#"><span>전체카테고리</span></a>  |</li>
+					<ul class="sub">
+						<li><a href="#">운동화</a></li>
+						<li><a href="#">구두</a></li>
+						<li><a href="#">샌들</a></li>
+						<li><a href="#">부츠</a></li>
+					</ul>
 				<li class="gnb_li"><a href="#"><span>운동화</span></a>  |</li>
 				<li class="gnb_li"><a href="#"><span>구두</span></a>  |</li>
 				<li class="gnb_li"><a href="#"><span>샌들</span></a>  |</li>
