@@ -20,8 +20,8 @@ import shop.util.JsonUtil;
 /**
  * Servlet implementation class DispatcherServlet
  */
-@WebServlet(urlPatterns = {"/front"} , loadOnStartup = 1)
-public class DispatcherServlet extends HttpServlet {
+@WebServlet(urlPatterns = {"/api/v1"} , loadOnStartup = 1)
+public class RestDispatcherServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	Map<String, Controller> map;
 	
@@ -55,13 +55,21 @@ public class DispatcherServlet extends HttpServlet {
 		//}
 		//System.out.println(resource);
 		
-		ModelAndView mv = null;
 		if(key == null) 
 			key = "home";
 		
 		try {
-		    mv = map.get(key).handleRequest(request, response);
- 
+		   ModelAndView mv = map.get(key).handleRequest(request, response);
+
+		   
+		   System.out.println(mv.getViewName());
+		   System.out.println("이동하자");
+		   
+		   //if(mv.isResultData() == true) {
+		   //		PrintWriter out = response.getWriter();
+		   //	//out.println(mv.getResult());
+		   //}
+		   
 		   
 		   if(mv.isRedirect()) {//redirect방식
 				response.sendRedirect("NewFile.html");
