@@ -12,6 +12,7 @@ public class ReviewDTO {
     CREATE_DATE DATE,
     UPDATE_DATE DATE
 	 */
+	// 리뷰 제목, 리뷰 평점, 리뷰 내용
 	private int reviewId;
 	private int goodsId;
 	private int accountId;
