@@ -124,7 +124,7 @@
         </table>
     </div>
     <div style="text-align: center;">
-    <input type="submit" value="가입하기" id="btn">
+    <input type="button" value="가입하기" id="btn">
     </div>
     
     </form>
@@ -145,12 +145,12 @@ $(document).ready(function() {
 				  url: "/ShoesCase/api/v1"  ,
 				  dataType: "json"   ,  // 서버에게 받은 응답결과 type(json, text, xml)
 				  data: { data: JSON.stringify(str),
-					 	  resource: "Account",
+					 	  resource: "Goods",
 						  route: "account" 
 				  		} ,		// 서버에게 전송할 param
-				  success: function(result) {
+				  	success: function(result) {
 					  
-					  consosle.log(result);
+					  console.log(result);
 					  
 					  if(result > 0) {
 						  //alert("등록되었습니다 ");

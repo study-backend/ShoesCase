@@ -1,4 +1,10 @@
 eclipse.preferences.version=1
+encoding//WebContent/detailPage.html=UTF-8
+encoding//WebContent/main.html=UTF-8
+encoding//WebContent/sandal.html=UTF-8
+encoding//WebContent/shopping_basket.html=UTF-8
+encoding//WebContent/slipper.html=UTF-8
+encoding//WebContent/sneakers.jsp=UTF-8
 encoding//src/shop/shoes/controller/UserRegisterController.java=UTF-8
 encoding//src/shop/shoes/model/AccountDTO.java=UTF-8
 encoding/<project>=UTF-8

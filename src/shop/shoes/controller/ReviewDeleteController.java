@@ -17,7 +17,7 @@ public class ReviewDeleteController implements Controller {
    String reviewPwd = ""; //값 받아야 할듯? //ReviewService.delete(reviewId, reviewPwd);
    
    //이미 db에 날라가고 데이터가 알아서 처리될 것임 //때문에 ajax로 통신해야 새로고침없이 화면 갱신될거같음
-   
+//   
    ModelAndView mv = new ModelAndView();
    
    

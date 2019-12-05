@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-<meta charset="EUC-KR">
+<meta charset="UTF-8">
 <title>Insert title here</title>
+
 <style type="text/css">
-	/*°øÅë*/
+	/*ê³µí†µ*/
 	a{color:#000; text-decoration:none;}
 	a:hover{color:#000; font-weight:bold;}
 	ul li{list-style: none; margin:0; padding:0;}
@@ -23,9 +25,6 @@
 	#detail #discount{margin-left:50px; text-decoration:line-through; color:gray;}
 	#detail #not_login {margin-top:20px; margin-left:20px;}
 	
-	
-	
-	
 	#a span {margin-top:30px; margin-left:20px; margin-bottom:30px;}
 	#detail #not_login {margin-top:20px; margin-left:20px;}
 	#detail_infor table{margin-top:30px; margin-left:20px; margin-bottom:30px;}
@@ -37,50 +36,59 @@
 	
 	#detail #total_price .tpsT{font-size:32px; font-style:bold;}
 	
-	
 	#detail #long_img{margin:auto; width:1000px; height:100%; display:flex; overflow:hidden; align-items:center; justify-content:center;}
 	
-	#product {width:1000px; margin:auto; text-align:center;}
-	#product table{display:inline-block;}
-	#product table th {background-color:#CBA3E9; width:700px; height:35px; font-size:20px; color:white;}
-	#product table td {background-color:#F5F5F5;}
+	#product_rv {width:1000px; margin:auto; text-align:center;}
+	#product_rv table{display:inline-block;}
+	#product_rv table th {background-color:#CBA3E9; width:700px; height:35px; font-size:20px; color:white;}
+	#product_rv table td {background-color:#F5F5F5;}
 	
-	#product table td:nth-child(1){width:6%;}
-	#product table td:nth-child(2){width:30%;}
-	#product table td:nth-child(3){width:12%;}
-	#product table td:nth-child(4){width:20%;}
-	#product table td:nth-child(5){width:12%;}
-	#product table td:nth-child(6){width:20%;}
+	#product_rv table td:nth-child(1){width:6%;}
+	#product_rv table td:nth-child(2){width:30%;}
+	#product_rv table td:nth-child(3){width:12%;}
+	#product_rv table td:nth-child(4){width:20%;}
+	#product_rv table td:nth-child(5){width:12%;}
+	#product_rv table td:nth-child(6){width:20%;}
 	button{width:200px; height:50px; color:white; background-color:#CBA3E9; border-radius:5px;}
+	
+	 /* footer */
+    #footerTable{border: none; }
+    #footerTable td{border: none; }
+    .f{padding:8px; font-size: 12px;margin-left: 200px;}
+    .s{padding:8px; font-size: 12px;margin-left: 50px;}
+    .footerHr{border: 0; height: 1px}
+	
 </style>
+
 </head>
+
 <body>
 	<div id="detail">
 		<div id="detail_infor">
 			<table>
 				<div id="main_title">
-					<strong>³ªÀÌÅ°¿¡¾î¸Æ½º</strong>
+					<strong>ë‚˜ì´í‚¤ì—ì–´ë§¥ìŠ¤</strong>
 				</div>
 				<div id="sub_title">
-					<span>ÃÖ°íÀÇ ½Å¹ß</span>
+					<span>ìµœê³ ì˜ ì‹ ë°œ</span>
 				</div>
 				<div id="member_price">
-					<span>È¸¿øÇÒÀÎ°¡</span>
+					<span>íšŒì›í• ì¸ê°€</span>
 				</div>
 				<div id="price">
 					<span class="price">20,000</span>
-					<span class="won">¿ø</span>
+					<span class="won">ì›</span>
 					<sapn class="dc">15%</sapn>
 				</div>
 				<div id="discount">
-					<span>3000¿ø</span>
+					<span>3000ì›</span>
 				</div>
 				<div id="not_login">
-				<span>·Î±×ÀÎ ÈÄ, È¸¿øÇÒÀÎ°¡¿Í Àû¸³ÇıÅÃÀÌ Á¦°øµË´Ï´Ù.</span>
+				<span>ë¡œê·¸ì¸ í›„, íšŒì›í• ì¸ê°€ì™€ ì ë¦½í˜œíƒì´ ì œê³µë©ë‹ˆë‹¤.</span>
 			</div>
 			<hr>
 				<tr>
-					<td>»ö»ó</td><td></td>
+					<td>ìƒ‰ìƒ</td><td></td>
 					<td>
 						<select id ="selec">
 						<option value="black">black</option>
@@ -89,7 +97,7 @@
 					</td>
 				</tr>
 				<tr>
-					<td>»çÀÌÁî</td><td></td>
+					<td>ì‚¬ì´ì¦ˆ</td><td></td>
 					<td>
 						<select id ="selec">
 							<option value="250" selected="selected">250</option>
@@ -98,7 +106,7 @@
 					</td>
 				</tr>
 				<tr>
-					<td>±¸¸Å¼ö·®</td><td></td>
+					<td>êµ¬ë§¤ìˆ˜ëŸ‰</td><td></td>
 					<td>
 						<input type="number" id="number">
 					</td>
@@ -106,10 +114,9 @@
 			</table>
 			<hr>
 			<div id="total_price">
-					<span class="tpsO">ÃÑ »óÇ°±İ¾×</span><span class="tpsT">20,000</span><span class="tpsTh">¿ø</span>
-					<button type="button">Àå¹Ù±¸´Ï ´ã±â</button>
+					<span class="tpsO">ì´ ìƒí’ˆê¸ˆì•¡</span><span class="tpsT">20,000</span><span class="tpsTh">ì›</span>
+					<button type="button">ì¥ë°”êµ¬ë‹ˆ ë‹´ê¸°</button>
 			</div>
-	
 		</div>
 		<div id="detail_img">
 			<img src="image/sneakers/andy.png">
@@ -117,25 +124,55 @@
 		<div id="long_img"> 
 			<img src="image/sneakers/andy01.png">
 		</div>
-		
-		
 	</div>
 	
-	<div id="product">
+	<div id="product_rw">
 		<table>
 			<tr>
-				<th colspan='6'>»óÇ°ÈÄ±â</th>
+				<th colspan='6'>ìƒí’ˆí›„ê¸°</th>
 			</tr>
 			<tr>
-				<td>±Û¹øÈ£</td>
-				<td>Á¦¸ñ</td>
-				<td>±¸¸ÅÀÚ</td>
-				<td>¸¸Á·µµ</td>
-				<td>ÀÛ¼ºÀÚ</td>
-				<td>ÀÛ¼ºÀÏ</td>
+				<td>ê¸€ë²ˆí˜¸</td>
+				<td>ì œëª©</td>
+				<td>êµ¬ë§¤ì</td>
+				<td>ë§Œì¡±ë„</td>
+				<td>ì‘ì„±ì</td>
+				<td>ì‘ì„±ì¼</td>
 			</tr>
 		</table>
-		<button type="button">ÈÄ±â¾²±â</button>
+		<button type="button">í›„ê¸°ì“°ê¸°</button>
 	</div>
+	<br><br><br>
+	<hr class="footerHr" color="gray"  >
+	<table id= "footerTable">
+<tr>
+<td>
+   <div class="f">
+         <p><strong>(ì£¼)ìŠˆì¦ˆì¼€ì´ìŠ¤</strong>&nbsp;&nbsp;&nbsp;ëŒ€í‘œì´ì‚¬: ì¥í¬ì •<br>
+         ì£¼ì†Œ: ê²½ê¸°ë„ ì„±ë‚¨ì‹œ íŒêµë¡œ ìœ ìŠ¤í˜ì´ìŠ¤2 Bë™<br>
+         ì‚¬ì—…ìë“±ë¡ë²ˆí˜¸: 123-456-7890&nbsp;
+         ë°˜í’ˆì§€ ì£¼ì†Œ: ë¯¸êµ­ í•˜ì™€ì´ 123-58ë²ˆì§€ <br>
+         <em style="margin-left:65px;">Shoes Case ì˜¨ë¼ì¸ ë¬¼ë¥˜ì„¼í„°(02-1588-9667)</em><br></p>
+         <p class="mt10" style="line-height:1.4">ë³¸ ìƒí’ˆì˜ ìƒí’ˆì´ë¯¸ì§€ ì €ì‘ê¶Œì€ ãˆœìŠˆì¦ˆì¼€ì´ìŠ¤ <br>ë‚´ìš©ì˜ ë¬´ë‹¨ë³µì œë¥¼ ê¸ˆí•©ë‹ˆë‹¤.</p>
+                        
+         <address class="copyright mt10">COPYRIGHT Â© SHOES-CASE KOREA CO,LTD. ALL RIGHTS RESERVED.</address>
+   </div>
+
+</td>
+<td>
+   <div class="s">
+       <h2 class="tit_type1 fs16">í†µí•©ê³ ê°ì„¼í„°</h2>
+       <a href="javascript://" class="tel_number">080-701-7770</a>
+       <a href="javascript://" class="tel_number">Â· 1588-9667</a>
+       <p class="mt15">ìš´ì˜ì‹œê°„ : ì›”~ê¸ˆ 09:00 ~18:00 (12:00 ~13:00 ì ì‹¬ì‹œê°„)<br><em style="margin-left:55px;">ì£¼ë§, ê³µíœ´ì¼ íœ´ë¬´</em><br>
+       ì´ë©”ì¼ : <a href="mailto:abcmartcs@abcmartkorea.com">shoesCase@scmartkorea.com</a></p>
+       <ul class="clearfix">
+       <li><img src="http://image.abcmart.co.kr/nexti/images/abcmart_new/confirm_01.gif" alt=""></li>
+       <li><img src="http://image.abcmart.co.kr/nexti/images/abcmart_new/confirm_02.gif" alt=""></a></li>
+       </ul>
+   </div>
+</td>
+</tr>
+</table>
 </body>
 </html>
