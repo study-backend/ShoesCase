@@ -112,7 +112,6 @@
 	request.setAttribute("list", list);
 	
 	--%>
-	
 
 	<!-- 마지막 줄이 3개가 아닐 경우에 list가 끝날때 닫아야 해서 사이즈 구하는 함수 씀 -->
 	<c:set var="size" value="${fn:length(list)}" />
