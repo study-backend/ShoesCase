@@ -1,5 +1,7 @@
 package shop.shoes.model;
 
+import java.sql.Date;
+
 public class GoodsDTO {
 
 	private long goodsId;
@@ -14,8 +16,8 @@ public class GoodsDTO {
     private long goddsVersion;
     private int saleCode;
     private int saleState;
-    private String createDate;
-    private String updateDate;
+    private Date createDate;
+    private Date updateDate;
     private int totalPrice;
     
     private long categoryId;
@@ -53,7 +55,7 @@ public class GoodsDTO {
 
 	public GoodsDTO(long goodsId, double price, String name, int count, String imgPath, String sumnailPath,
 			int colorCode, int sizeCode, String itemSn, long goddsVersion, int saleCode, int saleState,
-			String createDate, String updateDate) {
+			Date createDate, Date updateDate) {
 		super();
 		this.goodsId = goodsId;
 		this.price = price;
@@ -70,7 +72,6 @@ public class GoodsDTO {
 		this.createDate = createDate;
 		this.updateDate = updateDate;
 	}
-
 
 
 	public long getGoodsId() {
@@ -217,25 +218,25 @@ public class GoodsDTO {
 
 
 
-	public String getCreateDate() {
+	public Date getCreateDate() {
 		return createDate;
 	}
 
 
 
-	public void setCreateDate(String createDate) {
+	public void setCreateDate(Date createDate) {
 		this.createDate = createDate;
 	}
 
 
 
-	public String getUpdateDate() {
+	public Date getUpdateDate() {
 		return updateDate;
 	}
 
 
 
-	public void setUpdateDate(String updateDate) {
+	public void setUpdateDate(Date updateDate) {
 		this.updateDate = updateDate;
 	}
 

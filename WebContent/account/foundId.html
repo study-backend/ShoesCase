@@ -4,40 +4,6 @@
 <meta charset="UTF-8">
 <link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR:400,500|Pacifico&display=swap&subset=korean" rel="stylesheet">
 <title>Insert title here</title>
-<script type="text/javascript" src="../js/jquery-3.4.1.min.js"></script>
-<script type="text/javascript" src="../js/script.js"></script>
-<script>
-		$(function(){
-			$("#blogin").click(function(){
-				
-				let str = $("#idsearchForm").serializeObject();
-				console.log(str);
-				
-				$.ajax({
-				type : "get" ,
-				url : "/ShoesCase/api/v1", 
-				dataType : "json", 
-				data : { data: JSON.stringify(str),
-						 resource: "Account",
-						 route: "findId" 
-				},
-				//contentType: 'application/json; charset=utf-8',
-				success : function(result) { 
-					console.log("1111");
-					if(result == 1) {
-						location.href='foundId.html' 
-					}
-				},
-				error : function(error) {
-					console.log(error);
-					//alert("아이디 또는 비밀번호를 확인해주세요.");
-				}
-			});//ajax끝
-
-			})			
-
-	});
-</script>
 <style type="text/css">
 	/*공통*/
 	#header, #container {position: relative;}
@@ -46,7 +12,8 @@
 	ul li{list-style: none;}
 	h1,h2,h3,h4,h5,p,ul,li{
     margin: 0px;
-    padding: 0px;}
+    padding: 0px;
+}
 
 		
 	/* container */
@@ -56,7 +23,7 @@
 	#header{width:1254px; height:180px; /* border:1px solid red; */ margin:auto;}
 	#usermenu{width:1050px; height:37px; margin-left:162px; margin-right:40px;}
 	#headerlogo{width:1050px; height:63px; margin-left:102px; margin-right:102px; position: relative;}
-	#logo {display: block; width:200px; height:80px; margin-left:440px; margin-right:500px; margin-bottom: 20px }
+	#logo {display: block; width:200px; height:80px; margin-left:450px; margin-right:500px; margin-bottom: 20px }
 	#headerul {float:right;}
 	#header ul li {margin-top: 15px; margin-left:10px; float:left;}
 	#gnb{width:1254px; height:56px; /* border:1px solid blue; */ }
@@ -70,12 +37,13 @@
 	
 	/* main */
 	#main{width:355px; height:600px; margin:auto; /* border:1px solid pink; */}
-	#main h3{text-align:center;}
- 	#main .log{width:350px; height:50px; border:0; outline:0; border-radius:5px; border:1px solid gray;}
-	#lable{font-size: 10px}
-	#findid{width:354px; height:56px; margin-top:20px; color:#FFFFFF; background-color:#5F0080; border-radius:5px; outline:0;}
-	#main button span{font-size:16px; }
-	#login{height: 100.5px; margin-top: 50px; font-size:30px}
+	#main h2{text-align:center;  margin-left:40px;}
+	#search{text-align:center; margin-top: 50px; margin-right:20spx;}
+	#foundimg{margin-top:20px; margin-left:22px;}
+	#idsearch{width:350px; height:200px }
+	#textbox{margin: auto; }
+	#idtext{height:50px; margin-left:115px; text-align:center; border:white;}
+	#found{width:354px; height:56px; margin-top:25px; margin-left:18px; color:#FFFFFF; background-color:#5F0080; border-radius:5px; outline:0;}
 	
 	/* footer */
     #footerTable{border: none; }
@@ -83,6 +51,7 @@
     .f{padding:8px; font-size: 12px;margin-left: 200px;}
     .s{padding:8px; font-size: 12px;margin-left: 50px;}
     .footerHr{border: 0; height: 1px}
+    
 </style>
 </head>
 <body>
@@ -99,7 +68,7 @@
 		</div>
 		<div id="headerlogo">
 			<a> 
-			<img id="logo" src="image/LOGO.png" url="dressShoes.html" alt="로고">
+			<img id="logo" src="image/LOGO.png" alt="로고">
 			</a>
 		</div>	
 		<div id="gnb">
@@ -120,15 +89,16 @@
 		</div>
 	</div>
 	<div id="main">
-		<form  method="post" id="idsearchForm"> 
-		<div id="login"><h3>아이디 찾기</h3></div>
-		<small><b>이름</b></small> <br>
-		<input type="text" class="log" placeholder="  고객님의 이름을 입력해주세요."><br><br>
-		<small><b>이메일</b></small> <br>
-		<input type="text" class="log" placeholder="  가입 시 등록하신 이메일 주소를 입력해주세요."><br><br>
-		 <button type="button" id="findid"><span>확인</span></button>
-		</div>>
+		<div class="search"><h2>아이디 찾기</h2></div>
+		<div id="foundimg">
+		<img id="idsearch" src="image/idsearch.png">
+		</div>
+		<div id="textbox" >
+		<input type="text" id="idtext" value="아이디나오는곳">	
+		</div>
+		<button type="button" id="found" onclick="location.href='login.html'"><span>확인</span></button>
 	</div>
+	</form>
 	<br><br><br>
 <hr class="footerHr" color="gray"  >
 <table id= "footerTable">
