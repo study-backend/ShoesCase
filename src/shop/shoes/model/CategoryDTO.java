@@ -1,15 +1,17 @@
 package shop.shoes.model;
 
+import java.sql.Date;
+
 public class CategoryDTO {
-	private int categoryId;
+	private long categoryId;
 	private int sortOrder;
 	private String name;
-	private String createDate;
-	private String updateDate;
+	private Date createDate;
+	private Date updateDate;
 	
 	public CategoryDTO() {}
 
-	public CategoryDTO(int categoryId, int sortOrder, String name, String createDate, String updateDate) {
+	public CategoryDTO(long categoryId, int sortOrder, String name, Date createDate, Date updateDate) {
 		super();
 		this.categoryId = categoryId;
 		this.sortOrder = sortOrder;
@@ -18,11 +20,11 @@ public class CategoryDTO {
 		this.updateDate = updateDate;
 	}
 
-	public int getCategoryId() {
+	public long getCategoryId() {
 		return categoryId;
 	}
 
-	public void setCategoryId(int categoryId) {
+	public void setCategoryId(long categoryId) {
 		this.categoryId = categoryId;
 	}
 
@@ -42,19 +44,19 @@ public class CategoryDTO {
 		this.name = name;
 	}
 
-	public String getCreateDate() {
+	public Date getCreateDate() {
 		return createDate;
 	}
 
-	public void setCreateDate(String createDate) {
+	public void setCreateDate(Date createDate) {
 		this.createDate = createDate;
 	}
 
-	public String getUpdateDate() {
+	public Date getUpdateDate() {
 		return updateDate;
 	}
 
-	public void setUpdateDate(String updateDate) {
+	public void setUpdateDate(Date updateDate) {
 		this.updateDate = updateDate;
 	}
 	
