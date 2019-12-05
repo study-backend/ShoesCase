@@ -22,12 +22,11 @@ public class ReviewSelectController implements Controller {
  request.setAttribute("reviewList", list); //set attribute 저장하는 name값 확인!!
  }catch(SQLException e) { e.printStackTrace(); }
  
- //ModelAndView mv = new ModelAndView(); // mv.setRedirect(isRedirect); 이동방식,
- //화면어디로 ? 정하기
+ ModelAndView mv = new ModelAndView(); // mv.setRedirect(isRedirect); 이동방식,
+ 화면어디로 ? 정하기
  
  
  
  //화면 뿌리기 //return mv 해야함 return null; }
- return null;
+ 
  }
-}

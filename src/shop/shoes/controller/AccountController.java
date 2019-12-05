@@ -48,6 +48,14 @@ public class AccountController implements Controller{
 						String email = request.getParameter("email");
 						int code = accountService.idFind(name, email);
 						
+						LoginRequest req = JsonUtil.fromJson(data, LoginRequest.class);		
+						AccountDTO account = new AccountDTO();
+						account.setLoginId(req.getLoginId());
+						account.setLoginPwd(req.getLoginPwd());
+						
+						AccountDTO user = accountService.signin(account);
+						System.out.println(JsonUtil.toJson(user));
+						
 					
 					}
 					
@@ -85,8 +93,8 @@ public class AccountController implements Controller{
 					         session.setAttribute("user", loginedUser);
 				        }
 
-						mv.setViewName("login.html");
-						mv.setRedirect(true);
+						mv.setResultData(true);
+						mv.setResult("{ result : 1 }");
 
 						break;
 					}
@@ -108,10 +116,18 @@ public class AccountController implements Controller{
 						account.setDeleteDate(Date.valueOf("1900-01-01"));
 						account.setAddr("우리집");
 						
-						int code = accountService.signup(account);
-						System.out.println(JsonUtil.toJson(code));
-						mv.setViewName("login.html");
-						mv.setRedirect(false);
+						int success = accountService.signup(account);
+						
+						System.out.println(JsonUtil.toJson(success));
+						
+						if (success == 1) {
+							HttpSession session = request.getSession();
+							User loginedUser = new User(account.getLoginId(), account.getLoginPwd(), account.getName(), account.getEmail());
+							session.setAttribute("user", loginedUser);
+						}
+						
+						mv.setResultData(true);
+						mv.setResult("{ result : 1 }");
 		
 						break;
 					}

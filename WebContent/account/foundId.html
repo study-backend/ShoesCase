@@ -37,15 +37,21 @@
 	
 	/* main */
 	#main{width:355px; height:600px; margin:auto; /* border:1px solid pink; */}
-	#main h3{text-align:center;}
- 	#main .log{width:350px; height:50px; border:0; outline:0; border-radius:5px; border:1px solid gray;}
-	#lable{font-size: 10px}
-	#findpwd{width:354px; height:56px; margin-top:20px; color:#FFFFFF; background-color:#5F0080; border-radius:5px; outline:0;}
-	#main button span{font-size:16px; }
-	#login{height: 100.5px; margin-top: 50px; font-size:30px}
+	#main h2{text-align:center;  margin-left:40px;}
+	#search{text-align:center; margin-top: 50px; margin-right:20spx;}
+	#foundimg{margin-top:20px; margin-left:22px;}
+	#idsearch{width:350px; height:200px }
+	#textbox{margin: auto; }
+	#idtext{height:50px; margin-left:115px; text-align:center; border:white;}
+	#found{width:354px; height:56px; margin-top:25px; margin-left:18px; color:#FFFFFF; background-color:#5F0080; border-radius:5px; outline:0;}
 	
 	/* footer */
-	#footer{width:1000px; height:100px; border:1px solid green; margin:auto;}
+    #footerTable{border: none; }
+    #footerTable td{border: none; }
+    .f{padding:8px; font-size: 12px;margin-left: 200px;}
+    .s{padding:8px; font-size: 12px;margin-left: 50px;}
+    .footerHr{border: 0; height: 1px}
+    
 </style>
 </head>
 <body>
@@ -83,20 +89,48 @@
 		</div>
 	</div>
 	<div id="main">
-		<form  method="post" action="#"> 
-		<div id="login"><h3>비밀번호 찾기</h3></div>
-		<label class="label">이름</label> <br>
-		<input type="text" class="log" placeholder="고객님의 이름을 입력해주세요."><br><br>
-		<label class="label">아이디</label> <br>
-		<input type="text" class="log" placeholder="고객님의 아이디를 입력해주세요."><br><br>
-		<label class="label">이메일</label> <br>
-		<input type="text" class="log" placeholder="가입 시 등록하신 이메일 주소를 입력해주세요."><br><br>
-		<button type="submit" id="findpwd"><span>확인</span></button>
-		</form>	
+		<div class="search"><h2>아이디 찾기</h2></div>
+		<div id="foundimg">
+		<img id="idsearch" src="image/idsearch.png">
+		</div>
+		<div id="textbox" >
+		<input type="text" id="idtext" value="아이디나오는곳">	
+		</div>
+		<button type="button" id="found" onclick="location.href='login.html'"><span>확인</span></button>
 	</div>
-	 
-	<div id="footer">
-	
-	</div>
+	</form>
+	<br><br><br>
+<hr class="footerHr" color="gray"  >
+<table id= "footerTable">
+<tr>
+<td>
+   <div class="f">
+         <p><strong>(주)슈즈케이스</strong>&nbsp;&nbsp;&nbsp;대표이사: 장희정<br>
+         주소: 경기도 성남시 판교로 유스페이스2 B동<br>
+         사업자등록번호: 123-456-7890&nbsp;
+         반품지 주소: 미국 하와이 123-58번지 <br>
+         <em style="margin-left:65px;">Shoes Case 온라인 물류센터(02-1588-9667)</em><br></p>
+         <p class="mt10" style="line-height:1.4">본 상품의 상품이미지 저작권은 ㈜슈즈케이스 <br>내용의 무단복제를 금합니다.</p>
+                        
+         <address class="copyright mt10">COPYRIGHT © SHOES-CASE KOREA CO,LTD. ALL RIGHTS RESERVED.</address>
+   </div>
+
+</td>
+<td>
+   <div class="s">
+       <h2 class="tit_type1 fs16">통합고객센터</h2>
+       <a href="javascript://" class="tel_number">080-701-7770</a>
+       <a href="javascript://" class="tel_number">· 1588-9667</a>
+       <p class="mt15">운영시간 : 월~금 09:00 ~18:00 (12:00 ~13:00 점심시간)<br><em style="margin-left:55px;">주말, 공휴일 휴무</em><br>
+       이메일 : <a href="mailto:abcmartcs@abcmartkorea.com">shoesCase@scmartkorea.com</a></p>
+       <ul class="clearfix">
+       <li><img src="http://image.abcmart.co.kr/nexti/images/abcmart_new/confirm_01.gif" alt=""></li>
+       <li><img src="http://image.abcmart.co.kr/nexti/images/abcmart_new/confirm_02.gif" alt=""></a></li>
+       </ul>
+   </div>
+</td>
+</tr>
+</table>
+
 </body>
 </html>
