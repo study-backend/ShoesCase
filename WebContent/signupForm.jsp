@@ -4,25 +4,95 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR:400,500|Pacifico&display=swap&subset=korean" rel="stylesheet">
 <title>Insert title here</title>
 
 <style type="text/css">
+	 
+/*공통*/
+	#header, #container {position: relative;}
+	*{color:#000; text-decoration:none; font-family: 'Noto Sans KR', sans-serif;}
+/* 	a:hover{color:#000; font-weight:bold;} */
+	ul li{list-style: none;}
+	h1,h2,h3,h4,h5,p,ul,li{
+    margin: 0px;
+    padding: 0px;
+	}	
+	/* container */
+	#container{width:1254px; height:1189; margin:auto;}
+	
+	/* header */
+	.headers{background-color:white;}
+	#header{width:1254px; height:180px; /* border:1px solid red; */ margin:auto;}
+	#usermenu{width:1050px; height:37px; margin-left:162px; margin-right:40px;}
+	#headerlogo{width:1050px; height:63px; margin-left:102px; margin-right:102px; position: relative;}
+	#logo {display: block; width:200px; height:80px; margin-left:440px; margin-right:500px; margin-bottom: 20px }
+	#header ul {float:right;}
+	#header ul>li {margin-top: 15px; margin-left:10px;}
+	#gnb{width:1254px; height:56px; /* border:1px solid blue; */ }
+	#gnbin{position:relative; width:1150px; height:56px; /* border:1px solid blue; */ margin:0 auto; }
+	.gnb_ul{width:1150px; height:56px; float:left; height:55px; }
+	.gnb_li {float:left; width:190; height:55;}
+	.gnb_li a{width:190; height:55; padding: 16px 50px 0 48px; font-size:18px;}
+
+	.gnb_ul:hover .sub{display: block;}
+	.gnb_ul .sub{position:absolute;  height:50px; top:50px; left:40px; display:none; color: black;}
+	.gnb_ul .sub li{width:60px;}
+	
+	#side_search{position: absolute; right:135px; top:110px; width:240px; height:40px; /* border:1px solid green */; border-radius:18px; background-color:#F7F7F7;}
+	#searchimg{position:absolute; right:10px; top:5px; width:40px; height:30px;}
+	#basketimg{position:absolute; right:75px; top:106px; width:50px; height:50px;}
+	
+	/* body */
 	button{width:354px; height:56px; margin-top:20px; background-color:purple; border-radius:5px; outline:0;}
 	.no-margin{
 		margin: 0;
 	}
 	#centerWindow { position:absolute; width:100px; height:100px; top:50%; left:50%; margin-top:-50px; margin-left:-50px; }
 
-table, th, td {border: 1px solid black; width:"100%";}
+	table, th, td {border: 1px solid black; width:"100%";}
+	
 </style>
 </head>
 <body>
-
-
-<body style="margin: 0px; background-color: whitesmoke">
-<div style="height: 180px; width: 100%; background-color: #0c5460; text-align: center;"> Header 자리</div>
-
-<div class="signUpTitle" style="margin-top: 100px; margin-bottom: 10px">
+<!-- <body style="margin: 0px; background-color: whitesmoke"> -->
+<div class="headers">
+	<div id="header">
+		<div id="usermenu">
+			<ul id="headerul">
+				<li><a href="signupForm.jsp">회원가입</a>   || <a href="login.html">로그인</a></li>
+				<li> </li>
+			</ul>
+		</div>
+		<div id="headerlogo">
+			<img id="logo" src="image/LOGO.png" alt="로고">
+		</div>	
+		<div id="gnb">
+			<div id="gnbin">
+			<ul class="gnb_ul">
+				<li class="gnb_li"><a href="#"><span>전체카테고리</span></a>  |</li>
+				<ul class="sub">
+					<li><a href="#">운동화</a></li>
+					<li><a href="#">구두</a></li>
+					<li><a href="#">샌들</a></li>
+					<li><a href="#">부츠</a></li>
+    			</ul>
+				<li class="gnb_li"><a href="#"><span>운동화</span></a>  |</li>
+				<li class="gnb_li"><a href="#"><span>구두</span></a>  |</li>
+				<li class="gnb_li"><a href="#"><span>샌들</span></a>  |</li>
+				<li class="gnb_li"><a href="#"><span>부츠</span></a>  |</li>
+			</ul>
+			</div>
+			<img src="image/basket.png" id="basketimg">
+			<div id="side_search">
+				<img src="image/search.png" id="searchimg">
+			</div>
+			
+		</div>
+	</div>
+</div>
+	<body style="margin: 0px; background-color: whitesmoke">
+	<div class="signUpTitle" style="margin-top: 100px; margin-bottom: 10px">
     <h2 style="text-align: center; margin: 0px;">회원가입</h2>
 
     <div class="boardWrite" style="margin-top: 30px">
@@ -47,7 +117,7 @@ table, th, td {border: 1px solid black; width:"100%";}
             </tr>
 
             <tr>
-                <td class="memberCols1">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp비밀번호확인*</td>
+                <td class="memberCols1">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<!-- &nbsp&nbsp -->비밀번호확인*</td>
                 <td class="memberCols2">
                     <input type="password" name="pwdOk" option="regPass" placeholder="비밀번호를 한번 더 입력해주세요">
                 </td>
