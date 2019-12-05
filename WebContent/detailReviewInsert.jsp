@@ -14,7 +14,7 @@
 	ul li{list-style: none; margin:0; padding:0;}
 	body{height:100%;}
 
-
+	
 	#review {width:1100px; margin:auto; }
 	#review table {display:inline-block;}
 	#review table th {background-color:#CBA3E9; text-align:center; width:1100px; height:35px; font-size:20px; color:white;}
@@ -32,7 +32,7 @@
 	<div id="review">
 	    <table>
 	    	<tr>
-	    		<th colspan='2'>게시물 수정하기</td>
+	    		<th colspan='2'>게시물 등록하기</td>
 	    	</tr>
 	    	<tr>
 	    		<td>제목</td>
@@ -56,9 +56,11 @@
 	    	</tr>
 	    	<tr>
 	    		<td colspan='2'>
-	    			<a href ="detailPage.html"><button type="button">수정하기</button></a>
-	    			<a href ="detailPage.html"><button type="button">취소하기</button></a>
+		    		<a href ="detailReviewUpdate.jsp"><button type="button">수정하기</button></a>
+		    		<a href ="detailPage.html"><button type="button">등록하기</button></a>
+		    		<a href ="detailPage.html"><button type="button">취소하기</button></a>
 	    		</td>
+	    		
 	    	</tr>
 	    </table>
 	</div>
