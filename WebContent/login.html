@@ -29,18 +29,22 @@
 	#header ul {float:right;}
 	#header ul>li {margin-top: 15px; margin-left:10px;}
 	#gnb{width:1254px; height:56px; /* border:1px solid blue; */ }
-	#gnbin{position:relative; width:1150px; height:56px; /* border:1px solid blue; */ margin:0 auto; }
+	#gnbin{position:relative; width:1300px; height:56px; /* border:1px solid blue; */ margin:0 auto; }
 	.gnb_ul{width:1150px; height:56px; float:left; height:55px; }
 	.gnb_li {float:left; width:190; height:55;}
 	.gnb_li a{width:190; height:55; padding: 16px 50px 0 48px; font-size:18px;}
 
-	.gnb_ul>li:hover .sub{display: block;}
-	.gnb_ul .sub{position:absolute;  height:50px; top:50px; left:40px; display:none; color: black;}
-	.gnb_ul .sub li{width:60px;}
+	/*#nav .main>li:hover .sub{display:block; }
+	#nav .main .sub {position:absolute;  height:50px; top:50px; left:40px; display:none;}
+	#nav .main .sub li {width:60px;}*/
+
+	#gnbin .gnb_ul>a:hover .sub{display:block;}
+	#gnbin .gnb_ul .sub{position:absolute;  height:50px; top:50px; left:40px; display:none;}
+	#gnbin .gnb_ul .sub li{width:60px;}
 	
-	#side_search{position: absolute; right:135px; top:110px; width:240px; height:40px; /* border:1px solid green */; border-radius:18px; background-color:#F7F7F7;}
+	#side_search{position: absolute; right:220px; top:110px; width:240px; height:40px; /* border:1px solid green */; border-radius:18px; background-color:#F7F7F7;}
 	#searchimg{position:absolute; right:10px; top:5px; width:40px; height:30px;}
-	#basketimg{position:absolute; right:75px; top:106px; width:50px; height:50px;}
+	#basketimg{position:absolute; right:150px; top:106px; width:50px; height:50px;}
 	
 	/* main */
 	
@@ -58,7 +62,6 @@
     #footerTable td{border: none; }
     .f{padding:8px; font-size: 12px;margin-left: 200px;}
     .s{padding:8px; font-size: 12px;margin-left: 50px;}
-    #footer{}
 	.footerHr{border: 0; height: 1px}
     
 </style>
@@ -130,13 +133,6 @@
 		<div id="gnb">
 			<div id="gnbin">
 			<ul class="gnb_ul">
-				<li class="gnb_li" id="gnb_ul_f_li"><a href="#"><span>전체카테고리</span></a>  |</li>
-				<ul class="sub">
-					<li><a href="#">운동화</a></li>
-					<li><a href="#">구두</a></li>
-					<li><a href="#">샌들</a></li>
-					<li><a href="#">부츠</a></li>
-    			</ul>
 				<li class="gnb_li"><a href="#"><span>운동화</span></a>  |</li>
 				<li class="gnb_li"><a href="#"><span>구두</span></a>  |</li>
 				<li class="gnb_li"><a href="#"><span>샌들</span></a>  |</li>
