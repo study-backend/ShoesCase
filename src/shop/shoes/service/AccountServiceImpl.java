@@ -12,16 +12,15 @@ import shop.shoes.model.AccountDTO;
 public class AccountServiceImpl implements AccountService {
 	private static AccountDAO accountDAO  = new AccountDAOImpl();
 
-	public int signin(AccountDTO account) throws GlobalException, SQLException {
+	public AccountDTO signin(AccountDTO account) throws GlobalException, SQLException {
 
-		int result = 0;
 		AccountDTO acc = accountDAO.selectById(account.getLoginId());
 		if (acc != null) {
 
 			if (acc.getLoginPwd().equals(account.getLoginPwd()) == true) {
 
 				// 추가검증 (ip?, 세션타임?.. 일단 pass
-				result = 1;
+
 
 			} else {
 				throw new GlobalException("계정이 없습니다", StatusCode.Not_Matched_Password);
@@ -32,7 +31,7 @@ public class AccountServiceImpl implements AccountService {
 			
 		}
 
-		return result;
+		return acc;
 
 	}
 

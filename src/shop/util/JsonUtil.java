@@ -17,7 +17,7 @@ public class JsonUtil {
 		return str;
 	}
 
-	public static <T> T fromJson(String json, Class<T> classOfT) throws JsonSyntaxException {
+	public static <T> T fromJson(String json, Class<T> classOfT) throws Exception {
 		Object object = gson.fromJson(json, (Type) classOfT);
 		return Primitives.wrap(classOfT).cast(object);
 	}

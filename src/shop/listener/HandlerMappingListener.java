@@ -37,7 +37,7 @@ public class HandlerMappingListener implements ServletContextListener {
      * @see ServletContextListener#contextInitialized(ServletContextEvent)
      */
     public void contextInitialized(ServletContextEvent e)  { 
-    	System.out.println("HandlerMappingListener start");
+    	System.out.println("HandlerMappingListener start11111");
     	ServletContext application = e.getServletContext();
     	String fileName = application.getInitParameter("fileName");
     	

@@ -46,11 +46,13 @@
 	/* footer */
 	#footer{width:1000px; height:100px; border:1px solid green; margin:auto;}
 </style>
+<script type="text/javascript" src="../js/jquery-3.4.1.min.js"></script>
+<script type="text/javascript" src="../js/script.js"></script>
 </head>
 <body>
 	</head>
 <body>
-	<form> 
+
 <div id="container"> 
 	<div id="header">
 		<div id="usermenu">
@@ -88,8 +90,9 @@
 		<input type="text" class="log" placeholder="  고객님의 이름을 입력해주세요."><br><br>
 		<small><b>이메일</b></small> <br>
 		<input type="text" class="log" placeholder="  가입 시 등록하신 이메일 주소를 입력해주세요."><br><br>
-		 <button type="submit" id="findid"><span>확인</span></button>
-		</div>>
+		 <button type="button" id="findid"><span>확인</span></button>
+		</div>
+		</form>
 	</div>
 	<div id="footer">
 	
@@ -97,16 +100,19 @@
 	<script>
 	$(function(){
 			$("#findid").click(function(){
+				let str = $("#idsearchForm").serializeObject();
+				console.log(str);
+				
 				$.ajax({
 				type : "post" ,
-				url : "api/v1", 
+				url : "/ShoesShop/api/v1", 
 				dataType : "json", 
-				data : {data: $("#idsearchForm").serialize(),
-				resource: "account",
-				route: "login" 
+				data : { data: JSON.stringify(str),
+					 	resource: "Goods",
+					 	route: "goodsMain" 
 				},
 				success : function(result) { 
-					{ result : 0 }
+
 				},
 				error : function() {
 					alert("아이디 또는 비밀번호를 확인해주세요.");
