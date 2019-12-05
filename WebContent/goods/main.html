@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+<script src="./js/jquery-3.4.1.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+	$('#section div').hide();
+	$('#section div').first().show();
+	$('#section div').css('width',1000);
+	$('#section div').css('height',320);
+	setInterval(function(){
+		$('#section').append($('#section div').first());
+		$('#section div').last().hide();
+		$('#section div').first().show();
+	}, 3000);
+}) 
+</script>
+<style type="text/css">
+	/*공통*/
+	a{color:#000; text-decoration:none;}
+	a:hover{color:#000; font-weight:bold;}
+	ul li{list-style: none; margin:0; padding:0;}
+	body{height:2200px;}
+		
+	/* header */
+	#header{width:1200px; height:100px; border:1px solid red; margin:auto;}
+	#header ul {float:right;}
+	#header ul li {margin-left:10px; float:left;}
+	
+	/* nav */	
+	#nav{width:1200px; height:50px; border:1px solid blue; margin:auto; position: sticky; top: 0;}
+	#nav ul .mL{width:100px; height:50px; margin-left:30px; float:left;}
+	#nav .main>li:hover .sub{display:block; }
+	#nav .main .sub {position:absolute;  height:50px; top:50px; left:40px; display:none;}
+	#nav .main .sub li {width:60px;}
+	
+	#nav #img-btn {background: url("") no-repeat;}
+	
+	/* section */
+	#section{width:1200px; height:320px; border:1px solid red; margin:auto;}
+	
+	#one {background-color:blue; text-align:center;}
+	#two {background-color:pink;}
+	#three {background-color:red;}
+	#four {background-color:black;}
+	
+	/* goods */
+	#goods {width:1200px; height:700px; margin:auto;}
+	#goods h2 {width:1200px; height:80px; text-align:center; }
+	#goods ul li {width:230px; height:500px; margin-left:40px; float:left;   }
+	#goods #list_goods div{width:230px; height:350px; display:flex; overflow:hidden; align-items:center; justify-content:center;}
+	#goods #list_goods #gL_a {font-size:30px; display:block;}
+	
+	
+	/* md */
+	#md {width:1200px; height:700px; margin:auto;}
+	#md h2 {width:1200px; height:80px; text-align:center;}
+	#md ul li {width:230px; height:500px; border:1px solid blue; margin-left:40px; float:left;}
+	#md #list_md div{width:230px; height:350px; background-color:red;}
+	#md #list_md #mL_a {font-size:30px; display:block;}
+	
+	/* footer */
+	#footer{width:1200px; height:200px; margin:auto; border: 1px solid red;}
+	#footer > div {width:600px; height:200px; float:left; display:inline-block;}
+	
+</style>
+</head>
+<body>
+	<div id="header">
+		<ul>
+			<li><a href="signupForm.jsp">회원가입</a></li>
+			<li><a href="login.html">로그인</a></li>
+		</ul>
+	</div>
+	<div id="nav">
+		<ul class="main">
+			<li class="mL"><a href="#">카테고리</a>
+				<ul class="sub">
+					<li><a href="sneakers.html">운동화</a></li>
+					<li><a href="#">운동화</a></li>
+					<li><a href="#">운동화</a></li>					
+				</ul>
+			</li>
+			<li class="mL"><a href="sneakers.html">운동화</a></li>
+			<li class="mL"><a href="#">구두</a></li>
+			<li class="mL"><a href="#">샌들</a></li>
+			<li class="mL"><a href="#">부츠</a></li>
+		</ul>
+		<input type="text">
+		<button type="submit" id="img_btn"><img src="./image/a.png"></button>
+	</div>
+	
+	<div id="section">
+		<div id="one"></div>
+ 		<div id="two"></div>
+		<div id="three"></div>
+		<div id="four"></div>
+	</div>
+	
+	<div id="goods">
+		<div id="tit_goods">
+			<h2>이 상품 어때요?</h2>
+		</div>
+		<div id="list_goods">
+			<ul>
+				<li class="gL">
+					<a href="#">
+					<div>
+						<img src="image/mainImage/big.jpg">
+					</div>
+					</a>
+					<a href="#" id="gL_a">나이키</a>
+					<span>20,000원</span>	
+				</li>
+				<li class="gL">
+					<a href="#">
+						<div>
+							<img src="image/mainImage/boston.jpg">
+						</div>
+					</a>
+					<a href="#" id="gL_a">아디다스</a>
+					<span>20,000원</span>	
+				</li>
+				<li class="gL">
+					<a href="detailPage.html">
+						<div>
+							<img src="image/mainImage/andy.png">
+						</div>
+					</a>
+					<a href="detailPage.html" id="gL_a">아디다스</a>
+					<span>20,000원</span>	
+				</li>
+				<li class="gL">
+					<a href="#">
+						<div>
+							<img src="image/mainImage/ferry.jpg">
+						</div>
+					</a>
+					<a href="#" id="gL_a">아디다스</a>
+					<span>20,000원</span>	
+				</li>
+			</ul>
+		</div>
+	</div>
+	<div id="md">
+		<div id="tit_md">
+			<h2>MD의 추천</h2>
+		</div>
+		<div id="list_md">
+			<ul>
+				<li class="mL">
+					<a href="#"><div></div></a>
+					<a href="#" id="mL_a">가나다</a>
+					<span>20,000원</span>	
+				</li>
+				<li class="mL">
+					<a href="#"><div></div></a>
+					<a href="#" id="mL_a">가나다</a>
+					<span>20,000원</span>	
+				</li>
+				<li class="mL">
+					<a href="#"><div></div></a>
+					<a href="#" id="mL_a">가나다</a>
+					<span>20,000원</span>	
+				</li>
+				<li class="mL">
+					<a href="#"><div></div></a>
+					<a href="#" id="mL_a">가나다</a>
+					<span>20,000원</span>	
+				</li>
+			</ul>
+		</div>
+	</div>
+	<div id="footer">
+		<div id="l_footer">
+			
+		</div>
+		<div id="r_footer">
+			
+		</div>
+	</div>
+		
+</body>
+
+</html>

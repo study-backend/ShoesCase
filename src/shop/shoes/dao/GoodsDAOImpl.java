@@ -19,8 +19,7 @@ public class GoodsDAOImpl implements GoodsDAO {
 		ResultSet rs = null;
 		GoodsDTO goodsDto = null;
 		List<GoodsDTO> list = new ArrayList<GoodsDTO>();
-		String sql = "select PRICE, NAME, IMG_PATH  from GOODS G1 INNER JOIN CATEGORY_MAP G2 ON "
-				+ " G1.GOODS_ID = G2.CATEGORY_ID INNER JOIN CATEGORY G3 ON G2.CATEGORY_ID = G3.CATEGORY_ID where G3.NAME=?";
+		String sql = "select PRICE, NAME, IMG_PATH  from GOODS G1 INNER JOIN CATEGORY G2 ON G1.CATEGORY_ID = G2.CATEGORY_ID where G2.NAME=?";
 		try {
 			con = DbUtil.getConnection();
 			ps= con.prepareStatement(sql);
@@ -45,8 +44,7 @@ public class GoodsDAOImpl implements GoodsDAO {
 		ResultSet rs = null;
 		GoodsDTO goodsDto = null;
 		List<GoodsDTO> list = new ArrayList<GoodsDTO>();
-		String sql = "select PRICE, NAME, IMG_PATH  from GOODS G1 INNER JOIN CATEGORY_MAP G2 ON "
-				+ " G1.GOODS_ID = G2.CATEGORY_ID INNER JOIN CATEGORY G3 ON G2.CATEGORY_ID = G3.CATEGORY_ID where G3.ID=?";
+		String sql = "select PRICE, NAME, IMG_PATH  from GOODS G1 INNER JOIN CATEGORY G2 ON G1.CATEGORY_ID = G2.CATEGORY_ID where G2.ID=?";
 		try {
 			con = DbUtil.getConnection();
 			ps= con.prepareStatement(sql);

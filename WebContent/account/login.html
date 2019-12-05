@@ -71,7 +71,9 @@
 				//contentType: 'application/json; charset=utf-8',
 				success : function(result) { 
 					console.log("1111");
-					console.log(result);
+					if(result == 1) {
+						location.href='signupForm.html' 
+					}
 				},
 				error : function(error) {
 					console.log(error);
@@ -128,7 +130,7 @@
 		<div id="search">
 			<a href="id.html">아이디 찾기</a> | <a href="pw.html">비밀번호 찾기</a>
 		</div>
-		<button type="submit" class="m_button" id="blogin"><span>로그인</span></button></p>
+		<button type="button" class="m_button" id="blogin"><span>로그인</span></button></p>
 		<button type="submit" class="m_button" id="bsignup"><span>회원가입</span></button>
 		</form>
 		

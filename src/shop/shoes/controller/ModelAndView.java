@@ -5,7 +5,7 @@ import net.sf.json.JSONArray;
 public class ModelAndView {
 
 
-	private String viewName;//결과뷰의정보
+   private String viewName;//결과뷰의정보
    private boolean isRedirect;//이동방식정보(true이면 redirect, false이면 forward)
    private JSONArray result; // 결과 data
    private boolean isResultData; 

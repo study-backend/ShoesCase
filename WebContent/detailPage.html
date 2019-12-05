@@ -10,9 +10,9 @@
 		function selectAll(){
 			  $.ajax({
 				  type:"get",
-				  url:"../front",
-			      dataType: "json",//¼­¹ö¿¡°Ô ¹ŞÀº ÀÀ´ä°á°ú type(text, xml, html, json)
-			      //data : {id: $(this).val() } ,//¼­¹ö¿¡°Ô Àü¼ÛÇÒ parameter
+				  url:"../selectServlet",
+			      dataType: "json",//ì„œë²„ì—ê²Œ ë°›ì€ ì‘ë‹µê²°ê³¼ type(text, xml, html, json)
+			      //data : {id: $(this).val() } ,//ì„œë²„ì—ê²Œ ì „ì†¡í•  parameter
 			      success: function(result){
 		   		        var str="";
 		   		         $.each(result, function(index, item){
@@ -25,22 +25,24 @@
 		   		        	 str+="<td>"+item.updateDate+"</td>";
 		   		        	 str+="</tr>";
 		   		         })
-		   		        
+		   		         
 		   		        $("#review_t tr:gt(0)").remove();
 		   		        $("#review_t tr:eq(0)").after(str);
 		   		        $("a").css("textDecoration", "none");
 			      } ,
 			      error : function(err){
-			    	  console.log(err+"=> ¿À·ù¹ß»ı");
+			    	  console.log(err+"=> ì˜¤ë¥˜ë°œìƒ");
 			      }
-			  });//ajax³¡
+			  });//ajaxë
 		  }
 	})
 
 </script>
 <style type="text/css">
+	
 
-	/*°øÅë*/
+
+	/*ê³µí†µ*/
 	a{color:white; text-decoration:none;}
 	a:hover{color:white; font-weight:bold;}
 	ul li{list-style: none; margin:0; padding:0;}
@@ -94,28 +96,28 @@
 		<div id="detail_infor">
 			<table>
 				<div id="main_title">
-					<strong>³ªÀÌÅ°¿¡¾î¸Æ½º</strong>
+					<strong>ë‚˜ì´í‚¤ì—ì–´ë§¥ìŠ¤</strong>
 				</div>
 				<div id="sub_title">
-					<span>ÃÖ°íÀÇ ½Å¹ß</span>
+					<span>ìµœê³ ì˜ ì‹ ë°œ</span>
 				</div>
 				<div id="member_price">
-					<span>È¸¿øÇÒÀÎ°¡</span>
+					<span>íšŒì›í• ì¸ê°€</span>
 				</div>
 				<div id="price">
 					<span class="price">20,000</span>
-					<span class="won">¿ø</span>
+					<span class="won">ì›</span>
 					<sapn class="dc">15%</sapn>
 				</div>
 				<div id="discount">
-					<span>3000¿ø</span>
+					<span>3000ì›</span>
 				</div>
 				<div id="not_login">
-				<span>·Î±×ÀÎ ÈÄ, È¸¿øÇÒÀÎ°¡¿Í Àû¸³ÇıÅÃÀÌ Á¦°øµË´Ï´Ù.</span>
+				<span>ë¡œê·¸ì¸ í›„, íšŒì›í• ì¸ê°€ì™€ ì ë¦½í˜œíƒì´ ì œê³µë©ë‹ˆë‹¤.</span>
 			</div>
 			<hr>
 				<tr>
-					<td>»ö»ó</td><td></td>
+					<td>ìƒ‰ìƒ</td><td></td>
 					<td>
 						<select id ="selec">
 						<option value="black">black</option>
@@ -124,7 +126,7 @@
 					</td>
 				</tr>
 				<tr>
-					<td>»çÀÌÁî</td><td></td>
+					<td>ì‚¬ì´ì¦ˆ</td><td></td>
 					<td>
 						<select id ="selec">
 							<option value="250" selected="selected">250</option>
@@ -133,7 +135,7 @@
 					</td>
 				</tr>
 				<tr>
-					<td>±¸¸Å¼ö·®</td><td></td>
+					<td>êµ¬ë§¤ìˆ˜ëŸ‰</td><td></td>
 					<td>
 						<input type="number" id="number">
 					</td>
@@ -141,8 +143,8 @@
 			</table>
 			<hr>
 			<div id="total_price">
-					<span class="tpsO">ÃÑ »óÇ°±İ¾×</span><span class="tpsT">20,000</span><span class="tpsTh">¿ø</span>
-					<a href="shopping_basket.html"><button type="button">Àå¹Ù±¸´Ï ´ã±â</button></a>
+					<span class="tpsO">ì´ ìƒí’ˆê¸ˆì•¡</span><span class="tpsT">20,000</span><span class="tpsTh">ì›</span>
+					<a href="shopping_basket.html"><button type="button">ì¥ë°”êµ¬ë‹ˆ ë‹´ê¸°</button></a>
 			</div>
 		</div>
 		<div id="detail_img">
@@ -156,18 +158,18 @@
 	<div id="product_rv">
 		<table id="review_t">
 			<tr>
-				<th colspan='6'>»óÇ°ÈÄ±â</th>
+				<th colspan='6'>ìƒí’ˆí›„ê¸°</th>
 			</tr>
 			<tr>
-				<td>±Û¹øÈ£</td>
-				<td>Á¦¸ñ</td>
-				<td>±¸¸ÅÀÚ</td>
-				<td>¸¸Á·µµ</td>
-				<td>ÀÛ¼ºÀÚ</td>
-				<td>ÀÛ¼ºÀÏ</td>
+				<td>ê¸€ë²ˆí˜¸</td>
+				<td>ì œëª©</td>
+				<td>êµ¬ë§¤ì</td>
+				<td>ë§Œì¡±ë„</td>
+				<td>ì‘ì„±ì</td>
+				<td>ì‘ì„±ì¼</td>
 			</tr>
 		</table>
-		<a href="detailReviewInsert.jsp"><button type="button">ÈÄ±â¾²±â</button></a>
+		<a href="detailReviewInsert.jsp"><button type="button">í›„ê¸°ì“°ê¸°</button></a>
 	</div>
 </body>
 </html>

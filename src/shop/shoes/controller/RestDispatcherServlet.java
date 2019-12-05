@@ -38,9 +38,9 @@ public class RestDispatcherServlet extends HttpServlet {
     
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException  {
 		String key = request.getParameter("resource");
-		System.out.println(key);
+		//System.out.println(key);
 		System.out.println(request.getParameter("data"));
-		//System.out.println(request.getRequestURL());
+		System.out.println(request.getRequestURL());
 		
 		//String uri = request.getRequestURI();
 		//int length = uri.indexOf("/api/v1/"); 
@@ -63,19 +63,19 @@ public class RestDispatcherServlet extends HttpServlet {
 
 		   
 		   System.out.println(mv.getViewName());
-		   System.out.println("이동하자");
+		   //System.out.println("이동하자");
 		   
 		   //if(mv.isResultData() == true) {
-		   //		PrintWriter out = response.getWriter();
-		   //	//out.println(mv.getResult());
+		   		PrintWriter out = response.getWriter();
+		   		out.println("1");
 		   //}
 		   
 		   
-		   if(mv.isRedirect()) {//redirect방식
-				response.sendRedirect("NewFile.html");
-		   }else {//forward이동
-				request.getRequestDispatcher(mv.getViewName()).forward(request, response);
-			}
+//		   if(mv.isRedirect()) {//redirect방식
+//				response.sendRedirect("login.html");
+//		   }else {//forward이동
+//				request.getRequestDispatcher("login.html").forward(request, response);
+//			}
 		
 		}catch (GlobalException  e) {
 			e.printStackTrace();

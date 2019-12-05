@@ -12,7 +12,7 @@ public interface AccountService {
 	 * @throws Exception 
 	 * 
 	 * */
-	public int signin(AccountDTO account) throws GlobalException, SQLException; 
+	public AccountDTO signin(AccountDTO account) throws GlobalException, SQLException; 
 	
 	/**
 	 * 회원가입

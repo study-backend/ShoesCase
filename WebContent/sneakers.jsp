@@ -1,3 +1,9 @@
+<%@page import="java.util.ArrayList"%>
+<%@page import="java.util.List"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions"  prefix="fn" %> 
 <!DOCTYPE html>
 <html>
 <head>
@@ -30,13 +36,13 @@
 	#nav_down #b {width:1200px; height:50px; font-size:20px;}
 	#nav_down span {width:1200px; height:50px; border-bottom:2px solid black;}
 	
-	/* slipper */
-	#slipper {width:1200px; height:700px; margin:20px auto; }
-	#slipper ul li {width:300px; height:500px; border:1px solid blue; margin-left:5%; float:left;}
-	#slipper #list_slipper div{width:300px; height:350px; background-color:red;}
-	#slipper #list_slipper #spL_a {font-size:30px; display:block;}
+	/* sneakers */
+	#sneakers {width:1200px; height:700px; margin:20px auto; }
+	#sneakers ul li {width:300px; height:500px; border:1px solid blue; margin-left:5%; float:left;}
+	#sneakers #list_sneakers div{width:300px; height:350px; background-color:red;}
+	#sneakers #list_sneakers #sL_a {font-size:30px; display:block;}
 	
-	/* footer */
+	 /* footer */
     #footerTable{border: none; }
     #footerTable td{border: none; }
     .f{padding:8px; font-size: 12px;margin-left: 200px;}
@@ -84,137 +90,63 @@
 		</div>
 	</div>
 	
-	<div id="slipper">
-		<div id="list_slipper">
-			<ul>
-				<li class="spL">
-					<a href="#"><div></div></a>
-					<a href="#" id="spL_a">나이키</a>
-					<span>20,000원</span>	
-				</li>
-				<li class="spL">
-					<a href="#"><div></div></a>
-					<a href="#" id="spL_a">아디다스</a>
-					<span>20,000원</span>	
-				</li>
-				<li class="spL">
-					<a href="#"><div></div></a>
-					<a href="#" id="spL_a">퓨마</a>
-					<span>20,000원</span>	
-				</li>
-			</ul>
-		</div>
-	</div>
 	
-	<div id="slipper">
-		<div id="list_slipper">
-			<ul>
-				<li class="spL">
-					<a href="#"><div></div></a>
-					<a href="#" id="spL_a">나이키</a>
-					<span>20,000원</span>	
-				</li>
-				<li class="spL">
-					<a href="#"><div></div></a>
-					<a href="#" id="spL_a">아디다스</a>
-					<span>20,000원</span>	
-				</li>
-				<li class="spL">
-					<a href="#"><div></div></a>
-					<a href="#" id="spL_a">퓨마</a>
-					<span>20,000원</span>	
-				</li>
-			</ul>
-		</div>
-	</div>
+	<%-- 테스트 위해 사용됨
+	   List<String> list = new ArrayList<>();
+	list.add("사과");
+	list.add("딸기");
+	list.add("포도");
 	
-	<div id="slipper">
-		<div id="list_slipper">
-			<ul>
-				<li class="spL">
-					<a href="#"><div></div></a>
-					<a href="#" id="spL_a">나이키</a>
-					<span>20,000원</span>	
-				</li>
-				<li class="spL">
-					<a href="#"><div></div></a>
-					<a href="#" id="spL_a">아디다스</a>
-					<span>20,000원</span>	
-				</li>
-				<li class="spL">
-					<a href="#"><div></div></a>
-					<a href="#" id="spL_a">퓨마</a>
-					<span>20,000원</span>	
-				</li>
-			</ul>
-		</div>
-	</div>
+	list.add("바나나");
+	list.add("귤");
+	list.add("키위");
 	
-	<div id="slipper">
-		<div id="list_slipper">
-			<ul>
-				<li class="spL">
-					<a href="#"><div></div></a>
-					<a href="#" id="spL_a">나이키</a>
-					<span>20,000원</span>	
-				</li>
-				<li class="spL">
-					<a href="#"><div></div></a>
-					<a href="#" id="spL_a">아디다스</a>
-					<span>20,000원</span>	
-				</li>
-				<li class="spL">
-					<a href="#"><div></div></a>
-					<a href="#" id="spL_a">퓨마</a>
-					<span>20,000원</span>	
-				</li>
-			</ul>
-		</div>
-	</div>
+	list.add("배");
+	list.add("배");
+	list.add("배");
 	
-	<div id="slipper">
-		<div id="list_slipper">
-			<ul>
-				<li class="spL">
-					<a href="#"><div></div></a>
-					<a href="#" id="spL_a">나이키</a>
-					<span>20,000원</span>	
-				</li>
-				<li class="spL">
-					<a href="#"><div></div></a>
-					<a href="#" id="spL_a">아디다스</a>
-					<span>20,000원</span>	
-				</li>
-				<li class="spL">
-					<a href="#"><div></div></a>
-					<a href="#" id="spL_a">퓨마</a>
-					<span>20,000원</span>	
-				</li>
-			</ul>
-		</div>
-	</div>
 	
-	<div id="slipper">
-		<div id="list_slipper">
-			<ul>
-				<li class="spL">
-					<a href="#"><div></div></a>
-					<a href="#" id="spL_a">나이키</a>
-					<span>20,000원</span>	
-				</li>
-				<li class="spL">
-					<a href="#"><div></div></a>
-					<a href="#" id="spL_a">아디다스</a>
-					<span>20,000원</span>	
-				</li>
-				<li class="spL">
-					<a href="#"><div></div></a>
-					<a href="#" id="spL_a">퓨마</a>
-					<span>20,000원</span>	
-				</li>
-			</ul>
-		</div>
-	</div>
+	list.add("배");
+	list.add("배");
+	
+	request.setAttribute("list", list);
+	
+	--%>
+	
+
+	<!-- 마지막 줄이 3개가 아닐 경우에 list가 끝날때 닫아야 해서 사이즈 구하는 함수 씀 -->
+	<c:set var="size" value="${fn:length(list)}" />
+	
+	
+	<c:forEach var="list" items="${requestScope.list}" varStatus="state">
+	  <c:if test="${state.count%3==1}">
+	     <div id="sneakers">
+		    <div id="list_sneakers">
+		<ul>
+	  </c:if>
+		
+			<li class="sL">
+				<a href="#"><div>${list.imgPath}</div></a>
+				<a href="#" id="sL_a">${list.name}</a>
+				<span>${list.price}</span>	
+			</li>
+	 
+	 <c:choose>
+	   <c:when test="${state.count%3==0}">
+	        </ul>
+			</div>
+		    </div>
+	   </c:when>
+	   <c:when test="${state.count==size}">
+	        </ul>
+			</div>
+		    </div>
+	   </c:when>
+	 </c:choose>		
+	
+	</c:forEach>
+	
+	
 	
 	<div id="footer">
 		<div id="l_footer">
@@ -225,7 +157,7 @@
 		</div>
 	</div>
 	
-<br><br><br>
+	<br><br><br>
 <hr class="footerHr" color="gray"  >
 <table id= "footerTable">
 <tr>
