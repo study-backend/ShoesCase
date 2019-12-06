@@ -10,8 +10,8 @@
 <head>
     <link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR:400,500|Pacifico&display=swap&subset=korean" rel="stylesheet">
     <title>Title</title>
-    <script type="text/javascript" src="../js/jquery-3.4.1.min.js"></script>
-    <script type="text/javascript" src="../js/script.js"></script>
+    <script type="text/javascript" src="js/jquery-3.4.1.min.js"></script>
+    <script type="text/javascript" src="js/script.js"></script>
     <script type="text/javascript">
 
         window.onload = function () {
@@ -27,6 +27,14 @@
             }
 
         }
+
+        $(document).ready(function () {
+            var idInfo = sessionStorage.getItem("user");
+            var infoObj = JSON.parse(idInfo);
+
+            document.getElementById("myId").innerText= infoObj.userId;
+
+        })
 
 
         $(document).ready(function(){
@@ -223,9 +231,7 @@
                         <div style="border: 2px solid darkgray; text-align: center">
                             <br><br>
                             아이디<br><br>
-                            <br><script>
-
-                        </script><br>
+                            <span id="myId"></span><br><br>
                             비밀번호<br><br>
 
                             <input type="password" name="password">
