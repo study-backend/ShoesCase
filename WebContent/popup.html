@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+<script type="text/javascript" src="./js/jquery-3.4.1.min.js"></script>
+<script>
+	$(document).ready(function(){
+		$("#n").click(function(){
+			close();
+		}); 
+	});
+
+
+	
+</script>
+<style type="text/css">
+	#basket{width:350px;}
+	#basketT{width:96px; margin:auto;}
+	#basketT button{display:inline-block; align:center;}
+</style>
+</head>
+<body>
+	<div id="basket">
+		<div id="basketO">
+			<h1>장바구니에 담겼습니다.</h1>
+			<h2>장바구니로 이동하시겠습니까?</h2>
+		</div>
+		<div id="basketT">
+			<a href="shopping_basket.html" target="_blank"><button id="o" type="button">확인</button></a>
+			<button id="n" type="button">취소</button>
+		</div>
+	</div>
+</body>
+</html>
