@@ -9,7 +9,7 @@ public interface AccountService {
 	 * @throws Exception 
 	 * 
 	 * */
-	public AccountDTO signin(AccountDTO account) throws Exception; 
+	public AccountDTO signin(String loginId, String loginPwd) throws Exception; 
 	
 	/**
 	 * 회원가입

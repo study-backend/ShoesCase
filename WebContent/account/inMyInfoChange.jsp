@@ -42,10 +42,10 @@
     .footerHr{border: 0; height: 1px}
     
     </style>
- 
+ <script type="text/javascript" src="../js/jquery-3.4.1.min.js"></script>
+<script type="text/javascript" src="../js/script.js"></script>
 </head>
 <body style="margin: 0px;">
-
 <div class="contrainer">
 <div style="height: 180px; width: 100%; background-color: #0c5460; text-align: center;">
     Header 자리
@@ -183,8 +183,31 @@
 </div>
       
 
-    </div>
 </div>
+</div>
+<script>
+	$(document).ready(function(){ 
+		let user = sessionStorage.getItem("user");
+		if(user === null || user === undefined) {
+			consolelog("aaaa");
+			location.href='/ShoesCase/account/login.html';
+		} else {
+			
+			// id나 특정 정보를 검증해야하는데..... ㅠㅠ 일단 패스 
+			let json = JSON.parse(user);
+			// 아래 데이터를 맵핑 지여나나나
+			console.log(json.loginId);
+			// user = "{"loginId":"1234","name":"1234","phone":"01923344","email":"hankkuu","addr":"a","sex":"\u0000","birthday":"1월 12, 3920"}"
+
+			alert("이다음에 뭘할까??");
+			
+		}
+		
+	 
+	});
+
+
+</script>
 
 <div class="footer">
     <table id= "footerTable">

@@ -16,6 +16,8 @@ public class PurchaseGoodsDTO {
     private String updateDate;
     private long accountId;
     
+    //B1.BILL_KEY, P1.NAME,P1.PRICE,P1.COUNT, P1.STATE_CODE
+    
     private BillKeyDTO billDto;
     
     private List<PurchaseBasketDTO> PurchaseList;
@@ -31,10 +33,12 @@ public class PurchaseGoodsDTO {
 	}
 
 
-	public PurchaseGoodsDTO(int stateCode, String name, String billKey) {
+	public PurchaseGoodsDTO(String billKey, String name, double price, int count, int stateCode) {
 		super();
 		this.stateCode = stateCode;
 		this.name = name;
+		this.count = count;
+		this.price = price;
 		this.billKey = billKey;
 	}
 
