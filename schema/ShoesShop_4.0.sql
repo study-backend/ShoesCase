@@ -255,14 +255,16 @@ CREATE TABLE ROLLING_BANNER(
 	ROLLING_ID NUMBER(19) CONSTRAINT id_roll_pk PRIMARY KEY,  
 	VERSION_ID NUMBER(19) NOT NULL, 		
 	NAME VARCHAR2(20) NOT NULL,
-	IMG_PATH VARCHAR2(100) NOT NULL,
+	IMG_PATH VARCHAR2(200) NOT NULL,
 	CREATE_DATE DATE NOT NULL,
     UPDATE_DATE DATE NOT NULL
 );
+drop table rolling_banner;
+delete from rolling_banner;
+select * from rolling_banner;
+insert into ROLLING_BANNER values(1, 1, '나이키신발', 'https://raw.githubusercontent.com/study-backend/ShoesCase/master/WebContent/image/mainImage/andy.png', sysdate, sysdate);
+insert into ROLLING_BANNER values(2, 1, '아디다스신발','https://raw.githubusercontent.com/study-backend/ShoesCase/master/WebContent/image/mainImage/big.jpg',sysdate, sysdate);
+insert into ROLLING_BANNER values(3, 1, '신년이벤트', 'https://raw.githubusercontent.com/study-backend/ShoesCase/master/WebContent/image/mainImage/bold03.jpg',sysdate, sysdate);
+insert into ROLLING_BANNER values(4, 1, '크리스벤', 'https://raw.githubusercontent.com/study-backend/ShoesCase/master/WebContent/image/mainImage/flower03.jpg',sysdate, sysdate);
 
-insert into ROLLING_BANNER values(1, 1, '나이키신발', 'http://ㅗ', sysdate, sysdate);
-insert into ROLLING_BANNER values(2, 1, '아디다스신발','http://ㅗㅗㅗ',sysdate, sysdate);
-insert into ROLLING_BANNER values(3, 1, '신년이벤트', 'http://ㅗㅗㅗㅗㅗㅗ',sysdate, sysdate);
-insert into ROLLING_BANNER values(4, 1, '크리스벤', 'http://ㅗㅗㅗㅗ',sysdate, sysdate);
-
-
+commit

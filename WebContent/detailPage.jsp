@@ -10,16 +10,11 @@
 <script type="text/javascript" src="./js/jquery-3.4.1.min.js"></script>
 <script>
 $(document).ready(function(){
+	var popupX = (window.screen.width / 2) - (200 / 2);
+	var popupY = (window.screen.height / 2) - (300 / 2);
 	$("#basket").click(function(){
-		var a = confirm("장바구니로 이동하시겠습니까?");
-		
-	if(a){
-		location.replace("shopping_basket.html");
-	}else{
-		location.reload();
-	}
-	
-	});
+		window.open('popup.html', 'popup01', 'width=290, height=130, scrollbars= 0, toolbar=0, menubar=no');
+	}); 
 });
 </script>
 
@@ -48,7 +43,6 @@ $(document).ready(function(){
 	#side_search{position: absolute; right:220px; width:240px; height:40px; border-radius:18px; background-color:#F7F7F7;}
 	#searchimg{position:absolute; right:10px; top:5px; width:40px; height:30px;}
 	#basketimg{position:absolute; right:150px;  width:50px; height:50px;}
-
 
 	/* detail */
 	#detail{width:1100px; margin:auto; }
@@ -199,7 +193,7 @@ $(document).on("click","[value='삭제']",function(){
 			<hr>
 			<div id="total_price">
 					<span class="tpsO">총 상품금액</span><span class="tpsT">${requestScope.goods.totalPrice}</span><span class="tpsTh">원</span>
-					<a href="shopping_basket.html"><button type="button">장바구니 담기</button></a>
+					<button id="basket" type="button">장바구니 담기</button>
 			</div>
 		</div>
 		<div id="detail_img">

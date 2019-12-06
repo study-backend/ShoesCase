@@ -17,22 +17,24 @@
 			document.getElementById("loginState").innerHTML="<li>"+inFoObj.name+"님 ㅣ</li><li><a href=\"inMyInfoChange.jsp\"> 내 정보 ㅣ</a></li><li> 로그아웃</li>"
 
 		}
-
 	}
 
-
 $(document).ready(function(){
-	$('#section div').hide();
-	$('#section div').first().show();
-	$('#section div').css('width',1000);
-	$('#section div').css('height',320);
+	$('#section img').hide();
+	$('#section img').first().show();
+	$('#section img').css('width',1200);
+	$('#section img').css('height',320);
 	setInterval(function(){
-		$('#section').append($('#section div').first());
-		$('#section div').last().hide();
-		$('#section div').first().show();
-	}, 3000);
+		$('#section').append($('#section img').first());
+		$('#section img').last().hide();
+		$('#section img').first().show();
+		
+
+		
+	}, 2000);
 }) 
 </script>
+
 <style type="text/css">
 	/*공통*/
 	a{color:#000; text-decoration:none;}
@@ -42,7 +44,7 @@ $(document).ready(function(){
 		
 	/* header */
 	#header{width:1200px; height:100px; margin:auto;}
-	#header #headerlogo{display: inline-block; margin:auto;}
+	#header #headerlogo{display:inline-block; margin:auto;}
 	#header ul {float:right;}
 	#header ul li {margin-left:10px; float:left;}
 	#header #headerlogo{margin:auto; margin-left: 500px; margin-top:25px;}
@@ -52,24 +54,19 @@ $(document).ready(function(){
 	#nav ul .mL{width:100px; height:50px; margin-left:30px; float:left; font-size:20px;}
 	#nav .main>li:hover .sub{display:block; }
 	#nav .main .sub {position:absolute;  height:50px; top:50px; left:40px; display:none;}
-	#nav .main .sub li {width:80px; margin-top:5px; }
+	#nav .main .sub li {width:80px; margin-top:5px;}
 	
 	#side_search{position: absolute; right:220px; width:240px; height:40px; border-radius:18px; background-color:#F7F7F7;}
 	#searchimg{position:absolute; right:10px; top:5px; width:40px; height:30px;}
 	#basketimg{position:absolute; right:150px;  width:50px; height:50px;}
 	
 	/* section */
-	#section{width:1200px; height:320px; border:1px solid red; margin:auto;}
-	
-	#one {background-color:blue; text-align:center;}
-	#two {background-color:pink;}
-	#three {background-color:red;}
-	#four {background-color:black;}
+	#section {width:1200px; height:320px; margin:auto; display:flex; overflow:hidden; align-items:center; justify-content:center;}
 	
 	/* goods */
 	#goods {width:1200px; height:700px; margin:auto;}
 	#goods h2 {width:1200px; height:80px; text-align:center; }
-	#goods ul li {width:230px; height:500px; margin-left:40px; float:left;   }
+	#goods ul li {width:230px; height:500px; margin-left:40px; float:left;}
 	#goods #list_goods div{width:230px; height:350px; display:flex; overflow:hidden; align-items:center; justify-content:center;}
 	
 	#goods #list_goods #gL_a {font-size:30px; display:block;}
@@ -92,12 +89,12 @@ $(document).ready(function(){
 <body>
 	<div id="header">
 		<ul id="loginState">
-<!-- 			<li><a href="signupForm.jsp">회원가입</a></li>
+<!-- 		<li><a href="signupForm.jsp">회원가입</a></li>
 			<li><a href="login.html">로그인</a></li> -->
 		</ul>
 		<div id="headerlogo">
 			<a>
-			<img id="logo" src="../image/LOGO.png" url="dressShoes.html" alt="로고">
+			<img id="logo" src="https://raw.githubusercontent.com/study-backend/ShoesCase/master/WebContent/image/LOGO.png" url="dressShoes.html" alt="로고">
 			</a>
 		</div>
 	</div>
@@ -130,10 +127,7 @@ $(document).ready(function(){
 	</div>
 	
 	<div id="section">
-		<div id="one"></div>
- 		<div id="two"></div>
-		<div id="three"></div>
-		<div id="four"></div>
+		
 	</div>
 	
 	<div id="goods">
@@ -214,6 +208,7 @@ $(document).ready(function(){
 				console.log("나오나"+result);
 				var str="";
 				var cat="";
+				var ban="";
 				 $.each(result, function(index, item){
 					 console.log(item);
 					 if(index === "goodsList"){
@@ -225,15 +220,17 @@ $(document).ready(function(){
 					        	 str+="<div>";
 					        	 str+="<img src='/ShoesCase/image/sneakers/andy.png'>";
 					        	 str+="</div>";
+					        	 str+="</a>";
 					        	 str+="<a href='#' id='mL_a'>"+v.name+"</a>";
 					        	 str+="<span>"+v.price+"원</span>";
 					        	 str+="</li>";
 
 				        	 str+="</ul>";
+				        	 
 							 }
 						 
 						 $("#list_md").html(str);
-					 }
+					 };
 					 
 					 if (index === "categoryList"){
 						 cat +="<ul class='main'>";
@@ -251,7 +248,22 @@ $(document).ready(function(){
 						 cat+="</ul>";
 						 
 						 $("#nav").html(cat);
-				 };
+						 
+					 };
+					 
+					 if (index === "bannerList"){
+						 for (var v of item) {
+							ban +="<div>";
+							ban +="<img src="+v.img_path+">";
+							ban +="</div>";
+						 }
+						 	
+						 console.log(ban);
+						 $("#section").html(ban);
+					 };
+					 
+					 
+					 
 			});
 				 
 			},

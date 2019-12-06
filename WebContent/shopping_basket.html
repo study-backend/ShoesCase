@@ -10,8 +10,7 @@ $(document).ready(function(){
 		  $.ajax({
 			  type:"get",
 			  url:"../front",
-		      dataType: "json",//�������� ���� ������ type(text, xml, html, json)
-		      //data : {id: $(this).val() } ,//�������� ������ parameter
+		      dataType: "json",
 		      success: function(result){
 	   		        var str="";
 	   		         $.each(result, function(index, item){
@@ -30,7 +29,7 @@ $(document).ready(function(){
 	   		        $("a").css("textDecoration", "none");
 		      } ,
 		      error : function(err){
-		    	  console.log(err+"=> �����߻�");
+		    	  console.log(err+"=> error");
 		      }
 		  });//ajax��
 	  }
