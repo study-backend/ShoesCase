@@ -5,7 +5,21 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<script type="text/javascript" src="../js/jquery-3.4.1.min.js"></script>
+<script type="text/javascript" src="./js/jquery-3.4.1.min.js"></script>
+<script>
+$(document).ready(function(){
+	$("#basket").click(function(){
+		var a = confirm("장바구니로 이동하시겠습니까?");
+		
+	if(a){
+		location.replace("shopping_basket.html");
+	}else{
+		location.reload();
+	}
+	
+	});
+});
+</script>
 
 <style type="text/css">
 	
@@ -131,15 +145,15 @@
 			<hr>
 			<div id="total_price">
 					<span class="tpsO">총 상품금액</span><span class="tpsT">${requestScope.goods.totalPrice}</span><span class="tpsTh">원</span>
-					<a href="shopping_basket.html"><button type="button">장바구니 담기</button></a>
+					<a href="#"><button id="basket" type="button" >장바구니 담기</button></a>
 			</div>
 		</div>
 		<div id="detail_img">
-			<img src="image/sneakers/${requestScope.goods.imgPath}">
+			<img src=".image/sneakers/${requestScope.goods.imgPath}">
 		</div>
 		<div id="long_img"> 
-			<img src="image/sneakers/${requestScope.goods.sumnailPath}">
-		</div>
+			<img src="./image/sneakers/${requestScope.goods.sumnailPath}">
+		</div> --%>
 	</div>
 	
 	<div id="product_rv">
