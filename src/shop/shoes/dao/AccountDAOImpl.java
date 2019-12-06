@@ -182,18 +182,24 @@ public class AccountDAOImpl implements AccountDAO {
 
 	//
 	@Override
-	public int idFind(String name, String email) throws Exception {
+	public String idFind(String name, String email) throws Exception {
 		Connection con = null;
 		PreparedStatement ps = null;
-		int result =0;
-		String sql = "select LOGIN_ID from ACCOUNT where NAME=?, EMAIL=?";
+		ResultSet rs = null;
+		String result = "";
+		String sql = "select LOGIN_ID from ACCOUNT where NAME=? AND EMAIL=?";
 		
 		try {
 			con = DbUtil.getConnection();
 			ps = con.prepareStatement(sql);
 			ps.setString(1, name);
 			ps.setString(2, email);
-			result = ps.executeUpdate();
+			rs = ps.executeQuery();
+			
+			if(rs.next()) {
+				result = rs.getString("LOGIN_ID");
+			}
+			
 		}finally {
 			DbUtil.dbClose(ps, con);
 		}
@@ -201,11 +207,12 @@ public class AccountDAOImpl implements AccountDAO {
 	}
 
 	@Override
-	public int pwdFind(String name, String loginId, String email) throws Exception{
+	public String pwdFind(String name, String loginId, String email) throws Exception{
 		Connection con = null;
 		PreparedStatement ps = null;
-		int result =0;
-		String sql = "select LOGIN_PWD from ACCOUNT where NAME=?, LOGIN_ID=?, EMAIL=?";
+		ResultSet rs = null;
+		String result = "";
+		String sql = "select LOGIN_PWD from ACCOUNT where NAME=? AND LOGIN_ID=? AND EMAIL=?";
 		
 		try {
 			con = DbUtil.getConnection();
@@ -213,7 +220,13 @@ public class AccountDAOImpl implements AccountDAO {
 			ps.setString(1, name);
 			ps.setString(2, loginId);
 			ps.setString(3, email);
-			result = ps.executeUpdate();
+			rs = ps.executeQuery();
+			
+			if(rs.next()) {
+				result = rs.getString("LOGIN_PWD");
+			}
+			
+			
 		}finally {
 			DbUtil.dbClose(ps, con);
 		}

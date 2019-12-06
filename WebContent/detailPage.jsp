@@ -17,6 +17,7 @@
 	ul li{list-style: none; margin:0; padding:0;}
 	body{height:100%;}
 
+
 	/* detail */
 	#detail{width:1100px; margin:auto; }
 	#detail #detail_img{width:430px; height:500px; display:flex; overflow:hidden; align-items:center; justify-content:center;}

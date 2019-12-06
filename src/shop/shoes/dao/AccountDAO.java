@@ -35,15 +35,15 @@ public interface AccountDAO {
 	int delete(long accountId) throws Exception;
 	
 	// 로그인 확인
-	AccountDTO selectById(String loginId) throws GlobalException, SQLException;
+	AccountDTO selectById(String loginId) throws Exception;
 	
 	/**
 	 * 아이디 찾기
 	 * */
-	int idFind(String name, String email) throws Exception;
+	String idFind(String name, String email) throws Exception;
 	
 	/**
 	 * 비밀번호 찾기
 	 * */
-	int pwdFind(String name, String loginId, String email) throws Exception;
+	String pwdFind(String name, String loginId, String email) throws Exception;
 }
