@@ -1,7 +1,6 @@
 package shop.shoes.controller;
 
-import java.io.IOException;
-import java.sql.SQLException;
+
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -33,6 +32,7 @@ public class ProductDetailReadController implements Controller{
 		
 		//리뷰 조회
 		List<ReviewDTO> reviewList = goodsDetail.getReviews();
+		//System.out.println(reviewList+"너는 나오니?");
 		request.setAttribute("reviewList", reviewList);
 		
 		mv.setViewName("detailPage.jsp");

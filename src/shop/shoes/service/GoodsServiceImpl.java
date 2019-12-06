@@ -92,6 +92,7 @@ public class GoodsServiceImpl implements GoodsService {
 		GoodsDTO goods = goodsDAO.selectOneProduct(goodsName);
 		//[2] 리뷰정보를 구해온다
 		List<ReviewDTO> reviewList = reviewsDAO.selectByGoodName(goodsName);
+		//System.out.println(reviewList+"나오니?");
 		// 끝
 		GoodsDetailDTO dto = new GoodsDetailDTO(goods, reviewList);
 		//GoodsDetailDTO dto = new GoodsDetailDTO(goods); 테스트 위해 썼음
