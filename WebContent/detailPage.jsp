@@ -260,7 +260,6 @@ $(document).on("click","[value='삭제']",function(){
                 
                 만족도 (0~5) : ${reviewDTO.score}
                  
-             
                </span></p>
               </td>
    
