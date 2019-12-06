@@ -32,7 +32,7 @@
             var idInfo = sessionStorage.getItem("user");
             var infoObj = JSON.parse(idInfo);
 
-            document.getElementById("myId").innerText= infoObj.userId;
+            document.getElementById("myId").innerText= infoObj.loginId;
 
         })
 

@@ -144,7 +144,45 @@ $(document).ready(function(){
     .footerHr{border: 0; height: 1px}
     
     </style>
+        <script type="text/javascript">
 
+        window.onload = function () {
+            var inFo = sessionStorage.getItem("user");
+            var inFoObj = JSON.parse(inFo);
+
+            if(inFoObj==null){
+                document.getElementById("loginState").innerHTML="<li><a href=\"signupForm.jsp\">회원가입</a> ㅣ</li><li><a href=\"login.html\"> 로그인</a></li>"
+            }else {
+                document.getElementById("loginState").innerHTML="<li>"+inFoObj.name+"님 ㅣ</li><li><a href=\"../myInfoChange.html\">  내 정보 ㅣ</a></li>"+
+                    "<li><button type='button' style='background-color:white; border-style:none; font-size:16px;'>로그아웃</button></li>"
+
+            }
+
+        }
+
+        $(document).ready(function () {
+            var idInfo = sessionStorage.getItem("user");
+            var infoObj = JSON.parse(idInfo);
+
+            document.getElementById("myId").innerText= infoObj.userId;
+
+        })
+
+
+        $(document).ready(function(){
+            $('#section div').hide();
+            $('#section div').first().show();
+            $('#section div').css('width',1000);
+            $('#section div').css('height',320);
+            setInterval(function(){
+                $('#section').append($('#section div').first());
+                $('#section div').last().hide();
+                $('#section div').first().show();
+            }, 3000);
+        })
+    </script>
+
+    
 </head>
  
 <body style="margin: 0px;">
@@ -221,9 +259,8 @@ $(document).ready(function(){
                 <div style="border: 2px solid darkgray; text-align: center">
                     <br><br>
                     아이디<br><br>
-                    <br><script>
-                        
-                    </script><br>
+                    <span id="myId"></span><br><br>
+                    <br><br>
                     비밀번호<br><br>
                    
                     <input type="password" name="password">
@@ -240,44 +277,7 @@ $(document).ready(function(){
     </div>
 </div>
 
-<script>
-		$(function(){
-			$("#check").click(function(){
-				
-				let str = $("#myInfoForm").serializeObject();
-				console.log(str);
-				
-				$.ajax({
-				type : "patch" ,
-				url : "/ShoesCase/api/v1", 
-				dataType : "json", 
-				data : { data: JSON.stringify(str),
-						 resource: "Account",
-						 route: "account" 
-				},
-				//contentType: 'application/json; charset=utf-8',
-				success : function(result) { 
-					console.log(result.statusCode);
 
-					if(result.statusCode === "Success") {
-						alert("정보수정 성공");
-						location.href='inMyInfoChange.jsp?msg=' + result.message;
-						
-					} else {
-						alert("입력이 잘못되었습니다");
-					}
-	
-				},
-				error : function(error) {
-					console.log(error);
-					alert("오류 발생");
-				}
-			});//ajax끝
-
-			})			
-
-	});
-</script>
 
 <div class="footer">
     <table id= "footerTable">

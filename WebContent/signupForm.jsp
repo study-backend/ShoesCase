@@ -124,13 +124,54 @@
 	table, th, td {border: 1px solid #FFFFFF; width:"100%"; background-color:#FFFFFF; border-collapse:collapse;}
 	.col2_input{margin-left:20px;}
 /* footer */
-    #footerTable{border: none; }
+	.footer{background-color:#FFFFFF; }
+    #footerTable{border: none; margin-left:400px;}
     #footerTable td{border: none; }
     .f{padding:8px; font-size: 12px;margin-left: 200px;}
     .s{padding:8px; font-size: 12px;margin-left: 50px;}
     .footerHr{border: 0; height: 1px}
     
 </style>
+<script type="text/javascript">
+$(document).ready(function() {
+	
+	$("#btn").click(function() {
+		state = true;
+		  
+		  // 모두 값이 있다면 등록한다
+		  if(state) {
+			  
+			let str = $("#loginForm").serializeObject();
+			console.log(str);
+			  
+			  $.ajax({
+				  type: "post" ,
+				  url: "/ShoesCase/api/v1"  ,
+				  dataType: "json"   ,  // 서버에게 받은 응답결과 type(json, text, xml)
+				  data: { data: JSON.stringify(str),
+					 	  resource: "Account",
+						  route: "account" 
+				  		} ,		// 서버에게 전송할 param
+				  	success: function(result) {
+					  
+					  console.log(result);
+					  
+					  if(result.statusCode === 'Success') {
+						  alert("등록되었습니다 로그인을 진행하세요");
+					  } else {
+						  alert("등록되지 않았습니다");
+					  }
+				  },
+				  error: function(err) {
+					  console.log(err + "- 오류 발생")
+				  }      
+			  });
+		  }
+		  
+	  });
+});
+</script>
+
 </head>
 <body>
 <!-- <body style="margin: 0px; background-color: whitesmoke"> -->
@@ -293,6 +334,7 @@
 
 <br><br><br>
 <hr class="footerHr" color="gray"  >
+<div class="footer"> 
 <table id= "footerTable">
 <tr>
 <td>
@@ -323,6 +365,6 @@
 </td>
 </tr>
 </table>
-
+</div>
 </body>
 </html>
