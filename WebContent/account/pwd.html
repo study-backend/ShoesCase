@@ -71,15 +71,17 @@
 				success : function(result) { 
 					console.log(result.message);
 
-					if(result.resultCode === "Success") {
+					if(result.statusCode === "Success") {
+						alert("비밀번호찾기 성공");
 						location.href='foundPwd.html?msg=' + result.message;
 					} else {
-						alert("로그인에 실패했습니다");
+						alert("입력이 잘못되었습니다");
 					}
 					
 				},
 				error : function(error) {
 					console.log(error);
+					alert("오류 발생");
 				}
 			});//ajax끝
 
