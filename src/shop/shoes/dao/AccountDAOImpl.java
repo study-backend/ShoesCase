@@ -201,7 +201,7 @@ public class AccountDAOImpl implements AccountDAO {
 			}
 			
 		}finally {
-			DbUtil.dbClose(ps, con);
+			DbUtil.dbClose(rs, ps, con);
 		}
 		return result;
 	}
@@ -228,8 +228,10 @@ public class AccountDAOImpl implements AccountDAO {
 			
 			
 		}finally {
-			DbUtil.dbClose(ps, con);
+			DbUtil.dbClose(rs, ps, con);
 		}
+		
+		
 		return result;
 	}
 }
