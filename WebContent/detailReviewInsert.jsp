@@ -32,7 +32,7 @@
 	<div id="review">
 	    <table>
 	    	<tr>
-	    		<th colspan='2'>게시물 등록하기</td>
+	    		<th colspan='2'>리뷰 등록하기</td>
 	    	</tr>
 	    	<tr>
 	    		<td>제목</td>
@@ -56,7 +56,6 @@
 	    	</tr>
 	    	<tr>
 	    		<td colspan='2'>
-		    		<a href ="detailReviewUpdate.jsp"><button type="button">수정하기</button></a>
 		    		<a href ="detailPage.html"><button type="button">등록하기</button></a>
 		    		<a href ="detailPage.html"><button type="button">취소하기</button></a>
 	    		</td>

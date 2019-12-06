@@ -26,7 +26,7 @@ public class GoodsVersionDAOImpl implements GoodsVersionDAO {
 			rs = ps.executeQuery();
 			
 			if(rs.next()) {
-				// 개노가다.. 
+	
 				version = new GoodsVersionDTO(rs.getLong(1), rs.getString(2), rs.getDate(3), rs.getDate(4));
 			}
 			
