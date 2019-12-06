@@ -28,7 +28,6 @@
 	$(document).ready(function(){
 		var a = sessionStorage.getItem("user"); //세션을 그냥 user라고 정의해놈
 		var aobj = JSON.parse(a);
-		
 		var loginId = aobj.loginId;
 		
 		$.ajax({
