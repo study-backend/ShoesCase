@@ -17,7 +17,6 @@ import shop.shoes.model.request.SignupRequest;
 import shop.shoes.service.AccountService;
 import shop.shoes.service.AccountServiceImpl;
 import shop.util.JsonUtil;
-import shop.util.User;
 
 public class AccountController implements Controller{
 	
@@ -93,21 +92,21 @@ public class AccountController implements Controller{
 					case "login": {	
 						// 후.. 노가다..
 						LoginRequest req = JsonUtil.fromJson(data, LoginRequest.class);		
-						AccountDTO account = new AccountDTO();
-						account.setLoginId(req.getLoginId());
-						account.setLoginPwd(req.getLoginPwd());
 						
-						AccountDTO user = accountService.signin(account);
+						AccountDTO user = accountService.signin(req.getLoginId(), req.getLoginPwd());
 						System.out.println(JsonUtil.toJson(user));
 
 				        if (user != null) {
 				        	 HttpSession session = request.getSession();
-				        	 User loginedUser = new User(user.getLoginId(), user.getLoginPwd(), user.getName(), user.getEmail());
-					         session.setAttribute("user", loginedUser);
+				        	 user.setLoginPwd("");
+				        	 user.setDeleteDate(null);
+				        	 user.setUpdateDate(null);
+				        	 user.setTermsAgreeDate(null);
+					         session.setAttribute("user", user);
 					         
 					      // 응답을 만든다
 					      mv.setResultData(true);
-						  ShopResponse res = new ShopResponse(StatusCode.Success, JsonUtil.toJson(loginedUser));
+						  ShopResponse res = new ShopResponse(StatusCode.Success, JsonUtil.toJson(user));
 						  mv.setResult(JsonUtil.toJson(res));
 				        }else {
 				        	
@@ -144,7 +143,7 @@ public class AccountController implements Controller{
 						
 						 // 응답을 만든다
 					      mv.setResultData(true);
-						  ShopResponse res = new ShopResponse(StatusCode.Success, "뭐가 필요할까???");
+						  ShopResponse res = new ShopResponse(success, "뭐가 필요할까???");
 						  mv.setResult(JsonUtil.toJson(res));
 		
 						break;
