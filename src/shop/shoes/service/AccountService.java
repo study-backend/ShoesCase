@@ -1,8 +1,5 @@
 package shop.shoes.service;
 
-import java.sql.SQLException;
-
-import shop.shoes.common.GlobalException;
 import shop.shoes.model.AccountDTO;
 
 public interface AccountService {
@@ -12,7 +9,7 @@ public interface AccountService {
 	 * @throws Exception 
 	 * 
 	 * */
-	public AccountDTO signin(AccountDTO account) throws GlobalException, SQLException; 
+	public AccountDTO signin(AccountDTO account) throws Exception; 
 	
 	/**
 	 * 회원가입
@@ -37,11 +34,11 @@ public interface AccountService {
 	/**
 	 * 아이디 찾기
 	 * */
-	public int idFind(String name, String email) throws Exception;
+	public String idFind(String name, String email) throws Exception;
 	
 	/**
 	 * 비밀번호 찾기
 	 * */
-	public int pwdFind(String name, String loginId, String email) throws Exception;
+	public String pwdFind(String name, String loginId, String email) throws Exception;
 
 }

@@ -1,6 +1,7 @@
 package shop.shoes.model.request;
 
 public class LoginRequest {
+
 	private String loginId;
 	private String loginPwd;
 	private String name;
@@ -19,5 +20,18 @@ public class LoginRequest {
 	}
 	public void setLoginPwd(String loginPwd) {
 		this.loginPwd = loginPwd;
+	}
+	
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
+	public String getEmail() {
+		return email;
+	}
+	public void setEmail(String email) {
+		this.email = email;
 	}
 }

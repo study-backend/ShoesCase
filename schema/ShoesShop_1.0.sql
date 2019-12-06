@@ -146,5 +146,5 @@ create sequence seq_Id increment by 1;
 
 
 
-commit
+select LOGIN_PWD from ACCOUNT where NAME='1234' AND LOGIN_ID='1234' AND EMAIL='hankkuu'
 
