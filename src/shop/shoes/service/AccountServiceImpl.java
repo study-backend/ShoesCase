@@ -35,11 +35,7 @@ public class AccountServiceImpl implements AccountService {
 	public int signup(AccountDTO account)  throws Exception{
 		int result = 0;
 		result = accountDAO.insert(account);
-		if(result == 1) {
-			
-			result = 1;
-			
-		} else {
+		if(result != 1) {
 			throw new GlobalException("계정 추가 실패", StatusCode.Fail_Add_Account);
 		}
 		return result;

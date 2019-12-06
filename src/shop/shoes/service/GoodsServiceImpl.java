@@ -12,10 +12,13 @@ import shop.shoes.dao.GoodsVersionDAO;
 import shop.shoes.dao.GoodsVersionDAOImpl;
 import shop.shoes.dao.ReviewDAO;
 import shop.shoes.dao.ReviewDAOImpl;
+import shop.shoes.dao.RollingBannerDAO;
+import shop.shoes.dao.RollingBannerDAOImpl;
 import shop.shoes.model.CategoryDTO;
 import shop.shoes.model.GoodsDTO;
 import shop.shoes.model.GoodsVersionDTO;
 import shop.shoes.model.ReviewDTO;
+import shop.shoes.model.RollingBannerDTO;
 import shop.shoes.model.dto.GoodsDetailDTO;
 import shop.shoes.model.dto.GoodsMainDTO;
 import shop.shoes.model.dto.GoodsReviewDTO;
@@ -26,6 +29,7 @@ public class GoodsServiceImpl implements GoodsService {
 	private static ReviewDAO reviewsDAO = new ReviewDAOImpl();
 	private static GoodsVersionDAO versionDAO = new GoodsVersionDAOImpl();
 	private static CategoryDAO categoryDAO = new CategoryDAOImple();
+	private static RollingBannerDAO rollingBannerDAO = new RollingBannerDAOImpl();
 
 	@Override
 	public List<GoodsDTO> selectByCatagory(String categoryName) throws Exception { 
@@ -61,14 +65,18 @@ public class GoodsServiceImpl implements GoodsService {
 		//[1] 가장 최신 버전의 version을 가져온다 
 		GoodsVersionDTO version = versionDAO.selectNewVersion();
 		
-		//[3] 운영중인 카테고리 정보를 모두 가져온다
+		//[2] 운영중인 카테고리 정보를 모두 가져온다
 		List<CategoryDTO> categorys = categoryDAO.selectAll();
 		
-		//[2] 최신버전의 상품을 검색해 온다 
+		//[3] 최신버전의 상품을 검색해 온다 
 		List<GoodsDTO> goodsList = goodsDAO.selectByVersionId(version.getVersionId());
 		System.out.println("ddd : "+goodsList.size());
 		
-		GoodsMainDTO dto = new GoodsMainDTO(goodsList, categorys);
+		//[4] 롤링배너 정보를 알아온다
+		List<RollingBannerDTO> banners = rollingBannerDAO.selectAll(version.getVersionId());
+		System.out.println("banners : "+banners.size());
+		
+		GoodsMainDTO dto = new GoodsMainDTO(goodsList, categorys, banners);
 		//끝
 		return dto;
 	}

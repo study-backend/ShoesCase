@@ -135,13 +135,12 @@ public class AccountController implements Controller{
 						
 						int success = accountService.signup(account);
 						
-						System.out.println(JsonUtil.toJson(success));
-						
-						if (success == 1) {
-							HttpSession session = request.getSession();
-							User loginedUser = new User(account.getLoginId(), account.getLoginPwd(), account.getName(), account.getEmail());
-							session.setAttribute("user", loginedUser);
-						}
+						// 회원가입은 로그인은 아니다..
+						//if (success == 1) {
+						//	HttpSession session = request.getSession();
+						//	User loginedUser = new User(account.getLoginId(), account.getLoginPwd(), account.getName(), account.getEmail());
+						//	session.setAttribute("user", loginedUser);
+						//}
 						
 						 // 응답을 만든다
 					      mv.setResultData(true);
