@@ -8,7 +8,7 @@
 <script type="text/javascript" src="../js/script.js"></script>
 <script>
 		$(function(){
-			$("#blogin").click(function(){
+			$("#findid").click(function(){
 				
 				let str = $("#idsearchForm").serializeObject();
 				console.log(str);
@@ -23,14 +23,18 @@
 				},
 				//contentType: 'application/json; charset=utf-8',
 				success : function(result) { 
-					console.log("1111");
-					if(result == 1) {
-						location.href='foundId.html' 
+					console.log(result.statusCode);
+
+					if(result.statusCode === "Success") {
+						location.href='foundId.html?msg=' + result.message;
+					} else {
+						alert("입력이 잘못되었습니다");
 					}
+	
 				},
 				error : function(error) {
 					console.log(error);
-					//alert("아이디 또는 비밀번호를 확인해주세요.");
+					alert("오류 발생");
 				}
 			});//ajax끝
 
@@ -88,7 +92,7 @@
 <body>
 	</head>
 <body>
-	<form> 
+	 
 <div id="container"> 
 	<div id="header">
 		<div id="usermenu">
@@ -123,11 +127,12 @@
 		<form  method="post" id="idsearchForm"> 
 		<div id="login"><h3>아이디 찾기</h3></div>
 		<small><b>이름</b></small> <br>
-		<input type="text" class="log" placeholder="  고객님의 이름을 입력해주세요."><br><br>
+		<input type="text" class="log" name="name" placeholder="  고객님의 이름을 입력해주세요."><br><br>
 		<small><b>이메일</b></small> <br>
-		<input type="text" class="log" placeholder="  가입 시 등록하신 이메일 주소를 입력해주세요."><br><br>
+		<input type="text" class="log" name="email" placeholder="  가입 시 등록하신 이메일 주소를 입력해주세요."><br><br>
 		 <button type="button" id="findid"><span>확인</span></button>
-		</div>>
+		 </form>
+		</div>
 	</div>
 	<br><br><br>
 <hr class="footerHr" color="gray"  >

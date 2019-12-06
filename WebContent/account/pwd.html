@@ -4,8 +4,7 @@
 <meta charset="UTF-8">
 <link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR:400,500|Pacifico&display=swap&subset=korean" rel="stylesheet">
 <title>Insert title here</title>
-<script type="text/javascript" src="../js/jquery-3.4.1.min.js"></script>
-<script type="text/javascript" src="../js/script.js"></script>
+
 <style type="text/css">
 	/*공통*/
 	#header, #container {position: relative;}
@@ -13,9 +12,9 @@
 	a:hover{color:#000; font-weight:bold;}
 	ul li{list-style: none;}
 	h1,h2,h3,h4,h5,p,ul,li{
-    margin: 0px;
-    padding: 0px;
-}
+	    margin: 0px;
+	    padding: 0px;
+	}
 
 		
 	/* container */
@@ -52,11 +51,48 @@
     .s{padding:8px; font-size: 12px;margin-left: 50px;}
     .footerHr{border: 0; height: 1px}
 </style>
+<script type="text/javascript" src="../js/jquery-3.4.1.min.js"></script>
+<script type="text/javascript" src="../js/script.js"></script>
+ <script>
+	$(function(){
+			$("#findpwd").click(function(){
+				
+				let str = $("#pwdsearchForm").serializeObject();
+				console.log(str);
+				
+				$.ajax({
+				type : "get" ,
+				url : "/ShoesCase/api/v1", 
+				dataType : "json", 
+				data : {data: JSON.stringify(str),
+						resource: "Account",
+						route: "findPwd" 
+				},
+				success : function(result) { 
+					console.log(result.message);
+
+					if(result.resultCode === "Success") {
+						location.href='foundPwd.html?msg=' + result.message;
+					} else {
+						alert("로그인에 실패했습니다");
+					}
+					
+				},
+				error : function(error) {
+					console.log(error);
+				}
+			});//ajax끝
+
+			})
+		});
+	
+	
+	</script>
 </head>
 <body>
-	</head>
-<body>
-	<form> 
+
+
+
 <div id="container"> 
 	<div id="header">
 		<div id="usermenu">
@@ -88,43 +124,20 @@
 		</div>
 	</div>
 	<div id="main">
-		<form  method="post" action="#" id="pwdsearchForm"> 
+		<form  method="post" id="pwdsearchForm"> 
 		<div id="login"><h3>비밀번호 찾기</h3></div>
 		<small><b>이름</b></small> <br>
-		<input type="text" class="log" placeholder="고객님의 이름을 입력해주세요."><br><br>
+		<input type="text" class="log" name="name" placeholder="고객님의 이름을 입력해주세요."><br><br>
 		<small><b>아이디<b></b></small> <br>
-		<input type="text" class="log" placeholder="고객님의 아이디를 입력해주세요."><br><br>
+		<input type="text" class="log" name="loginId" placeholder="고객님의 아이디를 입력해주세요."><br><br>
 		<small><b>이메일</b></small> <br>
-		<input type="text" class="log" placeholder="가입 시 등록하신 이메일 주소를 입력해주세요."><br><br>
+		<input type="text" class="log" name="email" placeholder="가입 시 등록하신 이메일 주소를 입력해주세요."><br><br>
 		<div> 
-			<button type="submit" id="findpwd"><span>확인</span></button>
+			<button type="button" id="findpwd"><span>확인</span></button>
 		</div>
 		</form>	
 	</div>
-	 <script>
-	$(function(){
-			$("#findid").click(function(){
-				$.ajax({
-				type : "post" ,
-				url : "api/v1", 
-				dataType : "json", 
-				data : {data: $("#pwdsearchForm").serialize(),
-				resource: "account",
-				route: "login" 
-				},
-				success : function(result) { 
-					{ result : 0 }
-				},
-				error : function() {
-					alert("아이디 또는 비밀번호를 확인해주세요.");
-				}
-			});//ajax끝
-
-			})
-		});
 	
-	
-	</script>
 	<br><br><br>
 <hr class="footerHr" color="gray"  >
 <table id= "footerTable">
@@ -157,6 +170,6 @@
 </td>
 </tr>
 </table>
-
+</div>
 </body>
 </html>

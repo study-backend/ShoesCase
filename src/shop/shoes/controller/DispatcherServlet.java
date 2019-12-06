@@ -51,7 +51,7 @@ public class DispatcherServlet extends HttpServlet {
  
 		   
 		   if(mv.isRedirect()) {//redirect방식
-				response.sendRedirect("NewFile.html");
+				response.sendRedirect(mv.getViewName());
 		   }else {//forward이동
 				request.getRequestDispatcher(mv.getViewName()).forward(request, response);
 			}

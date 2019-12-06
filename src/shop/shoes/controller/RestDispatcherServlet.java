@@ -76,19 +76,24 @@ public class RestDispatcherServlet extends HttpServlet {
 //			}
 
 		} catch (GlobalException e) {
+			//System.out.println("aaaaaaa");
+			
 			e.printStackTrace();
+			
 
 			ShopResponse res = new ShopResponse(e.getResultCode(), e.getMessage());
+			System.out.println(JsonUtil.toJson(res));
+			
 			PrintWriter out = response.getWriter();
 			out.println(JsonUtil.toJson(res));
 
 			// 이렇게 줘야 할까??
-			request.setAttribute("errorMsg", res);
-			request.getRequestDispatcher("errorView/error.jsp").forward(request, response);
+			//request.setAttribute("errorMsg", res);
+			//request.getRequestDispatcher("login.html").forward(request, response);
 		} catch (Exception e) {
 			e.printStackTrace();
-			request.setAttribute("errorMsg", e.getMessage());
-			request.getRequestDispatcher("errorView/error.jsp").forward(request, response);
+			//request.setAttribute("errorMsg", e.getMessage());
+			//request.getRequestDispatcher("errorView/error.jsp").forward(request, response);
 		}
 
 	}

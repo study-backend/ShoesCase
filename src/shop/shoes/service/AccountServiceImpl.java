@@ -1,8 +1,5 @@
 package shop.shoes.service;
 
-
-import java.sql.SQLException;
-
 import shop.shoes.common.GlobalException;
 import shop.shoes.common.StatusCode;
 import shop.shoes.dao.AccountDAO;
@@ -12,7 +9,7 @@ import shop.shoes.model.AccountDTO;
 public class AccountServiceImpl implements AccountService {
 	private static AccountDAO accountDAO  = new AccountDAOImpl();
 
-	public AccountDTO signin(AccountDTO account) throws GlobalException, SQLException {
+	public AccountDTO signin(AccountDTO account) throws Exception {
 
 		AccountDTO acc = accountDAO.selectById(account.getLoginId());
 		if (acc != null) {
@@ -74,25 +71,25 @@ public class AccountServiceImpl implements AccountService {
 	}
 
 	@Override
-	public int idFind(String name, String email) throws Exception {
-		int result = 0;
+	public String idFind(String name, String email) throws Exception {
+		String result = "";
 		result = accountDAO.idFind(name, email);
-		if(result == 1) {
-			result = 1;
+		if(result.isEmpty() == false) {
+			
 		} else {
-			throw new Exception("아이디 찾기 실패");
+			throw new GlobalException("아이디 찾기 실패", StatusCode.Fail_Find_ID);
 		}
 		return result;
 	}
 
 	@Override
-	public int pwdFind(String name, String loginId, String email) throws Exception {
-		int result = 0;
+	public String pwdFind(String name, String loginId, String email) throws Exception {
+		String result = "";
 		result = accountDAO.pwdFind(name, loginId, email);
-		if(result == 1) {
-			result = 1;
+		if(result.isEmpty() == false) {
+			
 		} else {
-			throw new Exception("비밀번호 찾기 실패");
+			throw new GlobalException("비밀번호 찾기 실패", StatusCode.Fail_Find_Password);
 		}
 		return result;
 	}

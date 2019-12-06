@@ -24,7 +24,8 @@ public class ReviewDTO {
 	private String updateDate; //db의 log용
 	
 	public ReviewDTO() {}
-
+	public ReviewDTO(String reviewPwd, String title, int score, String content) {}
+	
 	public String getReviewPwd() {
 		return reviewPwd;
 	}
@@ -60,6 +61,7 @@ public class ReviewDTO {
 		this.updateDate = updateDate;
 	}
 
+	
 	public int getReviewId() {
 		return reviewId;
 	}
@@ -123,5 +125,13 @@ public class ReviewDTO {
 	public void setUpdateDate(String updateDate) {
 		this.updateDate = updateDate;
 	}
+
+	@Override
+	public String toString() {
+		return "ReviewDTO [reviewId=" + reviewId + ", goodsId=" + goodsId + ", accountId=" + accountId + ", reviewPwd="
+				+ reviewPwd + ", title=" + title + ", content=" + content + ", score=" + score + ", createDate="
+				+ createDate + ", updateDate=" + updateDate + "]";
+	}
+	
 	
 }
