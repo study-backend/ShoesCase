@@ -141,6 +141,7 @@
 				<td>작성일</td>
 				
 				   
+				   
     <c:choose>
     <c:when test="${empty requestScope.list}">
 	   <tr>
