@@ -11,14 +11,55 @@
         a:active {text-decoration: none; color: #333333;}
         a:hover {text-decoration: none; color: gray;}
 		
-		/* footer */
+	/* footer */
     #footerTable{border: none; }
     #footerTable td{border: none; }
     .f{padding:8px; font-size: 12px;margin-left: 250px;}
     .s{padding:8px; font-size: 12px;margin-left: 50px;}
     .footerHr{border: 0; height: 1px}
     
+    /* table */
+	table{width: 750px ; height:auto; border:none; border-collapse: collapse;}
+	th,td{text-align:center;}
     </style>
+    
+    <script type="text/javascript">
+	
+	$(document).ready(function(){
+		var a = sessionStorage.getItem("user"); //세션을 그냥 user라고 정의해놈
+		var aobj = JSON.parse(a);
+		
+		var loginId = aobj.loginId;
+		
+		$.ajax({
+			type :"get",
+			url :"../ShoesCase/front?resource=orderList", //경로 이게 맞나...???
+			dataType :"json", //서버가 받은 응답결과 type(text. url, html, json)
+			data :{loginId : b}, //서버에게 전송할 parameter : loginId값 (세션?)?????????????????????
+			success :function(result){
+				var str="";
+	    		  $.each(result, function(index, item){
+	    			  str+="<tr>";
+			    	  str+="<td>"+item.billKey+"</td>";
+			    	  str+="<td>"+item.name+"</td>";
+			    	  str+="<td>"+item.price+"</td>";
+			    	  str+="<td>"+item.count+"</td>";
+			    	  str+="<td>"+item.stateCode+"</td>";
+			    	  str+="</tr>";
+	    		  });
+	    		  
+	    		  $("#table tr:gt(0)").remove(); 
+			      $("#table tr").after(str);
+
+			},
+			error :function(err){
+				console.log(err+"=> 오류발생");
+			}
+		});//ajax 끝
+	})//function 끝
+	
+	
+    </script>
 
 </head>
 
@@ -45,11 +86,20 @@
     <div style="float: left; margin-left: 30px;">
         <h3 style="padding-bottom: 18px">주문 내역</h3>
         <div style="width: 740px; padding-top: 40px; padding-bottom : 40px; border-top: 2px solid purple; border-bottom: 1px solid lightgray; text-align: center">
-            주문내역이 없습니다.
+           <table id="table">
+		  	  <tr>
+		  	    <th>주문번호</th>
+		  	  	<th>이름</th>
+				<th>가격</th>
+				<th>갯수</th>
+				<th>주문상태</th>
+		  	  </tr>
+		  </table>
         </div>
     </div>
-
 </div>
+
+  
 
 <br><br><br>
 <hr class="footerHr" color="gray"  >
