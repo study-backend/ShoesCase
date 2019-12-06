@@ -11,12 +11,31 @@
 <head>
     <title>Title</title>
     <style>
-        li {list-style: none; padding: 16px;}
+    
+    /*공통*/
+	a{color:#000; text-decoration:none;}
+	a:hover{color:#000; font-weight:bold;}
+	ul li{list-style: none; margin:0; padding:0;}
+	body{height:2200px;}	
 
-        a:link {text-decoration: none; color: #333333;}
-        a:visited {text-decoration: none; color: #333333;}
-        a:active {text-decoration: none; color: #333333;}
-        a:hover {text-decoration: none; color: gray;}
+	/* header */
+	#header{width:1200px; height:100px; margin:auto;}
+	#header #headerlogo{display: inline-block; margin:auto;}
+	#header ul {float:right;}
+	#header ul li {margin-left:10px; float:left;}
+	#header #headerlogo{margin:auto; margin-left: 500px; margin-top:25px;}
+	
+	/* nav */	
+	#nav{width:1200px; height:50px; margin:auto; position: sticky; top: 0;}
+	#nav ul .mL{width:100px; height:50px; margin-left:30px; float:left; font-size:20px;}
+	#nav .main>li:hover .sub{display:block; }
+	#nav .main .sub {position:absolute;  height:50px; top:50px; left:40px; display:none;}
+	#nav .main .sub li {width:80px; margin-top:5px; }
+	
+	#side_search{position: absolute; right:220px; width:240px; height:40px; border-radius:18px; background-color:#F7F7F7;}
+	#searchimg{position:absolute; right:10px; top:5px; width:40px; height:30px;}
+	#basketimg{position:absolute; right:150px;  width:50px; height:50px;}
+        
 
 	/* footer */
     #footerTable{border: none; }
@@ -28,9 +47,45 @@
 
 </head>
 <body style="margin: 0px;">
-<div style="height: 180px; width: 100%; background-color: #0c5460; text-align: center;">
-    Header 자리
-</div>
+
+	<div id="header">
+		<ul>
+			<li><a href="signupForm.jsp">회원가입</a></li>
+			<li><a href="login.html">로그인</a></li>
+		</ul>
+		<div id="headerlogo">
+			<a>
+			<img id="logo" src="image/LOGO.png" url="dressShoes.html" alt="로고">
+			</a>
+		</div>
+	</div>
+	<div id="nav">
+		<ul class="main">
+			<li class="mL"><a href="#"><span>카테고리</span></a>&nbsp;&nbsp;&nbsp;|
+				<ul class="sub">
+					<li><a href="sneakers.html">운동화</a></li>
+					<li><a href="#">구두</a></li>
+					<li><a href="#">샌들</a></li>
+					<li><a href="#">부츠</a></li>
+					<li><a href="#">나이키</a></li>
+					<li><a href="#">아디다스</a></li>
+					<li><a href="#">퓨마</a></li>
+					<li><a href="#">반스</a></li>
+				</ul>
+			</li>
+			<li class="mL"><a href="product?categoryName=sneakers"><span>운동화</span></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|</li>
+			<li class="mL"><a href="product?categoryName=gudu"><span>구두</span></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|</li>
+			<li class="mL"><a href="product?categoryName=sandal"><span>샌들</span></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|</li>
+			<li class="mL"><a href="product?categoryName=boots"><span>부츠</span></a>&nbsp;&nbsp;&nbsp;&nbsp;</li>
+		</ul>
+		<img src="image/basket.png" id="basketimg">
+			<div id="side_search">
+				<form name="searchBox" method="get" action="#" id="searching">
+				<input type="text" style="width:179px; height:36px; border-radius:18px; background-color:#F7F7F7; border: none;">
+				<input type="image" src="image/search.png" style="float: right; width: 55px; border-radius: 18px" onclick="goSearch()">
+				</form>
+			</div>
+	</div>
 
 <div class="boardForm1" style="box-sizing: border-box; margin-left: 300px; margin-right: 300px; margin-top: 150px">
 
