@@ -48,7 +48,6 @@
     .f{padding:8px; font-size: 12px;margin-left: 200px;}
     .s{padding:8px; font-size: 12px;margin-left: 50px;}
     .footerHr{border: 0; height: 1px}
-    
 	
 </style>
 </head>
@@ -69,10 +68,10 @@
 					<li><a href="#">운동화</a></li>					
 				</ul>
 			</li>
-			<li class="mL"><a href="product?categoryName=sneakers}">운동화</a></li>
-			<li class="mL"><a href="product?categoryName=gudu">구두</a></li>
-			<li class="mL"><a href="product?categoryName=sandal">샌들</a></li>
-			<li class="mL"><a href="product?categoryName=boots">부츠</a></li>
+			<li class="mL"><a href="front?resource=product&categoryName=sneakers">운동화</a></li>
+			<li class="mL"><a href="front?resource=product&categoryName=dressShoes">구두</a></li>
+			<li class="mL"><a href="front?resource=product&categoryName=sandal">샌들</a></li>
+			<li class="mL"><a href="front?resource=product&categoryName=boots">부츠</a></li>
 		</ul>
 		<input type="text">
 		<button type="submit" id="img_btn"><img src="./image/a.png"></button>
@@ -125,8 +124,8 @@
 	  </c:if>
 		
 			<li class="sL">
-				<a href="#"><div>${list.imgPath}</div></a>
-				<a href="#" id="sL_a">${list.name}</a>
+				<a href="front?resource=detail&goodsNameOrImg=${list.name}"><div>${list.imgPath}</div></a>
+				<a href="front?resource=detail&goodsNameOrImg=${list.name}" id="sL_a">${list.name}</a>
 				<span>${list.price}</span>	
 			</li>
 	 

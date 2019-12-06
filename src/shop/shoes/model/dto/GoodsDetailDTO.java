@@ -18,6 +18,11 @@ public class GoodsDetailDTO {
 		this.reviews = reviews;
 	}
 	
+//	public GoodsDetailDTO(GoodsDTO goods) {
+//		super();
+//		this.goods = goods;
+//	}
+	
 	public GoodsDTO getGoods() {
 		return goods;
 	}

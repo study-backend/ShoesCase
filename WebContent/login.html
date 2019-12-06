@@ -4,8 +4,15 @@
 <meta charset="UTF-8">
 <link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR:400,500|Pacifico&display=swap&subset=korean" rel="stylesheet">
 <script type="text/javascript" src="../js/jquery-3.4.1.min.js"></script>
+<script>
+function goSearch() {
+	document.searchBox.submit();
+	
+}
+
+</script>
+
 <title>Insert title here</title>
-<script type="text/javascript" src="./js/jquery-3.4.1.min.js"></script>
 <style type="text/css">
 	/*공통*/
 	#header, #container {position: relative;}
@@ -64,6 +71,15 @@
     .f{padding:8px; font-size: 12px;margin-left: 200px;}
     .s{padding:8px; font-size: 12px;margin-left: 50px;}
 	.footerHr{border: 0; height: 1px}
+
+/*	input#submitIcon {
+		background:url(image/search.png);
+		background-repeat: no-repeat;
+		width:35px;
+		height:35px;
+		border: 0;
+	}*/
+
     
 </style>
 <script>
@@ -129,7 +145,7 @@
 			</ul>
 		</div>
 		<div id="headerlogo">
-			<img id="logo" src="image/LOGO.png" alt="로고">
+			<a href="main.html"><img id="logo" src="image/LOGO.png" alt="로고"></a>
 		</div>	
 		<div id="gnb">
 		
@@ -143,12 +159,15 @@
 			</div>
 			<img src="image/basket.png" id="basketimg">
 			<div id="side_search">
-				<img src="image/search.png" id="searchimg">
+				<form name="searchBox" method="get" action="#" id="searching">
+				<input type="text" style="width:179px; height:36px; border-radius:18px; background-color:#F7F7F7; border: none;">
+				<input type="image" src="image/search.png" style="float: right; width: 55px; border-radius: 18px" onclick="goSearch()">
+				</form>
 			</div>
 			
 		</div>
 
-	<div id="main">
+	<div id="main" style="float: ">
 		<form  method="post"  id="loginForm">
 		<div id="login"><h3>로그인</h3></div>
 		<input type="text" name="loginId" class="log" placeholder="아이디를 입력해주세요."><br><br>

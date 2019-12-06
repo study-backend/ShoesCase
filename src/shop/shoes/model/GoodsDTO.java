@@ -37,12 +37,11 @@ public class GoodsDTO {
 
 	
 
-	public GoodsDTO(double price, String name, int count, String imgPath, String sumnailPath, int colorCode,
+	public GoodsDTO(double price, String name, String imgPath, String sumnailPath, int colorCode,
 			int sizeCode, int totalPrice) {
 		super();
 		this.price = price;
 		this.name = name;
-		this.count = count;
 		this.imgPath = imgPath;
 		this.sumnailPath = sumnailPath;
 		this.colorCode = colorCode;
