@@ -7,54 +7,12 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import shop.shoes.model.AccountDTO;
 import shop.shoes.model.ReviewDTO;
-import shop.shoes.model.dto.GoodsReviewDTO;
 import shop.util.DbUtil;
 
 public class ReviewDAOImpl implements ReviewDAO {
 
-	@Override
-	public List<ReviewDTO> selectAll() throws SQLException {
-		Connection con = null;
-		PreparedStatement ps = null;
-		ResultSet rs = null;
-		List<ReviewDTO> list = new ArrayList<ReviewDTO>();
-		String sql = "select * from review";
-		try {
-			con = DbUtil.getConnection();
-			ps= con.prepareStatement(sql);
-			rs = ps.executeQuery();
-			
-			
-			/*
-			 * 
-			 * private int reviewId;
-	private int goodsId;
-	private int accountId;
-	private String reviewPwd; // 리뷰 pwd 추가
-	private String title;
-	private String content;
-	private int score; //만족도 (0~5)
-	private String createDate; //db의 log용 & 화면에 띄울 작성일
-	private String updateDate;
-			 */
-			while(rs.next()) {
-				/**	dto 생성자로 받는 파라미터 8개
-				 * 	int reviewId, int goodsId, int accountId,  String title, String content,
-					int score, String createDate, String updateDate 
-				 */
-				list.add(new ReviewDTO(rs.getInt(1), rs.getInt(2), rs.getInt(3), rs.getString(4), rs.getString(5),
-						rs.getString(6), rs.getInt(7), rs.getString(8),rs.getString(9)));
-				
-			}
-			
-		}
-		finally {
-			DbUtil.dbClose(rs, ps, con);
-			
-		}
-		return list;
-	}
 
 	@Override
 	public int insert(ReviewDTO reviewDto) throws SQLException {
@@ -147,8 +105,9 @@ public class ReviewDAOImpl implements ReviewDAO {
 		PreparedStatement ps = null;
 		ResultSet rs = null;
 		List<ReviewDTO> list = new ArrayList<ReviewDTO>();
-		String sql = "select R1.REVIEW_ID,R1.GOODS_ID,R1.ACCOUNT_ID,R1.TITLE,R1.CONTENT,R1.SCORE,R1.CREATE_DATE,R1.UPDATE_DATE"
-				+ " from REVIEW R1 inner join GOODS G1 on R1.GOODS_ID = G1.GOODS_ID WHERE G1.NAME = ?";
+		String sql = "select A1.LOGIN_ID,R1.GOODS_ID,R1.TITLE,R1.CONTENT,R1.SCORE,R1.CREATE_DATE,R1.UPDATE_DATE" + 
+				" from REVIEW R1 inner join GOODS G1 on R1.GOODS_ID = G1.GOODS_ID inner join ACCOUNT A1 on A1.ACCOUNT_ID = R1.ACCOUNT_ID" + 
+				" WHERE G1.NAME = ?";
 		try {
 			con = DbUtil.getConnection();
 			ps= con.prepareStatement(sql);
@@ -156,19 +115,28 @@ public class ReviewDAOImpl implements ReviewDAO {
 			rs = ps.executeQuery();
 			
 			while(rs.next()) {
+				
+				String loginid = rs.getString(1);
+				
+				ReviewDTO reviewDto = new ReviewDTO(loginid, rs.getInt(2), rs.getString(3), rs.getString(4),
+						rs.getInt(5), rs.getString(6), rs.getString(7));
+				
+				
+				AccountDTO at = reviewDto.getAccount();
+				at.setLoginId(loginid);
+				
 				/**	dto 생성자로 받는 파라미터 8개
-				 * 	int reviewId, int goodsId, int accountId,  String title, String content,
+				 * 
+				 * A1.LOGIN_ID,R1.GOODS_ID,R1.TITLE,R1.CONTENT,R1.SCORE,R1.CREATE_DATE,R1.UPDATE_DATE 
+				 * 
+				 * 	(Account계정)String loginId, int goodsId, String title, String content,
 					int score, String createDate, String updateDate 
 				 */
-				list.add(new ReviewDTO(rs.getInt(1), rs.getInt(2), rs.getInt(3), rs.getString(4), rs.getString(5),
-						rs.getInt(6), rs.getString(7), rs.getString(8)));
-				
+				list.add(reviewDto);
 			}
-			
 		}
 		finally {
 			DbUtil.dbClose(rs, ps, con);
-			
 		}
 		return list;
 	}
