@@ -25,11 +25,14 @@
 	#centerWindow { position:absolute; width:100px; height:100px; top:50%; left:50%; margin-top:-50px; margin-left:-50px; }
 
 
-	table, th, td {border: 1px solid black; }
+	table, th, td {border: 1px solid black; border-collapse:collapse; }
 	.memberCols1{width:200px; height:50px}
 	.memberCols2{width:400px; height:50px;}
 	#check{color:#FFFFFF; background-color:#5F0080;}
 	.m_button span{width:354px; height:56px; margin-top:20px;font-size:16px; }
+	.inForm input{border:none; text-align:left;}
+
+	.tel_text{width:70px; height:50px;}
 	/* footer */
     .footer{clear: both; margin-left: 400px; margin-top: 10px}
     #footerTable{border: none; }
@@ -118,13 +121,12 @@
 
             </tr>
             <tr>
-                <td class="memberCols1">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp휴대폰*</td>
-
-                <td class="memberCols2">
-                    <div class="phone_num">
-                        <input type="text" pattern="[0-9]*" name="mobileNum" placeholder="숫자만 입력해주세요" maxlength="11">
-                    </div>
-                </td>
+                <th class="telarea">휴대폰*</th>
+					<td><input type="text" max-length="3" class="tel_text" >
+						<span> - </span>
+						<input type="text" max-length="4" class="tel_text"> 
+						<span> - </span>
+						<input type="text" max-length="4" class="tel_text"></td>
             </tr>
             
             
