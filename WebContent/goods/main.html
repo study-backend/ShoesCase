@@ -71,15 +71,17 @@ $(document).ready(function(){
 	#goods h2 {width:1200px; height:80px; text-align:center; }
 	#goods ul li {width:230px; height:500px; margin-left:40px; float:left;   }
 	#goods #list_goods div{width:230px; height:350px; display:flex; overflow:hidden; align-items:center; justify-content:center;}
-	#goods #list_goods #gL_a {font-size:30px; display:block;}
 	
+	#goods #list_goods #gL_a {font-size:30px; display:block;}
 	
 	/* md */
 	#md {width:1200px; height:700px; margin:auto;}
 	#md h2 {width:1200px; height:80px; text-align:center;}
-	#md ul li {width:230px; height:500px; border:1px solid blue; margin-left:40px; float:left;}
-	#md #list_md div{width:230px; height:350px; display:flex; overflow:hidden; align-items:center; justify-content:center;}
-	#md #list_md #mL_a {font-size:30px; display:block;}
+	#md ul li {width:230px; height:500px; margin-left:40px; float:left;}
+	#md ul li span{font-size:45px; float:right;}
+	#md #list_md div{width:230px; height:350px; display:flex; overflow:hidden; align-items:center; justify-content:center; }
+	#md #list_md img{width:230px; height:100%;}
+	#md #list_md #mL_a {font-size:30px; display:block; }
 	
 	/* footer */
 	#footer{width:1200px; height:200px; margin:auto; border: 1px solid red;}
@@ -100,7 +102,7 @@ $(document).ready(function(){
 		</div>
 	</div>
 	<div id="nav">
-		<ul class="main">
+		<!-- <ul class="main">
 			<li class="mL"><a href="#">카테고리</a>
 				<ul class="sub">
 					<li><a href="sneakers.html">운동화</a></li>
@@ -117,7 +119,7 @@ $(document).ready(function(){
 			<li class="mL"><a href="product?categoryName=gudu">구두</a></li>
 			<li class="mL"><a href="product?categoryName=sandal">샌들</a></li>
 			<li class="mL"><a href="product?categoryName=boots">부츠</a></li>
-		</ul>
+		</ul> -->
 		<img src="../image/basket.png" id="basketimg">
 			<div id="side_search">
 				<form name="searchBox" method="get" action="#" id="searching">
@@ -143,7 +145,7 @@ $(document).ready(function(){
 				<li class="gL">
 					<a href="#">
 					<div>
-						<img src="image/mainImage/big.jpg">
+						<img src="/ShoesCase/image/mainImage/big.jpg">
 					</div>
 					</a>
 					<a href="#" id="gL_a">나이키</a>
@@ -152,7 +154,7 @@ $(document).ready(function(){
 				<li class="gL">
 					<a href="#">
 						<div>
-							<img src="image/mainImage/boston.jpg">
+							<img src="/ShoesCase/image/mainImage/boston.jpg">
 						</div>
 					</a>
 					<a href="#" id="gL_a">아디다스</a>
@@ -161,7 +163,7 @@ $(document).ready(function(){
 				<li class="gL">
 					<a href="detailPage.html">
 						<div>
-							<img src="../image/mainImage/andy.png">
+							<img src="/ShoesCase/image/mainImage/andy.png">
 						</div>
 					</a>
 					<a href="detailPage.html" id="gL_a">아디다스</a>
@@ -170,7 +172,7 @@ $(document).ready(function(){
 				<li class="gL">
 					<a href="#">
 						<div>
-							<img src="image/mainImage/ferry.jpg">
+							<img src="/ShoesCase/image/mainImage/ferry.jpg">
 						</div>
 					</a>
 					<a href="#" id="gL_a">아디다스</a>
@@ -195,6 +197,7 @@ $(document).ready(function(){
 			
 		</div>
 	</div>
+	
 	<script type="text/javascript">
 	$(function(){
 			$.ajax({
@@ -206,54 +209,58 @@ $(document).ready(function(){
 					 route: "goodsMain" 
 			},
 			
-			
 			//contentType: 'application/json; charset=utf-8',
 			success : function(result) { 
-				console.log(result);
+				console.log("나오나"+result);
 				var str="";
+				var cat="";
 				 $.each(result, function(index, item){
-					 
+					 console.log(item);
 					 if(index === "goodsList"){
 						 for (var v of item) { 
 							 str+="<ul>";
 							 console.log(v.price);
-					        	 str+="<li class='gL'>";
+					        	 str+="<li class='mL'>";
 					        	 str+="<a href='#'>";
 					        	 str+="<div>";
 					        	 str+="<img src='/ShoesCase/image/sneakers/andy.png'>";
 					        	 str+="</div>";
-					        	 str+="<a href='#' id='gL_a'>"+v.name+"</a>";
-					        	 str+="<span>"+v.price+"</span>";
+					        	 str+="<a href='#' id='mL_a'>"+v.name+"</a>";
+					        	 str+="<span>"+v.price+"원</span>";
 					        	 str+="</li>";
 
 				        	 str+="</ul>";
 							 }
-					 }else if (index === "categoryList"){
-						/*  for (var v of item) { 
-							 str+="<ul>";
-							 console.log(v.price);
-					        	 str+="<li class='gL'>";
-					        	 str+="<a href='#'>";
-					        	 str+="<div>";
-					        	 str+="<img src='/ShoesCase/image/sneakers/andy.png'>";
-					        	 str+="</div>";
-					        	 str+="<a href='#' id='gL_a'>"+v.name+"</a>";
-					        	 str+="<span>"+v.price+"</span>";
-					        	 str+="</li>";
-
-				        	 str+="</ul>"; */
+						 
+						 $("#list_md").html(str);
 					 }
 					 
-		        	 $("#list_md").html(str);
-				 });
+					 if (index === "categoryList"){
+						 cat +="<ul class='main'>";
+						 cat +="<li class='mL'><a href='#''>카테고리</a>";
+						 cat +="<ul class='sub'>"
+						 for (var v of item) {
+							cat +="<li><a href="+v.name+".html>"+v.name+"</a></li>"
+						 }
+						 	cat +="</ul>"
+
+						 for (var v of item) { 
+						 	cat+="<li class='mL'><a href='product?categoryName=sneakers'>"+v.name+"</a></li>";
+						 }
+						 cat +="</li>"
+						 cat+="</ul>";
+						 
+						 $("#nav").html(cat);
+				 };
+			});
+				 
 			},
 			error : function(error) {
 				console.log(error);
 				//alert("아이디 또는 비밀번호를 확인해주세요.");
 			}
 		});//ajax끝	
-
-});
+}); 
 	</script>
 		
 </body>

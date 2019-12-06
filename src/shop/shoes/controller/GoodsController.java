@@ -54,12 +54,12 @@ public class GoodsController implements Controller{
 						break;
 					}
 					case "goodsSub": {
-						goodsService.goodsSub(1);
+						//goodsService.goodsSub(1);
 						break;
 					}
 					case "goodsDetail": {
 
-						goodsService.goodsDetail(1);
+						//goodsService.goodsDetail(1);
 						break;
 					}
 				}

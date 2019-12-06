@@ -250,5 +250,19 @@ commit
 
 select *  from GOODS G1 INNER JOIN CATEGORY G2 ON G1.CATEGORY_ID = G2.CATEGORY_ID where G2.NAME='sneakers'
 
+-- 아래는 원래 다 : 다 관계이다.. 젠장 일단 급하니.. 단순하게.. -- 자동증가 필요
+CREATE TABLE ROLLING_BANNER(
+	ROLLING_ID NUMBER(19) CONSTRAINT id_roll_pk PRIMARY KEY,  
+	VERSION_ID NUMBER(19) NOT NULL, 		
+	NAME VARCHAR2(20) NOT NULL,
+	IMG_PATH VARCHAR2(100) NOT NULL,
+	CREATE_DATE DATE NOT NULL,
+    UPDATE_DATE DATE NOT NULL
+);
+
+insert into ROLLING_BANNER values(1, 1, '나이키신발', 'http://ㅗ', sysdate, sysdate);
+insert into ROLLING_BANNER values(2, 1, '아디다스신발','http://ㅗㅗㅗ',sysdate, sysdate);
+insert into ROLLING_BANNER values(3, 1, '신년이벤트', 'http://ㅗㅗㅗㅗㅗㅗ',sysdate, sysdate);
+insert into ROLLING_BANNER values(4, 1, '크리스벤', 'http://ㅗㅗㅗㅗ',sysdate, sysdate);
 
 

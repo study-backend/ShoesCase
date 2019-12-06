@@ -7,7 +7,21 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<script type="text/javascript" src="js/jquery-3.4.1.min.js"></script>
+<script type="text/javascript" src="./js/jquery-3.4.1.min.js"></script>
+<script>
+$(document).ready(function(){
+	$("#basket").click(function(){
+		var a = confirm("장바구니로 이동하시겠습니까?");
+		
+	if(a){
+		location.replace("shopping_basket.html");
+	}else{
+		location.reload();
+	}
+	
+	});
+});
+</script>
 
 <style type="text/css">
 	
@@ -243,10 +257,9 @@ $(document).on("click","[value='삭제']",function(){
               
               <td >
                <p><span>
-               
+                
                 만족도 (0~5) : ${reviewDTO.score}
                  
-               
                </span></p>
               </td>
    
