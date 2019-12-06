@@ -106,6 +106,7 @@
 				</tr>
 				<tr>
 					<td>구매수량</td><td></td>
+		
 					<td>
 						<input type="number" id="number">
 					</td>
