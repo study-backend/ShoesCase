@@ -141,7 +141,6 @@ public class ReviewDAOImpl implements ReviewDAO {
 		
 		return result;
 	}
-
 	@Override
 	public List<ReviewDTO> selectByGoodName(String goodsName) throws SQLException {
 		Connection con = null;
