@@ -39,7 +39,7 @@ public class DispatcherServlet extends HttpServlet {
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException  {
 		String key = request.getParameter("resource");
 		System.out.println(key);
-		System.out.println(request.getParameter("data"));
+		//System.out.println(request.getParameter("data"));
 
 		
 		ModelAndView mv = null;
@@ -51,7 +51,7 @@ public class DispatcherServlet extends HttpServlet {
  
 		   
 		   if(mv.isRedirect()) {//redirect방식
-				response.sendRedirect("NewFile.html");
+				response.sendRedirect(mv.getViewName());
 		   }else {//forward이동
 				request.getRequestDispatcher(mv.getViewName()).forward(request, response);
 			}
