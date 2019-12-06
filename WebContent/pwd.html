@@ -1,42 +1,136 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR:400,500|Pacifico&display=swap&subset=korean" rel="stylesheet">
-<title>Insert title here</title>
-<style type="text/css">
-	/*공통*/
-	#header, #container {position: relative;}
-	a{color:#000; text-decoration:none; font-family: 'Noto Sans KR', sans-serif;}
-	a:hover{color:#000; font-weight:bold;}
-	ul li{list-style: none;}
-	h1,h2,h3,h4,h5,p,ul,li{
-    margin: 0px;
-    padding: 0px;
-}
+    <meta charset="UTF-8">
+    <link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR:400,500|Pacifico&display=swap&subset=korean"
+          rel="stylesheet">
+    <script type="text/javascript" src="../js/jquery-3.4.1.min.js"></script>
+    <script>
+        function goSearch() {
+            document.searchBox.submit();
+
+        }
+
+    </script>
+
+    <title>Insert title here</title>
+    <style type="text/css">
+        /*공통*/
+        #header, #container {
+            position: relative;
+        }
+
+        a {
+            color: #000;
+            text-decoration: none;
+            font-family: 'Noto Sans KR', sans-serif;
+        }
+
+        a:hover {
+            color: #000;
+            font-weight: bold;
+        }
+
+        ul li {
+            list-style: none;
+        }
+
+        h1, h2, h3, h4, h5, p, ul, li {
+            margin: 0px;
+            padding: 0px;
+        }
 
 
-	
-	/* header */
-	#header{width:1200px; height:100px; margin:auto;}
-	#header #headerlogo{display: inline-block; margin:auto;}
-	#header ul {float:right;}
-	#header ul li {margin-left:10px; float:left;}
-	#header #headerlogo{margin:auto; margin-left: 500px; margin-top:25px;}
-	
-	/* nav */	
-	#nav{width:1200px; height:50px; margin:auto; position: sticky; top: 0;}
-	#nav ul .mL{width:100px; height:50px; margin-left:30px; float:left; font-size:20px;}
-	#nav .main>li:hover .sub{display:block; }
-	#nav .main .sub {position:absolute;  height:50px; top:50px; left:40px; display:none;}
-	#nav .main .sub li {width:80px; margin-top:5px; }
-	
-	#side_search{position: absolute; right:220px; width:240px; height:40px; border-radius:18px; background-color:#F7F7F7;}
-	#searchimg{position:absolute; right:10px; top:5px; width:40px; height:30px;}
-	#basketimg{position:absolute; right:150px;  width:50px; height:50px;}
-	
+        /* header */
+        #header {
+            width: 1200px;
+            height: 100px;
+			padding-bottom: 40px;
+            margin: auto;
+        }
+
+        #header #headerlogo {
+            display: inline-block;
+            margin: auto;
+        }
+
+        #header ul {
+            float: right;
+        }
+
+        #header ul li {
+            margin-left: 10px;
+            float: left;
+        }
+
+        #header #headerlogo {
+            margin: auto;
+            margin-left: 500px;
+            margin-top: 25px;
+        }
+
+        /* nav */
+        #nav {
+            width: 1200px;
+            height: 50px;
+            margin: auto;
+            position: sticky;
+            top: 0px;
+			background-color: white;
+        }
+
+        #nav ul .mL {
+            width: 150px;
+            height: 50px;
+            float: left;
+            font-size: 20px;
+			margin: 0px;
+        }
+
+        #nav .main > li:hover .sub {
+            display: block;
+        }
+
+        #nav .main .sub {
+            position: absolute;
+            height: 50px;
+            top: 50px;
+            left: 40px;
+            display: none;
+        }
+
+        #nav .main .sub li {
+            width: 80px;
+            margin-top: 5px;
+        }
+
+        #side_search {
+            position: absolute;
+            right: 220px;
+            width: 240px;
+            height: 40px;
+            border-radius: 18px;
+            background-color: #F7F7F7;
+        }
+
+        #searchimg {
+            position: absolute;
+            right: 10px;
+            top: 5px;
+            width: 40px;
+            height: 30px;
+        }
+
+        #basketimg {
+            position: absolute;
+            right: 150px;
+            width: 50px;
+			bottom: 5px;
+            height: 50px;
+        }
+
 	/* main */
-	#main{width:355px; height:600px; margin:auto; /* border:1px solid pink; */}
+	#main{width:355px; height:550px; margin:auto; /* border:1px solid pink; */}
 	#main h3{text-align:center;}
  	#main .log{width:350px; height:50px; border:0; outline:0; border-radius:5px; border:1px solid gray;}
 	#findpwd{width:354px; height:56px; margin-top:20px; color:#FFFFFF; background-color:#5F0080; border-radius:5px; outline:0;}
@@ -44,52 +138,88 @@
 	#login{height: 100.5px; margin-top: 50px; font-size:30px}
 	
 	/* footer */
-    #footerTable{border: none; }
-    #footerTable td{border: none; }
-    .f{padding:8px; font-size: 12px;margin-left: 200px;}
-    .s{padding:8px; font-size: 12px;margin-left: 50px;}
-    .footerHr{border: 0; height: 1px}
-</style>
+        .footer{
+            margin-left:400px;
+
+        }
+
+        #footerTable {
+            border: none;
+        }
+
+        #footerTable td {
+            border: none;
+        }
+
+        .f {
+            padding: 8px;
+            font-size: 12px;
+            margin-left: 200px;
+        }
+
+        .s {
+            padding: 8px;
+            font-size: 12px;
+            margin-left: 50px;
+        }
+
+        .footerHr {
+            border: 0;
+            height: 1px
+        }
+
+        /*	input#submitIcon {
+                background:url(image/search.png);
+                background-repeat: no-repeat;
+                width:35px;
+                height:35px;
+                border: 0;
+            }*/
+
+
+    </style>
 </head>
 <body>
 	<div id="header">
-		<ul>
-			<li><a href="signupForm.jsp">회원가입</a></li>
-			<li><a href="login.html">로그인</a></li>
-		</ul>
-		<div id="headerlogo">
-			<a>
-			<img id="logo" src="image/LOGO.png" url="dressShoes.html" alt="로고">
-			</a>
-		</div>
-	</div>
-	<div id="nav">
-		<ul class="main">
-			<li class="mL"><a href="#"><span>카테고리</span></a>&nbsp;&nbsp;&nbsp;|
-				<ul class="sub">
-					<li><a href="sneakers.html">운동화</a></li>
-					<li><a href="#">구두</a></li>
-					<li><a href="#">샌들</a></li>
-					<li><a href="#">부츠</a></li>
-					<li><a href="#">나이키</a></li>
-					<li><a href="#">아디다스</a></li>
-					<li><a href="#">퓨마</a></li>
-					<li><a href="#">반스</a></li>
-				</ul>
-			</li>
-			<li class="mL"><a href="product?categoryName=sneakers"><span>운동화</span></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|</li>
-			<li class="mL"><a href="product?categoryName=gudu"><span>구두</span></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|</li>
-			<li class="mL"><a href="product?categoryName=sandal"><span>샌들</span></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|</li>
-			<li class="mL"><a href="product?categoryName=boots"><span>부츠</span></a>&nbsp;&nbsp;&nbsp;&nbsp;</li>
-		</ul>
-		<img src="image/basket.png" id="basketimg">
-			<div id="side_search">
-				<form name="searchBox" method="get" action="#" id="searching">
-				<input type="text" style="width:179px; height:36px; border-radius:18px; background-color:#F7F7F7; border: none;">
-				<input type="image" src="image/search.png" style="float: right; width: 55px; border-radius: 18px" onclick="goSearch()">
-				</form>
-			</div>
-	</div>
+    <ul>
+        <li><a href="signupForm.jsp">회원가입</a></li>
+        <li><a href="login.html">로그인</a></li>
+    </ul>
+    <div id="headerlogo">
+        <a href="mainTest_1.jsp">
+            <img id="logo" src="image/LOGO.png" url="dressShoes.html" alt="로고">
+        </a>
+    </div>
+</div>
+<div id="nav">
+    <ul class="main">
+        <li class="mL" style="margin-left: 48px;"><a href="#"><span style="margin-right: 30px">카테고리</span></a>&nbsp;&nbsp;&nbsp;&nbsp;|
+            <ul class="sub">
+                <li  class="sub_li"><a href="sneakers.html">운동화</a></li>
+                <li  class="sub_li"><a href="#">구두</a></li>
+                <li  class="sub_li"><a href="#">샌들</a></li>
+                <li  class="sub_li"><a href="#">부츠</a></li>
+                <li  class="sub_li"><a href="#">나이키</a></li>
+                <li  class="sub_li"><a href="#">아디다스</a></li>
+                <li  class="sub_li"><a href="#">퓨마</a></li>
+                <li  class="sub_li"><a href="#">반스</a></li>
+            </ul>
+        </li>
+        <li class="mL"><a href="product?categoryName=sneakers"><span style="margin-left: 25px; margin-right: 16px;">운동화</span></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|</li>
+        <li class="mL"><a href="product?categoryName=gudu"><span style="margin-left: 25px; margin-right: 16px;">구두</span></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|</li>
+        <li class="mL"><a href="product?categoryName=sandal"><span style="margin-left: 16px; margin-right: 25px;">샌들</span></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|</li>
+        <li class="mL"><a href="product?categoryName=boots"><span style="margin-left:11px">부츠</span></a>&nbsp;&nbsp;&nbsp;&nbsp;</li>
+    </ul>
+    <img src="image/basket.png" id="basketimg">
+    <div id="side_search">
+        <form name="searchBox" method="get" action="#" id="searching">
+            <input type="text"
+                   style="width:185px; height:36px; border-radius:18px; background-color:#F7F7F7; border: none;">
+            <input type="image" src="image/search.png" style="float: right; width: 45px; border-radius: 18px"
+                   onclick="goSearch()">
+        </form>
+    </div>
+</div>
 	
 	<div id="main">
 		<form  method="post" action="#" id="pwdsearchForm"> 
@@ -131,6 +261,7 @@
 	</script>
 	<br><br><br>
 <hr class="footerHr" color="gray"  >
+<div class="footer">
 <table id= "footerTable">
 <tr>
 <td>
@@ -161,6 +292,6 @@
 </td>
 </tr>
 </table>
-
+</div>
 </body>
 </html>
