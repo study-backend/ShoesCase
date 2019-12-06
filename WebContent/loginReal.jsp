@@ -1,19 +1,38 @@
-<!DOCTYPE html>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%--
+  Created by IntelliJ IDEA.
+  User: ksw
+  Date: 06/12/2019
+  Time: 1:59 오후
+  To change this template use File | Settings | File Templates.
+--%>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <meta charset="UTF-8">
+    <title>Title</title>
     <link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR:400,500|Pacifico&display=swap&subset=korean"
           rel="stylesheet">
-    <script type="text/javascript" src="../js/jquery-3.4.1.min.js"></script>
+    <script type="text/javascript" src="js/jquery-3.4.1.min.js"></script>
     <script>
-        function goSearch() {
-            document.searchBox.submit();
+        window.onload = function () {
+            var inFo = sessionStorage.getItem("user");
+            var inFoObj = JSON.parse(inFo);
+
+            if (inFoObj == null) {
+                document.getElementById("loginState").innerHTML = "<li><a href=\"signupForm.jsp\">회원가입</a> ㅣ</li><li><a href=\"login.html\"> 로그인</a></li>"
+            } else {
+                document.getElementById("loginState").innerHTML = "<li>" + inFoObj.name + "님 ㅣ</li><li><a href=\"inMyInfoChange.jsp\"> 내 정보</a></li>"
+
+            }
 
         }
 
-    </script>
+        function goSearch() {
+            document.searchBox.submit();
+        }
 
-    <title>Insert title here</title>
+
+    </script>
     <style type="text/css">
         /*공통*/
         #header, #container {
@@ -45,7 +64,7 @@
         #header {
             width: 1200px;
             height: 100px;
-			padding-bottom: 40px;
+            padding-bottom: 40px;
             margin: auto;
         }
 
@@ -76,7 +95,7 @@
             margin: auto;
             position: sticky;
             top: 0px;
-			background-color: white;
+            background-color: white;
         }
 
         #nav ul .mL {
@@ -84,7 +103,7 @@
             height: 50px;
             float: left;
             font-size: 20px;
-			margin: 0px;
+            margin: 0px;
         }
 
         #nav .main > li:hover .sub {
@@ -125,7 +144,7 @@
             position: absolute;
             right: 150px;
             width: 50px;
-			bottom: 5px;
+            bottom: 5px;
             height: 50px;
         }
 
@@ -230,7 +249,7 @@
 
                 $.ajax({
                     type: "post",
-                    url: "api/v1",
+                    url: "/ShoesCase/api/v1",
                     dataType: "json",
                     data: {
                         data: JSON.stringify(str),
@@ -239,48 +258,32 @@
                     },
                     //contentType: 'application/json; charset=utf-8',
                     success: function (result) {
-                        console.log("1111");
-                        {
-                            result : 0
+                        console.log(result.statusCode);
+                        if (result.statusCode === "Success") {
+                            alert("로그인 성공");
+                            alert("세션 스토리지 및 세션 정보 : " + result.message)
+                            sessionStorage.setItem("user", result.message);
+                            location.href = '/ShoesCase/goods/main.html'
+                        } else {
+                            alert("아이디 또는 비밀번호를 확인해주세요.");
                         }
                     },
                     error: function (error) {
                         console.log(error);
-                        //alert("아이디 또는 비밀번호를 확인해주세요.");
+                        alert("오류가 발생되었습니다");
                     }
                 });//ajax끝
 
             })
-
-
-            $.fn.serializeObject = function () {
-
-                var result = {}
-                var extend = function (i, element) {
-                    var node = result[element.name]
-                    if ("undefined" !== typeof node && node !== null) {
-                        if ($.isArray(node)) {
-                            node.push(element.value)
-                        } else {
-                            result[element.name] = [node, element.value]
-                        }
-                    } else {
-                        result[element.name] = element.value
-                    }
-                }
-
-                $.each(this.serializeArray(), extend)
-                return result
-            }
 
         });
     </script>
 </head>
 <body>
 <div id="header">
-    <ul>
-        <li><a href="signupForm.jsp">회원가입</a></li>
-        <li><a href="login.html">로그인</a></li>
+    <ul id="loginState">
+        <%--<li><a href="signupForm.jsp">회원가입</a></li>
+        <li><a href="login.html">로그인</a></li>  --%>
     </ul>
     <div id="headerlogo">
         <a href="mainTest_1.jsp">
@@ -302,10 +305,17 @@
                 <li><a href="#">반스</a></li>
             </ul>
         </li>
-        <li class="mL"><a href="product?categoryName=sneakers"><span style="margin-left: 25px; margin-right: 16px;">운동화</span></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|</li>
-        <li class="mL"><a href="product?categoryName=gudu"><span style="margin-left: 25px; margin-right: 16px;">구두</span></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|</li>
-        <li class="mL"><a href="product?categoryName=sandal"><span style="margin-left: 16px; margin-right: 25px;">샌들</span></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|</li>
-        <li class="mL"><a href="product?categoryName=boots"><span style="margin-left:11px">부츠</span></a>&nbsp;&nbsp;&nbsp;&nbsp;</li>
+        <li class="mL"><a href="product?categoryName=sneakers"><span
+                style="margin-left: 25px; margin-right: 16px;">운동화</span></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|
+        </li>
+        <li class="mL"><a href="product?categoryName=gudu"><span
+                style="margin-left: 25px; margin-right: 16px;">구두</span></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|
+        </li>
+        <li class="mL"><a href="product?categoryName=sandal"><span
+                style="margin-left: 16px; margin-right: 25px;">샌들</span></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|
+        </li>
+        <li class="mL"><a href="product?categoryName=boots"><span style="margin-left:11px">부츠</span></a>&nbsp;&nbsp;&nbsp;&nbsp;
+        </li>
     </ul>
     <img src="image/basket.png" id="basketimg">
     <div id="side_search">
@@ -318,7 +328,7 @@
     </div>
 </div>
 
-<div id="main" style="float: ">
+<div id="main">
     <form method="post" id="loginForm">
         <div id="login"><h3>로그인</h3></div>
         <input type="text" name="loginId" class="log" placeholder="아이디를 입력해주세요."><br><br>
@@ -327,9 +337,10 @@
         <div id="search">
             <a href="id.html">아이디 찾기</a> | <a href="pw.html">비밀번호 찾기</a>
         </div>
-        <button type="submit" class="m_button" id="blogin"><span>로그인</span></button>
-        </p>
-		<a href="account/signupForm.html"><button type="button" class="m_button" id="bsignup"><span>회원가입</span></button></a>
+        <button type="button" class="m_button" id="blogin"><span>로그인</span></button></p>
+        <a href="account/signupForm.html">
+            <button type="button" class="m_button" id="bsignup"><span>회원가입</span></button>
+        </a>
     </form>
 </div>
 

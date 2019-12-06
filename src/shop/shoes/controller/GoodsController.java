@@ -1,4 +1,5 @@
 
+
 package shop.shoes.controller;
 
 import javax.servlet.http.HttpServletRequest;
@@ -116,4 +117,3 @@ public class GoodsController implements Controller{
 	}
 
 }
-
