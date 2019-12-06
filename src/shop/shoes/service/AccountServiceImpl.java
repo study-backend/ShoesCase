@@ -9,12 +9,12 @@ import shop.shoes.model.AccountDTO;
 public class AccountServiceImpl implements AccountService {
 	private static AccountDAO accountDAO  = new AccountDAOImpl();
 
-	public AccountDTO signin(AccountDTO account) throws Exception {
+	public AccountDTO signin(String loginId, String loginPwd) throws Exception {
 
-		AccountDTO acc = accountDAO.selectById(account.getLoginId());
+		AccountDTO acc = accountDAO.selectById(loginId);
 		if (acc != null) {
 
-			if (acc.getLoginPwd().equals(account.getLoginPwd()) == true) {
+			if (acc.getLoginPwd().equals(loginPwd) == true) {
 
 				// 추가검증 (ip?, 세션타임?.. 일단 pass
 

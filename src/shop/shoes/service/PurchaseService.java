@@ -33,6 +33,6 @@ public interface PurchaseService {
 	 * 구매내역 조회
 	 * 
 	 * */
-	public List<PurchaseGoodsDTO> selectOrderHistory(long accountId) throws SQLException;
+	public List<PurchaseGoodsDTO> selectOrderHistory(String loginId) throws SQLException;
 	
 }
