@@ -134,14 +134,49 @@ public class PurchaseDAOImpl implements PurchaseDAO {
 
 	@Override
 	public int insertPurchaseInfo(PurchaseGoodsDTO purchaseGoods) throws SQLException {
-		// TODO Auto-generated method stub
-		return 0;
+		Connection con = null;
+		PreparedStatement ps = null;
+		int result = 0;
+		String sql = "";
+		try {
+			con = DbUtil.getConnection();
+			
+		}
+		finally {
+			DbUtil.dbClose(ps, con);
+		}
+		return result;
 	}
 
+	//하나의 계정마다 구매내역 보기
 	@Override
-	public List<PurchaseGoodsDTO> selectOrderHistory(long accountId) throws SQLException {
-		// TODO Auto-generated method stub
-		return null;
+	public List<PurchaseGoodsDTO> selectOrderHistory(String loginId) throws SQLException {
+		Connection con = null;
+		PreparedStatement ps = null;
+		ResultSet rs = null;
+
+		PurchaseGoodsDTO basket = null;
+		List<PurchaseGoodsDTO> list = new ArrayList<PurchaseGoodsDTO>();
+		String sql = "select B1.BILL_KEY, P1.NAME,P1.PRICE,P1.COUNT, P1.STATE_CODE "
+				+ "from PURCHASE_GOODS P1 inner join BILL_KEY B1 on P1.BILL_KEY = B1.BILL_KEY "
+				+ "inner join ACCOUNT A1 on A1.ACCOUNT_ID = P1.ACCOUNT_ID " + 
+				"where A1.LOGIN_ID = ?"; 
+		try {
+			con = DbUtil.getConnection();
+			ps= con.prepareStatement(sql);
+			ps.setString(1,loginId);
+			rs = ps.executeQuery();
+			
+			while(rs.next()) {
+				basket = new PurchaseGoodsDTO(rs.getString(1), rs.getString(2), 
+											rs.getDouble(3), rs.getInt(4), rs.getInt(5));
+				list.add(basket);
+			}
+		}
+		finally {
+			DbUtil.dbClose(rs, ps, con);
+		}
+		return list;
 	}
 	
 }
