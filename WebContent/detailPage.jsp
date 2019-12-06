@@ -7,7 +7,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<script type="text/javascript" src="../js/jquery-3.4.1.min.js"></script>
+<script type="text/javascript" src="js/jquery-3.4.1.min.js"></script>
 
 <style type="text/css">
 	
@@ -76,7 +76,59 @@
 	
 	button{width:200px; height:50px; color:white; background-color:#CBA3E9; border-radius:5px;}
 </style>
+<script type="text/javascript">
 
+//삭제 ajax
+$(document).ready(function(){
+ $(document).on("click","#contentShow" , function(){
+ //   alert(1);
+    
+ //   #review_t > tbody > tr:nth-child(4)
+ //   #review_t > tbody > tr:nth-child(6)
+ //   #review_t > tbody > tr:nth-child(8)
+ 
+   $(this).parent().parent().parent().parent().next().show();
+    
+ });
+ 
+ $(document).on("click", "#contentHide", function(){
+    
+    $(this).parent().parent().parent().hide();
+    
+ })
+});
+
+
+
+$(document).on("click","[value='삭제']",function(){
+   var reviewId = $(this).attr("name");
+   var reviewPwd = $()
+  // alert (idValue);
+    $.ajax({
+    type: "post",
+//    url: "/front?resource=reviewDelete",
+    url: "../ShoesCase/front?resource=reviewDelete",
+    dataType: "text",
+    data : {reviewId : reviewId},
+    success : function(result){
+       //확인
+       if(result>0) {
+       //   alert("삭제성공")
+          alert("result?");      
+       }else{
+          alert("삭제실패")
+          }
+       
+    },
+    error : function(err){
+       console.log(err + "=> 오류 발생");
+    }
+    
+      
+   }); //ajax 끝
+   
+}); 
+</script>
 </head>
 
 <body>
@@ -144,83 +196,84 @@
 		</div>
 	</div>
 	
-	<div id="product_rv">
-		<table id="review_t">
-			<tr>
-				<th colspan='6'>상품후기</th>
-			</tr>
-			<tr>
-				<td>글번호</td>
-				<td>제목</td>
-				<td>구매자</td>
-				<td>만족도</td>
-				<td>작성자</td>
-				<td>작성일</td>
-				
-
-				   
+	 <div id="product_rv">
+      <table id="review_t">
+         <tr>
+            <th colspan='6'>상품후기</th>
+         </tr>
+         <tr>
+            <td>글번호</td>
+            <td>제목</td>
+            <td>구매자</td>
+            <td>만족도</td>
+            <td>작성일</td>
+            <td>삭제</td>
+            
+               
+               
     <c:choose>
     <c:when test="${empty requestScope.reviewList}">
-	   <tr>
+      <tr>
         <td colspan="6">
             <p align="center"><b><span>등록된 상품이 없습니다.</span></b></p>
         </td>
     </tr>
     </c:when>
     <c:otherwise>
-	<c:forEach items="${requestScope.reviewList}" var="reviewDTO">
-		    <tr>
-		        <td>
-		            <p><span>
-		            index 번호줘야함</span></p> 
-		        </td>
-		        <td >
-					<p><span>
-				
-					  ${reviewDTO.title}
-				
-					</span></p>
-		        </td>
-		        <td >
-					<p><span>
-					
-					작성자id :  ${reviewDTO.accountId}
-					
-					</span></p>
-		        </td>
-		        
-		        <td >
-					<p><span>
-					
-					 만족도 (0~5) : ${reviewDTO.score}
-					  
-					
-					</span></p>
-		        </td>
-		        <td >
-					<p><span>
-					
-					 구매자id :  ${reviewDTO.accountId}
-					
-					</span></p>
-		        </td>
-		        
-		       <td >
-					<p><span>
-					
-					  ${reviewDTO.createDate}
-				
-					</span></p>
-		        </td>
-		        
-		    </tr>
+   <c:forEach items="${requestScope.reviewList}" var="reviewDTO">
+          <tr>
+              <td>
+                  <p><span>
+                  index 번호줘야함</span></p> 
+              </td>
+              <td >
+               <p><span>
+            
+                <a herf="#" id="contentShow"> ${reviewDTO.title} </a>
+            
+               </span></p>
+              </td>
+              <td >
+               <p><span>
+               
+               작성자id :  ${reviewDTO.accountId}
+               
+               </span></p>
+              </td>
+              
+              <td >
+               <p><span>
+               
+                만족도 (0~5) : ${reviewDTO.score}
+                 
+               
+               </span></p>
+              </td>
+   
+              
+             <td >
+               <p><span>
+               
+                 ${reviewDTO.createDate}
+            
+               </span></p>
+              </td>
+              <td>
+                 <input type = 'button' value='삭제' name= ${reviewDTO.reviewId}  >
+              </td>
+          </tr>
+          <tr style ="display:none;">
+          <td colspan="1" ><div >내용</div></td> 
+          <td colspan="4" ><div >${reviewDTO.content } </div>  </td>
+          <td colspan="1"><div><input type="button" value="감추기" id="contentHide"></div> </td>
+          </tr>
     </c:forEach>
-	</c:otherwise>
+   </c:otherwise>
     </c:choose>
-			</tr>
-		</table>
-		
-		<a href="detailReviewInsert.jsp"><button type="button">후기쓰기</button></a>
-	</div>
+         </tr>
+      </table>
+      
+      <a href="detailReviewInsert.jsp"><button type="button">후기쓰기</button></a>
+   </div>
 </body>
 </html>
