@@ -14,7 +14,7 @@ public interface ReviewDAO {
 	 */
 	List<ReviewDTO> selectAll() throws SQLException;
 	
-	List<ReviewDTO> selectByGoodId(long goodsId) throws SQLException;
+	List<ReviewDTO> selectByGoodName(String goodsName) throws SQLException;
 	
 	/**
 	 * 후기 작성

@@ -22,23 +22,23 @@
 	#container{width:1254px; height:1189; margin:auto;}
 	
 	/* header */
-	#header{width:1254px; height:180px; /* border:1px solid red; */ margin:auto;}
-	#usermenu{width:1050px; height:37px; margin-left:162px; margin-right:40px;}
-	#headerlogo{width:1050px; height:63px; margin-left:102px; margin-right:102px; position: relative;}
-	#logo {display: block; width:200px; height:80px; margin-left:440px; margin-right:500px; margin-bottom: 20px }
+	#header{width:1200px; height:100px; margin:auto;}
+	#header #headerlogo{display: inline-block; margin:auto;}
 	#header ul {float:right;}
-	#header ul li {margin-top: 15px; margin-left:10px; float:left;}
-	#gnb{width:1254px; height:56px; /* border:1px solid blue; */ }
-	#gnbin{position:relative; width:1150px; height:56px; /* border:1px solid blue; */ margin:0 auto; }
-	.gnb_ul{width:1150px; height:56px; float:left; height:55px; }
-	.gnb_li {float:left; width:190; height:55;}
-	.gnb_li a{width:190; height:55; padding: 16px 50px 0 48px; font-size:18px;}
-	.gnb_ul:hover .sub{display: block;}
-	.gnb_ul .sub{position:absolute;  height:50px; top:50px; left:40px; display:block; color: black;}
-	.gnb_ul .sub li{width:60px;}
-	#side_search{position: absolute; right:135px; top:110px; width:240px; height:40px; /* border:1px solid green */; border-radius:18px; background-color:#F7F7F7;}
+	#header ul li {margin-left:10px; float:left;}
+	#header #headerlogo{margin:auto; margin-left: 500px; margin-top:25px;}
+	
+	/* nav */	
+	#nav{width:1200px; height:50px; margin:auto; position: sticky; top: 0;}
+	#nav ul .mL{width:100px; height:50px; margin-left:30px; float:left; font-size:20px;}
+	#nav .main>li:hover .sub{display:block; }
+	#nav .main .sub {position:absolute;  height:50px; top:50px; left:40px; display:none;}
+	#nav .main .sub li {width:80px; margin-top:5px; }
+	
+	#side_search{position: absolute; right:220px; width:240px; height:40px; border-radius:18px; background-color:#F7F7F7;}
 	#searchimg{position:absolute; right:10px; top:5px; width:40px; height:30px;}
-	#basketimg{position:absolute; right:75px; top:106px; width:50px; height:50px;}
+	#basketimg{position:absolute; right:150px;  width:50px; height:50px;}
+	
 	/* main */
 	
 	#main{width:355px; height:600px; margin:auto; /* border:1px solid pink; */}

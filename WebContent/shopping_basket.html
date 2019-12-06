@@ -10,8 +10,8 @@ $(document).ready(function(){
 		  $.ajax({
 			  type:"get",
 			  url:"../front",
-		      dataType: "json",//¼­¹ö¿¡°Ô ¹ŞÀº ÀÀ´ä°á°ú type(text, xml, html, json)
-		      //data : {id: $(this).val() } ,//¼­¹ö¿¡°Ô Àü¼ÛÇÒ parameter
+		      dataType: "json",//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ type(text, xml, html, json)
+		      //data : {id: $(this).val() } ,//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ parameter
 		      success: function(result){
 	   		        var str="";
 	   		         $.each(result, function(index, item){
@@ -30,9 +30,9 @@ $(document).ready(function(){
 	   		        $("a").css("textDecoration", "none");
 		      } ,
 		      error : function(err){
-		    	  console.log(err+"=> ¿À·ù¹ß»ı");
+		    	  console.log(err+"=> ï¿½ï¿½ï¿½ï¿½ï¿½ß»ï¿½");
 		      }
-		  });//ajax³¡
+		  });//ajaxï¿½ï¿½
 	  }
 })
 	
@@ -41,7 +41,31 @@ $(document).ready(function(){
 	
 </script>
 <style type="text/css">
+	/*ê³µí†µ*/
+	a{color:#000; text-decoration:none;}
+	a:hover{color:#000; font-weight:bold; font-family: 'Noto Sans KR', sans-serif;}
+	ul li{list-style: none; margin:0; padding:0;}
+	body{height:2200px;}
+
+	/* header */
+	#header{width:1200px; height:100px; margin:auto;}
+	#header #headerlogo{display: inline-block; margin:auto;}
+	#header ul {float:right;}
+	#header ul li {margin-left:10px; float:left;}
+	#header #headerlogo{margin:auto; margin-left: 500px; margin-top:25px;}
 	
+	/* nav */	
+	#nav{width:1200px; height:50px; margin:auto; position: sticky; top: 0;}
+	#nav ul .mL{width:100px; height:50px; margin-left:30px; float:left; font-size:20px;}
+	#nav .main>li:hover .sub{display:block; }
+	#nav .main .sub {position:absolute;  height:50px; top:50px; left:40px; display:none;}
+	#nav .main .sub li {width:80px; margin-top:5px; }
+	
+	#side_search{position: absolute; right:220px; width:240px; height:40px; border-radius:18px; background-color:#F7F7F7;}
+	#searchimg{position:absolute; right:10px; top:5px; width:40px; height:30px;}
+	#basketimg{position:absolute; right:150px;  width:50px; height:50px;}
+
+	/* product */
 	#product {width:1100px; margin:auto; text-align:center;}
 	#product table{display:inline-block;}
 	#product table th {background-color:#CBA3E9; width:1000px; height:35px; font-size:20px; color:white;}
@@ -66,6 +90,45 @@ $(document).ready(function(){
 </style>
 </head>
 <body>
+	<div id="header">
+		<ul>
+			<li><a href="signupForm.jsp">íšŒì›ê°€ì…</a></li>
+			<li><a href="login.html">ë¡œê·¸ì¸</a></li>
+		</ul>
+		<div id="headerlogo">
+			<a>
+			<img id="logo" src="image/LOGO.png" url="dressShoes.html" alt="ë¡œê³ ">
+			</a>
+		</div>
+	</div>
+	<div id="nav">
+		<ul class="main">
+			<li class="mL"><a href="#">ì¹´í…Œê³ ë¦¬</a>
+				<ul class="sub">
+					<li><a href="sneakers.html">ìš´ë™í™”</a></li>
+					<li><a href="#">êµ¬ë‘</a></li>
+					<li><a href="#">ìƒŒë“¤</a></li>
+					<li><a href="#">ë¶€ì¸ </a></li>
+					<li><a href="#">ë‚˜ì´í‚¤</a></li>
+					<li><a href="#">ì•„ë””ë‹¤ìŠ¤</a></li>
+					<li><a href="#">í“¨ë§ˆ</a></li>
+					<li><a href="#">ë°˜ìŠ¤</a></li>
+				</ul>
+			</li>
+			<li class="mL"><a href="product?categoryName=sneakers">ìš´ë™í™”</a></li>
+			<li class="mL"><a href="product?categoryName=gudu">êµ¬ë‘</a></li>
+			<li class="mL"><a href="product?categoryName=sandal">ìƒŒë“¤</a></li>
+			<li class="mL"><a href="product?categoryName=boots">ë¶€ì¸ </a></li>
+		</ul>
+		<img src="image/basket.png" id="basketimg">
+			<div id="side_search">
+				<form name="searchBox" method="get" action="#" id="searching">
+				<input type="text" style="width:179px; height:36px; border-radius:18px; background-color:#F7F7F7; border: none;">
+				<input type="image" src="image/search.png" style="float: right; width: 55px; border-radius: 18px" onclick="goSearch()">
+				</form>
+			</div>
+	</div>
+		
 	<div id="product">
 		<table>
 			<tr>
