@@ -59,7 +59,7 @@ $(document).ready(function(){
 	#md {width:1200px; height:700px; margin:auto;}
 	#md h2 {width:1200px; height:80px; text-align:center;}
 	#md ul li {width:230px; height:500px; border:1px solid blue; margin-left:40px; float:left;}
-	#md #list_md div{width:230px; height:350px; background-color:red;}
+	#md #list_md div{width:230px; height:350px; display:flex; overflow:hidden; align-items:center; justify-content:center;}
 	#md #list_md #mL_a {font-size:30px; display:block;}
 	
 	/* footer */
@@ -150,28 +150,7 @@ $(document).ready(function(){
 			<h2>MD의 추천</h2>
 		</div>
 		<div id="list_md">
-			<ul>
-				<li class="mL">
-					<a href="#"><div></div></a>
-					<a href="#" id="mL_a">가나다</a>
-					<span>20,000원</span>	
-				</li>
-				<li class="mL">
-					<a href="#"><div></div></a>
-					<a href="#" id="mL_a">가나다</a>
-					<span>20,000원</span>	
-				</li>
-				<li class="mL">
-					<a href="#"><div></div></a>
-					<a href="#" id="mL_a">가나다</a>
-					<span>20,000원</span>	
-				</li>
-				<li class="mL">
-					<a href="#"><div></div></a>
-					<a href="#" id="mL_a">가나다</a>
-					<span>20,000원</span>	
-				</li>
-			</ul>
+			
 		</div>
 	</div>
 	<div id="footer">
@@ -184,8 +163,6 @@ $(document).ready(function(){
 	</div>
 	<script type="text/javascript">
 	$(function(){
-			
-			
 			$.ajax({
 			type : "get" ,
 			url : "/ShoesCase/api/v1", 
@@ -194,10 +171,47 @@ $(document).ready(function(){
 					 resource: "Goods",
 					 route: "goodsMain" 
 			},
+			
+			
 			//contentType: 'application/json; charset=utf-8',
 			success : function(result) { 
 				console.log(result);
-				
+				var str="";
+				 $.each(result, function(index, item){
+					 
+					 if(index === "goodsList"){
+						 for (var v of item) { 
+							 str+="<ul>";
+							 console.log(v.price);
+					        	 str+="<li class='gL'>";
+					        	 str+="<a href='#'>";
+					        	 str+="<div>";
+					        	 str+="<img src='/ShoesCase/image/sneakers/andy.png'>";
+					        	 str+="</div>";
+					        	 str+="<a href='#' id='gL_a'>"+v.name+"</a>";
+					        	 str+="<span>"+v.price+"</span>";
+					        	 str+="</li>";
+
+				        	 str+="</ul>";
+							 }
+					 }else if (index === "categoryList"){
+						/*  for (var v of item) { 
+							 str+="<ul>";
+							 console.log(v.price);
+					        	 str+="<li class='gL'>";
+					        	 str+="<a href='#'>";
+					        	 str+="<div>";
+					        	 str+="<img src='/ShoesCase/image/sneakers/andy.png'>";
+					        	 str+="</div>";
+					        	 str+="<a href='#' id='gL_a'>"+v.name+"</a>";
+					        	 str+="<span>"+v.price+"</span>";
+					        	 str+="</li>";
+
+				        	 str+="</ul>"; */
+					 }
+					 
+		        	 $("#list_md").html(str);
+				 });
 			},
 			error : function(error) {
 				console.log(error);
