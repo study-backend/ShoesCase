@@ -5,39 +5,7 @@
     <link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR:400,500|Pacifico&display=swap&subset=korean" rel="stylesheet">
 
     <title>Title</title>
-    <script type="text/javascript" src="../js/jquery-3.4.1.min.js"></script>
-    <script type="text/javascript" src="../js/script.js"></script>
-    <script type="text/javascript">
-
-	window.onload = function () {
-		var inFo = sessionStorage.getItem("user");
-		var inFoObj = JSON.parse(inFo);
-
-		if(inFoObj==null){
-			document.getElementById("loginState").innerHTML="<li><a href=\"signupForm.jsp\">회원가입</a> ㅣ</li><li><a href=\"login.html\"> 로그인</a></li>"
-		}else {
-			document.getElementById("loginState").innerHTML="<li>"+inFoObj.name+"님 ㅣ</li><li><a href=\"../myInfoChange.html\">  내 정보 ㅣ</a></li>"+
-			"<li><button type='button' style='background-color:white; border-style:none; font-size:16px;'>로그아웃</button></li>"
-
-		}
-
-	}
-
-
-$(document).ready(function(){
-	$('#section div').hide();
-	$('#section div').first().show();
-	$('#section div').css('width',1000);
-	$('#section div').css('height',320);
-	setInterval(function(){
-		$('#section').append($('#section div').first());
-		$('#section div').last().hide();
-		$('#section div').first().show();
-	}, 3000);
-}) 
-</script>
-    
-    <style>
+     <style>
         li {list-style: none; padding: 16px;}
         *{color:#000; text-decoration:none; font-family: 'Noto Sans KR', sans-serif;}
         a:link {text-decoration: none; color: #333333;}
@@ -144,53 +112,16 @@ $(document).ready(function(){
     .footerHr{border: 0; height: 1px}
     
     </style>
-        <script type="text/javascript">
-
-        window.onload = function () {
-            var inFo = sessionStorage.getItem("user");
-            var inFoObj = JSON.parse(inFo);
-
-            if(inFoObj==null){
-                document.getElementById("loginState").innerHTML="<li><a href=\"signupForm.jsp\">회원가입</a> ㅣ</li><li><a href=\"login.html\"> 로그인</a></li>"
-            }else {
-                document.getElementById("loginState").innerHTML="<li>"+inFoObj.name+"님 ㅣ</li><li><a href=\"../myInfoChange.html\">  내 정보 ㅣ</a></li>"+
-                    "<li><button type='button' style='background-color:white; border-style:none; font-size:16px;'>로그아웃</button></li>"
-
-            }
-
-        }
-
-        $(document).ready(function () {
-            var idInfo = sessionStorage.getItem("user");
-            var infoObj = JSON.parse(idInfo);
-
-            document.getElementById("myId").innerText= infoObj.userId;
-
-        })
-
-
-        $(document).ready(function(){
-            $('#section div').hide();
-            $('#section div').first().show();
-            $('#section div').css('width',1000);
-            $('#section div').css('height',320);
-            setInterval(function(){
-                $('#section').append($('#section div').first());
-                $('#section div').last().hide();
-                $('#section div').first().show();
-            }, 3000);
-        })
-    </script>
-
-    
+<script type="text/javascript" src="../js/jquery-3.4.1.min.js"></script>
+<script type="text/javascript" src="../js/script.js"></script>
 </head>
  
 <body style="margin: 0px;">
 <div class="contrainer">
 <div id="header">
-    <ul id="loginState">
-        <!-- <li><a href="signupForm.jsp">회원가입</a></li>
-        <li><a href="login.html">로그인</a></li> -->
+    <ul>
+        <li><a href="signupForm.jsp">회원가입</a></li>
+        <li><a href="login.html">로그인</a></li>
     </ul>
     <div id="headerlogo">
         <a href="mainTest_1.jsp">
@@ -199,7 +130,6 @@ $(document).ready(function(){
     </div>
 </div>
 <div id="nav">
-    <div id="nav_left"> 
     <ul class="main">
         <li class="mL" style="margin-left: 48px;"><a href="#"><span style="margin-right: 30px">카테고리</span></a>&nbsp;&nbsp;&nbsp;&nbsp;|
             <ul class="sub">
@@ -218,8 +148,6 @@ $(document).ready(function(){
         <li class="mL"><a href="product?categoryName=sandal"><span style="margin-left: 16px; margin-right: 25px;">샌들</span></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|</li>
         <li class="mL"><a href="product?categoryName=boots"><span style="margin-left:11px">부츠</span></a>&nbsp;&nbsp;&nbsp;&nbsp;</li>
     </ul>
-    </div>
-    
     <img src="image/basket.png" id="basketimg">
     <div id="side_search">
         <form name="searchBox" method="get" action="#" id="searching">
@@ -259,8 +187,9 @@ $(document).ready(function(){
                 <div style="border: 2px solid darkgray; text-align: center">
                     <br><br>
                     아이디<br><br>
-                    <span id="myId"></span><br><br>
-                    <br><br>
+                    <br><script>
+                        
+                    </script><br>
                     비밀번호<br><br>
                    
                     <input type="password" name="password">
@@ -277,7 +206,26 @@ $(document).ready(function(){
     </div>
 </div>
 
+<script>
+	$(document).ready(function(){ 
+		let user = sessionStorage.getItem("user");
+		if(user === null || user === undefined) {
+			/* location.href='/ShoesCase/account/login.html'; */
+		} else {
+			
+			// id나 특정 정보를 검증해야하는데..... ㅠㅠ 일단 패스 
+			let json = JSON.parse(user);
+			// 아래 데이터를 맵핑 지여나나나
+			console.log(json.loginId);
+			
+			location.href='/ShoesCase/account/inMyInfoChange.jsp';
+		}
+		
+	 
+	});
 
+
+</script>
 
 <div class="footer">
     <table id= "footerTable">
