@@ -26,7 +26,7 @@ public interface GoodsService {
 	 * 상세 정보 이므로 dto 객체 한개임
 	 * */
 
-	GoodsDTO selectOneProduct(long goodsId) throws Exception;
+	GoodsDTO selectOneProduct(String goodsName) throws Exception;
 	
 	/**
 	 * ��ǰ ���� ȭ�� ���(����Ȯ���� ���� ���ο��� �ؾ��� ���̴�)
@@ -39,9 +39,9 @@ public interface GoodsService {
 	 * ��ǰ ī�װ����� ���
 	 * @throws Exception
 	 * */
-	public List<GoodsDTO> goodsSub(long categoryId) throws Exception;
+	public List<GoodsDTO> goodsSub(String categoryName) throws Exception;
 	
-	public GoodsDetailDTO goodsDetail(long goodsId) throws Exception;
+	public GoodsDetailDTO goodsDetail(String goodsName) throws Exception;
 
 	/**
 	 * ��ǰ ��ȭ�� ���

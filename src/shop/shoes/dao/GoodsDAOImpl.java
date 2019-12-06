@@ -18,18 +18,23 @@ public class GoodsDAOImpl implements GoodsDAO {
 		Connection con = null;
 		PreparedStatement ps = null;
 		ResultSet rs = null;
-		GoodsDTO goodsDto = null;
 		List<GoodsDTO> list = new ArrayList<GoodsDTO>();
-		String sql = "select PRICE, NAME, IMG_PATH  from GOODS G1 INNER JOIN CATEGORY G2 ON G1.CATEGORY_ID = G2.CATEGORY_ID where G2.NAME=?";
+		String sql = "select G1.PRICE, G1.NAME, G1.IMG_PATH  from GOODS G1 INNER JOIN CATEGORY G2 ON G1.CATEGORY_ID = G2.CATEGORY_ID where G2.NAME=?";
 		try {
 			con = DbUtil.getConnection();
 			ps= con.prepareStatement(sql);
 			ps.setString(1, categoryName);
 			rs = ps.executeQuery();
-			
+			//System.out.println(categoryName);
+			//System.out.println("여기까진 오니?");
+			//System.out.println(rs.next());
 			while(rs.next()) {
-				goodsDto = new GoodsDTO(rs.getDouble(1), rs.getString(2), rs.getString(3)); //생성자 오버로딩 했음
+				GoodsDTO goodsDto = 
+						new GoodsDTO(rs.getDouble(1), 
+									 rs.getString(2), 
+									 rs.getString(3)); //생성자 오버로딩 했음
 				list.add(goodsDto);
+				System.out.println(goodsDto+"뭐야뭐야");
 			}
 		}
 		finally {
@@ -64,23 +69,22 @@ public class GoodsDAOImpl implements GoodsDAO {
 	}
 
 	@Override
-	public GoodsDTO selectOneProduct(long goodsId) throws SQLException {
+	public GoodsDTO selectOneProduct(String goodsName) throws SQLException {
 		Connection con = null;
 		PreparedStatement ps = null;
 		ResultSet rs = null;
 		GoodsDTO goodsDto = null;
 		List<GoodsDTO> list = new ArrayList<GoodsDTO>();
-		String sql = "SELECT PRICE, NAME, COUNT, IMG_PATH, SUMNAIL_PATH, COLOR_CODE, SIZE_CODE, (PRICE*COUNT) AS TOTAL "
-				+ " FORM GOODS WHERE GOODS_ID = ?";
+		String sql = "SELECT PRICE, NAME, IMG_PATH, SUMNAIL_PATH, COLOR_CODE, SIZE_CODE, (PRICE*COUNT) AS TOTAL  FROM GOODS WHERE NAME = ?";
 		try {
 			con = DbUtil.getConnection();
 			ps= con.prepareStatement(sql);
-			ps.setLong(1, goodsId);
+			ps.setString(1, goodsName);
 			rs = ps.executeQuery();
 			
 			while(rs.next()) {
-				goodsDto = new GoodsDTO(rs.getInt(1), rs.getString(2), rs.getInt(3), rs.getString(4),
-								rs.getString(5), rs.getInt(6), rs.getInt(7), rs.getInt(8)); //생성자 오버로딩 했음
+				goodsDto = new GoodsDTO(rs.getDouble(1), rs.getString(2), rs.getString(3), rs.getString(4),
+								 rs.getInt(5), rs.getInt(6), rs.getInt(7)); //생성자 오버로딩 했음
 				list.add(goodsDto);
 			}
 		}

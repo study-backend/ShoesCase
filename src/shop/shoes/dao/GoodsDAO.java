@@ -18,7 +18,7 @@ public interface GoodsDAO {
 	 * 상품 사진 클릭시 상세 페이지에서 상품에대한 정보 select
 	 * 작은 이미지 사진, 상품이름, 색상, 가격, 사이즈, 수량, 총가격, 큰이미지 사진
 	 * */
-	GoodsDTO selectOneProduct(long goodsId) throws SQLException;
+	GoodsDTO selectOneProduct(String goodsName) throws SQLException;
 	
 	List<GoodsDTO> selectByCatagoryId(long categoryId) throws SQLException;
 	

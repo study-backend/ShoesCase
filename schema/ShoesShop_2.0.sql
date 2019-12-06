@@ -224,7 +224,7 @@ CREATE TABLE PURCHASE_STATIC(
     PAYMENT_TYPE INT,
     SALE_COUNT INT,
     SALE_PRICE NUMBER
-);
+); 
 insert into purchase_static values(sysdate, 1, 1, 10, 50000);
 insert into purchase_static values(sysdate, 1, 1, 10, 50000);
 insert into purchase_static values(sysdate, 2, 1, 20, 50000);

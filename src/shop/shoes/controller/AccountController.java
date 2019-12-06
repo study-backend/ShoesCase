@@ -9,6 +9,8 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import shop.shoes.common.GlobalException;
+import shop.shoes.common.ShopResponse;
+import shop.shoes.common.StatusCode;
 import shop.shoes.model.*;
 import shop.shoes.model.request.LoginRequest;
 import shop.shoes.model.request.SignupRequest;
@@ -44,28 +46,39 @@ public class AccountController implements Controller{
 				switch(route) {
 					
 					case "findId" : {
-						String name = request.getParameter("name");
-						String email = request.getParameter("email");
-						int code = accountService.idFind(name, email);
-						
-						LoginRequest req = JsonUtil.fromJson(data, LoginRequest.class);		
+						LoginRequest req = JsonUtil.fromJson(data, LoginRequest.class);	
 						AccountDTO account = new AccountDTO();
-						account.setLoginId(req.getLoginId());
-						account.setLoginPwd(req.getLoginPwd());
+						account.setName(req.getName());
+						account.setEmail(req.getEmail());
 						
-						AccountDTO user = accountService.signin(account);
-						System.out.println(JsonUtil.toJson(user));
+						String id = accountService.idFind(account.getName(), account.getEmail());
 						
+						System.out.println(JsonUtil.toJson(id));
+		
+						// 응답을 만든다
+						mv.setResultData(true);
+						ShopResponse res = new ShopResponse(StatusCode.Success, id);
+						mv.setResult(JsonUtil.toJson(res));
+						break;
 					
 					}
 					
 					case "findPwd" : {
-						String name = request.getParameter("name");
-						String loginId = request.getParameter("loginId");
-						String email = request.getParameter("email");
-						int code = accountService.pwdFind(name, loginId, email);
+						LoginRequest req = JsonUtil.fromJson(data, LoginRequest.class);	
+						AccountDTO account = new AccountDTO();
+						account.setName(req.getName());
+						account.setEmail(req.getEmail());
+						account.setLoginId(req.getLoginId());
+	
+						String pw = accountService.pwdFind(account.getName(), account.getLoginId(), account.getEmail());
 						
-					
+						System.out.println("password : " + JsonUtil.toJson(pw));
+						
+						// 응답을 만든다
+						mv.setResultData(true);
+						ShopResponse res = new ShopResponse(StatusCode.Success, pw);
+						mv.setResult(JsonUtil.toJson(res));
+						break;
 					}
 
 				}
@@ -91,10 +104,14 @@ public class AccountController implements Controller{
 				        	 HttpSession session = request.getSession();
 				        	 User loginedUser = new User(user.getLoginId(), user.getLoginPwd(), user.getName(), user.getEmail());
 					         session.setAttribute("user", loginedUser);
+					         
+					      // 응답을 만든다
+					      mv.setResultData(true);
+						  ShopResponse res = new ShopResponse(StatusCode.Success, JsonUtil.toJson(loginedUser));
+						  mv.setResult(JsonUtil.toJson(res));
+				        }else {
+				        	
 				        }
-
-						mv.setResultData(true);
-						mv.setResult("{ result : 1 }");
 
 						break;
 					}
@@ -126,8 +143,10 @@ public class AccountController implements Controller{
 							session.setAttribute("user", loginedUser);
 						}
 						
-						mv.setResultData(true);
-						mv.setResult("{ result : 1 }");
+						 // 응답을 만든다
+					      mv.setResultData(true);
+						  ShopResponse res = new ShopResponse(StatusCode.Success, "뭐가 필요할까???");
+						  mv.setResult(JsonUtil.toJson(res));
 		
 						break;
 					}

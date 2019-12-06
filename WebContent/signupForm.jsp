@@ -60,7 +60,6 @@
     .s{padding:8px; font-size: 12px;margin-left: 50px;}
     .footerHr{border: 0; height: 1px}
     
->>>>>>> branch 'master' of https://github.com/study-backend/ShoesCase.git
 </style>
 </head>
 <body>

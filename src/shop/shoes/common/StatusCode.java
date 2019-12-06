@@ -9,6 +9,8 @@ public enum StatusCode {
   , Not_Found_Id(10001)
   , Not_Matched_Password(10002)
   , Fail_Add_Account(10003)
+  , Fail_Find_ID(10004)
+  , Fail_Find_Password(10005)
   
   // Goods 관련
   , Not_Found_GoodsId(20001)
