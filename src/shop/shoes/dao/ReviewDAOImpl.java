@@ -141,21 +141,19 @@ public class ReviewDAOImpl implements ReviewDAO {
 		
 		return result;
 	}
-
 	@Override
 	public List<ReviewDTO> selectByGoodName(String goodsName) throws SQLException {
 		Connection con = null;
 		PreparedStatement ps = null;
 		ResultSet rs = null;
 		List<ReviewDTO> list = new ArrayList<ReviewDTO>();
-		String sql = "select * from review WHERE goodsName = ?";
+		String sql = "select R1.REVIEW_ID,R1.GOODS_ID,R1.ACCOUNT_ID,R1.TITLE,R1.CONTENT,R1.SCORE,R1.CREATE_DATE,R1.UPDATE_DATE"
+				+ " from REVIEW R1 inner join GOODS G1 on R1.GOODS_ID = G1.GOODS_ID WHERE G1.NAME = ?";
 		try {
 			con = DbUtil.getConnection();
 			ps= con.prepareStatement(sql);
 			ps.setString(1, goodsName);
 			rs = ps.executeQuery();
-			
-			
 			
 			while(rs.next()) {
 				/**	dto 생성자로 받는 파라미터 8개
