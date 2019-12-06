@@ -81,10 +81,10 @@
 					<li><a href="#">부츠</a></li>
 				</ul>
 			</li>
-			<li class="mL"><a href="product?categoryName=sneakers}">운동화</a></li>
-			<li class="mL"><a href="product?categoryName=gudu">구두</a></li>
-			<li class="mL"><a href="product?categoryName=sandal">샌들</a></li>
-			<li class="mL"><a href="product?categoryName=boots">부츠</a></li>
+			<li class="mL"><a href="front?resource=product&categoryName=sneakers">운동화</a></li>
+			<li class="mL"><a href="front?resource=product&categoryName=dressShoes">구두</a></li>
+			<li class="mL"><a href="front?resource=product&categoryName=sandal">샌들</a></li>
+			<li class="mL"><a href="front?resource=product&categoryName=boots">부츠</a></li>
 		</ul>
 		<input type="text">
 		<button type="submit" id="img_btn"><img src="./image/a.png"></button>

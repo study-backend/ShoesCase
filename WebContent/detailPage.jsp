@@ -1,4 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html>
 
@@ -138,8 +140,70 @@
 				<td>만족도</td>
 				<td>작성자</td>
 				<td>작성일</td>
+				
+
+				   
+    <c:choose>
+    <c:when test="${empty requestScope.reviewList}">
+	   <tr>
+        <td colspan="6">
+            <p align="center"><b><span>등록된 상품이 없습니다.</span></b></p>
+        </td>
+    </tr>
+    </c:when>
+    <c:otherwise>
+	<c:forEach items="${requestScope.reviewList}" var="reviewDTO">
+		    <tr>
+		        <td>
+		            <p><span>
+		            index 번호줘야함</span></p> 
+		        </td>
+		        <td >
+					<p><span>
+				
+					  ${reviewDTO.title}
+				
+					</span></p>
+		        </td>
+		        <td >
+					<p><span>
+					
+					작성자id :  ${reviewDTO.accountId}
+					
+					</span></p>
+		        </td>
+		        
+		        <td >
+					<p><span>
+					
+					 만족도 (0~5) : ${reviewDTO.score}
+					  
+					
+					</span></p>
+		        </td>
+		        <td >
+					<p><span>
+					
+					 구매자id :  ${reviewDTO.accountId}
+					
+					</span></p>
+		        </td>
+		        
+		       <td >
+					<p><span>
+					
+					  ${reviewDTO.createDate}
+				
+					</span></p>
+		        </td>
+		        
+		    </tr>
+    </c:forEach>
+	</c:otherwise>
+    </c:choose>
 			</tr>
 		</table>
+		
 		<a href="detailReviewInsert.jsp"><button type="button">후기쓰기</button></a>
 	</div>
 </body>
