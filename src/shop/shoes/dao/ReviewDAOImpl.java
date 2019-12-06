@@ -26,14 +26,25 @@ public class ReviewDAOImpl implements ReviewDAO {
 			rs = ps.executeQuery();
 			
 			
-			
+			/*
+			 * 
+			 * private int reviewId;
+	private int goodsId;
+	private int accountId;
+	private String reviewPwd; // 리뷰 pwd 추가
+	private String title;
+	private String content;
+	private int score; //만족도 (0~5)
+	private String createDate; //db의 log용 & 화면에 띄울 작성일
+	private String updateDate;
+			 */
 			while(rs.next()) {
 				/**	dto 생성자로 받는 파라미터 8개
 				 * 	int reviewId, int goodsId, int accountId,  String title, String content,
 					int score, String createDate, String updateDate 
 				 */
 				list.add(new ReviewDTO(rs.getInt(1), rs.getInt(2), rs.getInt(3), rs.getString(4), rs.getString(5),
-						rs.getInt(6), rs.getString(7), rs.getString(8)));
+						rs.getString(6), rs.getInt(7), rs.getString(8),rs.getString(9)));
 				
 			}
 			
@@ -50,16 +61,21 @@ public class ReviewDAOImpl implements ReviewDAO {
 		Connection con = null;
 		PreparedStatement ps = null;
 		int result =0;
-		String sql = "insert into review values(?,?,?,?,?,?,sysdate,sysdate)";
+		String sql = "insert into review values(seq_id.nextval, 1, 30, ?, ?, ?, ?, sysdate,sysdate)";
+		//테스트용insert query라서 
+		//goods_Id 1로 test
+		//account_Id 를 30으로 주었음
+		
 		try {
 			con = DbUtil.getConnection();
 			ps = con.prepareStatement(sql);
-			ps.setInt(1, reviewDto.getReviewId());
-			ps.setInt(2, reviewDto.getGoodsId());
-			ps.setInt(3, reviewDto.getAccountId());
-			ps.setString(4, reviewDto.getTitle());
-			ps.setString(5, reviewDto.getContent());
-			ps.setInt(6, reviewDto.getScore());
+	//파라메터 맞춰줘야함	
+			ps.setString(1, reviewDto.getReviewPwd());
+			ps.setString(2, reviewDto.getTitle());
+			ps.setString(3, reviewDto.getContent());
+			ps.setInt(4, reviewDto.getScore());
+			
+			
 			
 			result = ps.executeUpdate();
 			

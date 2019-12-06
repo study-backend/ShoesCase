@@ -30,18 +30,19 @@
 <body>
 
 	<div id="review">
+	<form name=updateForm method=post action="front?resource=reviewInsert" onSubmit="return checkValid()">    
 	    <table>
 	    	<tr>
 	    		<th colspan='2'>게시물 등록하기</td>
 	    	</tr>
 	    	<tr>
 	    		<td>제목</td>
-	    		<td><input type="text"></td>
+	    		<td><input type="text" name="title"></td>
 	    	</tr>
 	    	<tr>
 	    		<td>만족도</td>
 	    		<td>
-					<select>
+					<select name="score">
 						<option>5</option>
 						<option>4</option>
 						<option>3</option>
@@ -52,17 +53,27 @@
 	    	</tr>
 	    	<tr>
 	    		<td>내용</td>
-	    		<td><textarea></textarea></td>
+	    		<td><textarea name="content"></textarea></td>
 	    	</tr>
+	    	<tr>
+	    		<td>비밀번호 (리뷰 수정, 삭제시 필요합니다.) </td>
+	    	    
+	    	    <td>
+        		<input type=password name="reviewPwd" >
+        	 	</td>
+        	</tr>
+	    	
 	    	<tr>
 	    		<td colspan='2'>
 		    		<a href ="detailReviewUpdate.jsp"><button type="button">수정하기</button></a>
-		    		<a href ="detailPage.html"><button type="button">등록하기</button></a>
+		    		<input type="submit" value="등록하기">
 		    		<a href ="detailPage.html"><button type="button">취소하기</button></a>
 	    		</td>
 	    		
 	    	</tr>
+
 	    </table>
+	    </form>
 	</div>
 
 </body>
