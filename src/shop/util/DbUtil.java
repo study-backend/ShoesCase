@@ -12,7 +12,6 @@ import javax.sql.DataSource;
 /**
  * DB������ ���� �ε�, ����, �ݱ� ��� Ŭ����
  * */
-
 public class DbUtil {
 	static DataSource ds ;
     /**
