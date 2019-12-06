@@ -132,6 +132,7 @@ public class PurchaseDAOImpl implements PurchaseDAO {
 		return result;
 	}
 
+	
 	@Override
 	public int insertPurchaseInfo(PurchaseGoodsDTO purchaseGoods) throws SQLException {
 		Connection con = null;
