@@ -166,7 +166,7 @@
 				</tr>
 				<tr>
 					<th>이메일*</th>
-					<td><input type="text" readonly="readonly" class="read_only"></td>
+					<td><input type="text"  class="read_only"></td>
 				</tr>
 			</table>
 		</div>

@@ -32,8 +32,8 @@ public class ProductDetailReadController implements Controller{
 		
 		
 		//리뷰 조회
-		List<ReviewDTO> list = goodsDetail.getReviews();
-		request.setAttribute("list", list);
+		List<ReviewDTO> reviewList = goodsDetail.getReviews();
+		request.setAttribute("reviewList", reviewList);
 		
 		mv.setViewName("detailPage.jsp");
 		

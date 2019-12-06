@@ -161,7 +161,7 @@
                 <td class="memberCols1">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp배송 주소</td>
                 <td class="memberCols2">
                     <div style="margin-top: 11px; margin-left: 36px;">
-                        <input type="text" value="주소 검색" style="margin-bottom: 5px;" name="address_sub">
+                        <input type="text" placeholder="주소 검색" style="margin-bottom: 5px;" name="address_sub">
                     </div>
                     <div>
                         &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp배송가능여부를 확인할 수 있습니다.
