@@ -143,16 +143,16 @@ public class ReviewDAOImpl implements ReviewDAO {
 	}
 
 	@Override
-	public List<ReviewDTO> selectByGoodId(long goodsId) throws SQLException {
+	public List<ReviewDTO> selectByGoodName(String goodsName) throws SQLException {
 		Connection con = null;
 		PreparedStatement ps = null;
 		ResultSet rs = null;
 		List<ReviewDTO> list = new ArrayList<ReviewDTO>();
-		String sql = "select * from review WHERE goodsId = ?";
+		String sql = "select * from review WHERE goodsName = ?";
 		try {
 			con = DbUtil.getConnection();
 			ps= con.prepareStatement(sql);
-			ps.setLong(1, goodsId);
+			ps.setString(1, goodsName);
 			rs = ps.executeQuery();
 			
 			
