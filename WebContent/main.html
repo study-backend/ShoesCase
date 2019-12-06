@@ -48,6 +48,20 @@ $(document).ready(function(){
 		  });//ajax끝
 	  }
 
+	window.onload = function () {
+		var inFo = sessionStorage.getItem("user");
+		var inFoObj = JSON.parse(inFo);
+	
+		if(inFoObj==null){
+			document.getElementById("loginState").innerHTML="<li><a href=\"signupForm.jsp\">회원가입</a> ㅣ</li><li><a href=\"login.html\"> 로그인</a></li>"
+		}else {
+			document.getElementById("loginState").innerHTML="<li>"+inFoObj.name+"님 ㅣ</li><li><a href=\"inMyInfoChange.jsp\"> 내 정보</a></li>"
+
+		}
+
+	}
+
+
 </script>
 <style type="text/css">
 	/*공통*/
@@ -108,9 +122,9 @@ $(document).ready(function(){
 </head>
 <body>
 	<div id="header">
-		<ul>
-			<li><a href="signupForm.jsp">회원가입</a></li>
-			<li><a href="login.html">로그인</a></li>
+		<ul id="loginState">
+			<!--<li><a href="signupForm.jsp">회원가입</a></li>
+			<li><a href="login.html">로그인</a></li>-->
 		</ul>
 		<div id="headerlogo">
 			<a>
