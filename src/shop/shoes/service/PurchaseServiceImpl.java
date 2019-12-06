@@ -55,8 +55,8 @@ public class PurchaseServiceImpl implements PurchaseService {
 	
 
 	
-	public List<PurchaseGoodsDTO> selectOrderHistory(long accountId) throws SQLException{
-		List<PurchaseGoodsDTO> list = dao.selectOrderHistory(accountId);
+	public List<PurchaseGoodsDTO> selectOrderHistory(String loginId) throws SQLException{
+		List<PurchaseGoodsDTO> list = dao.selectOrderHistory(loginId);
 		if(list == null || list.isEmpty()) {
 			throw new SQLException("주문내역 조회 실패");
 		}

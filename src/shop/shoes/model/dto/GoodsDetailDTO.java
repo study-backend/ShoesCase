@@ -1,5 +1,6 @@
 package shop.shoes.model.dto;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import shop.shoes.model.GoodsDTO;
@@ -8,8 +9,8 @@ import shop.shoes.model.ReviewDTO;
 public class GoodsDetailDTO {
 
 
-	private GoodsDTO goods;
-	private List<ReviewDTO> reviews;
+	private GoodsDTO goods = new GoodsDTO();
+	private List<ReviewDTO> reviews = new ArrayList<ReviewDTO>();
 	
 	public GoodsDetailDTO() {}
 	public GoodsDetailDTO(GoodsDTO goods, List<ReviewDTO> reviews) {

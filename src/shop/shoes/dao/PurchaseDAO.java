@@ -58,7 +58,6 @@ public interface PurchaseDAO {
 	/**
 	 * 마이컬리에서 주문내역 조회
 	 * */
-
-	List<PurchaseGoodsDTO> selectOrderHistory(long accountId) throws SQLException;
+	List<PurchaseGoodsDTO> selectOrderHistory(String loginId) throws SQLException;
 	
 }
