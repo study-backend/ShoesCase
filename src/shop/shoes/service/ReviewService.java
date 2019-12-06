@@ -39,17 +39,20 @@ public class ReviewService {
 		 * 글번호에 해당하는 리뷰 삭제 (비번 필요)
 		 * 글번호는 db테이블에 review_id로 저장(pk)
 		 */
-		public static int delete(int reviewId, String reviewPwd) throws SQLException{
-			ReviewDTO dbReviewDTO = reviewDAO.selectByReviewId(reviewId);
-			if(!dbReviewDTO.getReviewPwd().equals(reviewPwd)) {
-				throw new SQLException("비번오류!!");
-				
-			}
-			int result = reviewDAO.delete(reviewId);
-			if(result ==0) throw new SQLException("삭제 실패");
-			
-			return result;
-		}
+	      public static int delete(int reviewId, String reviewPwd) throws SQLException{
+	          ReviewDTO dbReviewDTO = reviewDAO.selectByReviewId(reviewId);
+	          /*
+	          if(!dbReviewDTO.getReviewPwd().equals(reviewPwd)) {
+	             throw new SQLException("비번오류!!");
+	             
+	          }*/ 
+	       //리뷰 비밀번호 아직 받질못함
+	          
+	          int result = reviewDAO.delete(reviewId);
+	          if(result ==0) throw new SQLException("삭제 실패");
+	          
+	          return result;
+	       }
 		
 		/**
 		 * 글번호에 해당하는 리뷰 수정 (비번 필요)

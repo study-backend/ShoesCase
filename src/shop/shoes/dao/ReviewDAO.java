@@ -7,12 +7,7 @@ import shop.shoes.model.ReviewDTO;
 import shop.shoes.model.dto.GoodsReviewDTO;
 
 public interface ReviewDAO {
-	/**
-	 * 리뷰 테이블 전체 select
-	 * 보여줄 속성(테이블의 필드)
-	 * 번호(id), 제목, 내용, 작성자, 작성일 순서
-	 */
-	List<ReviewDTO> selectAll() throws SQLException;
+
 	
 	List<ReviewDTO> selectByGoodName(String goodsName) throws SQLException;
 	

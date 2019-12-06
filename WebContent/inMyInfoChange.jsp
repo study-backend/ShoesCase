@@ -69,122 +69,155 @@
 
         <div class="boardForm2" style="float:left; margin-left:45px;">
     	<h2 style="text-align: center; margin: 0px;">개인정보수정</h2>
-
-   		 <div class="boardWrite" style="margin-top: 30px">
-   		 <form method="post" action="/">
-        <table class="inForm" style="margin: auto;">
-            <tbody>
-            <tr>
-                <td class="memberCols1" width="140">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp아이디*</td>
-                <td class="memberCols2">
-                    <div style="height: 40px">
-                        <input type="text" name="id" value="아이디받아서 적기" >                     
-                    </div>
-                </td>
-            </tr>
-			
-			<tr>
-                <td class="memberCols1">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp현재 비밀번호*</td>
-                <td class="memberCols2">
-                    <input type="password" name="pwd" option="regPass" placeholder="비밀번호를 입력해주세요">
-                </td>
-            </tr>
-			
-            <tr>
-                <td class="memberCols1">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp새 비밀번호*</td>
-                <td class="memberCols2">
-                    <input type="password" name="pwd" option="regPass" placeholder="비밀번호를 입력해주세요">
-                </td>
-            </tr>
-
-            <tr>
-                <td class="memberCols1">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp새 비밀번호확인*</td>
-                <td class="memberCols2">
-                    <input type="password" name="pwdOk" option="regPass" placeholder="비밀번호를 한번 더 입력해주세요">
-                </td>
-            </tr>
-
-            <tr>
-                <td class="memberCols1">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp이름*</td>
-                <td class="memberCols2">
-                    <input type="text" name="name" value="이름받아적기">
-                    
-                </td>
-            </tr>
-
-            <tr>
-                <td class="memberCols1">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp이메일*</td>
-                <td class="memberCols2">
-                    <input type="text" name="email" size="30" option="regEmail" placeholder="예: marketkurly@kurly.com">
-                    <span><input type="button" value="이메일 중복확인"></span>
-                </td>
-
-            </tr>
-            <tr>
-                <th class="telarea">휴대폰*</th>
-					<td><input type="text" max-length="3" class="tel_text" >
-						<span> - </span>
-						<input type="text" max-length="4" class="tel_text"> 
-						<span> - </span>
-						<input type="text" max-length="4" class="tel_text"></td>
-            </tr>
-            
-            
-            <tr>
-                <td class="memberCols1">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp배송 주소</td>
-                <td class="memberCols2">
-                    <div style="margin-top: 11px; margin-left: 36px;">
-                        <input type="text" placeholder="주소 검색" style="margin-bottom: 5px;" name="address_sub">
-                    </div>
-                    <div>
-                        &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp배송가능여부를 확인할 수 있습니다.
-                    </div>
-                </td>
-            </tr>
-            <tr class="selectMaleFemale">
-                <td class="memberCols1">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp성별</td>
-                <td class="memberCols2">
-                    <div class="group_radio">
-                        <label class="label_radio">
-                            <input type="radio" name="maleFemale" label="성별" value="m" style="margin-left: 36px;">
-                            <span class="text_position">받아서적기</span>
-                        </label>
-                    </div>
-                </td>
-            </tr>
-
-            <tr class="birth field_birth">
-                <td class="memberCols1">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp생년월일</td>
-                <td class="memberCols2">
-                    <div class="birth_day">
-                        <input type="text" name="birthYear" pattern="[0-9]*" value="" label="생년월일" size="5"
-                               maxlength="4" placeholder="YYYY" style="margin-top: 14px; margin-left: 36px;">
-                        <span class="bar"><span>/</span></span>
-                        <input type="text" name="birthMonth" id="birthMonth" pattern="[0-9]*" label="생년월일" size="3"
-                               maxlength="2" placeholder="MM">
-                        <span class="bar"><span>/</span></span>
-                        <input type="text" name="birthDay" id="birthDay" pattern="[0-9]*" label="생년월일" size="3"
-                               maxlength="2" placeholder="DD">
-                    </div>
-                    <p class="txt_guide">
-                        <span class="txt bad"></span>
-                    </p>
-                </td>
-            </tr>
-            </tbody>
-        </table>
-    </div>
-    <div style="text-align: center;">
-    
-     <button type="submit" class="m_button" id="check" href.location="inMyInfoChange.jsp"><span>확인</span></button>
-    </form>
+	 	<form method="post" action="/">
+	   		 <div class="boardWrite" style="margin-top: 30px">
+	        <table class="inForm" style="margin: auto;">
+	            <tbody>
+	            <tr>
+	                <td class="memberCols1" width="140">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp아이디*</td>
+	                <td class="memberCols2">
+	                    <div style="height: 40px">
+	                        <input type="text" name="id" value="아이디받아서 적기" >                     
+	                    </div>
+	                </td>
+	            </tr>
+				
+				<tr>
+	                <td class="memberCols1">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp현재 비밀번호*</td>
+	                <td class="memberCols2">
+	                    <input type="password" name="pwd" option="regPass" placeholder="비밀번호를 입력해주세요">
+	                </td>
+	            </tr>
+				
+	            <tr>
+	                <td class="memberCols1">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp새 비밀번호*</td>
+	                <td class="memberCols2">
+	                    <input type="password" name="pwd" option="regPass" placeholder="비밀번호를 입력해주세요">
+	                </td>
+	            </tr>
+	
+	            <tr>
+	                <td class="memberCols1">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp새 비밀번호확인*</td>
+	                <td class="memberCols2">
+	                    <input type="password" name="pwdOk" option="regPass" placeholder="비밀번호를 한번 더 입력해주세요">
+	                </td>
+	            </tr>
+	
+	            <tr>
+	                <td class="memberCols1">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp이름*</td>
+	                <td class="memberCols2">
+	                    <input type="text" name="name" value="이름받아적기">
+	                    
+	                </td>
+	            </tr>
+	
+	            <tr>
+	                <td class="memberCols1">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp이메일*</td>
+	                <td class="memberCols2">
+	                    <input type="text" name="email" size="30" option="regEmail" placeholder="예: marketkurly@kurly.com">
+	                    <span><input type="button" value="이메일 중복확인"></span>
+	                </td>
+	
+	            </tr>
+	            <tr>
+	                <th class="telarea">휴대폰*</th>
+						<td><input type="text" max-length="3" class="tel_text" >
+							<span> - </span>
+							<input type="text" max-length="4" class="tel_text"> 
+							<span> - </span>
+							<input type="text" max-length="4" class="tel_text"></td>
+	            </tr>
+	            
+	            
+	            <tr>
+	                <td class="memberCols1">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp배송 주소</td>
+	                <td class="memberCols2">
+	                    <div style="margin-top: 11px; margin-left: 36px;">
+	                        <input type="text" placeholder="주소 검색" style="margin-bottom: 5px;" name="address_sub">
+	                    </div>
+	                    <div>
+	                        &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp배송가능여부를 확인할 수 있습니다.
+	                    </div>
+	                </td>
+	            </tr>
+	            <tr class="selectMaleFemale">
+	                <td class="memberCols1">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp성별</td>
+	                <td class="memberCols2">
+	                    <div class="group_radio">
+	                        <label class="label_radio">
+	                            <input type="radio" name="maleFemale" label="성별" value="m" style="margin-left: 36px;">
+	                            <span class="text_position">받아서적기</span>
+	                        </label>
+	                    </div>
+	                </td>
+	            </tr>
+	
+	            <tr class="birth field_birth">
+	                <td class="memberCols1">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp생년월일</td>
+	                <td class="memberCols2">
+	                    <div class="birth_day">
+	                        <input type="text" name="birthYear" pattern="[0-9]*" value="" label="생년월일" size="5"
+	                               maxlength="4" placeholder="YYYY" style="margin-top: 14px; margin-left: 36px;">
+	                        <span class="bar"><span>/</span></span>
+	                        <input type="text" name="birthMonth" id="birthMonth" pattern="[0-9]*" label="생년월일" size="3"
+	                               maxlength="2" placeholder="MM">
+	                        <span class="bar"><span>/</span></span>
+	                        <input type="text" name="birthDay" id="birthDay" pattern="[0-9]*" label="생년월일" size="3"
+	                               maxlength="2" placeholder="DD">
+	                    </div>
+	                </td>
+	            </tr>
+	            </tbody>
+	        </table>
+	    	</div>
+		    <div style="text-align: center;">
+		     	<button type="submit" class="m_button" id="check" href.location="main.jsp"><span>확인</span></button>
+		    </div>
+    	</form>
+		</div>
+		
     </div>
 </div>
-      
-
-    </div>
-</div>
-
+<script type="text/javascript">
+$(document).ready(function() {
+	$("#check").click(function() {
+		state = true;
+		  
+		  // 모두 값이 있다면 등록한다
+		  if(state) {
+			  
+			let str = $("#loginForm").serializeObject();
+			console.log(str);
+			  
+			  $.ajax({
+				  type: "post" ,
+				  url: "/ShoesCase/api/v1"  ,
+				  dataType: "json"   ,  // 서버에게 받은 응답결과 type(json, text, xml)
+				  data: { data: JSON.stringify(str),
+					 	  resource: "Goods",
+						  route: "account" 
+				  		} ,		// 서버에게 전송할 param
+				  	success: function(result) {
+					  
+					  console.log(result);
+					  
+					  if(result > 0) {
+						  //alert("등록되었습니다 ");
+						  
+						  
+					  } else {
+						  //alert("등록되지 않았습니다");
+					  }
+				  },
+				  error: function(err) {
+					  console.log(err + "- 오류 발생")
+				  }      
+			  });
+		  }
+		  
+	  });
+});
+</script>
 <div class="footer">
     <table id= "footerTable">
         <tr>
@@ -218,5 +251,6 @@
     </table>
 </div>
 </div>
+
 </body>
 </html>

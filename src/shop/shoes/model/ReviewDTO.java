@@ -22,9 +22,15 @@ public class ReviewDTO {
 	private int score; //만족도 (0~5)
 	private String createDate; //db의 log용 & 화면에 띄울 작성일
 	private String updateDate; //db의 log용
+	private String loginId;
+	
+	private AccountDTO account = new AccountDTO(); //ReviewDao에서 리뷰 뿌려지는 부분에서 로그인 아이디가 필요해서 가져옴
+	
 	
 	public ReviewDTO() {}
 	public ReviewDTO(String reviewPwd, String title, int score, String content) {}
+	
+	
 	
 	public String getReviewPwd() {
 		return reviewPwd;
@@ -34,8 +40,53 @@ public class ReviewDTO {
 		this.reviewPwd = reviewPwd;
 	}
 
+	public AccountDTO getAccount() {
+		return account;
+	}
+	public void setAccount(AccountDTO account) {
+		this.account = account;
+	}
+	
+	public ReviewDTO(String loginId, int goodsId, String title, String content, int score, String createDate,
+			String updateDate) {
+		super();
+		this.loginId = loginId;
+		this.goodsId = goodsId;
+		this.title = title;
+		this.content = content;
+		this.score = score;
+		this.createDate = createDate;
+		this.updateDate = updateDate;
+	}
+	
+	public ReviewDTO( int goodsId, String title, String content, int score, String createDate,
+			String updateDate) {
+		super();
+		this.goodsId = goodsId;
+		this.title = title;
+		this.content = content;
+		this.score = score;
+		this.createDate = createDate;
+		this.updateDate = updateDate;
+	}
+	
+	
+	
+	
+	
+//	public ReviewDTO(AccountDTO account, int goodsId, String title, String content, int score, String createDate, String updateDate) {
+//		super();
+//		this.goodsId = goodsId;
+//		this.title = title;
+//		this.content = content;
+//		this.score = score;
+//		this.createDate = createDate;
+//		this.updateDate = updateDate;
+//		this.account = account;
+//	}
+	
 	public ReviewDTO(int reviewId, int goodsId, int accountId, String reviewPwd, String title, String content,
-			int score, String createDate, String updateDate) {
+			int score, String createDate, String updateDate, AccountDTO account) {
 		super();
 		this.reviewId = reviewId;
 		this.goodsId = goodsId;
@@ -46,21 +97,8 @@ public class ReviewDTO {
 		this.score = score;
 		this.createDate = createDate;
 		this.updateDate = updateDate;
+		this.account = account;
 	}
-
-	public ReviewDTO(int reviewId, int goodsId, int accountId,  String title, String content,
-			int score, String createDate, String updateDate) {
-		super();
-		this.reviewId = reviewId;
-		this.goodsId = goodsId;
-		this.accountId = accountId;
-		this.title = title;
-		this.content = content;
-		this.score = score;
-		this.createDate = createDate;
-		this.updateDate = updateDate;
-	}
-
 	
 	public int getReviewId() {
 		return reviewId;

@@ -56,14 +56,16 @@
                     <h3>비밀번호 재확인</h3>
                     <h5>회원님의 정보를 안전하게 보호하기 위해 비밀번호를 다시 한 번 확인해주세요.</h5>
                 </div>
-                <form method="post" action="#">
+                <form method="post" id="myInfoForm">
                 <div style="border: 2px solid darkgray; text-align: center">
                     <br><br>
                     아이디<br><br>
-                    DB에서 아이디 불러오기<br><br>
+                    <br><script>
+                        
+                    </script><br>
                     비밀번호<br><br>
                    
-                    <input type="password">
+                    <input type="password" name="password">
                     <br><br>
                 </div>
                 <div style="text-align: center">
@@ -76,6 +78,45 @@
 
     </div>
 </div>
+
+<script>
+		$(function(){
+			$("#check").click(function(){
+				
+				let str = $("#myInfoForm").serializeObject();
+				console.log(str);
+				
+				$.ajax({
+				type : "patch" ,
+				url : "/ShoesCase/api/v1", 
+				dataType : "json", 
+				data : { data: JSON.stringify(str),
+						 resource: "Account",
+						 route: "account" 
+				},
+				//contentType: 'application/json; charset=utf-8',
+				success : function(result) { 
+					console.log(result.statusCode);
+
+					if(result.statusCode === "Success") {
+						alert("정보수정 성공");
+						location.href='inMyInfoChange.jsp?msg=' + result.message;
+						
+					} else {
+						alert("입력이 잘못되었습니다");
+					}
+	
+				},
+				error : function(error) {
+					console.log(error);
+					alert("오류 발생");
+				}
+			});//ajax끝
+
+			})			
+
+	});
+</script>
 
 <div class="footer">
     <table id= "footerTable">
