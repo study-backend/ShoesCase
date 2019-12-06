@@ -22,11 +22,15 @@
             if (inFoObj == null) {
                 document.getElementById("loginState").innerHTML = "<li><a href=\"signupForm.jsp\">회원가입</a> ㅣ</li><li><a href=\"login.html\"> 로그인</a></li>"
             } else {
-                document.getElementById("loginState").innerHTML = "<li>" + inFoObj.name + "님 ㅣ</li><li><a href=\"inMyInfoChange.jsp\"> 내 정보</a></li></li><li> 로그아웃</li>""
+                document.getElementById("loginState").innerHTML = "<li>" + inFoObj.name + "님 ㅣ</li><li><a href=\"inMyInfoChange.jsp\"> 내 정보</a></li>" +
+                    "<li><input type='button' id='logoutb'> 로그아웃</li>"
 
             }
 
         }
+
+
+
 
         function goSearch() {
             document.searchBox.submit();
