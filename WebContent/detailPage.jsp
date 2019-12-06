@@ -9,13 +9,29 @@
 
 <style type="text/css">
 	
-
-
 	/*공통*/
 	a{color:white; text-decoration:none;}
 	a:hover{color:white; font-weight:bold;}
 	ul li{list-style: none; margin:0; padding:0;}
 	body{height:100%;}
+	
+	/* header */
+	#header{width:1200px; height:100px; margin:auto;}
+	#header #headerlogo{display: inline-block; margin:auto;}
+	#header ul {float:right;}
+	#header ul li {margin-left:10px; float:left;}
+	#header #headerlogo{margin:auto; margin-left: 500px; margin-top:25px;}
+	
+	/* nav */	
+	#nav{width:1200px; height:50px; margin:auto; position: sticky; top: 0;}
+	#nav ul .mL{width:100px; height:50px; margin-left:30px; float:left; font-size:20px;}
+	#nav .main>li:hover .sub{display:block; }
+	#nav .main .sub {position:absolute;  height:50px; top:50px; left:40px; display:none;}
+	#nav .main .sub li {width:80px; margin-top:5px; }
+	
+	#side_search{position: absolute; right:220px; width:240px; height:40px; border-radius:18px; background-color:#F7F7F7;}
+	#searchimg{position:absolute; right:10px; top:5px; width:40px; height:30px;}
+	#basketimg{position:absolute; right:150px;  width:50px; height:50px;}
 
 
 	/* detail */
