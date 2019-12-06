@@ -20,20 +20,21 @@ $(document).ready(function(){
 	function selectAll(){
 		  $.ajax({
 			  type:"get",
-			  url:"../selectServlet",
+			  url:"../",
 		      dataType: "json",//서버에게 받은 응답결과 type(text, xml, html, json)
 		      //data : {id: $(this).val() } ,//서버에게 전송할 parameter
 		      success: function(result){
 	   		        var str="";
 	   		         $.each(result, function(index, item){
+	   		        	 console.log(item)
 	   		        	 str+="<ul>";
 	   		        	 str+="<li class='gL'>";
 	   		        	 str+="<a href='#'>";
 	   		        	 str+="<div>";
 	   		        	 str+="<img src=''>"
 	   		        	 str+="</div>";
-	   		        	 str+="<a href='#' id='gL_a'>"+item.+"</a>";
-	   		        	 str+="<span>"+item.+"</span>";
+	   		        	 str+="<a href='#' id='gL_a'>"+item.name+"</a>";
+	   		        	 str+="<span>"+item.price+"</span>";
 	   		        	 str+="</li>";
 	   		         })
 	   		         
@@ -47,35 +48,34 @@ $(document).ready(function(){
 		  });//ajax끝
 	  }
 
-
-
-
-
 </script>
 <style type="text/css">
 	/*공통*/
 	a{color:#000; text-decoration:none;}
-	a:hover{color:#000; font-weight:bold;}
+	a:hover{color:#000; font-weight:bold; font-family: 'Noto Sans KR', sans-serif;}
 	ul li{list-style: none; margin:0; padding:0;}
 	body{height:2200px;}
 		
 	/* header */
-	#header{width:1200px; height:100px; border:1px solid red; margin:auto;}
+	#header{width:1200px; height:100px; margin:auto;}
 	#header #headerlogo{display: inline-block; margin:auto;}
 	#header ul {float:right;}
 	#header ul li {margin-left:10px; float:left;}
+	#header #headerlogo{margin:auto; margin-left: 500px; margin-top:25px;}
 	
 	/* nav */	
-	#nav{width:1200px; height:50px; border:1px solid blue; margin:auto; position: sticky; top: 0;}
-	#nav ul .mL{width:100px; height:50px; margin-left:30px; float:left;}
+	#nav{width:1200px; height:50px; margin:auto; position: sticky; top: 0;}
+	#nav ul .mL{width:100px; height:50px; margin-left:30px; float:left; font-size:20px;}
 	#nav .main>li:hover .sub{display:block; }
 	#nav .main .sub {position:absolute;  height:50px; top:50px; left:40px; display:none;}
-	#nav .main .sub li {width:60px;}
+	#nav .main .sub li {width:80px; margin-top:5px; }
 	
-	#nav #img-btn {background: url("") no-repeat;}
+	#side_search{position: absolute; right:220px; width:240px; height:40px; border-radius:18px; background-color:#F7F7F7;}
+	#searchimg{position:absolute; right:10px; top:5px; width:40px; height:30px;}
+	#basketimg{position:absolute; right:150px;  width:50px; height:50px;}
 	
 	/* section */
-	#section{width:1200px; height:320px; border:1px solid red; margin:auto;}
+	#section{width:1200px; height:320px; margin:auto;}
 	
 	#one {background-color:blue; text-align:center;}
 	#two {background-color:pink;}
@@ -113,7 +113,7 @@ $(document).ready(function(){
 			<li><a href="login.html">로그인</a></li>
 		</ul>
 		<div id="headerlogo">
-			<a> 
+			<a>
 			<img id="logo" src="image/LOGO.png" url="dressShoes.html" alt="로고">
 			</a>
 		</div>
@@ -126,6 +126,10 @@ $(document).ready(function(){
 					<li><a href="#">구두</a></li>
 					<li><a href="#">샌들</a></li>
 					<li><a href="#">부츠</a></li>
+					<li><a href="#">나이키</a></li>
+					<li><a href="#">아디다스</a></li>
+					<li><a href="#">퓨마</a></li>
+					<li><a href="#">반스</a></li>
 				</ul>
 			</li>
 			<li class="mL"><a href="product?categoryName=sneakers">운동화</a></li>
@@ -133,8 +137,13 @@ $(document).ready(function(){
 			<li class="mL"><a href="product?categoryName=sandal">샌들</a></li>
 			<li class="mL"><a href="product?categoryName=boots">부츠</a></li>
 		</ul>
-		<input type="text">
-		<button type="submit" id="img_btn"><img src="./image/a.png"></button>
+		<img src="image/basket.png" id="basketimg">
+			<div id="side_search">
+				<form name="searchBox" method="get" action="#" id="searching">
+				<input type="text" style="width:179px; height:36px; border-radius:18px; background-color:#F7F7F7; border: none;">
+				<input type="image" src="image/search.png" style="float: right; width: 55px; border-radius: 18px" onclick="goSearch()">
+				</form>
+			</div>
 	</div>
 	
 	<div id="section">

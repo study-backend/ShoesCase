@@ -233,3 +233,5 @@ insert into purchase_static values(sysdate, 3, 1, 30, 50000);
 select * from purchase_static
 
 create sequence seq_Id increment by 1;
+
+COMMIT

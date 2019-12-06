@@ -27,6 +27,8 @@
 
 					if(result.statusCode === "Success") {
 						location.href='foundId.html?msg=' + result.message;
+						alert("아이디찾기 성공");
+						location.href='/ShoesCase/account/foundId.html'
 					} else {
 						alert("입력이 잘못되었습니다");
 					}

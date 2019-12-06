@@ -32,7 +32,7 @@
 	<div id="review">
 	    <table>
 	    	<tr>
-	    		<th colspan='2'>게시물 수정하기</td>
+	    		<th colspan='2'>리뷰 수정하기</td>
 	    	</tr>
 	    	<tr>
 	    		<td>제목</td>

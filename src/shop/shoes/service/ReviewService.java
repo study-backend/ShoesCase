@@ -15,12 +15,14 @@ public class ReviewService {
 		 * 상품별 리뷰 검색
 		 * sql 예외는 던짐
 		 * reviewdao를 사용하기 위해 sevice 메소드는 모두 static
+		 * 
+		 * 상품 이름별 리부 검색부분은 GoodsServiceImpl에서 합니다~~~
 		 */
-		public static List<ReviewDTO> selectAll() throws SQLException {
-			List<ReviewDTO> list = reviewDAO.selectAll();
-			
-			return list;
-		}
+//		public static List<ReviewDTO> selectByGoodsName(String goodsName) throws SQLException {
+//			List<ReviewDTO> list = reviewDAO.selectByGoodName(goodsName);
+//			
+//			return list;
+//		}
 		
 		/**
 		 * 리뷰 등록
