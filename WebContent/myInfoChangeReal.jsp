@@ -270,7 +270,7 @@
     				console.log(result.message);
 
     				if (result.statusCode === "Success") {
-    					location.href = 'inMyInfoChange.jsp?msg=' + result.message;
+    					location.href = 'inMyInfoChangeReal.jsp?msg=' + result.message;
     				} else {
     					//alert("입력이 잘못되었습니다");
     					console.log(data);

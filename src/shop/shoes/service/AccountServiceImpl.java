@@ -109,7 +109,8 @@ public class AccountServiceImpl implements AccountService {
 	public String checkPassword(String loginId, String loginPwd) throws Exception {
 
 		AccountDTO acc = accountDAO.selectById(loginId);
-
+		
+		
 		if (acc != null) {
 
 			if (acc.getLoginPwd().equals(loginPwd) == true) {

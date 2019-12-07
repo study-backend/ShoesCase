@@ -154,8 +154,8 @@ public class AccountController implements Controller{
 					// 패스워드 확인 후 회원정보 수정하기
 					case "checkPassword": {	
 						System.out.println("여기다");
-						LoginRequest req = JsonUtil.fromJson(data, LoginRequest.class);		
-		
+						LoginRequest req = JsonUtil.fromJson(data, LoginRequest.class);	
+						
 						String pwd = accountService.checkPassword(req.getLoginId(), req.getLoginPwd());
 						
 					      mv.setResultData(true);
@@ -170,6 +170,7 @@ public class AccountController implements Controller{
 						
 						SignupRequest req = JsonUtil.fromJson(data, SignupRequest.class);		
 						AccountDTO account = new AccountDTO();
+						
 						account.setLoginId(req.getId());
 						account.setLoginPwd(req.getPwd());
 						account.setName(req.getName());
