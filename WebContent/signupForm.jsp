@@ -146,7 +146,7 @@ $().ready(function() {
 		  if(state) {
 			  
 			let str = $("#signForm").serializeObject();
-			  
+			  console.log(str)
 			  $.ajax({
 				  type: "post" ,
 				  url: "/ShoesCase/api/v1"  ,
@@ -156,7 +156,7 @@ $().ready(function() {
 						  route: "account" 
 				  		} ,		// 서버에게 전송할 param
 				  	success: function(result) {
-					  
+					  	console.log(result)
 					  if(result.statusCode === 'Success') {
 						  alert("등록되었습니다 로그인을 진행하세요");
 						 

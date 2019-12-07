@@ -126,13 +126,14 @@ public class AccountController implements Controller{
 						account.setLoginPwd(req.getPwd());
 						account.setName(req.getName());
 						account.setEmail(req.getEmail());
+						account.setAddr(req.getAddr());
 						account.setPhone(req.getMobileNum());
 						account.setBirthday(new Date(Integer.parseInt(req.getBirthYear()), Integer.parseInt(req.getBirthMonth()), Integer.parseInt(req.getBirthDay()) ));
 						account.setCreteDate(new Date(Calendar.getInstance().getTime().getTime()));
 						account.setUpdateDate(new Date(Calendar.getInstance().getTime().getTime()));
 						account.setTermsAgreeDate(new Date(Calendar.getInstance().getTime().getTime()));
 						account.setDeleteDate(Date.valueOf("1900-01-01"));
-						account.setAddr(req.getAddr());
+						 
 						
 						int success = accountService.signup(account);
 						

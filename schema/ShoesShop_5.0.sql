@@ -306,6 +306,6 @@ insert into ROLLING_BANNER values(3, 1, '신년이벤트', 'https://raw.githubus
 insert into ROLLING_BANNER values(4, 1, '크리스벤', 'https://raw.githubusercontent.com/study-backend/ShoesCase/master/WebContent/image/mainImage/flower03.jpg',sysdate, sysdate);
 =======
 select * from account;
-select * from account where LOGIN_ID = 'dududu';
+select * from account where LOGIN_ID = 'ppppp';
 commit
 >>>>>>> branch 'master' of https://github.com/study-backend/ShoesCase.git

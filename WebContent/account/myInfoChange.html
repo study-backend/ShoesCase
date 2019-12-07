@@ -5,6 +5,45 @@
     <link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR:400,500|Pacifico&display=swap&subset=korean" rel="stylesheet">
 
     <title>Title</title>
+
+    <script type="text/javascript">
+
+        window.onload = function () {
+            var inFo = sessionStorage.getItem("user");
+            var inFoObj = JSON.parse(inFo);
+
+            if(inFoObj==null){
+                document.getElementById("loginState").innerHTML="<li><a href=\"signupForm.jsp\">회원가입</a> ㅣ</li><li><a href=\"loginReal.jsp\"> 로그인</a></li>"
+            }else {
+                document.getElementById("loginState").innerHTML="<li>"+inFoObj.name+"님 ㅣ</li><li><a href=\"../myInfoChange.html\">  내 정보 ㅣ</a></li>"+
+                    "<li><button type='button' style='background-color:white; border-style:none; font-size:16px;'>로그아웃</button></li>"
+
+            }
+
+        }
+
+        $(document).ready(function () {
+            var idInfo = sessionStorage.getItem("user");
+            var infoObj = JSON.parse(idInfo);
+
+            document.getElementById("myId").innerText= infoObj.loginId;
+
+        })
+
+
+        $(document).ready(function(){
+            $('#section div').hide();
+            $('#section div').first().show();
+            $('#section div').css('width',1000);
+            $('#section div').css('height',320);
+            setInterval(function(){
+                $('#section').append($('#section div').first());
+                $('#section div').last().hide();
+                $('#section div').first().show();
+            }, 3000);
+        })
+    </script>
+
      <style>
         li {list-style: none; padding: 16px;}
         *{color:#000; text-decoration:none; font-family: 'Noto Sans KR', sans-serif;}
@@ -135,9 +174,11 @@ $(function(){
 				console.log(result.message);
 
 				if (result.statusCode === "Success") {
-					location.href = 'foundPwd.html?msg=' + result.message;
+					location.href = 'inMyInfoChange.jsp?msg=' + result.message;
 				} else {
-					alert("입력이 잘못되었습니다");
+                    alert("입력이 잘못되었습니다");
+                    console.log(data);
+    				console.log(result.message);
 				}
 
 			},
@@ -157,7 +198,7 @@ $(function(){
 <div id="header">
     <ul>
         <li><a href="signupForm.jsp">회원가입</a></li>
-        <li><a href="login.html">로그인</a></li>
+        <li><a href="../loginReal.jsp">로그인</a></li>
     </ul>
     <div id="headerlogo">
         <a href="mainTest_1.jsp">
