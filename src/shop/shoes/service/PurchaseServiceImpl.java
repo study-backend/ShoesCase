@@ -3,6 +3,7 @@ package shop.shoes.service;
 
 import java.sql.SQLException;
 import java.util.List;
+import java.util.UUID;
 
 import shop.shoes.dao.PurchaseDAO;
 import shop.shoes.dao.PurchaseDAOImpl;
@@ -20,9 +21,12 @@ public class PurchaseServiceImpl implements PurchaseService {
 	@Override
 	public int insertPurchase(List<GoodsDTO> goodsList, PurchaseBasketDTO basket, 
 					PurchaseBasketPaymentDTO payment, AccountDTO account, PurchaseGoodsDTO purchaseGoodsDTO) throws SQLException{
+		
 		int result = 0;
 		
 		//[0] 빌키 받아오기 ????
+		UUID uuid = UUID.randomUUID();
+		//uuid
 		
 		//[1] 계정 정보 알아오기
 		Long accountId = account.getAccountId();

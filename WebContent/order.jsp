@@ -72,10 +72,49 @@
 	#buy{width:354px; height:56px; margin-top:20px; margin-top:30px; margin-left:450px; color:#FFFFFF; background-color:#5F0080; border-radius:5px; outline:0;}
 
 </style>
+<script type="text/javascript" src="../js/jquery-3.4.1.min.js"></script>
+<script type="text/javascript" src="../js/script.js"></script>
+<script type="text/javascript">
+$(function(){
+	$("#buy").click(function(){
+		
+		let str = $("#purchaseForm").serializeObject();
+		console.log(str);
+		
+		$.ajax({
+		type : "post" ,
+		url : "/ShoesCase/api/v1", 
+		dataType : "json", 
+		data : { data: JSON.stringify(str),
+				 resource: "Purchase",
+				 route: "purchase" 
+		},
+		//contentType: 'application/json; charset=utf-8',
+		success : function(result) { 
+			console.log(result.statusCode);
+			if(result.statusCode === "Success") {
+				alert("구매 성공");
+				
+				
+				//location.href='/ShoesCase/goods/main.html' 
+			} else {
+				alert("구매가 실패했습니다.");
+			}
+		},
+		error : function(error) {
+			console.log(error);
+			alert("오류가 발생되었습니다");
+		}
+	});//ajax끝
+
+	})			
+
+});
+</script>
 </head>
 <body>
 	<div id="container"> 
-	<form> 
+	<form id="purchaseForm" name="purchaseForm" method="post"> 
 
 	<div id="header">
 		<ul>
