@@ -93,7 +93,7 @@ public class AccountDAOImpl implements AccountDAO {
 		Connection con = null;
 		PreparedStatement ps = null;
 		int result =0;
-		String sql = "UPDATE account SET account_id = ?, phone = ?, email = ?, addr = ? terms_version = ? terms_agree_date = ? update_date = sysdate WHERE account_id = ?)";
+		String sql = "UPDATE account SET LOGIN_PWD = ?, phone = ?, email = ?, addr = ? terms_version = ? terms_agree_date = ? update_date = sysdate WHERE account_id = ?)";
 		
 		try {
 			con = DbUtil.getConnection();

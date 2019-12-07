@@ -17,7 +17,7 @@ public class AccountServiceImpl implements AccountService {
 			if (acc.getLoginPwd().equals(loginPwd) == true) {
 
 				// 추가검증 (ip?, 세션타임?.. 일단 pass
-
+				return acc;
 
 			} else {
 				throw new GlobalException("계정이 없습니다", StatusCode.Not_Matched_Password);
@@ -28,7 +28,7 @@ public class AccountServiceImpl implements AccountService {
 			
 		}
 
-		return acc;
+		
 
 	}
 
@@ -43,15 +43,27 @@ public class AccountServiceImpl implements AccountService {
 	
 
 	
-	public int updateUserInfo(AccountDTO account) throws Exception {
+	public int updateUserInfo(AccountDTO account, String newPassword) throws Exception {
 		int result = 0;
-		result = accountDAO.update(account);
-		if(result == 1) {
-			result = 1;
+		AccountDTO acc = accountDAO.selectById(account.getLoginId());
+		if (acc != null) {
+
+			if (acc.getLoginPwd().equals(account.getLoginPwd()) == true) {
+				account.setLoginPwd(newPassword);
+				result = accountDAO.update(account);
+				if(result == 1) {
+					return result;
+				} else {
+					throw new Exception("계정 수정 실패");
+				}
+
+			} else {
+				throw new GlobalException("계정이 없습니다", StatusCode.Not_Matched_Password);
+			}
+			
 		} else {
-			throw new Exception("계정 수정 실패");
+			throw new GlobalException("계정이 없습니다", StatusCode.Not_Found_Id);
 		}
-		return result;
 	}
 
 	@Override
@@ -91,16 +103,16 @@ public class AccountServiceImpl implements AccountService {
 	}
 
 	@Override
-	public int checkPassword(String loginId, String loginPwd) throws Exception {
-		loginId = "1234";
+	public String checkPassword(String loginId, String loginPwd) throws Exception {
+
 		AccountDTO acc = accountDAO.selectById(loginId);
-		int result = 0;
+
 		if (acc != null) {
 
 			if (acc.getLoginPwd().equals(loginPwd) == true) {
-
+				
 				// 추가검증 (ip?, 세션타임?.. 일단 pass
-				result = 1;
+				return acc.getLoginPwd();
 
 			} else {
 				throw new GlobalException("패스워드 불일치", StatusCode.Not_Matched_Password);
@@ -110,8 +122,6 @@ public class AccountServiceImpl implements AccountService {
 			throw new GlobalException("패스워드 불일치", StatusCode.Not_Found_Id);
 			
 		}
-
-		return result;
 	}
 	
 	

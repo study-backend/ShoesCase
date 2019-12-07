@@ -141,7 +141,7 @@ $(document).ready(function() {
 		  // 모두 값이 있다면 등록한다
 		  if(state) {
 			  
-			let str = $("#loginForm").serializeObject();
+			let str = $("#signupForm").serializeObject();
 			console.log(str);
 			  
 			  $.ajax({
@@ -157,7 +157,8 @@ $(document).ready(function() {
 					  console.log(result);
 					  
 					  if(result.statusCode === 'Success') {
-						  alert("등록되었습니다 로그인을 진행하세요");
+                          alert("등록되었습니다 로그인을 진행하세요");
+                          location.href='loginReal.jsp?msg=' + result.message;
 					  } else {
 						  alert("등록되지 않았습니다");
 					  }
@@ -183,7 +184,7 @@ $(document).ready(function() {
     </ul>
     <div id="headerlogo">
         <a href="mainTest_1.jsp">
-            <img id="logo" src="image/LOGO.png" url="dressShoes.html" alt="로고">
+            <img id="logo" src="../image/LOGO.png" url="dressShoes.html" alt="로고">
         </a>
     </div>
 </div>
@@ -206,12 +207,12 @@ $(document).ready(function() {
         <li class="mL"><a href="product?categoryName=sandal"><span style="margin-left: 16px; margin-right: 25px;">샌들</span></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|</li>
         <li class="mL"><a href="product?categoryName=boots"><span style="margin-left:11px">부츠</span></a>&nbsp;&nbsp;&nbsp;&nbsp;</li>
     </ul>
-    <img src="image/basket.png" id="basketimg">
+    <img src="../image/basket.png" id="basketimg">
     <div id="side_search">
         <form name="searchBox" method="get" action="#" id="searching">
             <input type="text"
                    style="width:185px; height:36px; border-radius:18px; background-color:#F7F7F7; border: none;">
-            <input type="image" src="image/search.png" style="float: right; width: 45px; border-radius: 18px"
+            <input type="image" src="../image/search.png" style="float: right; width: 45px; border-radius: 18px"
                    onclick="goSearch()">
         </form>
     </div>
@@ -223,7 +224,7 @@ $(document).ready(function() {
     <h2 style="text-align: center; margin: 0px; margin-right:10px;">회원가입</h2>
 
     <div class="boardWrite" style="margin-top: 30px">
-    <form method="post" action="/front?key=userRegist">
+    <form method="post" id="signupForm">
         <table class="inForm" style="width: 700px; height:800px; margin: auto;">
             <tbody>
             <tr>
