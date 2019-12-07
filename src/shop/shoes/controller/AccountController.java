@@ -1,6 +1,7 @@
 package shop.shoes.controller;
 
 
+import java.io.Console;
 import java.sql.Date;
 import java.util.Calendar;
 
@@ -8,6 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import shop.core.Logback;
 import shop.shoes.common.GlobalException;
 import shop.shoes.common.ShopResponse;
 import shop.shoes.common.StatusCode;
@@ -145,7 +147,6 @@ public class AccountController implements Controller{
 					      mv.setResultData(true);
 						  ShopResponse res = new ShopResponse(success, "뭐가 필요할까???");
 						  mv.setResult(JsonUtil.toJson(res));
-		
 						break;
 					}
 					
@@ -175,6 +176,7 @@ public class AccountController implements Controller{
 						AccountDTO account = new AccountDTO();
 						int code = accountService.updateUserInfo(account);
 						
+				
 						break;
 					}
 				}

@@ -4,8 +4,10 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR:400,500|Pacifico&display=swap&subset=korean" rel="stylesheet">
 <title>Insert title here</title>
+<link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR:400,500|Pacifico&display=swap&subset=korean" rel="stylesheet">
+<script type="text/javascript" src="js/jquery-3.4.1.min.js"></script>
+<script type="text/javascript" src="js/script.js"></script>
 
 <style type="text/css">
 	 
@@ -114,7 +116,7 @@
         }
 
 	/* body */
-	#button{width:354px; height:56px; margin-top:20px; color:#FFFFFF; background-color:#5F0080; border-radius:5px; outline:0;}
+	#btn{width:354px; height:56px; margin-top:20px; color:#FFFFFF; background-color:#5F0080; border-radius:5px; outline:0;}
 	.no-margin{
 		margin: 0;
 	}
@@ -132,8 +134,10 @@
     .footerHr{border: 0; height: 1px}
     
 </style>
+
 <script type="text/javascript">
-$(document).ready(function() {
+
+$().ready(function() {
 	
 	$("#btn").click(function() {
 		state = true;
@@ -141,8 +145,7 @@ $(document).ready(function() {
 		  // 모두 값이 있다면 등록한다
 		  if(state) {
 			  
-			let str = $("#loginForm").serializeObject();
-			console.log(str);
+			let str = $("#signForm").serializeObject();
 			  
 			  $.ajax({
 				  type: "post" ,
@@ -154,10 +157,10 @@ $(document).ready(function() {
 				  		} ,		// 서버에게 전송할 param
 				  	success: function(result) {
 					  
-					  console.log(result);
-					  
 					  if(result.statusCode === 'Success') {
 						  alert("등록되었습니다 로그인을 진행하세요");
+						 
+						  location.href='loginReal.jsp?msg=' + result.message;
 					  } else {
 						  alert("등록되지 않았습니다");
 					  }
@@ -165,16 +168,16 @@ $(document).ready(function() {
 				  error: function(err) {
 					  console.log(err + "- 오류 발생")
 				  }      
-			  });
+			  }); //ajax 끝
 		  }
-		  
-	  });
-});
+			  
+		  });
+	});
+
 </script>
 
 </head>
 <body>
-<!-- <body style="margin: 0px; background-color: whitesmoke"> -->
 <div class="headers">
 	<div id="header">
     <ul>
@@ -222,8 +225,8 @@ $(document).ready(function() {
 	<div class="signUpTitle" style="margin-top: 100px; margin-bottom: 10px">
     <h2 style="text-align: center; margin: 0px; margin-right:10px;">회원가입</h2>
 
+	<form method="post" id="signForm">
     <div class="boardWrite" style="margin-top: 30px">
-    <form method="post" action="/front?key=userRegist">
         <table class="inForm" style="width: 700px; height:800px; margin: auto;">
             <tbody>
             <tr>
@@ -326,10 +329,10 @@ $(document).ready(function() {
     </div>
     <div style="text-align: center;">
     
-    <input type="submit" value="가입하기" id="button">
-    </form>
+    	<input type="submit" value="가입하기" id="btn">
     </div>
-</div>
+    </form>
+	</div>
 
 
 <br><br><br>
@@ -366,5 +369,6 @@ $(document).ready(function() {
 </tr>
 </table>
 </div>
+</body>
 </body>
 </html>
