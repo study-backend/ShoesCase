@@ -197,10 +197,10 @@ $(document).on("click","[value='삭제']",function(){
 			</div>
 		</div>
 		<div id="detail_img">
-			<img src="image/sneakers/${requestScope.goods.imgPath}">
+			<img src="${requestScope.goods.sumnailPath}">
 		</div>
 		<div id="long_img"> 
-			<img src="image/sneakers/${requestScope.goods.sumnailPath}">
+			<img src="${requestScope.goods.imgPath}">
 		</div>
 	</div>
 	

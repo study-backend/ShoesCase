@@ -19,7 +19,7 @@ public class GoodsDAOImpl implements GoodsDAO {
 		PreparedStatement ps = null;
 		ResultSet rs = null;
 		List<GoodsDTO> list = new ArrayList<GoodsDTO>();
-		String sql = "select G1.PRICE, G1.NAME, G1.IMG_PATH  from GOODS G1 INNER JOIN CATEGORY G2 ON G1.CATEGORY_ID = G2.CATEGORY_ID where G2.NAME=?";
+		String sql = "select G1.PRICE, G1.NAME, G1.SUMNAIL_PATH  from GOODS G1 INNER JOIN CATEGORY G2 ON G1.CATEGORY_ID = G2.CATEGORY_ID where G2.NAME=?";
 		try {
 			con = DbUtil.getConnection();
 			ps= con.prepareStatement(sql);
@@ -34,7 +34,7 @@ public class GoodsDAOImpl implements GoodsDAO {
 									 rs.getString(2), 
 									 rs.getString(3)); //생성자 오버로딩 했음
 				list.add(goodsDto);
-				System.out.println(goodsDto+"뭐야뭐야");
+				//System.out.println(goodsDto+"뭐야뭐야");
 			}
 		}
 		finally {

@@ -81,10 +81,10 @@
 					<li><a href="#">반스</a></li>
 				</ul>
 			</li>
-			<li class="mL"><a href="product?categoryName=sneakers">운동화</a></li>
-			<li class="mL"><a href="product?categoryName=gudu">구두</a></li>
-			<li class="mL"><a href="product?categoryName=sandal">샌들</a></li>
-			<li class="mL"><a href="product?categoryName=boots">부츠</a></li>
+			<li class="mL"><a href="front?resource=product&categoryName=sneakers">운동화</a></li>
+			<li class="mL"><a href="front?resource=product&categoryName=dressShoes">구두</a></li>
+			<li class="mL"><a href="front?resource=product&categoryName=sandal">샌들</a></li>
+			<li class="mL"><a href="front?resource=product&categoryName=boots">부츠</a></li>
 		</ul>
 		<img src="image/basket.png" id="basketimg">
 			<div id="side_search">
@@ -142,7 +142,7 @@
 	  </c:if>
 		
 			<li class="sL">
-				<a href="front?resource=detail&goodsNameOrImg=${list.name}"><div>${list.imgPath}</div></a>
+				<a href="front?resource=detail&goodsNameOrImg=${list.name}"><img src="${list.sumnailPath}"></a>
 				<a href="front?resource=detail&goodsNameOrImg=${list.name}" id="sL_a">${list.name}</a>
 				<span>${list.price}</span>	
 			</li>

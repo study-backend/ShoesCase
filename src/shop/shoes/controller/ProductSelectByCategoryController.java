@@ -25,15 +25,17 @@ public class ProductSelectByCategoryController implements Controller {
 		 */
 		request.setAttribute("list", list);
 		ModelAndView mv = new ModelAndView();
-		if(categoryName.equals("sneakers")) {
-			mv.setViewName("sneakers.jsp");
-		}else if(categoryName.equals("dressShoes")) {
-			mv.setViewName("dressShoes.jsp");
-		}else if(categoryName.equals("sandal")) {
-			mv.setViewName("sandal.jsp");
-		}else if(categoryName.equals("boots")) {
-			mv.setViewName("boots.jsp");
-		}
+//		if(categoryName.equals("sneakers")) {
+//			mv.setViewName("sneakers.jsp");
+//		}else if(categoryName.equals("dressShoes")) {
+//			mv.setViewName("dressShoes.jsp");
+//		}else if(categoryName.equals("sandal")) {
+//			mv.setViewName("sandal.jsp");
+//		}else if(categoryName.equals("boots")) {
+//			mv.setViewName("boots.jsp");
+//		}
+		mv.setViewName("sneakers.jsp");
+		
 		return mv;
 	}
 }

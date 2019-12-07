@@ -39,7 +39,7 @@ public class GoodsServiceImpl implements GoodsService {
 		GoodsDAO goodsDAO = new GoodsDAOImpl();
 				
 		list = goodsDAO.selectByCatagory(categoryName);
-		//System.out.println(categoryName);
+		System.out.println(categoryName);
 		
 		if(list==null) { //검색된 것 없음 or 카테고리 없음 or 다른이유로 에러
 			System.out.println("검색된거 없다!!");

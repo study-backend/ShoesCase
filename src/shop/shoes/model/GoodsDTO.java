@@ -27,11 +27,11 @@ public class GoodsDTO {
     
 
 
-	public GoodsDTO(double price, String name, String imgPath) {
+	public GoodsDTO(double price, String name, String sumnailPath) {
 		super();
 		this.price = price;
 		this.name = name;
-		this.imgPath = imgPath;
+		this.sumnailPath = sumnailPath;
 	}
 
 
