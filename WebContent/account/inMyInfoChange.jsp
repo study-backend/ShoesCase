@@ -79,7 +79,7 @@
                 <td class="memberCols1" width="140">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp아이디*</td>
                 <td class="memberCols2">
                     <div style="height: 40px">
-                        <input type="text" name="id" value="아이디받아서 적기" >                     
+                        <input type="text" name="id" id="id" >                     
                     </div>
                 </td>
             </tr>
@@ -108,7 +108,7 @@
             <tr>
                 <td class="memberCols1">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp이름*</td>
                 <td class="memberCols2">
-                    <input type="text" name="name" value="이름받아적기">
+                    <input type="text" name="name" id="name">
                     
                 </td>
             </tr>
@@ -116,7 +116,7 @@
             <tr>
                 <td class="memberCols1">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp이메일*</td>
                 <td class="memberCols2">
-                    <input type="text" name="email" size="30" option="regEmail" placeholder="예: marketkurly@kurly.com">
+                    <input type="text" name="email" id="email" size="30" option="regEmail" placeholder="예: jang@email.com">
                     <span><input type="button" value="이메일 중복확인"></span>
                 </td>
 
@@ -145,11 +145,8 @@
             <tr class="selectMaleFemale">
                 <td class="memberCols1">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp성별</td>
                 <td class="memberCols2">
-                    <div class="group_radio">
-                        <label class="label_radio">
-                            <input type="radio" name="maleFemale" label="성별" value="m" style="margin-left: 36px;">
-                            <span class="text_position">받아서적기</span>
-                        </label>
+                    <div style="height: 40px">
+                        <input type="text" name="sex" id="sex">                     
                     </div>
                 </td>
             </tr>
@@ -195,11 +192,16 @@
 			
 			// id나 특정 정보를 검증해야하는데..... ㅠㅠ 일단 패스 
 			let json = JSON.parse(user);
-			// 아래 데이터를 맵핑 지여나나나
-			console.log(json.loginId);
+			
+			
+			$("#id").val(json.loginId);
+			$("#name").val(json.name);
+			$("#sex").val(json.sex);
+			$("#email").val(json.email);
+			
 			// user = "{"loginId":"1234","name":"1234","phone":"01923344","email":"hankkuu","addr":"a","sex":"\u0000","birthday":"1월 12, 3920"}"
-
-			alert("이다음에 뭘할까??");
+			
+			alert("다뿌렸는데 다른거 받아서 update 해야해요!!!!");
 			
 		}
 		
