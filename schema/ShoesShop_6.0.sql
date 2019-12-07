@@ -350,6 +350,7 @@ CREATE TABLE PURCHASE_BASKET_PAYMENT(
     DILIVERY_COMMENT VARCHAR2(300),
     CREATE_DATE DATE,
     UPDATE_DATE DATE
+    
 ); --accountid가 없어도 되는건가?
 insert into purchase_basket_payment values(1, 1, 50000, '용한','010-111-5774','부재시 경비실에 맡겨주세용',sysdate, sysdate);
 insert into purchase_basket_payment values(2, 1, 50000, '수녕','010-111-3374','부재시 경비실에 맡겨주세용',sysdate, sysdate);
