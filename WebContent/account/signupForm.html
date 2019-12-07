@@ -141,7 +141,7 @@ $(document).ready(function() {
 		  // 모두 값이 있다면 등록한다
 		  if(state) {
 			  
-			let str = $("#loginForm").serializeObject();
+			let str = $("#signupForm").serializeObject();
 			console.log(str);
 			  
 			  $.ajax({
@@ -224,7 +224,7 @@ $(document).ready(function() {
     <h2 style="text-align: center; margin: 0px; margin-right:10px;">회원가입</h2>
 
     <div class="boardWrite" style="margin-top: 30px">
-    <form method="post" action="/front">
+    <form method="post" id="signupForm">
         <table class="inForm" style="width: 700px; height:800px; margin: auto;">
             <tbody>
             <tr>

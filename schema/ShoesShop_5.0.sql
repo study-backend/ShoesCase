@@ -287,5 +287,5 @@ select *  from GOODS G1 INNER JOIN CATEGORY G2 ON G1.CATEGORY_ID = G2.CATEGORY_I
 select * from review
 
 select * from account;
-select * from account where LOGIN_ID = 'park';
+select * from account where LOGIN_ID = 'yun%';
 commit
