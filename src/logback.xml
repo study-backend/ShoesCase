@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration debug="true">
+
+  <!-- 변수 지정 -->
+  <!-- <property name="LOG_DIR" value="c:" />
+  <property name="LOG_PATH_NAME" value="${LOG_DIR}/shoescase.log" /> -->
+    
+  <appender name="FILE" class="ch.qos.logback.core.FileAppender">
+    <file>c:/shoescase.log</file>
+    <append>true</append>
+    <encoder>
+      <pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>
+    </encoder>
+  </appender>
+  <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+    <encoder>
+      <pattern>%d{HH:mm:ss.SSS} %-5level - %msg%n</pattern>
+    </encoder>
+  </appender>
+  
+ <root level="debug">
+  <appender-ref ref="FILE" />
+  <appender-ref ref="STDOUT" />
+ </root>
+</configuration>

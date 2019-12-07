@@ -148,6 +148,20 @@ public class AccountController implements Controller{
 		
 						break;
 					}
+					
+					// 패스워드 확인 후 회원정보 수정하기
+					case "checkPassword": {	
+						System.out.println("여기다");
+						LoginRequest req = JsonUtil.fromJson(data, LoginRequest.class);		
+		
+						int success = accountService.checkPassword(req.getLoginId(), req.getLoginPwd());
+						
+					      mv.setResultData(true);
+						  ShopResponse res = new ShopResponse(success, "뭐가 필요할까???");
+						  mv.setResult(JsonUtil.toJson(res));
+		
+						break;
+					}
 			}
 				
 				break;

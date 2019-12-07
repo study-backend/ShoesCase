@@ -10,6 +10,7 @@ import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;
 import javax.servlet.annotation.WebListener;
 
+import shop.core.Logback;
 import shop.shoes.controller.Controller;
 
 /**
@@ -37,7 +38,7 @@ public class HandlerMappingListener implements ServletContextListener {
      * @see ServletContextListener#contextInitialized(ServletContextEvent)
      */
     public void contextInitialized(ServletContextEvent e)  { 
-    	System.out.println("HandlerMappingListener start11111");
+    	Logback.debug("HandlerMappingListener start");
     	ServletContext application = e.getServletContext();
     	String fileName = application.getInitParameter("fileName");
     	
@@ -51,7 +52,7 @@ public class HandlerMappingListener implements ServletContextListener {
     	try {
 	    	for(String key : keys) {
 	    		String value = rb.getString(key);
-	    		System.out.println(key+" = " + value);
+	    		Logback.debug(key+" = " + value);
 	    		
 	    		//String을 -> 객체로 생성한다.
 	    	    Controller con= (Controller)Class.forName(value).newInstance();

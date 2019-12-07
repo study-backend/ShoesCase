@@ -90,4 +90,30 @@ public class AccountServiceImpl implements AccountService {
 		return result;
 	}
 
+	@Override
+	public int checkPassword(String loginId, String loginPwd) throws Exception {
+		loginId = "1234";
+		AccountDTO acc = accountDAO.selectById(loginId);
+		int result = 0;
+		if (acc != null) {
+
+			if (acc.getLoginPwd().equals(loginPwd) == true) {
+
+				// 추가검증 (ip?, 세션타임?.. 일단 pass
+				result = 1;
+
+			} else {
+				throw new GlobalException("패스워드 불일치", StatusCode.Not_Matched_Password);
+			}
+
+		} else {
+			throw new GlobalException("패스워드 불일치", StatusCode.Not_Found_Id);
+			
+		}
+
+		return result;
+	}
+	
+	
+
 }

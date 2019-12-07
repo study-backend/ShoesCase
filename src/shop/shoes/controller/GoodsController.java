@@ -7,12 +7,9 @@ import javax.servlet.http.HttpServletResponse;
 
 import shop.shoes.model.*;
 import shop.shoes.model.dto.GoodsMainDTO;
-import shop.shoes.model.request.LoginRequest;
-import shop.shoes.service.AccountService;
 import shop.shoes.service.GoodsService;
 import shop.shoes.service.GoodsServiceImpl;
 import shop.util.JsonUtil;
-import shop.util.User;
 import shop.util.UserSessionUtil;
 
 public class GoodsController implements Controller{
@@ -26,7 +23,7 @@ public class GoodsController implements Controller{
 		//String uri = request.getRequestURI();
 		//System.out.println(uri);
 		
-		User user = UserSessionUtil.getUserFromSession(request.getSession());
+		AccountDTO user = UserSessionUtil.getUserFromSession(request.getSession());
 		
 		// json 변환이 필요함
 		String route = request.getParameter("route");

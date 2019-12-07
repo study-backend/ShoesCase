@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import shop.core.Logback;
 import shop.shoes.common.GlobalException;
 import shop.shoes.common.ShopResponse;
 import shop.util.JsonUtil;
@@ -30,7 +31,7 @@ public class RestDispatcherServlet extends HttpServlet {
 
 		this.map = (Map<String, Controller>) object;
 
-		System.out.println("DispatcherServlet start");
+		Logback.debug("DispatcherServlet start /api/v1");
 
 	}
 

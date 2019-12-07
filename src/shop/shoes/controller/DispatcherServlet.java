@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import shop.core.Logback;
 import shop.shoes.common.GlobalException;
 import shop.shoes.common.ShopResponse;
 import shop.util.JsonUtil;
@@ -32,14 +33,13 @@ public class DispatcherServlet extends HttpServlet {
 		
 		this.map = (Map<String, Controller>)object;
     	
-    	System.out.println("DispatcherServlet start");
+		Logback.debug("DispatcherServlet start /front");
 		
 	}
     
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException  {
 		String key = request.getParameter("resource");
-		System.out.println(key);
-		//System.out.println(request.getParameter("data"));
+		Logback.debug(key);
 
 		
 		ModelAndView mv = null;
