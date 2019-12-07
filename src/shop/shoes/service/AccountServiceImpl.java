@@ -95,6 +95,9 @@ public class AccountServiceImpl implements AccountService {
 		String result = "";
 		result = accountDAO.pwdFind(name, loginId, email);
 		if(result.isEmpty() == false) {
+			//
+			// 패스워드 찾았으니 메일로 패스워드 내용전달 or 초기화(보류);
+			// 메일발송 
 			
 		} else {
 			throw new GlobalException("비밀번호 찾기 실패", StatusCode.Fail_Find_Password);

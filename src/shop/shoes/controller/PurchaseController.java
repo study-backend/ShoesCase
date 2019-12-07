@@ -4,11 +4,11 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import shop.core.Logback;
-import shop.shoes.model.AccountDTO;
-import shop.shoes.model.dto.GoodsMainDTO;
+import shop.shoes.common.GlobalException;
+import shop.shoes.common.StatusCode;
 import shop.shoes.service.PurchaseService;
 import shop.shoes.service.PurchaseServiceImpl;
-import shop.util.JsonUtil;
+
 import shop.util.UserSessionUtil;
 
 public class PurchaseController implements Controller {
@@ -19,6 +19,9 @@ public class PurchaseController implements Controller {
 	public ModelAndView handleRequest(HttpServletRequest request, HttpServletResponse response) throws Exception {
 
 		boolean isLogin = UserSessionUtil.isLogined(request.getSession());
+		if(isLogin == false) {
+			throw new GlobalException("로그인되지 않은 사용자입니다", StatusCode.Not_Access_User);
+		}
 
 		// json 변환이 필요함
 		String route = request.getParameter("route");

@@ -11,6 +11,7 @@ public enum StatusCode {
   , Fail_Add_Account(10003)
   , Fail_Find_ID(10004)
   , Fail_Find_Password(10005)
+  , Not_Access_User(10006)
   
   // Goods 관련
   , Not_Found_GoodsId(20001)

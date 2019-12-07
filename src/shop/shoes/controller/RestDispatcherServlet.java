@@ -77,13 +77,11 @@ public class RestDispatcherServlet extends HttpServlet {
 //			}
 
 		} catch (GlobalException e) {
-			//System.out.println("aaaaaaa");
 			
 			e.printStackTrace();
-			
 
 			ShopResponse res = new ShopResponse(e.getResultCode(), e.getMessage());
-			System.out.println(JsonUtil.toJson(res));
+			Logback.debug(JsonUtil.toJson(res));
 			
 			PrintWriter out = response.getWriter();
 			out.println(JsonUtil.toJson(res));
