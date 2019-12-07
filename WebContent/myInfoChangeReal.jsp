@@ -19,7 +19,7 @@
             var inFoObj = JSON.parse(inFo);
 
             if(inFoObj==null){
-                document.getElementById("loginState").innerHTML="<li><a href=\"signupForm.jsp\">회원가입</a> ㅣ</li><li><a href=\"login.html\"> 로그인</a></li>"
+                document.getElementById("loginState").innerHTML="<li><a href=\"signupForm.jsp\">회원가입</a> ㅣ</li><li><a href=\"loginReal.jsp\"> 로그인</a></li>"
             }else {
                 document.getElementById("loginState").innerHTML="<li>"+inFoObj.name+"님 ㅣ</li><li><a href=\"../myInfoChange.html\">  내 정보 ㅣ</a></li>"+
                     "<li><button type='button' style='background-color:white; border-style:none; font-size:16px;'>로그아웃</button></li>"
@@ -239,7 +239,7 @@
                         </div>
                         <div style="text-align: center">
                             <br>
-                            <button type="submit" class="m_button" id="check" href.location="inMyInfoChange.jsp"><span>확인</span></button>
+                            <button type="submit" class="m_button" id="check"><span>확인</span></button>
                         </div>
                     </form>
                 </div>
@@ -249,42 +249,42 @@
     </div>
 
     <script>
-        $(function(){
-            $("#check").click(function(){
+    $(function(){
+     	$("#check").click(function() {
 
-                let str = $("#myInfoForm").serializeObject();
-                console.log(str);
+    		let str = $("#myInfoForm").serializeObject();
+    		console.log(str);
 
-                $.ajax({
-                    type : "patch" ,
-                    url : "/ShoesCase/api/v1",
-                    dataType : "json",
-                    data : { data: JSON.stringify(str),
-                        resource: "Account",
-                        route: "account"
-                    },
-                    //contentType: 'application/json; charset=utf-8',
-                    success : function(result) {
-                        console.log(result.statusCode);
+    		$.ajax({
+    			type : "post",
+    			url : "/ShoesCase/api/v1",
+    			dataType : "json",
+    			data : {
+    				data : JSON.stringify(str),
+    				resource : "Account",
+    				route : "checkPassword"
+    			},
+    			success : function(result) {
+    				console.log(data);
+    				console.log(result.message);
 
-                        if(result.statusCode === "Success") {
-                            alert("정보수정 성공");
-                            location.href='inMyInfoChange.jsp?msg=' + result.message;
+    				if (result.statusCode === "Success") {
+    					location.href = 'inMyInfoChange.jsp?msg=' + result.message;
+    				} else {
+    					//alert("입력이 잘못되었습니다");
+    					console.log(data);
+    					console.log(result.message);
+    				}
 
-                        } else {
-                            alert("입력이 잘못되었습니다");
-                        }
+    			},
+    			error : function(error) {
+    				console.log(error);
+    				alert("오류 발생");
+    			}
+    		});//ajax끝
 
-                    },
-                    error : function(error) {
-                        console.log(error);
-                        alert("오류 발생");
-                    }
-                });//ajax끝
-
-            })
-
-        });
+    	}) 
+    });
     </script>
 
     <div class="footer">

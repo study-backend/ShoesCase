@@ -50,6 +50,14 @@ public class SignupRequest {
 	public void setBirthDay(String birthDay) {
 		this.birthDay = birthDay;
 	}
+	
+	public String getAddr() {
+		return addr;
+	}
+	public void setAddr(String addr) {
+		this.addr = addr;
+	}
+
 	private String id;
 	private String pwd;
 	private String name;
@@ -58,6 +66,6 @@ public class SignupRequest {
 	private String birthYear;
 	private String birthMonth;
 	private String birthDay;
-
+	private String addr;
 	
 }

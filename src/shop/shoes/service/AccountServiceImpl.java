@@ -92,13 +92,13 @@ public class AccountServiceImpl implements AccountService {
 
 	@Override
 	public int checkPassword(String loginId, String loginPwd) throws Exception {
-		loginId = "1234";
+		
 		AccountDTO acc = accountDAO.selectById(loginId);
 		int result = 0;
 		if (acc != null) {
 
 			if (acc.getLoginPwd().equals(loginPwd) == true) {
-
+				
 				// 추가검증 (ip?, 세션타임?.. 일단 pass
 				result = 1;
 

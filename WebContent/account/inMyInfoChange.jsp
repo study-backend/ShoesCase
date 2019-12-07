@@ -79,7 +79,7 @@
                 <td class="memberCols1" width="140">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp아이디*</td>
                 <td class="memberCols2">
                     <div style="height: 40px">
-                        <input type="text" name="id" id="id" >                     
+                        <input type="text" name="id" id="id" readonly="readonly">                     
                     </div>
                 </td>
             </tr>
@@ -108,7 +108,7 @@
             <tr>
                 <td class="memberCols1">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp이름*</td>
                 <td class="memberCols2">
-                    <input type="text" name="name" id="name">
+                    <input type="text" name="name" id="name" readonly="readonly">
                     
                 </td>
             </tr>
@@ -135,7 +135,7 @@
                 <td class="memberCols1">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp배송 주소</td>
                 <td class="memberCols2">
                     <div style="margin-top: 11px; margin-left: 36px;">
-                        <input type="text" placeholder="주소 검색" style="margin-bottom: 5px;" name="address_sub">
+                        <input type="text" placeholder="주소 검색" style="margin-bottom: 5px;" name="address_sub" id="delivery_addr">
                     </div>
                     <div>
                         &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp배송가능여부를 확인할 수 있습니다.
@@ -196,9 +196,10 @@
 			
 			$("#id").val(json.loginId);
 			$("#name").val(json.name);
-			$("#sex").val(json.sex);
 			$("#email").val(json.email);
-			
+			$("#sex").val(json.sex);
+			 //휴대폰 번호 3자리-4자리-4자리 잘라서 올리기 
+			$("#delivery_addr").val(json.addr);
 			// user = "{"loginId":"1234","name":"1234","phone":"01923344","email":"hankkuu","addr":"a","sex":"\u0000","birthday":"1월 12, 3920"}"
 			
 			alert("다뿌렸는데 다른거 받아서 update 해야해요!!!!");

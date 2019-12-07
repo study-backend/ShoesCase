@@ -132,7 +132,7 @@ public class AccountController implements Controller{
 						account.setUpdateDate(new Date(Calendar.getInstance().getTime().getTime()));
 						account.setTermsAgreeDate(new Date(Calendar.getInstance().getTime().getTime()));
 						account.setDeleteDate(Date.valueOf("1900-01-01"));
-						account.setAddr("우리집");
+						account.setAddr(req.getAddr());
 						
 						int success = accountService.signup(account);
 						
@@ -156,7 +156,7 @@ public class AccountController implements Controller{
 						LoginRequest req = JsonUtil.fromJson(data, LoginRequest.class);		
 		
 						int success = accountService.checkPassword(req.getLoginId(), req.getLoginPwd());
-						
+							System.out.println("success" + success);
 					      mv.setResultData(true);
 						  ShopResponse res = new ShopResponse(success, "뭐가 필요할까???");
 						  mv.setResult(JsonUtil.toJson(res));
