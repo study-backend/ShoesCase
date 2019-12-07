@@ -44,6 +44,46 @@
     </style>
  <script type="text/javascript" src="../js/jquery-3.4.1.min.js"></script>
 <script type="text/javascript" src="../js/script.js"></script>
+<script type="text/javascript">
+	$(function() {
+		
+		$("#check").click(function() {
+			state = true;
+			  
+			  // 모두 값이 있다면 등록한다
+			  if(state) {
+				  
+				let str = $("#userCheckForm").serializeObject();
+				console.log(str);
+				  
+				  $.ajax({
+					  type: "post" ,
+					  url: "/ShoesCase/api/v1"  ,
+					  dataType: "json"   ,  // 서버에게 받은 응답결과 type(json, text, xml)
+					  data: { data: JSON.stringify(str),
+						  		resource: "Account",
+							  route: "setAccount" 
+					  		} ,		// 서버에게 전송할 param
+					  	success: function(result) {
+						  
+						  console.log(result);
+						  
+						  if(result.statusCode === 'Success') {
+							  alert("개인정보가 수정되었습니다");
+						  } else {
+							  alert("수정에 실패했습니다");
+						  }
+					  },
+					  error: function(err) {
+						  console.log(err + "- 오류 발생")
+					  }      
+				  });
+			  }
+			  
+		  });
+	})
+	
+</script>
 </head>
 <body style="margin: 0px;">
 <div class="contrainer">
@@ -72,7 +112,7 @@
     	<h2 style="text-align: center; margin: 0px;">개인정보수정</h2>
 
    		 <div class="boardWrite" style="margin-top: 30px">
-   		 <form method="post" action="/">
+   		 <form method="post" id="userCheckForm">
         <table class="inForm" style="margin: auto;">
             <tbody>
             <tr>
@@ -94,7 +134,7 @@
             <tr>
                 <td class="memberCols1">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp새 비밀번호*</td>
                 <td class="memberCols2">
-                    <input type="password" name="pwd" option="regPass" placeholder="비밀번호를 입력해주세요">
+                    <input type="password" name="newPwd" option="regPass" placeholder="비밀번호를 입력해주세요">
                 </td>
             </tr>
 
@@ -174,7 +214,7 @@
     </div>
     <div style="text-align: center;">
     
-     <button type="submit" class="m_button" id="check" href.location="inMyInfoChange.jsp"><span>확인</span></button>
+     <input type="button" class="m_button" id="check" ><span>확인</span></button>
     </form>
     </div>
 </div>
@@ -186,8 +226,8 @@
 	$(document).ready(function(){ 
 		let user = sessionStorage.getItem("user");
 		if(user === null || user === undefined) {
-			consolelog("aaaa");
-			location.href='/ShoesCase/account/login.html';
+			console.log("aaaa");
+			//location.href='/ShoesCase/account/login.html';
 		} else {
 			
 			// id나 특정 정보를 검증해야하는데..... ㅠㅠ 일단 패스 
