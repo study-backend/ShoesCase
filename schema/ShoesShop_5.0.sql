@@ -286,6 +286,26 @@ select *  from GOODS G1 INNER JOIN CATEGORY G2 ON G1.CATEGORY_ID = G2.CATEGORY_I
 
 select * from review
 
+<<<<<<< HEAD
+select * from account where id = 'park';
+
+CREATE TABLE ROLLING_BANNER(
+   ROLLING_ID NUMBER(19) CONSTRAINT id_roll_pk PRIMARY KEY,  
+   VERSION_ID NUMBER(19) NOT NULL,       
+   NAME VARCHAR2(20) NOT NULL,
+   IMG_PATH VARCHAR2(200) NOT NULL,
+   CREATE_DATE DATE NOT NULL,
+    UPDATE_DATE DATE NOT NULL
+);
+drop table rolling_banner;
+delete from rolling_banner;
+select * from rolling_banner;
+insert into ROLLING_BANNER values(1, 1, '나이키신발', 'https://raw.githubusercontent.com/study-backend/ShoesCase/master/WebContent/image/mainImage/andy.png', sysdate, sysdate);
+insert into ROLLING_BANNER values(2, 1, '아디다스신발','https://raw.githubusercontent.com/study-backend/ShoesCase/master/WebContent/image/mainImage/big.jpg',sysdate, sysdate);
+insert into ROLLING_BANNER values(3, 1, '신년이벤트', 'https://raw.githubusercontent.com/study-backend/ShoesCase/master/WebContent/image/mainImage/bold03.jpg',sysdate, sysdate);
+insert into ROLLING_BANNER values(4, 1, '크리스벤', 'https://raw.githubusercontent.com/study-backend/ShoesCase/master/WebContent/image/mainImage/flower03.jpg',sysdate, sysdate);
+=======
 select * from account;
 select * from account where LOGIN_ID = 'dududu';
 commit
+>>>>>>> branch 'master' of https://github.com/study-backend/ShoesCase.git

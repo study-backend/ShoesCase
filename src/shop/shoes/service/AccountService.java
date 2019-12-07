@@ -20,7 +20,7 @@ public interface AccountService {
 	/**
 	 * 회원정보 수정
 	 * */
-	public int updateUserInfo(AccountDTO account) throws Exception;
+	public int updateUserInfo(AccountDTO account, String newPassword) throws Exception;
 	
 	/**
 	 * 회원정보 삭제
@@ -41,6 +41,6 @@ public interface AccountService {
 	
 	
 	// 패스워드 확인 하는 부분에서 사용
-	public int checkPassword(String loginId, String loginPwd) throws Exception;
+	public String checkPassword(String loginId, String loginPwd) throws Exception;
 
 }

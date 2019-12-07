@@ -32,15 +32,11 @@
 $(document).ready(function(){
 	$('#section img').hide();
 	$('#section img').first().show();
-	$('#section img').css('width',1200);
-	$('#section img').css('height',320);
 	setInterval(function(){
 		$('#section').append($('#section img').first());
 		$('#section img').last().hide();
 		$('#section img').first().show();
-		
 
-		
 	}, 2000);
 }) 
 </script>
@@ -178,6 +174,7 @@ $(document).ready(function(){
 	
 	/* section */
 	#section {width:1200px; height:320px; margin:auto; display:flex; overflow:hidden; align-items:center; justify-content:center;}
+	#section img{width:1200px; height:320px;}
 	
 	/* goods */
 	#goods {width:1200px; height:700px; margin:auto;}
@@ -467,12 +464,12 @@ $(document).ready(function(){
 						 cat +="<li class='mL'><a href='#''>카테고리</a>";
 						 cat +="<ul class='sub'>"
 						 for (var v of item) {
-							cat +="<li><a href="+v.name+".html>"+v.name+"</a></li>"
+							cat +="<li><a href="+v.name+".jsp>"+v.name+"</a></li>"
 						 }
 						 	cat +="</ul>"
 
 						 for (var v of item) { 
-						 	cat+="<li class='mL'><a href='product?categoryName=sneakers'>"+v.name+"</a></li>";
+						 	cat+="<li class='mL'><a href="+v.name+".jsp>"+v.name+"</a></li>";
 						 }
 						 cat +="</li>"
 						 cat+="</ul>";
@@ -480,20 +477,13 @@ $(document).ready(function(){
 						 $("#nav").html(cat);
 						 
 					 };
-					 
 					 if (index === "bannerList"){
 						 for (var v of item) {
-							ban +="<div>";
 							ban +="<img src="+v.img_path+">";
-							ban +="</div>";
 						 }
-						 	
 						 console.log(ban);
 						 $("#section").html(ban);
-					 };
-					 
-					 
-					 
+					 };			 
 			});
 				 
 			},

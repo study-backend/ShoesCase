@@ -57,7 +57,7 @@ public class RestDispatcherServlet extends HttpServlet {
 		// System.out.println(resource);
 
 		if (key == null)
-			key = "home";
+			response.sendRedirect("index.html");
 
 		try {
 			ModelAndView mv = map.get(key).handleRequest(request, response);

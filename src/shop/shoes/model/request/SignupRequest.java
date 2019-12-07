@@ -2,6 +2,18 @@ package shop.shoes.model.request;
 
 public class SignupRequest {
 
+	public String getNewPwd() {
+		return newPwd;
+	}
+	public void setNewPwd(String newPwd) {
+		this.newPwd = newPwd;
+	}
+	public String getPwdOk() {
+		return pwdOk;
+	}
+	public void setPwdOk(String pwdOk) {
+		this.pwdOk = pwdOk;
+	}
 	public String getId() {
 		return id;
 	}
@@ -60,6 +72,8 @@ public class SignupRequest {
 
 	private String id;
 	private String pwd;
+	private String newPwd;
+	private String pwdOk;
 	private String name;
 	private String email;
 	private String mobileNum;

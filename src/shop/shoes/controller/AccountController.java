@@ -155,7 +155,32 @@ public class AccountController implements Controller{
 						System.out.println("여기다");
 						LoginRequest req = JsonUtil.fromJson(data, LoginRequest.class);		
 		
-						int success = accountService.checkPassword(req.getLoginId(), req.getLoginPwd());
+						String pwd = accountService.checkPassword(req.getLoginId(), req.getLoginPwd());
+						
+					      mv.setResultData(true);
+						  ShopResponse res = new ShopResponse(StatusCode.Success, pwd);
+						  mv.setResult(JsonUtil.toJson(res));
+		
+						break;
+					}
+					
+					// 회원정보 수정
+					case "setAccount": {	
+						
+						SignupRequest req = JsonUtil.fromJson(data, SignupRequest.class);		
+						AccountDTO account = new AccountDTO();
+						account.setLoginId(req.getId());
+						account.setLoginPwd(req.getPwd());
+						account.setName(req.getName());
+						account.setEmail(req.getEmail());
+						account.setPhone(req.getMobileNum());
+						account.setBirthday(new Date(Integer.parseInt(req.getBirthYear()), Integer.parseInt(req.getBirthMonth()), Integer.parseInt(req.getBirthDay()) ));
+						account.setUpdateDate(new Date(Calendar.getInstance().getTime().getTime()));
+						account.setTermsAgreeDate(account.getTermsAgreeDate());
+						account.setAddr(req.getAddr());
+						
+						int success = accountService.updateUserInfo(account, req.getNewPwd());
+						
 							System.out.println("success" + success);
 					      mv.setResultData(true);
 						  ShopResponse res = new ShopResponse(success, "뭐가 필요할까???");
@@ -174,7 +199,8 @@ public class AccountController implements Controller{
 					// 회원정보 수정
 					case "account": {	
 						AccountDTO account = new AccountDTO();
-						int code = accountService.updateUserInfo(account);
+						String newPassword = null;
+						int code = accountService.updateUserInfo(account, newPassword);
 						
 				
 						break;
