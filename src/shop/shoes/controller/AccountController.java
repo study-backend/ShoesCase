@@ -33,13 +33,13 @@ public class AccountController implements Controller{
 		// json 변환이 필요함
 		String route = request.getParameter("route");
 		String data = request.getParameter("data");
-		System.out.println(route);
+		//System.out.println(route);
 		//System.out.println(data);
 		
 		ModelAndView mv = new ModelAndView();
 		
 		String httpMethod = request.getMethod();
-		System.out.println(httpMethod);
+		//System.out.println(httpMethod);
 		switch (httpMethod) {
 
 			case "GET": {
