@@ -214,7 +214,7 @@ $(document).on("click","[value='삭제']",function(){
                   <p><span>
                   index 번호줘야함</span></p> 
               </td>
-              <td >
+              <td>
                <p><span>
             
                 <a herf="#" id="contentShow"> ${reviewDTO.title} </a>

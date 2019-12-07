@@ -4,7 +4,46 @@
     <meta charset="UTF-8">
     <link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR:400,500|Pacifico&display=swap&subset=korean"
           rel="stylesheet">
-    <script type="text/javascript" src="../js/jquery-3.4.1.min.js"></script>
+    <script type="text/javascript" src="js/jquery-3.4.1.min.js"></script>
+    <script type="text/javascript" src="js/script.js"></script>
+    <script>
+        $(function(){
+            $("#findid").click(function(){
+
+                let str = $("#idsearchForm").serializeObject();
+                console.log(str);
+
+                $.ajax({
+                    type : "get" ,
+                    url : "/ShoesCase/api/v1",
+                    dataType : "json",
+                    data : { data: JSON.stringify(str),
+                        resource: "Account",
+                        route: "findId"
+                    },
+                    //contentType: 'application/json; charset=utf-8',
+                    success : function(result) {
+                        console.log(result.statusCode);
+
+                        if(result.statusCode === "Success") {
+                            alert("아이디찾기 성공");
+                            location.href='foundId.html?msg=' + result.message;
+
+                        } else {
+                            alert("입력이 잘못되었습니다");
+                        }
+
+                    },
+                    error : function(error) {
+                        console.log(error);
+                        alert("오류 발생");
+                    }
+                });//ajax끝
+
+            })
+
+        });
+    </script>
     <script>
         function goSearch() {
             document.searchBox.submit();
@@ -265,29 +304,6 @@
 </tr>
 </table>
 </div>
-	<script>
-	$(function(){
-			$("#findid").click(function(){
-				$.ajax({
-				type : "post" ,
-				url : "api/v1", 
-				dataType : "json", 
-				data : {data: $("#idsearchForm").serialize(),
-				resource: "account",
-				route: "login" 
-				},
-				success : function(result) { 
-					{ result : 0 }
-				},
-				error : function() {
-					alert("아이디 또는 비밀번호를 확인해주세요.");
-				}
-			});//ajax끝
 
-			})
-		});
-	
-	
-	</script>
 </body>
 </html>

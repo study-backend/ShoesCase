@@ -5,7 +5,37 @@
 <head>
 <meta charset="UTF-8">
 <link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR:400,500|Pacifico&display=swap&subset=korean" rel="stylesheet">
+    <script type="text/javascript" src="js/jquery-3.4.1.min.js"></script>
+    <script type="text/javascript" src="js/script.js"></script>
+    <script>
+        $(document).ready(function(){
+            let user = sessionStorage.getItem("user");
+            if(user === null || user === undefined) {
+                consolelog("aaaa");
+                location.href='/ShoesCase/account/login.html';
+            } else {
 
+                // id나 특정 정보를 검증해야하는데..... ㅠㅠ 일단 패스
+                let json = JSON.parse(user);
+
+
+                $("#id").val(json.loginId);
+                $("#name").val(json.name);
+                $("#email").val(json.email);
+                $("#sex").val(json.sex);
+                //휴대폰 번호 3자리-4자리-4자리 잘라서 올리기
+                $("#delivery_addr").
+                // user = "{"loginId":"1234","name":"1234","phone":"01923344","email":"hankkuu","addr":"a","sex":"\u0000","birthday":"1월 12, 3920"}"
+
+                alert("다뿌렸는데 다른거 받아서 update 해야해요!!!!");
+
+            }
+
+
+        });
+
+
+    </script>
     <title>Title</title>
      <style>
         li {list-style: none; padding: 16px;}
