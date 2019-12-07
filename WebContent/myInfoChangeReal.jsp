@@ -255,6 +255,7 @@
     		let str = $("#myInfoForm").serializeObject();
     		console.log(str);
 
+    		
     		$.ajax({
     			type : "post",
     			url : "/ShoesCase/api/v1",
