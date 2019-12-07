@@ -23,20 +23,22 @@
 	#container{width:1254px; height:1189; margin:auto;}
 	
 	/* header */
-	#header{width:1254px; height:180px; /* border:1px solid red; */ margin:auto;}
-	#usermenu{width:1050px; height:37px; margin-left:162px; margin-right:40px;}
-	#headerlogo{width:1050px; height:63px; margin-left:102px; margin-right:102px; position: relative;}
-	#logo {display: block; width:200px; height:80px; margin-left:440px; margin-right:500px; margin-bottom: 20px }
-	#headerul {float:right;}
-	#header ul li {margin-top: 15px; margin-left:10px; float:left;}
-	#gnb{width:1254px; height:56px; /* border:1px solid blue; */ }
-	#gnbin{position:relative; width:1150px; height:56px; /* border:1px solid blue; */ margin:0 auto; }
-	.gnb_ul{width:1150px; height:56px; float:left; height:55px; }
-	.gnb_li {float:left; width:190; height:55;}
-	.gnb_li a{ padding: 16px 50px 0 48px; font-size:18px;}	
-	#side_search{position: absolute; right:135px; top:110px; width:240px; height:40px; /* border:1px solid green */; border-radius:18px; background-color:#F7F7F7;}
+	#header{width:1200px; height:100px; margin:auto;}
+	#header #headerlogo{display: inline-block; margin:auto;}
+	#header ul {float:right;}
+	#header ul li {margin-left:10px; float:left;}
+	#header #headerlogo{margin:auto; margin-left: 500px; margin-top:25px;}
+	
+	/* nav */	
+	#nav{width:1200px; height:50px; margin:auto; position: sticky; top: 0;}
+	#nav ul .mL{width:100px; height:50px; margin-left:30px; float:left; font-size:20px;}
+	#nav .main>li:hover .sub{display:block; }
+	#nav .main .sub {position:absolute;  height:50px; top:50px; left:40px; display:none;}
+	#nav .main .sub li {width:80px; margin-top:5px; }
+	
+	#side_search{position: absolute; right:220px; width:240px; height:40px; border-radius:18px; background-color:#F7F7F7;}
 	#searchimg{position:absolute; right:10px; top:5px; width:40px; height:30px;}
-	#basketimg{position:absolute; right:75px; top:106px; width:50px; height:50px;}
+	#basketimg{position:absolute; right:150px;  width:50px; height:50px;}
 	
 	/* main */
 	#main{margin-bottom:300px; margin:auto;}
@@ -73,40 +75,84 @@
 <script type="text/javascript" src="../js/jquery-3.4.1.min.js"></script>
 <script type="text/javascript" src="../js/script.js"></script>
 <script type="text/javascript">
-	
+$(function(){
+	$("#buy").click(function(){
+		
+		let str = $("#purchaseForm").serializeObject();
+		console.log(str);
+		
+		$.ajax({
+		type : "post" ,
+		url : "/ShoesCase/api/v1", 
+		dataType : "json", 
+		data : { data: JSON.stringify(str),
+				 resource: "Purchase",
+				 route: "purchase" 
+		},
+		//contentType: 'application/json; charset=utf-8',
+		success : function(result) { 
+			console.log(result.statusCode);
+			if(result.statusCode === "Success") {
+				alert("구매 성공");
+				
+				
+				//location.href='/ShoesCase/goods/main.html' 
+			} else {
+				alert("구매가 실패했습니다.");
+			}
+		},
+		error : function(error) {
+			console.log(error);
+			alert("오류가 발생되었습니다");
+		}
+	});//ajax끝
+
+	})			
+
+});
 </script>
 </head>
 <body>
 	<div id="container"> 
-	<form> 
+	<form id="purchaseForm" name="purchaseForm" method="post"> 
 
 	<div id="header">
-		<div id="usermenu">
-			<ul id="headerul">
-				<li><a href="signupForm.html">회원가입</a>   ||</li>
-				<li><a href="login.html">로그인</a></li>
-			</ul>
-		</div>
+		<ul>
+			<li><a href="signupForm.jsp">회원가입</a></li>
+			<li><a href="login.html">로그인</a></li>
+		</ul>
 		<div id="headerlogo">
-			<a> 
-			<img id="logo" src="image/LOGO.png" alt="로고">
+			<a>
+			<img id="logo" src="image/LOGO.png" url="dressShoes.html" alt="로고">
 			</a>
-		</div>	
-		<div id="gnb">
-			<div id="gnbin">
-			<ul class="gnb_ul">
-				<li class="gnb_li"><a href="#"><span>운동화</span></a>  |</li>
-				<li class="gnb_li"><a href="#"><span>구두</span></a>  |</li>
-				<li class="gnb_li"><a href="#"><span>샌들</span></a>  |</li>
-				<li class="gnb_li"><a href="#"><span>부츠</span></a>  |</li>
-			</ul>
-			</div>
-			<img src="image/basket.png" id="basketimg">
-			<div id="side_search"type="text">
-				<img src="image/search.png" id="searchimg">
-			</div>
-			
 		</div>
+	</div>
+	<div id="nav">
+		<ul class="main">
+			<li class="mL"><a href="#">카테고리</a>
+				<ul class="sub">
+					<li><a href="sneakers.html">운동화</a></li>
+					<li><a href="#">구두</a></li>
+					<li><a href="#">샌들</a></li>
+					<li><a href="#">부츠</a></li>
+					<li><a href="#">나이키</a></li>
+					<li><a href="#">아디다스</a></li>
+					<li><a href="#">퓨마</a></li>
+					<li><a href="#">반스</a></li>
+				</ul>
+			</li>
+			<li class="mL"><a href="product?categoryName=sneakers">운동화</a></li>
+			<li class="mL"><a href="product?categoryName=gudu">구두</a></li>
+			<li class="mL"><a href="product?categoryName=sandal">샌들</a></li>
+			<li class="mL"><a href="product?categoryName=boots">부츠</a></li>
+		</ul>
+		<img src="image/basket.png" id="basketimg">
+			<div id="side_search">
+				<form name="searchBox" method="get" action="#" id="searching">
+				<input type="text" style="width:179px; height:36px; border-radius:18px; background-color:#F7F7F7; border: none;">
+				<input type="image" src="image/search.png" style="float: right; width: 55px; border-radius: 18px" onclick="goSearch()">
+				</form>
+			</div>
 	</div>
 	
 	<div id="main">
@@ -159,7 +205,7 @@
 				</tr>
 				<tr>
 					<th>이메일*</th>
-					<td><input type="text" readonly="readonly" class="read_only"></td>
+					<td><input type="text"  class="read_only"></td>
 				</tr>
 			</table>
 		</div>

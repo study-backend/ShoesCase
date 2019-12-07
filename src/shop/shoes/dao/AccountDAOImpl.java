@@ -153,7 +153,7 @@ public class AccountDAOImpl implements AccountDAO {
 			ps = con.prepareStatement(sql);
 			ps.setString(1, loginId);
 			rs = ps.executeQuery();
-			
+			System.out.println("loginId" + loginId);
 			if(rs.next()) {
 
 				account = new AccountDTO(rs.getLong("ACCOUNT_ID")
@@ -177,7 +177,9 @@ public class AccountDAOImpl implements AccountDAO {
 		}finally {
 			DbUtil.dbClose(rs, ps, con);		
 		}
+		
 		return account;
+		
 	}
 
 	//

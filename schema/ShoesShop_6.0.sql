@@ -403,4 +403,4 @@ select *  from GOODS G1 INNER JOIN CATEGORY G2 ON G1.CATEGORY_ID = G2.CATEGORY_I
 
 select * from review
 
-select * from account where id = 'park';
+select * from account where login_id = 'park';

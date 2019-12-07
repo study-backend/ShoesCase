@@ -10,12 +10,14 @@ public class LoginRequest {
 	
 	
 	public String getLoginId() {
+		
 		return loginId;
 	}
 	public void setLoginId(String loginId) {
 		this.loginId = loginId;
 	}
 	public String getLoginPwd() {
+	
 		return loginPwd;
 	}
 	public void setLoginPwd(String loginPwd) {

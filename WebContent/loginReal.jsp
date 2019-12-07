@@ -301,7 +301,7 @@
                             alert("로그인 성공");
                             alert("세션 스토리지 및 세션 정보 : " + result.message)
                             sessionStorage.setItem("user", result.message);
-                            location.href = '/ShoesCase/goods/main.html'
+                            location.href = '/ShoesCase/goods/in_main.html'
                         } else {
                             alert("아이디 또는 비밀번호를 확인해주세요.");
                         }
