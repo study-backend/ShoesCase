@@ -10,10 +10,11 @@
 <script type="text/javascript" src="./js/jquery-3.4.1.min.js"></script>
 <script>
 $(document).ready(function(){
-	var popupX = (window.screen.width / 2) - (200 / 2);
-	var popupY = (window.screen.height / 2) - (300 / 2);
+	var popupX = (document.body.offsetWidth / 2) - (360 / 2);
+	var popupY= (document.body.offsetHeight / 2) - (200 / 2);
+
 	$("#basket").click(function(){
-		window.open('popup.html', 'popup01', 'width=290, height=130, scrollbars= 0, toolbar=0, menubar=no');
+		window.open('popup.html', '', 'status=no, height=200, width=360, left='+ popupX + ', top='+ popupY);
 	}); 
 });
 </script>
