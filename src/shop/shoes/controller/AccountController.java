@@ -136,7 +136,6 @@ public class AccountController implements Controller{
 						
 						int success = accountService.signup(account);
 						
-						
 						// 회원가입은 로그인은 아니다..
 						//if (success == 1) {
 						//	HttpSession session = request.getSession();

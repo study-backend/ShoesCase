@@ -146,7 +146,6 @@ $().ready(function() {
 		  if(state) {
 			  
 			let str = $("#signForm").serializeObject();
-			console.log("form의 값" + str);
 			  
 			  $.ajax({
 				  type: "post" ,
@@ -158,11 +157,9 @@ $().ready(function() {
 				  		} ,		// 서버에게 전송할 param
 				  	success: function(result) {
 					  
-					  console.log("result" + result);
-					  
 					  if(result.statusCode === 'Success') {
 						  alert("등록되었습니다 로그인을 진행하세요");
-						  console.log("result의 메세지" +result.message);
+						 
 						  location.href='loginReal.jsp?msg=' + result.message;
 					  } else {
 						  alert("등록되지 않았습니다");
