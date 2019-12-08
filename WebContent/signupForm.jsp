@@ -175,7 +175,8 @@ $().ready(function() {
 	$("#idcheck").click(function(){  
 		  $.ajax({
 			  type:"post",
-			  url:"idCheck",
+		//	  url:"idCheck",
+			  url:"/ShoesCase/front?resource=idCheck",
 		      dataType: "text",
 		      data : {id: $("#signForm > div.boardWrite > table > tbody > tr:nth-child(1) > td.memberCols2 > div > input").val() } ,//서버에게 전송할 parameter
 		      success: function(result){

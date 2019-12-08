@@ -35,9 +35,8 @@ public class IdDuplicate extends HttpServlet {
 			e.printStackTrace();
 		}
 		 PrintWriter out = response.getWriter();
-		 
-		 if(result) out.print("아뒤 중복!");
-		 else out.print("사용가능!");
+		 if(result) System.out.print("아뒤 중복!");
+		 else System.out.print("사용가능!");
 	}
 
 }
