@@ -22,9 +22,9 @@ import shop.util.DateTimeHelper;
 
 public class PurchaseServiceImpl implements PurchaseService {
 	// 필요한 dAO 목록.....
-	BillKeySystem keySystem = new BillKeySystem();
+	private static BillKeySystem keySystem = new BillKeySystem();
 
-	PurchaseDAO dao = new PurchaseDAOImpl();
+	private static PurchaseDAO dao = new PurchaseDAOImpl();
 	
 	@Override
 	public int insertPurchase(List<GoodsDTO> goodsList, PurchaseBasketDTO basket, 
@@ -85,6 +85,7 @@ public class PurchaseServiceImpl implements PurchaseService {
 			// 여기 까지 문제가 없다면
 			// [5] billkey table에 완료시간을 기록하기
 			int keyResult = keySystem.registerPurchase(key, purchaseDate);
+			/////////////////////////////////////////////////////////////////////// 트랜잭션 종료 시키기 
 
 			// [6] 구매 완료 시키기
 			if (keyResult == 1) {

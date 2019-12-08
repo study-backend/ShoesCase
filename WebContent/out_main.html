@@ -3,22 +3,34 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<script src="./js/jquery-3.4.1.min.js"></script>
-<script type="text/javascript">
-
+<link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR:400,500|Pacifico&display=swap&subset=korean"
+          rel="stylesheet">
+<script type="text/javascript" src="js/jquery-3.4.1.min.js"></script>
+<script type="text/javascript" src="js/script.js"></script>
+ <script> 
 	window.onload = function () {
 		var inFo = sessionStorage.getItem("user");
 		var inFoObj = JSON.parse(inFo);
 
 		if(inFoObj==null){
-			document.getElementById("loginState").innerHTML="<li><a href=\"signupForm.jsp\">회원가입</a> ㅣ</li><li><a href=\"login.html\"> 로그인</a></li>"
+			document.getElementById("loginState").innerHTML="<li><a href=\"signupForm.jsp\">회원가입</a> ㅣ</li><li><a href=\"loginReal.jsp\"> 로그인</a></li>"
 		}else {
-			document.getElementById("loginState").innerHTML="<li>"+inFoObj.name+"님 ㅣ</li><li><a href=\"myInfoChangeReal.jsp\"> 내 정보</a></li>"
-
+			document.getElementById("loginState").innerHTML="<li>"+inFoObj.name+"님 ㅣ</li><li><a href=\"../myInfoChangeReal.jsp\">  내 정보 ㅣ</a></li>"+
+			"<li><button type='submit' id='logoutb' style='background-color:white; border-style:none; font-size:16px;'>로그아웃</button></li>"
 		}
 
 	}
+			$(function () {
+            $("#logoutb").on("click",function () {
+          
+                sessionStorage.clear();
+                
+            });
+        });
 
+		function goSearch() {
+            document.searchBox.submit();
+        }
 
 $(document).ready(function(){
 	$('#section div').hide();
@@ -72,9 +84,11 @@ $(document).ready(function(){
 <style type="text/css">
 	/*공통*/
 	a{color:#000; text-decoration:none;}
+	*{font-family: 'Noto Sans KR', sans-serif;}
 	a:hover{color:#000; font-weight:bold; font-family: 'Noto Sans KR', sans-serif;}
-	ul li{list-style: none; margin:0; padding:0;}
+	ul li{list-style: none; margin:0px; padding:0;}
 	body{height:2200px;}
+	span{margin:0px; padding:0px;}
 		
 	/* header */
 	#header{width:1200px; height:100px; margin:auto;}
@@ -85,14 +99,14 @@ $(document).ready(function(){
 	
 	/* nav */	
 	#nav{width:1200px; height:50px; margin:auto; position: sticky; top: 0;}
-	#nav ul .mL{width:100px; height:50px; margin-left:30px; float:left; font-size:20px;}
+	#nav ul .mL{width:110px; height:50px; margin-left:20px; margin-right:10px; float:left; font-size:20px;}
 	#nav .main>li:hover .sub{display:block; }
 	#nav .main .sub {position:absolute;  height:50px; top:50px; left:40px; display:none;}
 	#nav .main .sub li {width:80px; margin-top:5px; }
 	
 	#side_search{position: absolute; right:220px; width:240px; height:40px; border-radius:18px; background-color:#F7F7F7;}
 	#searchimg{position:absolute; right:10px; top:5px; width:40px; height:30px;}
-	#basketimg{position:absolute; right:150px;  width:50px; height:50px;}
+	#basketimg{position:absolute; right:150px;  bottom: 5px; width:50px; height:50px;}
 	
 	/* section */
 	#section{width:1200px; height:320px; margin:auto;}
@@ -129,41 +143,44 @@ $(document).ready(function(){
 <body>
 	<div id="header">
 		<ul id="loginState">
-
+		<!-- <li><a href="signupForm.jsp">회원가입</a></li>
+        <li><a href="login.html">로그인</a></li> -->
 		</ul>
 		<div id="headerlogo">
 			<a>
-			<img id="logo" src="image/LOGO.png" url="dressShoes.html" alt="로고">
+			<img id="logo" src="https://raw.githubusercontent.com/study-backend/ShoesCase/master/WebContent/image/LOGO.png" url="mainPage.jsp" alt="로고">
 			</a>
 		</div>
 	</div>
 	<div id="nav">
-		<ul class="main">
-			<li class="mL"><a href="#"><span>카테고리</span></a>&nbsp;&nbsp;|
-				<ul class="sub">
-					<li><a href="sneakers.html">운동화</a></li>
-					<li><a href="#">구두</a></li>
-					<li><a href="#">샌들</a></li>
-					<li><a href="#">부츠</a></li>
-					<li><a href="#">나이키</a></li>
-					<li><a href="#">아디다스</a></li>
-					<li><a href="#">퓨마</a></li>
-					<li><a href="#">반스</a></li>
-				</ul>
-			</li>
-			<li class="mL"><a href="product?categoryName=sneakers"><span>운동화</span></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|</li>
-			<li class="mL"><a href="product?categoryName=gudu"><span>구두</span></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|</li>
-			<li class="mL"><a href="product?categoryName=sandal"><span>샌들</span></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|</li>
-			<li class="mL"><a href="product?categoryName=boots"><span>부츠</span></a>&nbsp;&nbsp;&nbsp;&nbsp;</li>
-		</ul>
-		<img src="image/basket.png" id="basketimg">
-			<div id="side_search">
-				<form name="searchBox" method="get" action="#" id="searching">
-				<input type="text" style="width:179px; height:36px; border-radius:18px; background-color:#F7F7F7; border: none;">
-				<input type="image" src="image/search.png" style="float: right; width: 55px; border-radius: 18px" onclick="goSearch()">
-				</form>
-			</div>
-	</div>
+    <ul class="main">
+        <li class="mL"><a href="#"><span style="margin-left:-10px">카테고리</span></a>&nbsp;&nbsp;&nbsp;&nbsp;
+            <ul class="sub">
+                <li><a href="sneakers.jsp">운동화</a></li>
+                <li><a href="#">구두</a></li>
+                <li><a href="#">샌들</a></li>
+                <li><a href="#">부츠</a></li>
+                <li><a href="#">나이키</a></li>
+                <li><a href="#">아디다스</a></li>
+                <li><a href="#">퓨마</a></li>
+                <li><a href="#">반스</a></li>
+            </ul>
+        </li>
+        <li class="mL"><a href="front?resource=product&categoryName=sneakers"><span>운동화</span></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+        <li class="mL"><a href="front?resource=product&categoryName=dressShoes"><span>구두</span></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+        <li class="mL"><a href="front?resource=product&categoryName=sandal"><span>샌들</span></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+        <li class="mL"><a href="front?resource=product&categoryName=boots"><span>부츠</span></a>&nbsp;&nbsp;&nbsp;&nbsp;</li>
+    </ul>
+    <img src="image/basket.png" id="basketimg">
+    <div id="side_search">
+        <form name="searchBox" method="get" action="#" id="searching">
+            <input type="text"
+                   style="width:185px; height:36px; border-radius:18px; background-color:#F7F7F7; border: none;">
+            <input type="image" src="image/search.png" style="float: right; width: 45px; border-radius: 18px"
+                   onclick="goSearch()">
+        </form>
+    </div>
+</div>
 	
 	<div id="section">
 		<div id="one"></div>
@@ -308,7 +325,82 @@ $(document).ready(function(){
 </td>
 </tr>
 </table>
-		
+	<script type="text/javascript">
+	$(function(){
+			$.ajax({
+			type : "get" ,
+			url : "/ShoesCase/api/v1", 
+			dataType : "json", 
+			data : { data: "",
+					 resource: "Goods",
+					 route: "goodsMain" 
+			},
+			
+			//contentType: 'application/json; charset=utf-8',
+			success : function(result) { 
+				console.log("나오나"+result);
+				var str="";
+				var cat="";
+				var ban="";
+				 $.each(result, function(index, item){
+					 console.log(item);
+					 if(index === "goodsList"){
+						 for (var v of item) { 
+							 str+="<ul>";
+							 console.log(v.price);
+					        	 str+="<li class='mL'>";
+					        	 str+="<a href='#'>";
+					        	 str+="<div>";
+					        	 str+="<img src='/ShoesCase/image/sneakers/andy.png'>";
+					        	 str+="</div>";
+					        	 str+="</a>";
+					        	 str+="<a href='#' id='mL_a'>"+v.name+"</a>";
+					        	 str+="<span>"+v.price+"원</span>";
+					        	 str+="</li>";
+
+				        	 str+="</ul>";
+				        	 
+							 }
+						 
+						 $("#list_md").html(str);
+					 };
+					 
+					 if (index === "categoryList"){
+						 cat +="<ul class='main'>";
+						 cat +="<li class='mL'><a href='#''>카테고리</a>";
+						 cat +="<ul class='sub'>"
+						 for (var v of item) {
+							cat +="<li><a href="+v.name+".jsp>"+v.name+"</a></li>"
+						 }
+						 	cat +="</ul>"
+
+						 for (var v of item) { 
+						 	cat+="<li class='mL'><a href="+v.name+".jsp>"+v.name+"</a></li>";
+						 }
+						 cat +="</li>"
+						 cat+="</ul>";
+						 
+						 $("#nav").html(cat);
+						 
+					 };
+					 if (index === "bannerList"){
+						 for (var v of item) {
+							ban +="<img src="+v.img_path+">";
+						 }
+						 console.log(ban);
+						 $("#section").html(ban);
+					 };			 
+			});
+				 
+			},
+			error : function(error) {
+				console.log(error);
+				//alert("아이디 또는 비밀번호를 확인해주세요.");
+			}
+		});//ajax끝	
+	}); 
+	</script>
+
 </body>
 
 </html>

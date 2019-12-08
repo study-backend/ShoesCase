@@ -56,7 +56,7 @@
                             alert("로그인 성공");
                             alert("세션 스토리지 및 세션 정보 : " + result.message)
                             sessionStorage.setItem("user", result.message);
-                            location.href='/ShoesCase/goods/main.html'
+                            location.href='/ShoesCase/out_main.html'
                         } else {
                             alert("아이디 또는 비밀번호를 확인해주세요.");
                         }
@@ -278,44 +278,7 @@
 
 
     </style>
-    <script>
-        $(function () {
-            $("#blogin").click(function () {
 
-                let str = $("#loginForm").serializeObject();
-                console.log(str);
-
-                $.ajax({
-                    type: "post",
-                    url: "/ShoesCase/api/v1",
-                    dataType: "json",
-                    data: {
-                        data: JSON.stringify(str),
-                        resource: "Account",
-                        route: "login"
-                    },
-                    //contentType: 'application/json; charset=utf-8',
-                    success: function (result) {
-                        console.log(result.statusCode);
-                        if (result.statusCode === "Success") {
-                            alert("로그인 성공");
-                            alert("세션 스토리지 및 세션 정보 : " + result.message)
-                            sessionStorage.setItem("user", result.message);
-                            location.href = '/ShoesCase/goods/in_main.html'
-                        } else {
-                            alert("아이디 또는 비밀번호를 확인해주세요.");
-                        }
-                    },
-                    error: function (error) {
-                        console.log(error);
-                        alert("오류가 발생되었습니다");
-                    }
-                });//ajax끝
-
-            })
-
-        });
-    </script>
 </head>
 <body>
 <div id="header">
@@ -376,7 +339,7 @@
             <a href="id.html">아이디 찾기</a> | <a href="pw.html">비밀번호 찾기</a>
         </div>
         <button type="button" class="m_button" id="blogin"><span>로그인</span></button></p>
-        <a href="account/signupForm.html">
+        <a href="out_main.html">
             <button type="button" class="m_button" id="bsignup"><span>회원가입</span></button>
         </a>
     </form>
