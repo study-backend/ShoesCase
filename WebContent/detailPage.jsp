@@ -20,7 +20,10 @@ $(document).ready(function(){
 
 	
 	$("#number").click(function(){
+		//구매수량 id를 number로 추가 하고 
+		//총 구매가격도 현재가격이랑 똑같은 goods.price로 바꿈
 		//alert($(this).val());
+		
 		var priceCount = $(this).val();
 		var price = $("#price > span.price").text();
 		var totalPrice = priceCount*price;
