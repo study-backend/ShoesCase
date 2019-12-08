@@ -2,6 +2,7 @@
 package shop.shoes.controller;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.sql.Date;
 import java.sql.SQLException;
 import java.text.SimpleDateFormat;
@@ -55,6 +56,8 @@ public class UserRegisterController implements Controller {
 		if (result > 0) {
 			System.out.println("성공");
 		}
+	//	PrintWriter out = response.getWriter();
+	//	out.print(result); 
 		// String path = request.getContentType(); ModelAndView mv = new
 		ModelAndView mv = new ModelAndView();
 		mv.setViewName("mainTest_1.jsp");

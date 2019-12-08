@@ -43,7 +43,7 @@ public class ReviewInsertController implements Controller {
    
    //이미 db에 날라가고 데이터가 알아서 처리될 것임 //때문에 ajax로 통신해야 새로고침없이 화면 갱신될거같음
 
-   ModelAndView mv = new ModelAndView("detailPage.jsp", true);
+   ModelAndView mv = new ModelAndView("detailPage.jsp", false);
    //화면 뿌리기 //return mv 해야함 return null; }
    return mv;
    
