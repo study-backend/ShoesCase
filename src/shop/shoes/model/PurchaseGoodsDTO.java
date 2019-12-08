@@ -1,5 +1,6 @@
 package shop.shoes.model;
 
+import java.sql.Date;
 import java.util.List;
 
 public class PurchaseGoodsDTO {
@@ -12,15 +13,15 @@ public class PurchaseGoodsDTO {
     private String billKey;
     private long purchaseBasketId;
     private long goodsId;
-    private String createDate;
-    private String updateDate;
+    private Date createDate;
+    private Date updateDate;
     private long accountId;
     
     //B1.BILL_KEY, P1.NAME,P1.PRICE,P1.COUNT, P1.STATE_CODE
     
     private BillKeyDTO billDto;
     
-    private List<PurchaseBasketDTO> PurchaseList;
+    private PurchaseBasketDTO purchaseBasket;
     
     public PurchaseGoodsDTO() {} 
     
@@ -43,10 +44,10 @@ public class PurchaseGoodsDTO {
 	}
 
 
-	public PurchaseGoodsDTO(long purchaseGoodId, int stateCode, String name, int count, double price, String imagPath,
-			String billKey, long purchaseBasketId, long goodsId, String createDate, String updateDate, long accountId) {
+	public PurchaseGoodsDTO(int stateCode, String name, int count, double price, String imagPath,
+			String billKey, long purchaseBasketId, long goodsId, Date createDate, Date updateDate, long accountId) {
 		super();
-		this.purchaseGoodId = purchaseGoodId;
+		//this.purchaseGoodId = purchaseGoodId;
 		this.stateCode = stateCode;
 		this.name = name;
 		this.count = count;
@@ -69,12 +70,12 @@ public class PurchaseGoodsDTO {
 		this.billDto = billDto;
 	}
 
-	public List<PurchaseBasketDTO> getPurchaseList() {
-		return PurchaseList;
+	public PurchaseBasketDTO getPurchaseBasket() {
+		return this.purchaseBasket;
 	}
 
-	public void setPurchaseList(List<PurchaseBasketDTO> purchaseList) {
-		PurchaseList = purchaseList;
+	public void setPurchaseBasket(PurchaseBasketDTO purchaseBakset) {
+		this.purchaseBasket = purchaseBakset;
 	}
 
 	public long getPurchaseGoodId() {
@@ -149,19 +150,19 @@ public class PurchaseGoodsDTO {
 		this.goodsId = goodsId;
 	}
 
-	public String getCreateDate() {
+	public Date getCreateDate() {
 		return createDate;
 	}
 
-	public void setCreateDate(String createDate) {
+	public void setCreateDate(Date createDate) {
 		this.createDate = createDate;
 	}
 
-	public String getUpdateDate() {
+	public Date getUpdateDate() {
 		return updateDate;
 	}
 
-	public void setUpdateDate(String updateDate) {
+	public void setUpdateDate(Date updateDate) {
 		this.updateDate = updateDate;
 	}
 

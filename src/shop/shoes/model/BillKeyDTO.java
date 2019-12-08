@@ -1,15 +1,17 @@
 package shop.shoes.model;
 
+import java.sql.Date;
+
 public class BillKeyDTO {
 
 	private String billKey;
-	private String issueDate;
-	private String cancelDate;
-	private String createDate;
-	private String updateDate;
+	private Date issueDate;
+	private Date cancelDate;
+	private Date createDate;
+	private Date updateDate;
 	
 	public BillKeyDTO() {}
-	public BillKeyDTO(String billKey, String issueDate, String cancelDate, String createDate, String updateDate) {
+	public BillKeyDTO(String billKey, Date issueDate, Date cancelDate, Date createDate, Date updateDate) {
 		super();
 		this.billKey = billKey;
 		this.issueDate = issueDate;
@@ -26,35 +28,35 @@ public class BillKeyDTO {
 		this.billKey = billKey;
 	}
 
-	public String getIssueDate() {
+	public Date getIssueDate() {
 		return issueDate;
 	}
 
-	public void setIssueDate(String issueDate) {
+	public void setIssueDate(Date issueDate) {
 		this.issueDate = issueDate;
 	}
 
-	public String getCancelDate() {
+	public Date getCancelDate() {
 		return cancelDate;
 	}
 
-	public void setCancelDate(String cancelDate) {
+	public void setCancelDate(Date cancelDate) {
 		this.cancelDate = cancelDate;
 	}
 
-	public String getCreateDate() {
+	public Date getCreateDate() {
 		return createDate;
 	}
 
-	public void setCreateDate(String createDate) {
+	public void setCreateDate(Date createDate) {
 		this.createDate = createDate;
 	}
 
-	public String getUpdateDate() {
+	public Date getUpdateDate() {
 		return updateDate;
 	}
 
-	public void setUpdateDate(String updateDate) {
+	public void setUpdateDate(Date updateDate) {
 		this.updateDate = updateDate;
 	}
 	

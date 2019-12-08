@@ -20,7 +20,7 @@ public class PurchaseController implements Controller {
 
 		boolean isLogin = UserSessionUtil.isLogined(request.getSession());
 		if(isLogin == false) {
-			throw new GlobalException("로그인되지 않은 사용자입니다", StatusCode.Not_Access_User);
+			//throw new GlobalException("로그인되지 않은 사용자입니다", StatusCode.Not_Access_User);
 		}
 
 		// json 변환이 필요함

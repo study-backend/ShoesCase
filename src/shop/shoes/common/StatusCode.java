@@ -17,7 +17,11 @@ public enum StatusCode {
   , Not_Found_GoodsId(20001)
   
   // Purchase 관련
-  , Not_Found_PurchaseId(30001);
+  , Not_Found_PurchaseId(30001)
+  , Fail_Add_PurchseBasket(30002)
+  , Fail_Add_PurchasePayment(30003)
+  , Fail_Add_PurchaseGoods(30004)
+  , Fail_Issue_BillKey(30005);
 	
   private int value;
   private StatusCode(int value) {

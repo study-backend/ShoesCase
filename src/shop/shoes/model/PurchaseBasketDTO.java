@@ -1,5 +1,7 @@
 package shop.shoes.model;
 
+import java.sql.Date;
+
 public class PurchaseBasketDTO {
 	/*
 	 * 
@@ -15,15 +17,15 @@ public class PurchaseBasketDTO {
     UPDATE_DATE DATE  NOT NULL
 	 * */
 	private int basketId;
-	private int accountId;
+	private long accountId;
 	private int totalPrice;
-	private String orderDate;
+	private Date orderDate;
 	private String imgPath;
 	private int stateCode;
 	private String billKey;
 	private String deliveryAddr;
-	private String createDate;
-	private String updateDate;
+	private Date createDate;
+	private Date updateDate;
 	
 	public PurchaseBasketDTO() {}
 
@@ -34,8 +36,8 @@ public class PurchaseBasketDTO {
 	}
 
 
-	public PurchaseBasketDTO(int basketId, int accountId, int totalPrice, String orderDate, String imgPath, int stateCode,
-			String billKey, String deliveryAddr, String createDate, String updateDate) {
+	public PurchaseBasketDTO(int basketId, long accountId, int totalPrice, Date orderDate, String imgPath, int stateCode,
+			String billKey, String deliveryAddr, Date createDate, Date updateDate) {
 		super();
 		this.basketId = basketId;
 		this.accountId = accountId;
@@ -57,11 +59,11 @@ public class PurchaseBasketDTO {
 		this.basketId = basketId;
 	}
 
-	public int getAccountId() {
+	public long getAccountId() {
 		return accountId;
 	}
 
-	public void setAccountId(int accountId) {
+	public void setAccountId(long accountId) {
 		this.accountId = accountId;
 	}
 
@@ -73,11 +75,11 @@ public class PurchaseBasketDTO {
 		this.totalPrice = totalPrice;
 	}
 
-	public String getOrderDate() {
+	public Date getOrderDate() {
 		return orderDate;
 	}
 
-	public void setOrderDate(String orderDate) {
+	public void setOrderDate(Date orderDate) {
 		this.orderDate = orderDate;
 	}
 
@@ -113,19 +115,19 @@ public class PurchaseBasketDTO {
 		this.deliveryAddr = deliveryAddr;
 	}
 
-	public String getCreateDate() {
+	public Date getCreateDate() {
 		return createDate;
 	}
 
-	public void setCreateDate(String createDate) {
+	public void setCreateDate(Date createDate) {
 		this.createDate = createDate;
 	}
 
-	public String getUpdateDate() {
+	public Date getUpdateDate() {
 		return updateDate;
 	}
 
-	public void setUpdateDate(String updateDate) {
+	public void setUpdateDate(Date updateDate) {
 		this.updateDate = updateDate;
 	}
 	
