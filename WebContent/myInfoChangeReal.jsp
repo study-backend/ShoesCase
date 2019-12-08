@@ -48,6 +48,61 @@
                 $('#section div').first().show();
             }, 3000);
         })
+        $(function(){
+            $("#check").click(function() {
+
+                let str = $("#myInfoForm").serializeObject();
+                console.log(str);
+
+                $.ajax({
+                    type : "post",
+                    url : "/ShoesCase/api/v1",
+                    dataType : "json",
+                    data : {
+                        data : JSON.stringify(str),
+                        resource : "Account",
+                        route : "checkPassword"
+                    },
+                    success : function(result) {
+                        console.log(result.message);
+
+                        if (result.statusCode === "Success") {
+                            location.href = 'inMyInfoChange.jsp?msg=' + result.message;
+                        } else {
+                            alert("입력이 잘못되었습니다");
+                            console.log(data);
+                            console.log(result.message);
+                        }
+
+                    },
+                    error : function(error) {
+                        console.log(error);
+                        alert("오류 발생");
+                    }
+                });//ajax끝
+
+            })
+        });
+
+        $(document).ready(function(){
+            let user = sessionStorage.getItem("user");
+            if(user === null || user === undefined) {
+
+                //location.href='/ShoesCase/account/login.html';
+            } else {
+
+                // id나 특정 정보를 검증해야하는데..... ㅠㅠ 일단 패스
+                let json = JSON.parse(user);
+                // 아래 데이터를 맵핑 지여나나나
+                console.log(json.loginId);
+
+                location.href='/ShoesCase/account/inMyInfoChange.jsp';
+            }
+
+
+        });
+
+
     </script>
 
     <style>

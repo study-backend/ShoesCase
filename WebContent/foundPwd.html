@@ -4,6 +4,24 @@
 <meta charset="UTF-8">
 <link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR:400,500|Pacifico&display=swap&subset=korean" rel="stylesheet">
 <title>Insert title here</title>
+	<script type="text/javascript" src="js/jquery-3.4.1.min.js"></script>
+	<script type="text/javascript" src="js/script.js"></script>
+	<script>
+		$(document).ready(function() {
+			var address = unescape(location.href);
+			console.log(location.href)
+			var param = "";
+			if(address.indexOf("msg", 0) != -1) {
+				param = address.substring(address.indexOf("msg", 0) + 4);
+
+				$("#pwdtext").val(param);
+			} else {
+				param = "1";
+			}
+			alert(param);
+		});
+
+	</script>
 <style type="text/css">
 	/*공통*/
 	#header, #container {position: relative;}
