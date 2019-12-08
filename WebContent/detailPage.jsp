@@ -39,8 +39,28 @@ $(document).ready(function(){
 	var popupY= (document.body.offsetHeight / 2) - (200 / 2);
 
 	$("#basket").click(function(){
-		var item=${requestScope.goods}
-		console.log(item);
+		
+		// 상품정보에 맞게 넣어줘
+		var goods = new Object();
+	           
+		goods.name = $("#id").val();
+		goods.price = $("#id").val();
+		goods.imgUrl = $("#id").val();
+		goods.goodsId = $("#id").val();
+		
+		
+		let basketGoods = sessionStorage.getItem("basketGoods");
+		if(basketGoods !== null) {
+			
+			basketGoods.push(goods);
+		} else {
+			// 최초 1회는 배열을 생성
+			var goodsArray = new Array();
+	             
+			goodsArray.push(goods);
+			
+			sessionStorage.setItem("basketGoods", goodsArray);
+		}
 		window.open('popup.html', '', 'status=no, height=200, width=360, left='+ popupX + ', top='+ popupY);
 	}); 
 
@@ -405,5 +425,36 @@ $(document).on("click","[value='삭제']",function(){
 </tr>
 </table>
 </div>
+   
+   <script type="text/javascript">
+	$(function(){
+		
+			let id = ${ requestScope.goods.goodsId }
+			alert(id);
+		
+			$.ajax({
+			type : "get" ,
+			url : "/ShoesCase/api/v1", 
+			dataType : "json", 
+			data : { data: id,
+					 resource: "Goods",
+					 route: "goodsDetail" 
+			},
+			
+			//contentType: 'application/json; charset=utf-8',
+			success : function(result) { 
+				console.log("나오나"+result);
+				if(result !== null) {
+					// 여기서 화면에 그려줌
+				} 
+				 
+			},
+			error : function(error) {
+				console.log(error);
+				
+			}
+		});//ajax끝	
+	}); 
+	</script>
 </body>
 </html>

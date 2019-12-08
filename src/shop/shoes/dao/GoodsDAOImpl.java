@@ -75,7 +75,7 @@ public class GoodsDAOImpl implements GoodsDAO {
 		ResultSet rs = null;
 		GoodsDTO goodsDto = null;
 		List<GoodsDTO> list = new ArrayList<GoodsDTO>();
-		String sql = "SELECT PRICE, NAME, IMG_PATH, SUMNAIL_PATH, COLOR_CODE, SIZE_CODE, (PRICE*COUNT) AS TOTAL  FROM GOODS WHERE NAME = ?";
+		String sql = "SELECT PRICE, NAME, IMG_PATH, SUMNAIL_PATH, COLOR_CODE, SIZE_CODE, (PRICE*COUNT) AS TOTAL, GOODS_ID  FROM GOODS WHERE NAME = ?";
 		try {
 			con = DbUtil.getConnection();
 			ps= con.prepareStatement(sql);
@@ -85,6 +85,7 @@ public class GoodsDAOImpl implements GoodsDAO {
 			while(rs.next()) {
 				goodsDto = new GoodsDTO(rs.getDouble(1), rs.getString(2), rs.getString(3), rs.getString(4),
 								 rs.getInt(5), rs.getInt(6), rs.getInt(7)); //생성자 오버로딩 했음
+				goodsDto.setGoodsId(rs.getLong("GOODS_ID"));
 				list.add(goodsDto);
 			}
 		}
@@ -129,5 +130,30 @@ public class GoodsDAOImpl implements GoodsDAO {
 		return list;
 	}
 
+	
+	@Override
+	public GoodsDTO selectById(long goodsId) throws SQLException {
+		Connection con = null;
+		PreparedStatement ps = null;
+		ResultSet rs = null;
 
+		GoodsDTO goodsDto = null;
+		String sql = "SELECT PRICE, NAME, IMG_PATH, SUMNAIL_PATH, COLOR_CODE, SIZE_CODE, (PRICE*COUNT) AS TOTAL, GOODS_ID  FROM GOODS WHERE GOODS_ID = ?";
+		try {
+			con = DbUtil.getConnection();
+			ps= con.prepareStatement(sql);
+			ps.setLong(1, goodsId);
+			rs = ps.executeQuery();
+			
+			if(rs.next()) {
+				goodsDto = new GoodsDTO(rs.getDouble(1), rs.getString(2), rs.getString(3), rs.getString(4),
+								 rs.getInt(5), rs.getInt(6), rs.getInt(7)); //생성자 오버로딩 했음
+				goodsDto.setGoodsId(rs.getLong("GOODS_ID"));
+			}
+		}
+		finally {
+			DbUtil.dbClose(rs, ps, con);
+		}
+		return goodsDto;
+	}
 }

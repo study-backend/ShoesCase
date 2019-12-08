@@ -61,7 +61,7 @@ public class HomeDispatcherServlet extends HttpServlet {
 		
 		}
 		
-		RequestDispatcher rd = req.getRequestDispatcher("/WEB-INF/main.html");
+		RequestDispatcher rd = req.getRequestDispatcher("/out_main.html");
 		rd.forward(req, resp);
 	}
 

@@ -42,12 +42,9 @@ public interface GoodsService {
 	public List<GoodsDTO> goodsSub(String categoryName) throws Exception;
 	
 	public GoodsDetailDTO goodsDetail(String goodsName) throws Exception;
+	
+	public GoodsDTO goodsDetail(long goodsId) throws Exception;
 
-	/**
-	 * ��ǰ ��ȭ�� ���
-	 * @throws Exception
-	 * */
-	public GoodsDetailDTO goodsDetail(GoodsDTO goods) throws Exception;
 	
 	/**
 	 * ��ǰ �Է�
