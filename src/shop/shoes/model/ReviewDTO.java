@@ -28,7 +28,12 @@ public class ReviewDTO {
 	
 	
 	public ReviewDTO() {}
-	public ReviewDTO(String reviewPwd, String title, int score, String content) {}
+	public ReviewDTO(String reviewPwd, String title, String content, int score) {
+		this.reviewPwd = reviewPwd;
+		this.title = title;
+		this.content = content;
+		this.score = score;
+	}
 	
 	
 	
@@ -85,9 +90,10 @@ public class ReviewDTO {
 //		this.account = account;
 //	}
 	
-	public ReviewDTO(int reviewId, int goodsId, int accountId, String reviewPwd, String title, String content,
+	public ReviewDTO(String loginId, int reviewId, int goodsId, int accountId, String reviewPwd, String title, String content,
 			int score, String createDate, String updateDate, AccountDTO account) {
 		super();
+		this.loginId = loginId;
 		this.reviewId = reviewId;
 		this.goodsId = goodsId;
 		this.accountId = accountId;
@@ -164,12 +170,15 @@ public class ReviewDTO {
 		this.updateDate = updateDate;
 	}
 
-	@Override
-	public String toString() {
-		return "ReviewDTO [reviewId=" + reviewId + ", goodsId=" + goodsId + ", accountId=" + accountId + ", reviewPwd="
-				+ reviewPwd + ", title=" + title + ", content=" + content + ", score=" + score + ", createDate="
-				+ createDate + ", updateDate=" + updateDate + "]";
+	
+	
+	public String getLoginId() {
+		return loginId;
 	}
+	public void setLoginId(String loginId) {
+		this.loginId = loginId;
+	}
+
 	
 	
 }

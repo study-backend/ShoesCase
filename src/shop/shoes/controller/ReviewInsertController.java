@@ -30,9 +30,9 @@ public class ReviewInsertController implements Controller {
 /*   (reviewId, goodsId, accountId, title, content, score, createDate,
    updateDate);*/
    
-   ReviewDTO reviewDTO = new ReviewDTO(reviewPwd, title,  score, content);
-   
-
+   ReviewDTO reviewDTO = new ReviewDTO(reviewPwd, title, content, score);
+   System.out.println(title+"컨트롤러에서 그럼너는??");
+   System.out.println(reviewDTO.getTitle()+"컨트롤러에서 너는 나오니??????");;
 	
    
    ReviewService.insert(reviewDTO);
@@ -43,7 +43,7 @@ public class ReviewInsertController implements Controller {
    
    //이미 db에 날라가고 데이터가 알아서 처리될 것임 //때문에 ajax로 통신해야 새로고침없이 화면 갱신될거같음
 
-   ModelAndView mv = new ModelAndView("detailPageTest.jsp", false);
+   ModelAndView mv = new ModelAndView("detailPage.jsp", true);
    //화면 뿌리기 //return mv 해야함 return null; }
    return mv;
    

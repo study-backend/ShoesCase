@@ -29,6 +29,7 @@ public class ReviewService {
 		 * sql 예외 던짐
 		 */
 		public static int insert(ReviewDTO reviewDTO) throws SQLException{
+			//System.out.println(reviewDTO.getContent()+"서비스에서 내용 나오니??");
 			int result = reviewDAO.insert(reviewDTO);
 			if(result <1) throw new SQLException("등록 실패");
 			

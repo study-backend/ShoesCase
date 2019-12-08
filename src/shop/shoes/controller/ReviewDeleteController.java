@@ -29,7 +29,7 @@ public class ReviewDeleteController implements Controller {
   
    ModelAndView mv = new ModelAndView();
    
-   
+   mv.setViewName("detailPage.jsp");
    
    //화면 뿌리기 //return mv 해야함 return null; }
    return mv;

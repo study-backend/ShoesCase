@@ -19,7 +19,7 @@ public class ReviewDAOImpl implements ReviewDAO {
 		Connection con = null;
 		PreparedStatement ps = null;
 		int result =0;
-		String sql = "insert into review values(seq_id.nextval, 1, 30, ?, ?, ?, ?, sysdate,sysdate)";
+		String sql = "insert into REVIEW values(seq_Id.nextval, 1, 30, ?, ?, ?, ?, sysdate,sysdate)";
 		//테스트용insert query라서 
 		//goods_Id 1로 test
 		//account_Id 를 30으로 주었음
@@ -28,6 +28,7 @@ public class ReviewDAOImpl implements ReviewDAO {
 			con = DbUtil.getConnection();
 			ps = con.prepareStatement(sql);
 	//파라메터 맞춰줘야함	
+			//System.out.println(reviewDto.getTitle()+"비밀번호 값 나오니?????????");
 			ps.setString(1, reviewDto.getReviewPwd());
 			ps.setString(2, reviewDto.getTitle());
 			ps.setString(3, reviewDto.getContent());
@@ -105,7 +106,7 @@ public class ReviewDAOImpl implements ReviewDAO {
 		PreparedStatement ps = null;
 		ResultSet rs = null;
 		List<ReviewDTO> list = new ArrayList<ReviewDTO>();
-		String sql = "select A1.LOGIN_ID,R1.GOODS_ID,R1.TITLE,R1.CONTENT,R1.SCORE,R1.CREATE_DATE,R1.UPDATE_DATE" + 
+		String sql = "select A1.LOGIN_ID,R1.REVIEW_ID,R1.GOODS_ID,R1.TITLE,R1.CONTENT,R1.SCORE,R1.CREATE_DATE,R1.UPDATE_DATE" + 
 				" from REVIEW R1 inner join GOODS G1 on R1.GOODS_ID = G1.GOODS_ID inner join ACCOUNT A1 on A1.ACCOUNT_ID = R1.ACCOUNT_ID" + 
 				" WHERE G1.NAME = ?";
 		try {
@@ -116,22 +117,15 @@ public class ReviewDAOImpl implements ReviewDAO {
 			
 			while(rs.next()) {
 				
-				String loginid = rs.getString(1);
+				String loginId = rs.getString(1);
 				
-				ReviewDTO reviewDto = new ReviewDTO(loginid, rs.getInt(2), rs.getString(3), rs.getString(4),
-						rs.getInt(5), rs.getString(6), rs.getString(7));
+				ReviewDTO reviewDto = new ReviewDTO(loginId, rs.getInt(2), rs.getInt(3), 0, null, rs.getString(4), 
+						rs.getString(5), rs.getInt(6), rs.getString(7), rs.getString(8), null);
 				
+				//System.out.println(loginId+"너는 로그인아이디야");
+				//AccountDTO at = reviewDto.getAccount();
+				//at.setLoginId(loginId);
 				
-				AccountDTO at = reviewDto.getAccount();
-				at.setLoginId(loginid);
-				
-				/**	dto 생성자로 받는 파라미터 8개
-				 * 
-				 * A1.LOGIN_ID,R1.GOODS_ID,R1.TITLE,R1.CONTENT,R1.SCORE,R1.CREATE_DATE,R1.UPDATE_DATE 
-				 * 
-				 * 	(Account계정)String loginId, int goodsId, String title, String content,
-					int score, String createDate, String updateDate 
-				 */
 				list.add(reviewDto);
 			}
 		}

@@ -198,7 +198,7 @@ $(document).on("click","[value='삭제']",function(){
             <td>삭제</td>
             
                
-               
+              
     <c:choose>
     <c:when test="${empty requestScope.list}">
       <tr>
@@ -208,11 +208,13 @@ $(document).on("click","[value='삭제']",function(){
     </tr>
     </c:when>
     <c:otherwise>
-   <c:forEach items="${requestScope.list}" var="reviewDTO">
+    
+    
+   <c:forEach items="${requestScope.list}" var="reviewDTO" varStatus="st">
           <tr>
               <td>
                   <p><span>
-                  index 번호줘야함</span></p> 
+                  ${st.count}</span></p> 
               </td>
               <td>
                <p><span>
@@ -224,7 +226,7 @@ $(document).on("click","[value='삭제']",function(){
               <td >
                <p><span>
                
-               작성자id :  ${reviewDTO.accountId}
+               작성자id :  ${reviewDTO.loginId}
                
                </span></p>
               </td>

@@ -30,7 +30,7 @@
 <body>
 
    <div id="review">
-   <form name=updateForm method=post action="front?resource=reviewInsert" onSubmit="return checkValid()">    
+   <form name="updateForm" method="post" action="front?resource=reviewInsert" onSubmit="return checkValid()">    
        <table>
           <tr>
              <th colspan='2'>리뷰 등록하기</td>
@@ -66,8 +66,7 @@
           <tr>
              <td colspan='2'>
                 <input type="submit" value="등록하기">
-                <a href ="detailReviewUpdate.jsp"><button type="button">수정하기</button></a>
-                <a href ="detailPage.html"><button type="button">취소하기</button></a>
+                <a href ="detailPage.jsp"><button type="button">취소하기</button></a>
              </td>
              
           </tr>

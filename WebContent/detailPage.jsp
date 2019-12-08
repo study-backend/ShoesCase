@@ -22,7 +22,7 @@ $(document).ready(function(){
 <style type="text/css">
 	
 	/*공통*/
-	a{color:white; text-decoration:none;}
+	a{color:black; text-decoration:none;}
 	a:hover{color:white; font-weight:bold;}
 	ul li{list-style: none; margin:0; padding:0;}
 	body{height:100%;}
@@ -119,16 +119,7 @@ $(document).on("click","[value='삭제']",function(){
     url: "../ShoesCase/front?resource=reviewDelete",
     dataType: "text",
     data : {reviewId : reviewId},
-    success : function(result){
-       //확인
-       if(result>0) {
-       //   alert("삭제성공")
-          alert("result?");      
-       }else{
-          alert("삭제실패")
-          }
-       
-    },
+    success : function(result){},
     error : function(err){
        console.log(err + "=> 오류 발생");
     }
@@ -229,11 +220,10 @@ $(document).on("click","[value='삭제']",function(){
     </tr>
     </c:when>
     <c:otherwise>
-   <c:forEach items="${requestScope.reviewList}" var="reviewDTO">
+   <c:forEach items="${requestScope.reviewList}" var="reviewDTO" varStatus="st">
           <tr>
               <td>
-                  <p><span>
-                  index 번호줘야함</span></p> 
+                  <p><span>${st.count}</span></p> 
               </td>
               <td >
                <p><span>
@@ -245,7 +235,7 @@ $(document).on("click","[value='삭제']",function(){
               <td >
                <p><span>
                
-               작성자id :  ${reviewDTO.accountId}
+               작성자id :  ${reviewDTO.loginId}
                
                </span></p>
               </td>
@@ -267,7 +257,7 @@ $(document).on("click","[value='삭제']",function(){
                </span></p>
               </td>
               <td>
-                 <input type = 'button' value='삭제' name= ${reviewDTO.reviewId}  >
+                 <input type = 'button' value='삭제' name= "${reviewDTO.reviewId}"  >
               </td>
           </tr>
           <tr style ="display:none;">
