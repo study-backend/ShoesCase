@@ -114,7 +114,6 @@ $(function(){
 </head>
 <body>
 	<div id="container"> 
-	<form id="purchaseForm" name="purchaseForm" method="post"> 
 
 	<div id="header">
 		<ul>
@@ -154,7 +153,7 @@ $(function(){
 				</form>
 			</div>
 	</div>
-	
+	<form method="post" id="purchaseForm" name="purchaseForm">
 	<div id="main">
 	<div id="orderName">
 	<h1>주문서</h1>	
@@ -176,9 +175,9 @@ $(function(){
 				%>
 				<c:forEach var="cart" items="<%=cookie%>"> 
 				<tr>
-					<td class="imagearea" ><img src="${cart.name }"></td>
-					<td class="infoarea"><div>${cart.name}<br>${cart.name}</div></td>
-					<td class="pricearea"><div>${cart.name}</div></td>
+					<td class="imagearea" id="imagebox"><img  name="imagebox" src="${cart.name }"></td>
+					<td class="infoarea" id="infobox"><div><input type="text" ${cart.name} ${cart.name}/></div></td>  <!-- 위아래로 잘 나오면 이렇게 하고 아니면 td 하나더 생성해서 th는 colspan 쳐야해  -->
+					<td class="pricearea" id="pricebox"><div><input type="text" name="pricebox" ${cart.name}/></div></td>
 				</tr>
 				</c:forEach>
 				
@@ -193,19 +192,19 @@ $(function(){
 			<table class="orderInfo">
 				<tr>
 					<th>주문자명*</th>
-					<td><input type="text" readonly="readonly" class="read_only"></td>
+					<td><input type="text" readonly="readonly" class="read_only" name="orderername"></td>
 				</tr>
 				<tr>
 					<th class="telarea">휴대폰*</th>
-					<td><input type="text" max-length="3" readonly="readonly" class="read_only tel_read_only" >
+					<td><input type="text" max-length="3" readonly="readonly" class="read_only tel_read_only" name="orderertel_f">
 						<span> - </span>
-						<input type="text" max-length="4" readonly="readonly" class="read_only tel_read_only"> 
+						<input type="text" max-length="4" readonly="readonly" class="read_only tel_read_only" name="orderertel_s"> 
 						<span> - </span>
-						<input type="text" max-length="4" readonly="readonly" class="read_only tel_read_only"></td>
+						<input type="text" max-length="4" readonly="readonly" class="read_only tel_read_only" name="orderertel_t"></td>
 				</tr>
 				<tr>
 					<th>이메일*</th>
-					<td><input type="text"  class="read_only"></td>
+					<td><input type="text"  class="read_only" name="orderermail"></td>
 				</tr>
 			</table>
 		</div>
@@ -217,23 +216,23 @@ $(function(){
 			<table class="deliInfo">
 				<tr>
 					<th>이름*</th>
-					<td><input type="text" required="required"></td>
+					<td><input type="text" required="required" name="recipientname"></td>
 				</tr>
 				<tr>
 					<th class="telarea">휴대폰*</th>
-					<td><input type="text" maxlength="3" class="deli_phone" required="required">
+					<td><input type="text" maxlength="3" class="deli_phone" required="required" name="recipienttel_f">
 						<span> - </span>
-						<input type="text" maxlength="4" class="deli_phone" required="required"> 
+						<input type="text" maxlength="4" class="deli_phone" required="required" name="recipienttel_s"> 
 						<span> - </span>
-						<input type="text" maxlength="4" class="deli_phone" required="required"></td>
+						<input type="text" maxlength="4" class="deli_phone" required="required" name="recipienttel_t"></td>
 				</tr>
 				<tr>
 					<th>주소*</th>
-					<td><input type="text" id="del_addr" required="required"></td>
+					<td><input type="text" id="del_addr" required="required" name="recipientaddr"></td>
 				</tr>
 				<tr>
 					<th>요청사항</th>
-					<td><textarea id="deli_memo"></textarea></td>
+					<td><textarea id="deli_memo" name="recipientmemo"></textarea></td>
 				</tr>
 			</table>	
 		</div>

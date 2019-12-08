@@ -227,19 +227,40 @@
                         <h3>비밀번호 재확인</h3>
                         <h5>회원님의 정보를 안전하게 보호하기 위해 비밀번호를 다시 한 번 확인해주세요.</h5>
                     </div>
-                    <form method="post" id="myInfoForm">
+                    <form method="post" id="myInfoForm" name="myInfoForm">
                         <div style="border: 2px solid darkgray; text-align: center">
                             <br><br>
                             아이디<br><br>
-                            <span id="myId"></span><br><br>
+                             <span id="myId"></span><br><br>
+                             <input type="text" name="loginId" readonly="readonly" />
+                              <script>
+                              $(document).ready(function(){ 
+                                  let user = sessionStorage.getItem("user");
+                                  if(user === null || user === undefined) {
+                                  
+                                      location.href='/ShoesCase/account/login.html';
+                                  } else {
+                                      
+                                      // id나 특정 정보를 검증해야하는데..... ㅠㅠ 일단 패스 
+                                      let json = JSON.parse(user);
+                                      // 아래 데이터를 맵핑 지여나나나
+                                      console.log(json.loginId);
+                                      
+                                      //location.href='/ShoesCase/account/inMyInfoChange.jsp';
+                                  }
+                                     
+                              });
+                    		</script><br>
+                             	
+                           
                             비밀번호<br><br>
 
-                            <input type="password" name="password">
+                            <input type="password" name="loginPwd">
                             <br><br>
                         </div>
                         <div style="text-align: center">
                             <br>
-                            <button type="submit" class="m_button" id="check"><span>확인</span></button>
+                            <button type="submit" class="m_button" id="check" name="check"><span>확인</span></button>
                         </div>
                     </form>
                 </div>
