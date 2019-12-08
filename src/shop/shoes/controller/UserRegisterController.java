@@ -60,7 +60,7 @@ public class UserRegisterController implements Controller {
 	//	out.print(result); 
 		// String path = request.getContentType(); ModelAndView mv = new
 		ModelAndView mv = new ModelAndView();
-		mv.setViewName("mainTest_1.jsp");
+		mv.setViewName("/loginReal.jsp");
 
 		return mv;
 	}
