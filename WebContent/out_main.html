@@ -13,13 +13,20 @@
 		var inFoObj = JSON.parse(inFo);
 
 		if(inFoObj==null){
-			document.getElementById("loginState").innerHTML="<li><a href=\"signupForm.jsp\">회원가입</a> ㅣ</li><li><a href=\"login.html\"> 로그인</a></li>"
+			document.getElementById("loginState").innerHTML="<li><a href=\"signupForm.jsp\">회원가입</a> ㅣ</li><li><a href=\"loginReal.jsp\"> 로그인</a></li>"
 		}else {
 			document.getElementById("loginState").innerHTML="<li>"+inFoObj.name+"님 ㅣ</li><li><a href=\"../myInfoChangeReal.jsp\">  내 정보 ㅣ</a></li>"+
 			"<li><button type='submit' id='logoutb' style='background-color:white; border-style:none; font-size:16px;'>로그아웃</button></li>"
 		}
 
 	}
+			$(function () {
+            $("#logoutb").on("click",function () {
+          
+                sessionStorage.clear();
+                
+            });
+        });
 
 		function goSearch() {
             document.searchBox.submit();
@@ -92,7 +99,7 @@ $(document).ready(function(){
 	
 	/* nav */	
 	#nav{width:1200px; height:50px; margin:auto; position: sticky; top: 0;}
-	#nav ul .mL{width:110px; height:50px; margin-left:30px; float:left; font-size:20px;}
+	#nav ul .mL{width:110px; height:50px; margin-left:20px; margin-right:10px; float:left; font-size:20px;}
 	#nav .main>li:hover .sub{display:block; }
 	#nav .main .sub {position:absolute;  height:50px; top:50px; left:40px; display:none;}
 	#nav .main .sub li {width:80px; margin-top:5px; }
@@ -147,7 +154,7 @@ $(document).ready(function(){
 	</div>
 	<div id="nav">
     <ul class="main">
-        <li class="mL"><a href="#"><span>카테고리</span></a>&nbsp;&nbsp;&nbsp;&nbsp;|
+        <li class="mL"><a href="#"><span style="margin-left:-10px">카테고리</span></a>&nbsp;&nbsp;&nbsp;&nbsp;
             <ul class="sub">
                 <li><a href="sneakers.jsp">운동화</a></li>
                 <li><a href="#">구두</a></li>
@@ -159,17 +166,10 @@ $(document).ready(function(){
                 <li><a href="#">반스</a></li>
             </ul>
         </li>
-        <li class="mL"><a href="product?categoryName=sneakers">
-			<span>운동화</span></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|
-        </li>
-        <li class="mL"><a href="product?categoryName=gudu"><span
-                style="margin-right: 16px;">구두</span></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|
-        </li>
-        <li class="mL"><a href="product?categoryName=sandal"><span
-                style="margin-right: 25px;">샌들</span></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|
-        </li>
-        <li class="mL"><a href="product?categoryName=boots"><span style="margin-left:11px">부츠</span></a>&nbsp;&nbsp;&nbsp;&nbsp;
-        </li>
+        <li class="mL"><a href="front?resource=product&categoryName=sneakers"><span>운동화</span></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+        <li class="mL"><a href="front?resource=product&categoryName=dressShoes"><span>구두</span></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+        <li class="mL"><a href="front?resource=product&categoryName=sandal"><span>샌들</span></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+        <li class="mL"><a href="front?resource=product&categoryName=boots"><span>부츠</span></a>&nbsp;&nbsp;&nbsp;&nbsp;</li>
     </ul>
     <img src="image/basket.png" id="basketimg">
     <div id="side_search">
