@@ -4,17 +4,43 @@
 <!DOCTYPE html>
 <html>
 
-
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <script type="text/javascript" src="./js/jquery-3.4.1.min.js"></script>
 <script>
+window.onload = function () {
+	var inFo = sessionStorage.getItem("user");
+	var inFoObj = JSON.parse(inFo);
+
+	if(inFoObj==null){
+		document.getElementById("loginState").innerHTML="<li><a href=\"signupForm.jsp\">회원가입</a> ㅣ</li><li><a href=\"loginReal.jsp\"> 로그인</a></li>"
+	}else {
+		document.getElementById("loginState").innerHTML="<li>"+inFoObj.name+"님 ㅣ</li><li><a href=\"/ShoesCase/myInfoChangeReal.jsp\">  내 정보 ㅣ</a></li>"+
+		"<li><button type='submit' id='logoutb' style='background-color:white; border-style:none; font-size:16px;'>로그아웃</button></li>"
+	}
+
+}
+	$(function () {
+        $("#logoutb").on("click",function () {
+      
+            sessionStorage.clear();
+            
+        });
+    });
+
+	function goSearch() {
+        document.searchBox.submit();
+    }
+
+
 $(document).ready(function(){
 	var popupX = (document.body.offsetWidth / 2) - (360 / 2);
 	var popupY= (document.body.offsetHeight / 2) - (200 / 2);
 
 	$("#basket").click(function(){
+		var item=${requestScope.goods}
+		console.log(item);
 		window.open('popup.html', '', 'status=no, height=200, width=360, left='+ popupX + ', top='+ popupY);
 	}); 
 
@@ -104,6 +130,8 @@ $(document).ready(function(){
 	#product_rv table td:nth-child(6){width:20%;}
 	
 	button{width:200px; height:50px; color:white; background-color:#CBA3E9; border-radius:5px;}
+	
+	 #tabled {width: 1200px; margin:auto;}
 </style>
 <script type="text/javascript">
 
@@ -139,7 +167,9 @@ $(document).on("click","[value='삭제']",function(){
     url: "../ShoesCase/front?resource=reviewDelete",
     dataType: "text",
     data : {reviewId : reviewId},
-    success : function(result){},
+    success : function(result){
+    	
+    },
     error : function(err){
        console.log(err + "=> 오류 발생");
     }
@@ -152,6 +182,47 @@ $(document).on("click","[value='삭제']",function(){
 </head>
 
 <body>
+	<div id="header">
+		<ul id="loginState">
+		<!-- <li><a href="signupForm.jsp">회원가입</a></li>
+        <li><a href="login.html">로그인</a></li> -->
+		</ul>
+		<div id="headerlogo">
+			<a>
+			<img id="logo" src="https://raw.githubusercontent.com/study-backend/ShoesCase/master/WebContent/image/LOGO.png" url="mainPage.jsp" alt="로고">
+			</a>
+		</div>
+	</div>
+	<div id="nav">
+    <ul class="main">
+        <li class="mL"><a href="#"><span style="margin-left:-10px">카테고리</span></a>&nbsp;&nbsp;&nbsp;&nbsp;
+            <ul class="sub">
+                <li><a href="sneakers.jsp">운동화</a></li>
+                <li><a href="#">구두</a></li>
+                <li><a href="#">샌들</a></li>
+                <li><a href="#">부츠</a></li>
+                <li><a href="#">나이키</a></li>
+                <li><a href="#">아디다스</a></li>
+                <li><a href="#">퓨마</a></li>
+                <li><a href="#">반스</a></li>
+            </ul>
+        </li>
+        <li class="mL"><a href="front?resource=product&categoryName=sneakers"><span>운동화</span></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+        <li class="mL"><a href="front?resource=product&categoryName=dressShoes"><span>구두</span></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+        <li class="mL"><a href="front?resource=product&categoryName=sandal"><span>샌들</span></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+        <li class="mL"><a href="front?resource=product&categoryName=boots"><span>부츠</span></a>&nbsp;&nbsp;&nbsp;&nbsp;</li>
+    </ul>
+    <img src="image/basket.png" id="basketimg">
+    <div id="side_search">
+        <form name="searchBox" method="get" action="#" id="searching">
+            <input type="text"
+                   style="width:185px; height:36px; border-radius:18px; background-color:#F7F7F7; border: none;">
+            <input type="image" src="image/search.png" style="float: right; width: 45px; border-radius: 18px"
+                   onclick="goSearch()">
+        </form>
+    </div>
+</div>
+
 	<div id="detail">
 		<div id="detail_infor">
 			<table>
@@ -215,6 +286,13 @@ $(document).on("click","[value='삭제']",function(){
 			<img src="${requestScope.goods.imgPath}">
 		</div>
 	</div>
+	
+	<%
+    	session.setAttribute("name", request.getParameter("username"));
+		session.setAttribute("price", request.getParameter("username"));
+		session.setAttribute("colorCode", request.getParameter("username"));
+		session.setAttribute("sizeCode", request.getParameter("username"));
+	%>
 	
 	 <div id="product_rv">
       <table id="review_t">
@@ -293,5 +371,39 @@ $(document).on("click","[value='삭제']",function(){
       
       <a href="detailReviewInsert.jsp"><button type="button">후기쓰기</button></a>
    </div>
+   <br><br><br>
+<hr class="footerHr" color="gray"  >
+<div id="tabled">
+<table id= "footerTable">
+<tr>
+	<td>
+	   <div class="f">
+	         <p><strong>(주)슈즈케이스</strong>&nbsp;&nbsp;&nbsp;대표이사: 장희정<br>
+	         주소: 경기도 성남시 판교로 유스페이스2 B동<br>
+	         사업자등록번호: 123-456-7890&nbsp;
+	         반품지 주소: 미국 하와이 123-58번지 <br>
+	         <em style="margin-left:65px;">Shoes Case 온라인 물류센터(02-1588-9667)</em><br></p>
+	         <p class="mt10" style="line-height:1.4">본 상품의 상품이미지 저작권은 ㈜슈즈케이스 <br>내용의 무단복제를 금합니다.</p>
+	                        
+	         <address class="copyright mt10">COPYRIGHT © SHOES-CASE KOREA CO,LTD. ALL RIGHTS RESERVED.</address>
+	   </div>
+	
+	</td>
+	<td>
+	   <div class="s">
+	       <h2 class="tit_type1 fs16">통합고객센터</h2>
+	       <a href="javascript://" class="tel_number">080-701-7770</a>
+	       <a href="javascript://" class="tel_number">· 1588-9667</a>
+	       <p class="mt15">운영시간 : 월~금 09:00 ~18:00 (12:00 ~13:00 점심시간)<br><em style="margin-left:55px;">주말, 공휴일 휴무</em><br>
+	       이메일 : <a href="mailto:abcmartcs@abcmartkorea.com">shoesCase@scmartkorea.com</a></p>
+	       <ul class="clearfix">
+	       <li><img src="http://image.abcmart.co.kr/nexti/images/abcmart_new/confirm_01.gif" alt=""></li>
+	       <li><img src="http://image.abcmart.co.kr/nexti/images/abcmart_new/confirm_02.gif" alt=""></a></li>
+	       </ul>
+	   </div>
+	</td>
+</tr>
+</table>
+</div>
 </body>
 </html>
