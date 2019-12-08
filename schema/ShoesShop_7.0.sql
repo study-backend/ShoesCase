@@ -404,7 +404,6 @@ insert into ROLLING_BANNER values(4, 1, '크리스벤', 'https://raw.githubuserc
 
 commit
 
-
 select *  from GOODS G1 INNER JOIN CATEGORY G2 ON G1.CATEGORY_ID = G2.CATEGORY_ID where G2.NAME='sneakers'
 
 select * from review
