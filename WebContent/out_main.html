@@ -325,7 +325,82 @@ $(document).ready(function(){
 </td>
 </tr>
 </table>
-		
+	<script type="text/javascript">
+	$(function(){
+			$.ajax({
+			type : "get" ,
+			url : "/ShoesCase/api/v1", 
+			dataType : "json", 
+			data : { data: "",
+					 resource: "Goods",
+					 route: "goodsMain" 
+			},
+			
+			//contentType: 'application/json; charset=utf-8',
+			success : function(result) { 
+				console.log("나오나"+result);
+				var str="";
+				var cat="";
+				var ban="";
+				 $.each(result, function(index, item){
+					 console.log(item);
+					 if(index === "goodsList"){
+						 for (var v of item) { 
+							 str+="<ul>";
+							 console.log(v.price);
+					        	 str+="<li class='mL'>";
+					        	 str+="<a href='#'>";
+					        	 str+="<div>";
+					        	 str+="<img src='/ShoesCase/image/sneakers/andy.png'>";
+					        	 str+="</div>";
+					        	 str+="</a>";
+					        	 str+="<a href='#' id='mL_a'>"+v.name+"</a>";
+					        	 str+="<span>"+v.price+"원</span>";
+					        	 str+="</li>";
+
+				        	 str+="</ul>";
+				        	 
+							 }
+						 
+						 $("#list_md").html(str);
+					 };
+					 
+					 if (index === "categoryList"){
+						 cat +="<ul class='main'>";
+						 cat +="<li class='mL'><a href='#''>카테고리</a>";
+						 cat +="<ul class='sub'>"
+						 for (var v of item) {
+							cat +="<li><a href="+v.name+".jsp>"+v.name+"</a></li>"
+						 }
+						 	cat +="</ul>"
+
+						 for (var v of item) { 
+						 	cat+="<li class='mL'><a href="+v.name+".jsp>"+v.name+"</a></li>";
+						 }
+						 cat +="</li>"
+						 cat+="</ul>";
+						 
+						 $("#nav").html(cat);
+						 
+					 };
+					 if (index === "bannerList"){
+						 for (var v of item) {
+							ban +="<img src="+v.img_path+">";
+						 }
+						 console.log(ban);
+						 $("#section").html(ban);
+					 };			 
+			});
+				 
+			},
+			error : function(error) {
+				console.log(error);
+				//alert("아이디 또는 비밀번호를 확인해주세요.");
+			}
+		});//ajax끝	
+	}); 
+	</script>
+
 </body>
 
 </html>
