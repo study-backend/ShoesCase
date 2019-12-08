@@ -108,23 +108,25 @@ public class PurchaseDAOImpl implements PurchaseDAO {
 	}
 
 	@Override
-	public int insertAllBasket(PurchaseBasketDTO basket) throws SQLException{
+	public int insertBasket(PurchaseBasketDTO basket) throws Exception{
 		Connection con = null;
 		PreparedStatement ps = null;
 		int result = 0;
 		String sql = "insert into PURCHASE_BASKET(PURCHASE_BASKET_ID, ACCOUNT_ID, TOTAL_PRICE, ORDER_DATE, "
-				+ "IMG_PATH, STATE_CODE, BILL_KEY, DELEVERY_ADDR, CREATE_DATE, UPDATE_DATE) values(?,?,?,?,?,?,?,?,sysdate,sysdate)";
+				+ "IMG_PATH, STATE_CODE, BILL_KEY, DELEVERY_ADDR, CREATE_DATE, UPDATE_DATE) values(seq_id.nextval,?,?,?,?,?,?,?,?,?)";
 		try {
 			con = DbUtil.getConnection();
 			ps= con.prepareStatement(sql);
-			ps.setLong(1, basket.getBasketId());
-			ps.setLong(2, basket.getAccountId());
-			ps.setInt(3, basket.getTotalPrice());
-			ps.setString(4, basket.getOrderDate());
-			ps.setString(5, basket.getImgPath());
-			ps.setInt(6, basket.getStateCode());
-			ps.setString(7, basket.getBillKey());
-			ps.setString(8, basket.getDeliveryAddr());
+			ps.setLong(1, basket.getAccountId());
+			ps.setInt(2, basket.getTotalPrice());
+			ps.setDate(3, basket.getOrderDate());
+			ps.setString(4, basket.getImgPath());
+			ps.setInt(5, basket.getStateCode());
+			ps.setString(6, basket.getBillKey());
+			ps.setString(7, basket.getDeliveryAddr());
+			ps.setDate(8, basket.getCreateDate());		
+			ps.setDate(9, basket.getUpdateDate());
+			result = ps.executeUpdate();
 		}
 		finally {
 			DbUtil.dbClose(ps, con);
@@ -134,14 +136,27 @@ public class PurchaseDAOImpl implements PurchaseDAO {
 
 	
 	@Override
-	public int insertPurchaseInfo(PurchaseGoodsDTO purchaseGoods) throws SQLException {
+	public int insertPurchaseGoods(PurchaseGoodsDTO purchaseGoods) throws SQLException {
 		Connection con = null;
 		PreparedStatement ps = null;
 		int result = 0;
-		String sql = "";
+		String sql = "insert into PURCHASE_GOODS(PURCHASE_GOODS_ID, STATE_CODE, NAME, COUNT, "
+				+ "PRICE, IMG_PATH, BILL_KEY, PURCHASE_BASKET_ID, GOODS_ID, ACCOUNT_ID, CREATE_DATE, UPDATE_DATE) values(seq_id.nextval,?,?,?,?,?,?,?,?,?,?,?)";
 		try {
 			con = DbUtil.getConnection();
-			
+			ps= con.prepareStatement(sql);
+			ps.setInt(1, purchaseGoods.getStateCode());
+			ps.setString(2, purchaseGoods.getName());
+			ps.setInt(3, purchaseGoods.getCount());
+			ps.setDouble(4, purchaseGoods.getPrice());
+			ps.setString(5, purchaseGoods.getImagPath());
+			ps.setString(6, purchaseGoods.getBillKey());
+			ps.setLong(7, purchaseGoods.getPurchaseBasketId());
+			ps.setLong(8, purchaseGoods.getGoodsId());		
+			ps.setLong(9, purchaseGoods.getAccountId());
+			ps.setDate(10, purchaseGoods.getCreateDate());		
+			ps.setDate(11, purchaseGoods.getUpdateDate());
+			result = ps.executeUpdate();
 		}
 		finally {
 			DbUtil.dbClose(ps, con);
@@ -178,6 +193,55 @@ public class PurchaseDAOImpl implements PurchaseDAO {
 			DbUtil.dbClose(rs, ps, con);
 		}
 		return list;
+	}
+
+	@Override
+	public int insertPayment(PurchaseBasketPaymentDTO payment) throws Exception {
+		Connection con = null;
+		PreparedStatement ps = null;
+		int result = 0;
+		String sql = "insert into PURCHASE_BASKET_PAYMENT(PURCHASE_BASKET_ID, PAYMENT_TYPE, PRICE, RECIEVER_NAME, "
+				+ "RECIEVER_PHONE, DILIVERY_COMMENT, CREATE_DATE, UPDATE_DATE) values(?,?,?,?,?,?,?,?)";
+		try {
+			con = DbUtil.getConnection();
+			ps= con.prepareStatement(sql);
+			ps.setLong(1, payment.getPurchaseBasketId());
+			ps.setInt(2, payment.getPaymentType());
+			ps.setInt(3, payment.getPrice());
+			ps.setString(4, payment.getRecieverName());
+			ps.setString(5, payment.getRecieverPhone());
+			ps.setString(6, payment.getDeliveryComment());
+			ps.setDate(8, payment.getCreateDate());		
+			ps.setDate(9, payment.getUpdateDate());
+		}
+		finally {
+			DbUtil.dbClose(ps, con);
+		}
+		return result;
+	}
+
+	@Override
+	public long selectBasketId(String billKey) throws Exception {
+		Connection con = null;
+		PreparedStatement ps = null;
+		ResultSet rs = null;
+		long id = 0;
+		
+		String sql = "select PURCHASE_BASKET_ID PURCHASE_BASKET where BILL_KEY = ?"; //billkey로 찾는건지 모르겠음
+		try {
+			con = DbUtil.getConnection();
+			ps= con.prepareStatement(sql);
+			ps.setString(1, billKey);
+			rs = ps.executeQuery();
+			
+			if(rs.next()) {
+				id = rs.getLong("PURCHASE_BASKET_ID");
+			}
+		}
+		finally {
+			DbUtil.dbClose(rs, ps, con);
+		}
+		return id;
 	}
 	
 }

@@ -1,19 +1,21 @@
 package shop.shoes.model;
 
+import java.sql.Date;
+
 public class PurchaseBasketPaymentDTO {
-	private int purchaseBasketId;
+	private long purchaseBasketId;
 	private int paymentType;
 	private int price;
 	private String recieverName;
 	private String recieverPhone;
 	private String deliveryComment;
-	private String createDate;
-	private String updateDate;
+	private Date createDate;
+	private Date updateDate;
 	
 	public PurchaseBasketPaymentDTO() {}
 
-	public PurchaseBasketPaymentDTO(int purchaseBasketId, int paymentType, int price, String recieverName,
-			String recieverPhone, String deliveryComment, String createDate, String updateDate) {
+	public PurchaseBasketPaymentDTO(long purchaseBasketId, int paymentType, int price, String recieverName,
+			String recieverPhone, String deliveryComment, Date createDate, Date updateDate) {
 		super();
 		this.purchaseBasketId = purchaseBasketId;
 		this.paymentType = paymentType;
@@ -25,11 +27,11 @@ public class PurchaseBasketPaymentDTO {
 		this.updateDate = updateDate;
 	}
 
-	public int getPurchaseBasketId() {
+	public long getPurchaseBasketId() {
 		return purchaseBasketId;
 	}
 
-	public void setPurchaseBasketId(int purchaseBasketId) {
+	public void setPurchaseBasketId(long purchaseBasketId) {
 		this.purchaseBasketId = purchaseBasketId;
 	}
 
@@ -73,19 +75,19 @@ public class PurchaseBasketPaymentDTO {
 		this.deliveryComment = deliveryComment;
 	}
 
-	public String getCreateDate() {
+	public Date getCreateDate() {
 		return createDate;
 	}
 
-	public void setCreateDate(String createDate) {
+	public void setCreateDate(Date createDate) {
 		this.createDate = createDate;
 	}
 
-	public String getUpdateDate() {
+	public Date getUpdateDate() {
 		return updateDate;
 	}
 
-	public void setUpdateDate(String updateDate) {
+	public void setUpdateDate(Date updateDate) {
 		this.updateDate = updateDate;
 	}
 	

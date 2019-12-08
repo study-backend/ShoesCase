@@ -23,23 +23,32 @@ public interface PurchaseDAO {
 	 * */
 
 
-	List<PurchaseGoodsDTO> selectProduct(String billKey) throws SQLException; //선택한 상품 정보 조회(select)
+	List<PurchaseGoodsDTO> selectProduct(String billKey) throws Exception; //선택한 상품 정보 조회(select)
 
 	
-	AccountDTO selectOrderer(String loginId) throws SQLException;
+	AccountDTO selectOrderer(String loginId) throws Exception;
 	
-	int recieverInfo(PurchaseBasketPaymentDTO pbp) throws SQLException;
+	int recieverInfo(PurchaseBasketPaymentDTO pbp) throws Exception;
 	
 	int paymentWay(int paymentType) throws SQLException; 
 	
-	int insertPurchaseInfo(PurchaseGoodsDTO purchaseGoods) throws SQLException;
+	int insertPurchaseGoods(PurchaseGoodsDTO purchaseGoods) throws Exception;
 	
 	
 	/**
 	 * 장바구니 정보 넣어주기(insert)
 	 * */
-	int insertAllBasket(PurchaseBasketDTO basket) throws SQLException;
+	int insertBasket(PurchaseBasketDTO basket) throws Exception;
 	
+	/**
+	 * 결제한 정보 넣어주기( DAO 분리가 필요... )
+	 * */
+	int insertPayment(PurchaseBasketPaymentDTO payment) throws Exception;
+	
+	/**
+	 * 빌키로 바스켓 정보 조회하기
+	 * */
+	long selectBasketId(String billKey) throws Exception;
 
 	
 	/**
@@ -47,17 +56,18 @@ public interface PurchaseDAO {
 	 * 마이컬리에서 주문내역 조회
 	 * */
 
-//	List<GoodsDTO> selectAllBasket(String billKey) throws SQLException;
+//	List<GoodsDTO> selectAllBasket(String billKey) throws Exception;
 	
 	
 //	/**
 //	 * 환불 나중에!!!
 //	 * */
-//	int deletePurchase(PurchaseGoods purchaseGoods) throws SQLException
+//	int deletePurchase(PurchaseGoods purchaseGoods) throws Exception
 	
 	/**
 	 * 마이컬리에서 주문내역 조회
 	 * */
-	List<PurchaseGoodsDTO> selectOrderHistory(String loginId) throws SQLException;
+	List<PurchaseGoodsDTO> selectOrderHistory(String loginId) throws Exception;
+
 	
 }
