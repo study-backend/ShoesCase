@@ -70,7 +70,7 @@ insert into review values(118,2,108,'1234','ff신발~!','진짜이ddg크기도 �
 insert into review values(119,2,109,'1234','zz신발~!','진짜dgdg 크기도 잘맞고 ㅇㅇ굿',1,sysdate,sysdate);
 insert into review values(120,2,110,'1234','dd신발~!','진zz 잘맞고 ㅇㅇ굿',5,sysdate,sysdate);
 insert into review values(121,2,111,'1234','21이44발~!','진짜123124도 잘맞고 ㅇㅇ굿',5,sysdate,sysdate);
-commit;
+commit
 DROP TABLE GOODS;
 CREATE TABLE GOODS(
     GOODS_ID NUMBER(19) CONSTRAINT id_goods_pk PRIMARY KEY,
