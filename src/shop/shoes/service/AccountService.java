@@ -42,5 +42,9 @@ public interface AccountService {
 	
 	// 패스워드 확인 하는 부분에서 사용
 	public String checkPassword(String loginId, String loginPwd) throws Exception;
-
+	
+	/**
+	 * 아이디중복체크
+	 */
+	public boolean idDuplicate(String id) throws Exception;
 }

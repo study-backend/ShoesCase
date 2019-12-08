@@ -172,6 +172,23 @@ $().ready(function() {
 		  } */
 			  
 		  });
+	$("#idcheck").click(function(){  
+		  $.ajax({
+			  type:"post",
+			  url:"idCheck",
+		      dataType: "text",
+		      data : {id: $("#signForm > div.boardWrite > table > tbody > tr:nth-child(1) > td.memberCols2 > div > input").val() } ,//서버에게 전송할 parameter
+		      success: function(result){
+		    	  alert(1);
+		    	  alert(result);
+		    	  
+		    	  
+		      } ,
+		      error : function(err){
+		    	  console.log(err+"=> 오류발생");
+		      }
+		  });//ajax끝
+	  });//click끝
 	});
 
 </script>
@@ -247,7 +264,7 @@ function jusoCallBack(roadFullAddr,roadAddrPart1,addrDetail,roadAddrPart2,engAdd
                 <td class="memberCols2">
                     <div style="height: 40px">
                         <input type="text" class="col2_input" name="id" option="regId" placeholder="6자 이상의 영문 혹은 영문과 숫자를 조합">
-                        <span><input type="button" value="중복확인" style="width: 90px;"></span>
+                        <span><input type="button" value="중복확인" id="idcheck" style="width: 90px;"></span>
                     </div>
                 </td>
             </tr>

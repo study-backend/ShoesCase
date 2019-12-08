@@ -127,6 +127,13 @@ public class AccountServiceImpl implements AccountService {
 			
 		}
 	}
+
+	@Override
+	public boolean idDuplicate(String id) throws Exception {
+		boolean result = accountDAO.idDuplicate(id);
+		
+		return result;
+	}
 	
 	
 

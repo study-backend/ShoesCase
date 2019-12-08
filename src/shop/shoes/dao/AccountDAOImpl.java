@@ -238,4 +238,30 @@ public class AccountDAOImpl implements AccountDAO {
 		
 		return result;
 	}
+
+	@Override
+	public boolean idDuplicate(String id) throws GlobalException, SQLException {
+		Connection con = null;
+		PreparedStatement ps = null;
+		ResultSet rs = null;
+		boolean result = false;
+		String sql = "SELECT LOGIN_ID FROM account WHERE login_id = ?";
+		try {
+			con = DbUtil.getConnection();
+			ps = con.prepareStatement(sql);
+			System.out.println(id);
+			ps.setString(1, id);
+		
+			rs = ps.executeQuery();
+			if(rs.next()) {
+
+				result=true;
+			}
+			
+		}finally {
+			DbUtil.dbClose(rs, ps, con);		
+		}
+		
+		return result;
+	}
 }

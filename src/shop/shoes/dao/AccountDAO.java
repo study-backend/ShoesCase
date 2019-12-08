@@ -46,4 +46,9 @@ public interface AccountDAO {
 	 * 비밀번호 찾기
 	 * */
 	String pwdFind(String name, String loginId, String email) throws Exception;
+
+	/**
+	 * 아이디 중복체크
+	 */
+	public boolean idDuplicate(String id) throws GlobalException, SQLException;
 }
