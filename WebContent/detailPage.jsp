@@ -4,7 +4,6 @@
 <!DOCTYPE html>
 <html>
 
-
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
@@ -120,7 +119,9 @@ $(document).on("click","[value='삭제']",function(){
     url: "../ShoesCase/front?resource=reviewDelete",
     dataType: "text",
     data : {reviewId : reviewId},
-    success : function(result){},
+    success : function(result){
+    	
+    },
     error : function(err){
        console.log(err + "=> 오류 발생");
     }

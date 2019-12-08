@@ -48,7 +48,6 @@ public class ReviewService {
 	             
 	          }*/ 
 	       //리뷰 비밀번호 아직 받질못함
-	          
 	          int result = reviewDAO.delete(reviewId);
 	          if(result ==0) throw new SQLException("삭제 실패");
 	          
