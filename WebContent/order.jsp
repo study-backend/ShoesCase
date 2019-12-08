@@ -175,9 +175,9 @@ $(function(){
 				%>
 				<c:forEach var="cart" items="<%=cookie%>"> 
 				<tr>
-					<td class="imagearea" id="imagebox"><img  name="imagebox" src="${cart.name }"></td>
-					<td class="infoarea" id="infobox"><div><input type="text" ${cart.name} ${cart.name}/></div></td>  <!-- 위아래로 잘 나오면 이렇게 하고 아니면 td 하나더 생성해서 th는 colspan 쳐야해  -->
-					<td class="pricearea" id="pricebox"><div><input type="text" name="pricebox" ${cart.name}/></div></td>
+					<td class="imagearea" id="imagebox"><img  name="imagebox"></td>
+					<td class="infoarea" id="infobox"><div><input type="text" name="infobox"/></div></td>  <!-- 위아래로 잘 나오면 이렇게 하고 아니면 td 하나더 생성해서 th는 colspan 쳐야해  -->
+					<td class="pricearea" id="pricebox"><div><input type="text" name="pricebox" /></div></td>
 				</tr>
 				</c:forEach>
 				
@@ -196,11 +196,9 @@ $(function(){
 				</tr>
 				<tr>
 					<th class="telarea">휴대폰*</th>
-					<td><input type="text" max-length="3" readonly="readonly" class="read_only tel_read_only" name="orderertel_f">
-						<span> - </span>
-						<input type="text" max-length="4" readonly="readonly" class="read_only tel_read_only" name="orderertel_s"> 
-						<span> - </span>
-						<input type="text" max-length="4" readonly="readonly" class="read_only tel_read_only" name="orderertel_t"></td>
+					<td>
+						<input type="text" max-length="10" readonly="readonly" class="read_only tel_read_only" name="orderertel">
+					</td>
 				</tr>
 				<tr>
 					<th>이메일*</th>
@@ -220,11 +218,9 @@ $(function(){
 				</tr>
 				<tr>
 					<th class="telarea">휴대폰*</th>
-					<td><input type="text" maxlength="3" class="deli_phone" required="required" name="recipienttel_f">
-						<span> - </span>
-						<input type="text" maxlength="4" class="deli_phone" required="required" name="recipienttel_s"> 
-						<span> - </span>
-						<input type="text" maxlength="4" class="deli_phone" required="required" name="recipienttel_t"></td>
+					<td>
+						<input type="text" maxlength="10" class="deli_phone" required="required" name="recipienttel">
+					</td>
 				</tr>
 				<tr>
 					<th>주소*</th>
