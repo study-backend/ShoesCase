@@ -90,11 +90,13 @@ public class GoodsServiceImpl implements GoodsService {
 	}
 
 	@Override
-	public GoodsDetailDTO goodsDetail(GoodsDTO goods) throws Exception {
+	public GoodsDTO goodsDetail(long goodsId) throws Exception {
 
-		// TODO Auto-generated method stub
-		return null;
+		GoodsDTO goods = goodsDAO.selectById(goodsId);
+		return goods;
 	}
+	
+	@Override
 	public GoodsDetailDTO goodsDetail(String goodsName) throws Exception {
 		//[1] 상세상품의 정보를 가져온다 
 		GoodsDTO goods = goodsDAO.selectOneProduct(goodsName);

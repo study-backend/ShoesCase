@@ -20,6 +20,8 @@ public interface GoodsDAO {
 	 * */
 	GoodsDTO selectOneProduct(String goodsName) throws SQLException;
 	
+	GoodsDTO selectById(long goodsId) throws SQLException;
+	
 	List<GoodsDTO> selectByCatagoryId(long categoryId) throws SQLException;
 	
 	List<GoodsDTO> selectByVersionId(long versionId) throws SQLException;

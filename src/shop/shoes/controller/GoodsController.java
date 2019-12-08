@@ -5,6 +5,7 @@ package shop.shoes.controller;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import shop.core.Logback;
 import shop.shoes.model.*;
 import shop.shoes.model.dto.GoodsMainDTO;
 import shop.shoes.service.GoodsService;
@@ -28,8 +29,9 @@ public class GoodsController implements Controller{
 		// json 변환이 필요함
 		String route = request.getParameter("route");
 		String data = request.getParameter("data");
-		System.out.println(route);
-		System.out.println(user);
+		Logback.debug(route);
+		//Logback.debug(user);
+		Logback.debug(data);
 		
 		ModelAndView mv = new ModelAndView();
 		
@@ -56,7 +58,12 @@ public class GoodsController implements Controller{
 					}
 					case "goodsDetail": {
 
-						//goodsService.goodsDetail(1);
+						GoodsDTO goods = goodsService.goodsDetail(Long.parseLong(data));
+						
+						String json = JsonUtil.toJson(goods);
+						System.out.println(json);
+						mv.setResultData(true);
+						mv.setResult(json);
 						break;
 					}
 				}
