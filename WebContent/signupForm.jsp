@@ -142,7 +142,7 @@ $().ready(function() {
 	$("#btn").click(function() {
 		  var state=true;// true이면 등록하고 아니면 등록안한다.
 		  //값 입력 유무 체크
-		  $("input[type=text]").each(function(index, item){ //모든 input type text를 받는거라 엄청 애매함!!!!
+/* 		  $("#signForm > div.boardWrite > table > tbody > input").each(function(index, item){ 
 			  //alert(index +  " "+item)
 			  if($(this).val()==""){
 				  alert("값을 입력하세요.");
@@ -150,15 +150,24 @@ $().ready(function() {
 				  //state=false;
 				  return false; //false를 리턴하면 each의 함수를 빠져나가라.
 			  }
-		  });//each끝
+		  });//each끝 */
 		  
+	/* 	  $("input[type=text]").each(function(index, item){
+			  //alert(index +  " "+item)
+			  if($(this).val()==""){
+				  alert("모든 빈칸은 필수입력요소 입니다.");
+				  $(this).focus();
+				  state=false;
+				  return false; //false를 리턴하면 each의 함수를 빠져나가라.
+			  }
+		  });//each끝
 		  //모두 값이 있다면 등록 or 수정 한다.
 		  if(state){	  
 			  $.ajax({
 				  type:"post",
 				  url:"front?resource=userRegist",
 			      dataType: "text",//서버에게 받은 응답결과 type(text, xml, html, json)
-			      data : $("#inForm").serialize() ,//폼전송
+			      data : $("#signForm").serialize() ,//폼전송
 			      success: function(result){
 			    	   if(result > 0){
 			    		  alert("등록되었습니다.");
@@ -175,7 +184,7 @@ $().ready(function() {
 		  }//state End
 		  
 	  })//click End
-		  
+	 */	  
 		  // 모두 값이 있다면 등록한다
 		 /*  if(state) {
 			  
@@ -277,7 +286,7 @@ function jusoCallBack(roadFullAddr,roadAddrPart1,addrDetail,roadAddrPart2,engAdd
     <img src="image/basket.png" id="basketimg">
     <div id="side_search">
         <form name="searchBox" method="get" action="#" id="searching">
-            <input type="text"
+            <input type="text" value="검색"
                    style="width:185px; height:36px; border-radius:18px; background-color:#F7F7F7; border: none;">
             <input type="image" src="image/search.png" style="float: right; width: 45px; border-radius: 18px"
                    onclick="goSearch()">
@@ -290,7 +299,7 @@ function jusoCallBack(roadFullAddr,roadAddrPart1,addrDetail,roadAddrPart2,engAdd
 	<div class="signUpTitle" style="margin-top: 100px; margin-bottom: 10px">
     <h2 style="text-align: center; margin: 0px; margin-right:10px;">회원가입</h2>
 
-	<form method="post" id="signForm" name="form">
+	<form method="post" id="signForm" name="form" action ="front?resource=userRegist">
     <div class="boardWrite" style="margin-top: 30px">
         <table class="inForm" style="width: 700px; height:800px; margin: auto;">
             <tbody>
