@@ -126,7 +126,7 @@
 	table, th, td {border: 1px solid #FFFFFF; width:"100%"; background-color:#FFFFFF; border-collapse:collapse;}
 	.col2_input{margin-left:20px;}
 /* footer */
-	.footer{background-color:#FFFFFF; }
+	.footer{background-color:#FFFFFF; margin-left:170px;}
     #footerTable{border: none; margin-left:400px;}
     #footerTable td{border: none; }
     .f{padding:8px; font-size: 12px;margin-left: 200px;}
@@ -256,12 +256,10 @@ function jusoCallBack(roadFullAddr,roadAddrPart1,addrDetail,roadAddrPart2,engAdd
 	<div id="header">
     <ul>
         <li><a href="signupForm.jsp">회원가입</a></li>
-        <li><a href="login.html">로그인</a></li>
+        <li><a href="loginReal.jsp">로그인</a></li>
     </ul>
     <div id="headerlogo">
-        <a href="mainTest_1.jsp">
-            <img id="logo" src="image/LOGO.png" url="dressShoes.html" alt="로고">
-        </a>
+       <a href="out_main.html"><img src="image/LOGO.png" id="logo"></a>
     </div>
 </div>
 <div id="nav">
@@ -283,10 +281,10 @@ function jusoCallBack(roadFullAddr,roadAddrPart1,addrDetail,roadAddrPart2,engAdd
         <li class="mL"><a href="front?resource=product&categoryName=sandal"><span style="margin-left: 16px; margin-right: 25px;">샌들</span></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|</li>
         <li class="mL"><a href="front?resource=product&categoryName=boots"><span style="margin-left:11px">부츠</span></a>&nbsp;&nbsp;&nbsp;&nbsp;</li>
     </ul>
-    <img src="image/basket.png" id="basketimg">
+     <a href="shoppingBasket.jsp"><img src="image/basket.png" id="basketimg"></a>
     <div id="side_search">
         <form name="searchBox" method="get" action="#" id="searching">
-            <input type="text" value="검색"
+            <input type="text"
                    style="width:185px; height:36px; border-radius:18px; background-color:#F7F7F7; border: none;">
             <input type="image" src="image/search.png" style="float: right; width: 45px; border-radius: 18px"
                    onclick="goSearch()">

@@ -9,30 +9,61 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<style type="text/css">
-	/*공통*/
-	a{color:#000; text-decoration:none;}
-	a:hover{color:#000; font-weight:bold; font-family: 'Noto Sans KR', sans-serif;}
-	ul li{list-style: none; margin:0; padding:0;}
-	body{height:2200px;}
+<link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR:400,500|Pacifico&display=swap&subset=korean"
+          rel="stylesheet">
+<script type="text/javascript" src="js/jquery-3.4.1.min.js"></script>
+<script type="text/javascript" src="js/script.js"></script>
+<script> 
+	window.onload = function () {
+		var inFo = sessionStorage.getItem("user");
+		var inFoObj = JSON.parse(inFo);
 
+		if(inFoObj==null){
+			document.getElementById("loginState").innerHTML="<li><a href=\"/ShoesCase/signupForm.jsp\">회원가입</a> ㅣ</li><li><a href=\"/ShoesCase/loginReal.jsp\"> 로그인</a></li>"
+		}else {
+			document.getElementById("loginState").innerHTML="<li>"+inFoObj.name+"님 ㅣ</li><li><a href=\"/ShoesCase/myInfoChangeReal.jsp\">  내 정보 ㅣ</a></li>"+
+			"<li><button type='submit' id='logoutb' style='background-color:white; border-style:none; font-size:16px;'>로그아웃</button></li>"
+		}
+
+	}
+		$(function () {
+            $("#logoutb").on("click",function () {
+          
+                sessionStorage.clear();
+                
+            });
+        });
+
+		function goSearch() {
+            document.searchBox.submit();
+        }
+</script>
+<style type="text/css">
+/*공통*/
+	a{color:#000; text-decoration:none;}
+	*{font-family: 'Noto Sans KR', sans-serif;}
+	a:hover{color:#000; font-weight:bold; font-family: 'Noto Sans KR', sans-serif;}
+	ul li{list-style: none; margin:0px; padding:0;}
+	body{height:2200px;}
+	span{margin:0px; padding:0px;}
+		
 	/* header */
 	#header{width:1200px; height:100px; margin:auto;}
 	#header #headerlogo{display: inline-block; margin:auto;}
 	#header ul {float:right;}
 	#header ul li {margin-left:10px; float:left;}
 	#header #headerlogo{margin:auto; margin-left: 500px; margin-top:25px;}
-	
+	#loginState{float:right; margin-left:10px;}
 	/* nav */	
 	#nav{width:1200px; height:50px; margin:auto; position: sticky; top: 0;}
-	#nav ul .mL{width:100px; height:50px; margin-left:30px; float:left; font-size:20px;}
+	#nav ul .mL{width:110px; height:50px; margin-left:20px; margin-right:10px; float:left; font-size:20px;}
 	#nav .main>li:hover .sub{display:block; }
 	#nav .main .sub {position:absolute;  height:50px; top:50px; left:40px; display:none;}
 	#nav .main .sub li {width:80px; margin-top:5px; }
 	
 	#side_search{position: absolute; right:220px; width:240px; height:40px; border-radius:18px; background-color:#F7F7F7;}
 	#searchimg{position:absolute; right:10px; top:5px; width:40px; height:30px;}
-	#basketimg{position:absolute; right:150px;  width:50px; height:50px;}
+	#basketimg{position:absolute; right:100px;  bottom: 5px; width:50px; height:50px;}
 	
 	/* nav_down */
 	#nav_down {width:1200px; height:100px; margin:auto;}
@@ -48,6 +79,7 @@
 	#sneakers #list_sneakers #sL_a {font-size:30px; display:block;}
 	
 	 /* footer */
+	 #footer{margin-left:550px;}
     #footerTable{border: none; }
     #footerTable td{border: none; }
     .f{padding:8px; font-size: 12px;margin-left: 200px;}
@@ -58,19 +90,19 @@
 </head>
 <body>
 	<div id="header">
-		<ul>
+		<div id="loginState">
+		<!-- <ul>
 			<li><a href="signupForm.jsp">회원가입</a></li>
-			<li><a href="login.html">로그인</a></li>
-		</ul>
+			<li><a href="loginReal.html">로그인</a></li>
+		</ul> -->
+		</div>
 		<div id="headerlogo">
-			<a>
-			<img id="logo" src="image/LOGO.png" url="dressShoes.html" alt="로고">
-			</a>
+			<a href="out_main.html"><img src="image/LOGO.png" id="logo"></a>
 		</div>
 	</div>
 	<div id="nav">
 		<ul class="main">
-			<li class="mL"><a href="#">카테고리</a>
+        <li class="mL"><a href="#"><span style="margin-left:-10px">카테고리</span></a>&nbsp;&nbsp;&nbsp;&nbsp;
 				<ul class="sub">
 					<li><a href="sneakers.html">운동화</a></li>
 					<li><a href="#">구두</a></li>
@@ -87,13 +119,15 @@
 			<li class="mL"><a href="front?resource=product&categoryName=sandal">샌들</a></li>
 			<li class="mL"><a href="front?resource=product&categoryName=boots">부츠</a></li>
 		</ul>
-		<img src="image/basket.png" id="basketimg">
-			<div id="side_search">
-				<form name="searchBox" method="get" action="#" id="searching">
-				<input type="text" style="width:179px; height:36px; border-radius:18px; background-color:#F7F7F7; border: none;">
-				<input type="image" src="image/search.png" style="float: right; width: 55px; border-radius: 18px" onclick="goSearch()">
-				</form>
-			</div>
+		<a href="shoppingBasket.jsp"><img src="image/basket.png" id="basketimg"></a>
+    	<div id="side_search">
+        <form name="searchBox" method="get" action="#" id="searching">
+            <input type="text"
+                   style="width:185px; height:36px; border-radius:18px; background-color:#F7F7F7; border: none;">
+            <input type="image" src="image/search.png" style="float: right; width: 45px; border-radius: 18px"
+                   onclick="goSearch()">
+        </form>
+    	</div>
 	</div>
 	
 	<div id="nav_down">
@@ -166,6 +200,7 @@
 	
 	<br><br><br>
 <hr class="footerHr" color="gray"  >
+<div id="footer"> 
 <table id= "footerTable">
 <tr>
 <td>
@@ -196,6 +231,6 @@
 </td>
 </tr>
 </table>
-
+</div>
 </body>
 </html>

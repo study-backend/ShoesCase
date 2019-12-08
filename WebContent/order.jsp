@@ -121,9 +121,7 @@ $(function(){
 			<li><a href="login.html">로그인</a></li>
 		</ul>
 		<div id="headerlogo">
-			<a>
-			<img id="logo" src="image/LOGO.png" url="dressShoes.html" alt="로고">
-			</a>
+			<a href="out_main.html"><img src="image/LOGO.png" id="logo"></a>
 		</div>
 	</div>
 	<div id="nav">

@@ -156,10 +156,7 @@ public class AccountController implements Controller{
 					case "checkPassword": {	
 						System.out.println("여기다");
 						LoginRequest req = JsonUtil.fromJson(data, LoginRequest.class);	
-						System.out.println("controller의 data :" + data);
 						
-						System.out.println("controller의 req.getLoginId() :" + req.getLoginId());
-						System.out.println("controller의 req.getLoginPwd() :" + req.getLoginPwd());
 						String pwd = accountService.checkPassword(req.getLoginId(), req.getLoginPwd());
 						
 					      mv.setResultData(true);

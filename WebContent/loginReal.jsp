@@ -20,7 +20,7 @@
             var inFoObj = JSON.parse(inFo);
 
             if (inFoObj == null) {
-                document.getElementById("loginState").innerHTML = "<li><a href=\"signupForm.jsp\">회원가입</a> ㅣ</li><li><a href=\"login.html\"> 로그인</a></li>"
+                document.getElementById("loginState").innerHTML = "<li><a href=\"signupForm.jsp\">회원가입</a> ㅣ</li><li><a href=\"loginReal.jsp\"> 로그인</a></li>"
             }  else {
                 document.getElementById("loginState").innerHTML = "<li>" + inFoObj.name + "님 ㅣ</li><li><a href=\"inMyInfoChange.jsp\"> 내 정보</a></li></li>"+
                 "<li><button type='button' id='logoutb' style='background-color:white; border-style:none; font-size:16px;'>로그아웃</button></li>"
@@ -243,6 +243,11 @@
         }
 
         /* footer */
+        
+        #footer{
+        	margin-left:600px;
+        }
+        
         #footerTable {
             border: none;
         }
@@ -287,9 +292,7 @@
         <li><a href="login.html">로그인</a></li>  --%>
     </ul>
     <div id="headerlogo">
-        <a href="mainTest_1.jsp">
-            <img id="logo" src="image/LOGO.png" url="dressShoes.html" alt="로고">
-        </a>
+        <a href="out_main.html"><img src="image/LOGO.png" id="logo"></a>
     </div>
 </div>
 <div id="nav">
@@ -318,7 +321,7 @@
         <li class="mL"><a href="product?categoryName=boots"><span style="margin-left:11px">부츠</span></a>&nbsp;&nbsp;&nbsp;&nbsp;
         </li>
     </ul>
-    <img src="image/basket.png" id="basketimg">
+     <a href="shoppingBasket.jsp"><img src="image/basket.png" id="basketimg"></a>
     <div id="side_search">
         <form name="searchBox" method="get" action="#" id="searching">
             <input type="text"
@@ -336,10 +339,10 @@
         <input type="password" name="loginPwd" class="log" placeholder="비밀번호를 입력해주세요."><br>
         <input type="checkbox"><span>보안접속</span>
         <div id="search">
-            <a href="id.html">아이디 찾기</a> | <a href="pw.html">비밀번호 찾기</a>
+            <a href="id.html">아이디 찾기</a> | <a href="pwd.html">비밀번호 찾기</a>
         </div>
         <button type="button" class="m_button" id="blogin"><span>로그인</span></button></p>
-        <a href="out_main.html">
+        <a href="signupForm.jsp">
             <button type="button" class="m_button" id="bsignup"><span>회원가입</span></button>
         </a>
     </form>

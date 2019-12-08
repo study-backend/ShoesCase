@@ -6,8 +6,37 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<script type="text/javascript" src="./js/jquery-3.4.1.min.js"></script>
+<link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR:400,500|Pacifico&display=swap&subset=korean"
+          rel="stylesheet">
+    <script type="text/javascript" src="js/jquery-3.4.1.min.js"></script>
+    <script type="text/javascript" src="js/script.js"></script>
 <script type="text/javascript">
+window.onload = function () {
+	var inFo = sessionStorage.getItem("user");
+	var inFoObj = JSON.parse(inFo);
+
+	if(inFoObj==null){
+		document.getElementById("loginState").innerHTML="<li><a href=\"/ShoesCase/signupForm.jsp\">회원가입</a> ㅣ</li><li><a href=\"/ShoesCase/loginReal.jsp\"> 로그인</a></li>"
+	}else {
+		document.getElementById("loginState").innerHTML="<li>"+inFoObj.name+"님 ㅣ</li><li><a href=\"/ShoesCase/myInfoChangeReal.jsp\">  내 정보 ㅣ</a></li>"+
+		"<li><button type='submit' id='logoutb' style='background-color:white; border-style:none; font-size:16px;'>로그아웃</button></li>"
+	}
+
+}
+
+$(function () {
+    $("#logoutb").on("click",function () {
+  
+        sessionStorage.clear();
+        
+    });
+});
+
+function goSearch() {
+    document.searchBox.submit();
+}
+
+
 $(document).ready(function(){
 	function selectAll(){
 		  $.ajax({
@@ -34,7 +63,7 @@ $(document).ready(function(){
 		      error : function(err){
 		    	  console.log(err+"=> error");
 		      }
-		  });//ajax��
+		  });//ajax끝
 	  }
 })
 	
@@ -42,8 +71,9 @@ $(document).ready(function(){
 </script>
 <style type="text/css">
 	/*공통*/
+	*{font-family: 'Noto Sans KR', sans-serif;}
 	a{color:#000; text-decoration:none;}
-	a:hover{color:#000; font-weight:bold; font-family: 'Noto Sans KR', sans-serif;}
+	a:hover{color:#000; font-weight:bold;}
 	ul li{list-style: none; margin:0; padding:0;}
 	body{height:100%;}
 
@@ -63,12 +93,12 @@ $(document).ready(function(){
 	
 	#side_search{position: absolute; right:220px; width:240px; height:40px; border-radius:18px; background-color:#F7F7F7;}
 	#searchimg{position:absolute; right:10px; top:5px; width:40px; height:30px;}
-	#basketimg{position:absolute; right:150px;  width:50px; height:50px;}
+	#basketimg{position:absolute; right:100px; bottom:5px; width:50px; height:50px;}
 
 	/* product */
 	#product {width:1100px; margin:auto; text-align:center;}
 	#product table{display:inline-block;}
-	#product table th {background-color:#CBA3E9; width:1000px; height:35px; font-size:20px; color:white;}
+	#product table th {background-color:#5F0080; width:1000px; height:35px; font-size:20px; color:white;}
 	#product table td {background-color:#F5F5F5;}
 	
 	#product table td:nth-child(1){width:10%;}
@@ -78,56 +108,57 @@ $(document).ready(function(){
 	#product table td:nth-child(5){width:20%;}
 	#product table td:nth-child(6){width:10%;}
 	
-	button{width:200px; height:50px; color:white; background-color:#CBA3E9; border-radius:5px;}
+	button{width:200px; height:50px; color:white; background-color:#5F0080; border-radius:5px;}
 	
 	/* footer */
-    #footerTable{border: none; }
+   	#footerTable{border: none; }
     #footerTable td{border: none; }
     .f{padding:8px; font-size: 12px;margin-left: 200px;}
     .s{padding:8px; font-size: 12px;margin-left: 50px;}
     .footerHr{border: 0; height: 1px}
+     #tabled {width: 1200px; margin:auto;}
 	
 </style>
 </head>
 <body>
 	<div id="header">
-		<ul>
-			<li><a href="signupForm.jsp">회원가입</a></li>
-			<li><a href="login.html">로그인</a></li>
+		<ul id="loginState">
+		<!-- <li><a href="signupForm.jsp">회원가입</a></li>
+        <li><a href="login.html">로그인</a></li> -->
 		</ul>
 		<div id="headerlogo">
-			<a>
-			<img id="logo" src="image/LOGO.png" url="dressShoes.html" alt="로고">
-			</a>
+			<a href="out_main.html"><img src="image/LOGO.png" id="logo"></a>
 		</div>
 	</div>
 	<div id="nav">
-		<ul class="main">
-			<li class="mL"><a href="#"><span>카테고리</span></a>&nbsp;&nbsp;|
-				<ul class="sub">
-					<li><a href="sneakers.html">운동화</a></li>
-					<li><a href="#">구두</a></li>
-					<li><a href="#">샌들</a></li>
-					<li><a href="#">부츠</a></li>
-					<li><a href="#">나이키</a></li>
-					<li><a href="#">아디다스</a></li>
-					<li><a href="#">퓨마</a></li>
-					<li><a href="#">반스</a></li>
-				</ul>
-			</li>
-			<li class="mL"><a href="product?categoryName=sneakers"><span>운동화</span></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|</li>
-			<li class="mL"><a href="product?categoryName=gudu"><span>구두</span></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|</li>
-			<li class="mL"><a href="product?categoryName=sandal"><span>샌들</span></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|</li>
-			<li class="mL"><a href="product?categoryName=boots"><span>부츠</span></a>&nbsp;&nbsp;&nbsp;&nbsp;</li>
-		</ul>
-		<img src="image/basket.png" id="basketimg">
-			<div id="side_search">
-				<form name="searchBox" method="get" action="#" id="searching">
-				<input type="text" style="width:179px; height:36px; border-radius:18px; background-color:#F7F7F7; border: none;">
-				<input type="image" src="image/search.png" style="float: right; width: 55px; border-radius: 18px" onclick="goSearch()">
-				</form>
-			</div>
-	</div>
+    <ul class="main">
+        <li class="mL"><a href="#"><span style="margin-left:-10px">카테고리</span></a>&nbsp;&nbsp;&nbsp;&nbsp;
+            <ul class="sub">
+                <li><a href="sneakers.jsp">운동화</a></li>
+                <li><a href="#">구두</a></li>
+                <li><a href="#">샌들</a></li>
+                <li><a href="#">부츠</a></li>
+                <li><a href="#">나이키</a></li>
+                <li><a href="#">아디다스</a></li>
+                <li><a href="#">퓨마</a></li>
+                <li><a href="#">반스</a></li>
+            </ul>
+        </li>
+        <li class="mL"><a href="front?resource=product&categoryName=sneakers"><span>운동화</span></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+        <li class="mL"><a href="front?resource=product&categoryName=dressShoes"><span>구두</span></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+        <li class="mL"><a href="front?resource=product&categoryName=sandal"><span>샌들</span></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+        <li class="mL"><a href="front?resource=product&categoryName=boots"><span>부츠</span></a>&nbsp;&nbsp;&nbsp;&nbsp;</li>
+    </ul>
+    <a href="shoppingBasket.jsp"><img src="image/basket.png" id="basketimg"></a>
+    <div id="side_search">
+    <form name="searchBox" method="get" action="#" id="searching">
+    	<input type="text"
+              style="width:185px; height:36px; border-radius:18px; background-color:#F7F7F7; border: none;">
+        <input type="image" src="image/search.png" style="float: right; width: 45px; border-radius: 18px"
+              onclick="goSearch()">
+    </form>
+  	</div>
+</div>
 		
 	<%
 	ArrayList list = (ArrayList)session.getAttribute("productlist");
@@ -158,7 +189,7 @@ $(document).ready(function(){
 			총 결제액: <input type="text">	
 		</div>
 		
-		<button type="button">주문하기</button>
+		<button type="submit" url="order.jsp">주문하기</button>
 		
 		
 		<br><br><br>
