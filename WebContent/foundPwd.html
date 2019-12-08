@@ -6,6 +6,13 @@
 <title>Insert title here</title>
 	<script type="text/javascript" src="js/jquery-3.4.1.min.js"></script>
 	<script type="text/javascript" src="js/script.js"></script>
+	<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/emailjs-com@2.3.2/dist/email.min.js"></script>
+<script type="text/javascript">
+   (function(){
+      emailjs.init("user_e0Y4c1wHj63WtwJ1gXx2Z");
+   })();
+</script>
+	
 	<script>
 		$(document).ready(function() {
 			var address = unescape(location.href);
@@ -13,12 +20,24 @@
 			var param = "";
 			if(address.indexOf("msg", 0) != -1) {
 				param = address.substring(address.indexOf("msg", 0) + 4);
-
-				$("#idtext").val(param);
-			} else {
-				param = "1"; //????????
+				//alert(param);
+				//$("#idtext").val(param);
 			}
-			alert(param);
+			var strings = param.split('&');
+			var addr = strings[0];
+			var pwd = strings[1];
+			var host = "ShoesCase";
+			var template_params = {
+					   "give_men": addr,
+					   "reply_to": "reply_to_value",
+					   "host": host,
+					   "content": "귀하의 비밀번호는 "+pwd+"입니다."
+					}
+
+					var service_id = "default_service";
+					var template_id = "template_V4mBramB";
+					emailjs.send(service_id, template_id, template_params);
+		
 		});
 
 	</script>
@@ -123,9 +142,11 @@
 		<div id="foundimg">
 		<img id="idsearch" src="image/pwdsearch.png">
 		</div>
-		<div id="textbox" >
+		
+<!-- 		<div id="textbox" >
 		<input type="text" id="idtext" value="비밀번호나오는곳">	
-		</div>
+		</div> -->
+		
 		<button type="button" id="found" onclick="location.href='loginReal.jsp'"><span>확인</span></button>
 		</div>
 	</div>
