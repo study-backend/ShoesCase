@@ -20,7 +20,7 @@
 		}
 
 	}
-			$(function () {
+		$(function () {
             $("#logoutb").on("click",function () {
           
                 sessionStorage.clear();
@@ -191,6 +191,14 @@ $(document).ready(function(){
 			<h2>이 상품 어때요?</h2>
 		</div>
 		<div id="list_goods">
+			
+		</div>
+	</div>
+	<div id="md">
+		<div id="tit_md">
+			<h2>MD의 추천</h2>
+		</div>
+		<div id="list_md">
 			<ul>
 				<li class="gL">
 					<a href="#">
@@ -229,14 +237,6 @@ $(document).ready(function(){
 					<span>20,000원</span>	
 				</li>
 			</ul>
-		</div>
-	</div>
-	<div id="md">
-		<div id="tit_md">
-			<h2>MD의 추천</h2>
-		</div>
-		<div id="list_md">
-			
 		</div>
 	</div>
 	
@@ -310,7 +310,7 @@ $(document).ready(function(){
 				        	 
 							 }
 						 
-						 $("#list_md").html(str);
+						 $("#list_goods").html(str);
 					 };
 					 
 					 if (index === "categoryList"){
