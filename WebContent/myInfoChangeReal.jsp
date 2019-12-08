@@ -73,7 +73,7 @@
                         console.log(result.message);
 
                         if (result.statusCode === "Success") {
-                            location.href = '/ShoesCase/inMyInfoChangeReal.jsp?msg=' + result.message;
+                            //location.href = '/ShoesCase/inMyInfoChangeReal.jsp?msg=' + result.message;
                         } else {
                             alert("입력이 잘못되었습니다");
                             console.log(data);
@@ -94,7 +94,7 @@
             let user = sessionStorage.getItem("user");
             if(user === null || user === undefined) {
 
-                location.href='/ShoesCase/inMyInfoChangeReal.jsp';
+                //location.href='/ShoesCase/inMyInfoChangeReal.jsp';
             } else {
 
                 // id나 특정 정보를 검증해야하는데..... ㅠㅠ 일단 패스
@@ -112,7 +112,7 @@
     </script>
 
     <style>
-        li {list-style: none; padding: 16px;}
+        li {list-style: none;}
         *{color:#000; text-decoration:none; font-family: 'Noto Sans KR', sans-serif;}
         a:link {text-decoration: none; color: #333333;}
         a:visited {text-decoration: none; color: #333333;}
@@ -236,7 +236,7 @@
     </div>
     <div id="nav">
         <ul class="main">
-            <li class="mL" style="margin-left: 48px;"><a href="#"><span style="margin-right: 30px">카테고리</span></a>&nbsp;&nbsp;&nbsp;&nbsp;|
+            <li class="mL"><a href="#"><span style="margin-right: 30px">카테고리</span></a>&nbsp;&nbsp;&nbsp;&nbsp;|
                 <ul class="sub">
                     <li  class="sub_li"><a href="sneakers.html">운동화</a></li>
                     <li  class="sub_li"><a href="#">구두</a></li>
@@ -310,46 +310,6 @@
 
         </div>
     </div>
-
-    <script>
-    $(function(){
-     	$("#check").click(function() {
-
-    		let str = $("#myInfoForm").serializeObject();
-    		console.log(str);
-
-    		
-    		$.ajax({
-    			type : "post",
-    			url : "/ShoesCase/api/v1",
-    			dataType : "json",
-    			data : {
-    				data : JSON.stringify(str),
-    				resource : "Account",
-    				route : "checkPassword"
-    			},
-    			success : function(result) {
-    				console.log(data);
-    				console.log(result.message);
-
-    				if (result.statusCode === "Success") {
-    					location.href = '/ShoesCase/inMyInfoChangeReal.jsp?msg=' + result.message;
-    				} else {
-    					//alert("입력이 잘못되었습니다");
-    					console.log(data);
-    					console.log(result.message);
-    				}
-
-    			},
-    			error : function(error) {
-    				console.log(error);
-    				alert("오류 발생");
-    			}
-    		});//ajax끝
-
-    	}) 
-    });
-    </script>
 
     <div class="footer">
         <table id= "footerTable">

@@ -404,7 +404,7 @@ function jusoCallBack(roadFullAddr,roadAddrPart1,addrDetail,roadAddrPart2,engAdd
     </div>
     <div style="text-align: center;">
     
-    	<input type="submit" value="가입하기" id="btn">
+    	<input type="submit" value="가입하기" id="btn" url="/ShoesCase/loginReal.jsp">
     </div>
     </form>
 	</div>

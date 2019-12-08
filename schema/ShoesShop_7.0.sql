@@ -52,6 +52,8 @@ CREATE TABLE REVIEW(
     CREATE_DATE DATE NOT NULL,
     UPDATE_DATE DATE NOT NULL
 );
+select * from REVIEW;
+commit;
 insert into review values(10,1,100,'1234','나이키신발~!','진짜이뻐요 크기도 잘맞고 ㅇㅇ굿',4,sysdate,sysdate);
 insert into review values(11,1,101,'1234','이 신발','진짜이뻐요 크기도 잘맞고 ㅇㅇ굿',3,sysdate,sysdate);
 insert into review values(12,1,102,'1234','짱짱','진짜이뻐요 크기도 잘맞고 ㅇㅇ굿',3,sysdate,sysdate);
@@ -70,7 +72,7 @@ insert into review values(118,2,108,'1234','ff신발~!','진짜이ddg크기도 �
 insert into review values(119,2,109,'1234','zz신발~!','진짜dgdg 크기도 잘맞고 ㅇㅇ굿',1,sysdate,sysdate);
 insert into review values(120,2,110,'1234','dd신발~!','진zz 잘맞고 ㅇㅇ굿',5,sysdate,sysdate);
 insert into review values(121,2,111,'1234','21이44발~!','진짜123124도 잘맞고 ㅇㅇ굿',5,sysdate,sysdate);
-commit
+commit;
 DROP TABLE GOODS;
 CREATE TABLE GOODS(
     GOODS_ID NUMBER(19) CONSTRAINT id_goods_pk PRIMARY KEY,
@@ -89,6 +91,10 @@ CREATE TABLE GOODS(
     CREATE_DATE DATE NOT NULL,
     UPDATE_DATE DATE NOT NULL
 ); 
+select A1.LOGIN_ID,R1.REVIEW_ID,R1.GOODS_ID,R1.TITLE,R1.CONTENT,R1.SCORE,R1.CREATE_DATE,R1.UPDATE_DATE
+from REVIEW R1 inner join GOODS G1 on R1.GOODS_ID = G1.GOODS_ID inner join ACCOUNT A1 on A1.ACCOUNT_ID = R1.ACCOUNT_ID
+WHERE G1.NAME = 'NEARBY';
+
 select * from goods
 --운동화 삽입
 insert into goods values(1,50000,'Reebok classic',30,'https://github.com/study-backend/ShoesCase/blob/master/WebContent/image/sneakers/adoran01.jpg?raw=true','https://github.com/study-backend/ShoesCase/blob/master/WebContent/image/sneakers/adoran.jpg?raw=true',0,0,'시리얼넘버0001', 1,1,1,1,sysdate,sysdate);
@@ -275,7 +281,7 @@ DROP TABLE BILL_KEY;
 CREATE TABLE BILL_KEY(
     BILL_KEY VARCHAR2(100) CONSTRAINT id_billkey_pk PRIMARY KEY,
     ISSUE_DATE DATE  NOT NULL,
-    CANCEl_DATE DATE  NOT NULL,
+    CANCel_DATE DATE  NOT NULL,
     CREATE_DATE DATE  NOT NULL,
     UPDATE_DATE DATE  NOT NULL
 );
@@ -343,7 +349,6 @@ insert into cancel values(3, 1, 1, 50000, 1, '사이즈가 너무작아요', '�
 DROP TABLE PURCHASE_BASKET_PAYMENT;
 CREATE TABLE PURCHASE_BASKET_PAYMENT(
     PURCHASE_BASKET_ID NUMBER(19) CONSTRAINT id_pur_baseket_pay_pk PRIMARY KEY,
-    -- 일단 중복이니 보류 BILL_KEY VARCHAR2(100) CONSTRAINT id_PBBill_uk UNIQUE NOT NULL,
     PAYMENT_TYPE INT,
     PRICE INT,
     RECIEVER_NAME VARCHAR2(20),
@@ -399,11 +404,8 @@ insert into ROLLING_BANNER values(4, 1, '크리스벤', 'https://raw.githubuserc
 
 commit
 
-
 select *  from GOODS G1 INNER JOIN CATEGORY G2 ON G1.CATEGORY_ID = G2.CATEGORY_ID where G2.NAME='sneakers'
 
 select * from review
 
 select * from account where login_id = 'park';
-
-SELECT * FROM rolling_banner where

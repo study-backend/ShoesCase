@@ -51,8 +51,8 @@
 	#goods td{height: 200px;}	
 	.goods_tr{border-top-color:#5F0080;}
 	.title{padding-top:40px; padding-bottom:15px; padding-left:20px; text-align:left;}
-	.imagearea{width:130px;}
-	.infoarea{width:720px;}
+	.imagearea{width:150px;}
+	.infoarea{width:700px;}
 	.pricearea{width:150px;}
 	
 	.orderInfo th{width:190px; height:54px; padding:22px 0 0 20px; text-align:left; vertical-align:top;}
@@ -163,11 +163,12 @@ $(function(){
 		<div class="title"> 
 		<h3>상품 정보</h3>
 		</div>
+	
 		<div>
 			<table id="goods">
 				<tr id="goods_tr">
 					<th class="imagearea">상품사진</th>
-					<th class="infoarea">상품정보</th>
+					<th colspan="2"  class="infoarea">상품정보</th>
 					<th class="pricearea">상품금액</th>
 				</tr>
 				<%
@@ -176,7 +177,10 @@ $(function(){
 				<c:forEach var="cart" items="<%=cookie%>"> 
 				<tr>
 					<td class="imagearea" id="imagebox"><img  name="imagebox"></td>
-					<td class="infoarea" id="infobox"><div><input type="text" name="infobox"/></div></td>  <!-- 위아래로 잘 나오면 이렇게 하고 아니면 td 하나더 생성해서 th는 colspan 쳐야해  -->
+					<td class="idarea" id="idbox"><div><input type="text" name="goodsid"/></div></td>
+					<td class="infoarea" id="infobox"><div><input type="text" name="infobox"/></div></td> 
+					<!-- 여기에 상품이름, 수량, 색깔, 사이즈 -->
+					 <!-- 위아래로 잘 나오면 이렇게 하고 아니면 td 하나더 생성하고  rowspan 쳐야해  -->
 					<td class="pricearea" id="pricebox"><div><input type="text" name="pricebox" /></div></td>
 				</tr>
 				</c:forEach>
@@ -239,13 +243,21 @@ $(function(){
 		<table class="credit_table">
 			<tr>
 				<td class="credit">
-					<input type="radio" name="pay" value="카드"/><button type="button">카드</button>
+					<input type="radio" name="paymentType" value="카드"/><button type="button">카드</button>
 				</td>
 				<td class="credit">
-					<input type="radio" name="pay" value="계좌이체"/><button type="button">계좌이체</button>
+					<input type="radio" name="paymentType" value="계좌이체"/><button type="button">계좌이체</button>
 				</td>
 				<td class="credit">
-					<input type="radio" name="pay" value="핸드폰"/><button type="button">휴대폰</button>
+					<input type="radio" name="paymentType" value="핸드폰"/><button type="button">휴대폰</button>
+				</td>
+				<td class="credit">
+					
+				</td>
+			</tr>
+			<tr>
+				<td colspan="4" style="height: 200px; width:800px;">
+					<div><h2>총 결제금액 </h2><input style="height:100px; width:300px; font-size:50px;" type="text" name="totalprice" value="총금액받아서적기"></div>
 				</td>
 			</tr>
 		</table>
