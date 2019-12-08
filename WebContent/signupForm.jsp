@@ -140,7 +140,41 @@
 $().ready(function() {
 	
 	$("#btn").click(function() {
-		state = true;
+		  var state=true;// true이면 등록하고 아니면 등록안한다.
+		  //값 입력 유무 체크
+		  $("input[type=text]").each(function(index, item){ //모든 input type text를 받는거라 엄청 애매함!!!!
+			  //alert(index +  " "+item)
+			  if($(this).val()==""){
+				  alert("값을 입력하세요.");
+				  $(this).focus();
+				  //state=false;
+				  return false; //false를 리턴하면 each의 함수를 빠져나가라.
+			  }
+		  });//each끝
+		  
+		  //모두 값이 있다면 등록 or 수정 한다.
+		  if(state){	  
+			  $.ajax({
+				  type:"post",
+				  url:"front?resource=userRegist",
+			      dataType: "text",//서버에게 받은 응답결과 type(text, xml, html, json)
+			      data : $("#inForm").serialize() ,//폼전송
+			      success: function(result){
+			    	   if(result > 0){
+			    		  alert("등록되었습니다.");
+			    		  
+			    	   }else{
+			    		alert("오류가 발생하였습니다.^^");   
+			    	   }
+			      } ,
+			      error : function(err){
+			    	  console.log(err+"=> 오류발생");
+			      }
+			  });//ajax끝
+		    
+		  }//state End
+		  
+	  })//click End
 		  
 		  // 모두 값이 있다면 등록한다
 		 /*  if(state) {
@@ -169,9 +203,9 @@ $().ready(function() {
 					  console.log(err + "- 오류 발생")
 				  }      
 			  }); //ajax 끝
-		  } */
+		  } 
 			  
-		  });
+		  }); */
 	$("#idcheck").click(function(){  
 		  $.ajax({
 			  type:"post",
@@ -256,7 +290,7 @@ function jusoCallBack(roadFullAddr,roadAddrPart1,addrDetail,roadAddrPart2,engAdd
 	<div class="signUpTitle" style="margin-top: 100px; margin-bottom: 10px">
     <h2 style="text-align: center; margin: 0px; margin-right:10px;">회원가입</h2>
 
-	<form method="post" id="signForm" action="front?resource=userRegist" name="form">
+	<form method="post" id="signForm" name="form">
     <div class="boardWrite" style="margin-top: 30px">
         <table class="inForm" style="width: 700px; height:800px; margin: auto;">
             <tbody>
