@@ -44,6 +44,7 @@
 	#sneakers {width:1200px; height:700px; margin:20px auto; }
 	#sneakers ul li {width:300px; height:500px; border:1px solid blue; margin-left:5%; float:left;}
 	#sneakers #list_sneakers div{width:300px; height:350px; background-color:red;}
+	#sneakers #list_sneakers div img{width:100%; height:100%;}
 	#sneakers #list_sneakers #sL_a {font-size:30px; display:block;}
 	
 	 /* footer */

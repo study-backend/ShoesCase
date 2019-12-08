@@ -20,7 +20,7 @@
 		}
 
 	}
-			$(function () {
+		$(function () {
             $("#logoutb").on("click",function () {
           
                 sessionStorage.clear();
@@ -119,8 +119,9 @@ $(document).ready(function(){
 	/* goods */
 	#goods {width:1200px; height:700px; margin:auto;}
 	#goods h2 {width:1200px; height:80px; text-align:center; }
-	#goods ul li {width:230px; height:500px; margin-left:40px; float:left;   }
+	#goods ul li {width:230px; height:500px; margin-left:40px; float:left;}
 	#goods #list_goods div{width:230px; height:350px; display:flex; overflow:hidden; align-items:center; justify-content:center;}
+	#goods #list_goods div img{width:100%; height:100%}
 	#goods #list_goods #gL_a {font-size:30px; display:block;}
 	
 	
@@ -129,6 +130,7 @@ $(document).ready(function(){
 	#md h2 {width:1200px; height:80px; text-align:center;}
 	#md ul li {width:230px; height:500px; margin-left:40px; float:left;}
 	#md #list_md div{width:230px; height:350px; display:flex; overflow:hidden; align-items:center; justify-content:center;}
+	#md #list_md div img{width:100%; height:100%}
 	#md #list_md #mL_a {font-size:30px; display:block;}
 	
 	/* footer */
@@ -194,6 +196,14 @@ $(document).ready(function(){
 			<h2>이 상품 어때요?</h2>
 		</div>
 		<div id="list_goods">
+			
+		</div>
+	</div>
+	<div id="md">
+		<div id="tit_md">
+			<h2>MD의 추천</h2>
+		</div>
+		<div id="list_md">
 			<ul>
 				<li class="gL">
 					<a href="#">
@@ -234,6 +244,7 @@ $(document).ready(function(){
 			</ul>
 		</div>
 	</div>
+<<<<<<< HEAD
 	<div id="md">
 		<div id="tit_md">
 			<h2>MD의 추천</h2>
@@ -291,6 +302,8 @@ $(document).ready(function(){
 			</ul>
 		</div>
 	</div>
+=======
+>>>>>>> branch 'master' of https://github.com/study-backend/ShoesCase.git
 	
 	
 	<br><br><br>
@@ -362,7 +375,7 @@ $(document).ready(function(){
 				        	 
 							 }
 						 
-						 $("#list_md").html(str);
+						 $("#list_goods").html(str);
 					 };
 					 
 					 if (index === "categoryList"){
