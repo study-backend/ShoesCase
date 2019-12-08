@@ -21,7 +21,7 @@
             if(inFoObj==null){
                 document.getElementById("loginState").innerHTML="<li><a href=\"signupForm.jsp\">회원가입</a> ㅣ</li><li><a href=\"loginReal.jsp\"> 로그인</a></li>"
             }else {
-                document.getElementById("loginState").innerHTML="<li>"+inFoObj.name+"님 ㅣ</li><li><a href=\"../myInfoChange.html\">  내 정보 ㅣ</a></li>"+
+                document.getElementById("loginState").innerHTML="<li>"+inFoObj.name+"님 ㅣ</li><li><a href=\"/ShoesCase/myInfoChange.html\">  내 정보 ㅣ</a></li>"+
                     "<li><button type='button' style='background-color:white; border-style:none; font-size:16px;'>로그아웃</button></li>"
 
             }
@@ -31,8 +31,11 @@
          $(document).ready(function () {
             var idInfo = sessionStorage.getItem("user");
             var infoObj = JSON.parse(idInfo);
+			if(infoObj !== null ) {
+				let aaa = document.getElementById("myId");
+	            document.getElementById("myId").value = infoObj.loginId;
+			}
 
-            document.getElementById("myId").innerText= infoObj.loginId;
 
         })
  
@@ -50,6 +53,7 @@
                 $('#section div').first().show();
             }, 3000);
         })
+        
         $(function(){
             $("#check").click(function() {
 
@@ -69,7 +73,7 @@
                         console.log(result.message);
 
                         if (result.statusCode === "Success") {
-                            location.href = 'inMyInfoChange.jsp?msg=' + result.message;
+                            location.href = '/ShoesCase/inMyInfoChangeReal.jsp?msg=' + result.message;
                         } else {
                             alert("입력이 잘못되었습니다");
                             console.log(data);
@@ -90,15 +94,15 @@
             let user = sessionStorage.getItem("user");
             if(user === null || user === undefined) {
 
-                //location.href='/ShoesCase/account/login.html';
+                location.href='/ShoesCase/inMyInfoChangeReal.jsp';
             } else {
 
                 // id나 특정 정보를 검증해야하는데..... ㅠㅠ 일단 패스
-                let json = JSON.parse(user);
+                //let json = JSON.parse(user);
                 // 아래 데이터를 맵핑 지여나나나
-                console.log(json.loginId);
+                //console.log(json.loginId);
 
-                location.href='/ShoesCase/account/inMyInfoChange.jsp';
+                //location.href='/ShoesCase/account/inMyInfoChange.jsp';
             }
 
 
@@ -288,7 +292,7 @@
                         <div style="border: 2px solid darkgray; text-align: center">
                             <br><br>
                             아이디<br><br>
-                             <span id="myId"></span><br><br>
+                             <span></span><br><br>
                              <input type="text" name="loginId" id="myId" readonly="readonly" />
                                <br>                          
                             비밀번호<br><br>
@@ -329,7 +333,7 @@
     				console.log(result.message);
 
     				if (result.statusCode === "Success") {
-    					location.href = 'inMyInfoChangeReal.jsp?msg=' + result.message;
+    					location.href = '/ShoesCase/inMyInfoChangeReal.jsp?msg=' + result.message;
     				} else {
     					//alert("입력이 잘못되었습니다");
     					console.log(data);
