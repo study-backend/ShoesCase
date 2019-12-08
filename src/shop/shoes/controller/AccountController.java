@@ -73,12 +73,12 @@ public class AccountController implements Controller{
 						account.setLoginId(req.getLoginId());
 	
 						String pw = accountService.pwdFind(account.getName(), account.getLoginId(), account.getEmail());
-						
+						String addr = req.getEmail();
 						System.out.println("password : " + JsonUtil.toJson(pw));
 						
 						// 응답을 만든다
 						mv.setResultData(true);
-						ShopResponse res = new ShopResponse(StatusCode.Success, pw);
+						ShopResponse res = new ShopResponse(StatusCode.Success, addr+"&"+pw);
 						mv.setResult(JsonUtil.toJson(res));
 						break;
 					}
