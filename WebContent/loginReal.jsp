@@ -56,7 +56,7 @@
                             alert("로그인 성공");
                             alert("세션 스토리지 및 세션 정보 : " + result.message)
                             sessionStorage.setItem("user", result.message);
-                            location.href='/ShoesCase/mainTest_1.jsp'
+                            location.href='/ShoesCase/out_main.html'
                         } else {
                             alert("아이디 또는 비밀번호를 확인해주세요.");
                         }
@@ -339,7 +339,7 @@
             <a href="id.html">아이디 찾기</a> | <a href="pw.html">비밀번호 찾기</a>
         </div>
         <button type="button" class="m_button" id="blogin"><span>로그인</span></button></p>
-        <a href="account/signupForm.html">
+        <a href="out_main.html">
             <button type="button" class="m_button" id="bsignup"><span>회원가입</span></button>
         </a>
     </form>
