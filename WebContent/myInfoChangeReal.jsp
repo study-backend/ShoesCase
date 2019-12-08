@@ -21,7 +21,7 @@
             if(inFoObj==null){
                 document.getElementById("loginState").innerHTML="<li><a href=\"signupForm.jsp\">회원가입</a> ㅣ</li><li><a href=\"loginReal.jsp\"> 로그인</a></li>"
             }else {
-                document.getElementById("loginState").innerHTML="<li>"+inFoObj.name+"님 ㅣ</li><li><a href=\"/ShoesCase/myInfoChange.html\">  내 정보 ㅣ</a></li>"+
+                document.getElementById("loginState").innerHTML="<li>"+inFoObj.name+"님 ㅣ</li><li><a href=\"/ShoesCase/myInfoChangeReal.jsp\">  내 정보 ㅣ</a></li>"+
                     "<li><button type='button' style='background-color:white; border-style:none; font-size:16px;'>로그아웃</button></li>"
 
             }
@@ -38,9 +38,6 @@
 
 
         })
- 
-
-	 
 
         $(document).ready(function(){
             $('#section div').hide();
@@ -229,9 +226,7 @@
             <li><a href="login.html">로그인</a></li> -->
         </ul>
         <div id="headerlogo">
-            <a href="mainTest_1.jsp">
-                <img id="logo" src="image/LOGO.png" url="dressShoes.html" alt="로고">
-            </a>
+            <a href="out_main.html"><img src="image/LOGO.png" id="logo"></a>
         </div>
     </div>
     <div id="nav">
@@ -253,35 +248,35 @@
             <li class="mL"><a href="front?resource=product&categoryName=sandal"><span style="margin-left: 16px; margin-right: 25px;">샌들</span></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|</li>
             <li class="mL"><a href="front?resource=product&categoryName=boots"><span style="margin-left:11px">부츠</span></a>&nbsp;&nbsp;&nbsp;&nbsp;</li>
         </ul>
-        <img src="image/basket.png" id="basketimg">
-        <div id="side_search">
-            <form name="searchBox" method="get" action="#" id="searching">
-                <input type="text"
-                       style="width:185px; height:36px; border-radius:18px; background-color:#F7F7F7; border: none;">
-                <input type="image" src="image/search.png" style="float: right; width: 45px; border-radius: 18px"
-                       onclick="goSearch()">
-            </form>
-        </div>
+        <a href="shoppingBasket.jsp"><img src="image/basket.png" id="basketimg"></a>
+    <div id="side_search">
+        <form name="searchBox" method="get" action="#" id="searching">
+            <input type="text"
+                   style="width:185px; height:36px; border-radius:18px; background-color:#F7F7F7; border: none;">
+            <input type="image" src="image/search.png" style="float: right; width: 45px; border-radius: 18px"
+                   onclick="goSearch()">
+        </form>
+    </div>
     </div>
 
     <div class="main">
         <div class="boardForm1" style="box-sizing: border-box; margin:110px 300px 70px 300px;">
 
-            <div class="boardName" style="float: left; display: block; width: 23%;">
+            <div class="boardName" style="float: left; display: block; width: 23%; margin-left:300px">
                 <h2>마이슈즈</h2>
-                <div class="boardMenu">
-                    <ul class="list_menu" style="padding: 10px">
-                        <li style="border: solid 1px gray">
-                            <a href="memberOrLi.jsp">주문 내역</a>
-                        </li>
-                        <li style="border: solid 1px gray; border-top: none">
-                            <a href="myInfoChange.html">개인 정보 수정</a>
-                        </li>
-                    </ul>
-                </div>
+                 <div class="boardMenu" style="margin-top:20px;">
+                <ul class="list_menu" style="padding: 10px">
+                    <li style="border: solid 1px gray; width:200px; height:60px; text-align: center; padding-top:20px">
+                        <a href="memberOrLi.jsp">주문 내역</a>
+                    </li>
+                    <li style="border: solid 1px gray; border-top: none; width:200px; height:60px; text-align: center; padding-top:20px">
+                        <a href="myInfoChangeReal.jsp">개인 정보 수정</a>
+                    </li>
+                </ul>
+            </div>
             </div>
 
-            <div style="float:left; margin-left: 160px;">
+            <div style="float:left; margin-left: 20px;">
                 <h3 style="padding-bottom: 18px">개인 정보 수정</h3>
                 <div style="border-top: 2px solid purple">
                     <div style="text-align: center">
@@ -293,7 +288,7 @@
                             <br><br>
                             아이디<br><br>
                              <span></span><br><br>
-                             <input type="text" name="loginId" id="myId" readonly="readonly" />
+                             <input style="border:white; text-align: center; margin-top:-40px;" type="text" name="loginId" id="myId" readonly="readonly" />
                                <br>                          
                             비밀번호<br><br>
 

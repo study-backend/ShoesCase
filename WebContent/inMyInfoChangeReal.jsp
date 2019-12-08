@@ -5,35 +5,58 @@
 <head>
 <meta charset="UTF-8">
 <link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR:400,500|Pacifico&display=swap&subset=korean" rel="stylesheet">
+    <title>Title</title>
     <script type="text/javascript" src="js/jquery-3.4.1.min.js"></script>
     <script type="text/javascript" src="js/script.js"></script>
-    <script>
-        $(document).ready(function(){
-            let user = sessionStorage.getItem("user");
-            if(user === null || user === undefined) {
-                consolelog("aaaa");
-                location.href='/ShoesCase/account/login.html';
-            } else {
+    <script type="text/javascript">
 
-                // id나 특정 정보를 검증해야하는데..... ㅠㅠ 일단 패스
-                let json = JSON.parse(user);
+        window.onload = function () {
+            var inFo = sessionStorage.getItem("user");
+            var inFoObj = JSON.parse(inFo);
 
-
-                $("#id").val(json.loginId);
-                $("#name").val(json.name);
-                $("#email").val(json.email);
-                $("#sex").val(json.sex);
-                //휴대폰 번호 3자리-4자리-4자리 잘라서 올리기
-                $("#delivery_addr").
-                // user = "{"loginId":"1234","name":"1234","phone":"01923344","email":"hankkuu","addr":"a","sex":"\u0000","birthday":"1월 12, 3920"}"
-
-                alert("다뿌렸는데 다른거 받아서 update 해야해요!!!!");
+            if(inFoObj==null){
+                document.getElementById("loginState").innerHTML="<li><a href=\"signupForm.jsp\">회원가입</a> ㅣ</li><li><a href=\"loginReal.jsp\"> 로그인</a></li>"
+            }else {
+                document.getElementById("loginState").innerHTML="<li>"+inFoObj.name+"님 ㅣ</li><li><a href=\"/ShoesCase/myInfoChangeReal.jsp\">  내 정보 ㅣ</a></li>"+
+                    "<li><button type='button' style='background-color:white; border-style:none; font-size:16px;'>로그아웃</button></li>"
 
             }
 
+        }
 
-        });
+         $(document).ready(function () {
+            var idInfo = sessionStorage.getItem("user");
+            var infoObj = JSON.parse(idInfo);
+			if(infoObj !== null ) {
+				let aaa = document.getElementById("myId");
+	            document.getElementById("myId").value = infoObj.loginId;
+			}
+	
+			
+			var idInfo = sessionStorage.getItem("user");
+			if(user === null || user === undefined) {
+				consolelog("aaaa");
+				location.href='/ShoesCase/account/login.html';
+			} else {
+				
+				// id나 특정 정보를 검증해야하는데..... ㅠㅠ 일단 패스 
+				var infoObj = JSON.parse(idInfo);
+				
+				$("#id").val(infoObj.loginId);
+				$("#name").val(infoObj.name);
+				$("#email").val(infoObj.email);
+				$("#sex").val(infoObj.sex);
+				$("#userTel").val(infoObj.tel);
+				$("#delivery_addr").val(infoObj.addr);
+				// user = "{"loginId":"1234","name":"1234","phone":"01923344","email":"hankkuu","addr":"a","sex":"\u0000","birthday":"1월 12, 3920"}"
+				
+				alert("다뿌렸는데 다른거 받아서 update 해야해요!!!!");
+				
+			}
 
+        })
+
+      
         $(function(){
          	$("#check").click(function() {
 
@@ -72,17 +95,104 @@
     </script>
     <title>Title</title>
      <style>
-        li {list-style: none; padding: 16px;}
-        a{color:#000; text-decoration:none; font-family: 'Noto Sans KR', sans-serif;}
-        a:link {text-decoration: none; color: #333333;}
-        a:visited {text-decoration: none; color: #333333;}
-        a:active {text-decoration: none; color: #333333;}
-        a:hover {text-decoration: none; color: gray;}
-        .main{background-color: aqua}
-        #check{color:#FFFFFF; background-color:#5F0080; width:354px; height:56px; margin-top:10px; border-radius:5px; outline:0;}
+        li {list-style: none;}
+        /*공통*/
+		#header, #container {position: relative;}
+		*{font-family: 'Noto Sans KR', sans-serif;}
+		a{color:#000; text-decoration:none;}
+		a:hover{color:#000; font-weight:bold;}
+		ul li{list-style: none;}
+		h1,h2,h3,h4,h5,p,ul,li{
+	    margin: 0px;
+	    padding: 0px;
+		}
 	
+	 /* header */
+        #header {
+            width: 1200px;
+            height: 100px;
+            padding-bottom: 40px;
+            margin: auto;
+        }
+
+        #header #headerlogo {
+            display: inline-block;
+            margin: auto;
+            margin-left: 450px;
+        }
+
+        #header ul {
+            float: right;
+        }
+
+        #header ul li {
+            margin-left: 10px;
+            float: left;
+        }
+
+	
+	/* nav */
+        #nav {
+            width: 1200px;
+            height: 50px;
+            margin: auto;
+            position: sticky;
+            top: 0px;
+            background-color: white;
+        }
+        
+        #nav ul .mL {
+            width: 150px;
+            height: 50px;
+            float: left;
+            font-size: 20px;
+            margin: 0px;
+        }
+
+        #nav .main > li:hover .sub {
+            display: block;
+        }
+
+        #nav .main .sub {
+            position: absolute;
+            height: 50px;
+            top: 50px;
+            left: 40px;
+            display: none;
+        }
+
+        #nav .main .sub li {
+            width: 80px;
+            margin-top: 5px;
+        }
+
+        #side_search {
+            position: absolute;
+            right: 220px;
+            width: 240px;
+            height: 40px;
+            border-radius: 18px;
+            background-color: #F7F7F7;
+        }
+
+        #searchimg {
+            position: absolute;
+            right: 10px;
+            top: 5px;
+            width: 40px;
+            height: 30px;
+        }
+
+        #basketimg {
+            position: absolute;
+            right: 150px;
+            width: 50px;
+            bottom: 5px;
+            height: 50px;
+        }
+
 	/* body */
-	button{width:354px; height:56px; margin-top:20px; background-color:purple; border-radius:5px; outline:0;}
+	.m_button{width:354px; height:56px; margin-top:20px; background-color:purple; border-radius:5px; outline:0;}
 	.no-margin{
 		margin: 0;
 	}
@@ -90,6 +200,7 @@
 
 
 	table, th, td {border: 1px solid black; border-collapse:collapse; }
+	th{text-align: center}
 	.memberCols1{width:200px; height:50px}
 	.memberCols2{width:400px; height:50px;}
 	#check{color:#FFFFFF; background-color:#5F0080;}
@@ -111,28 +222,63 @@
 <body style="margin: 0px;">
 
 <div class="contrainer">
-<div style="height: 180px; width: 100%; background-color: #0c5460; text-align: center;">
-    Header 자리
-</div>
+<div id="header">
+        <ul id="loginState">
+            <!-- <li><a href="signupForm.jsp">회원가입</a></li>
+            <li><a href="login.html">로그인</a></li> -->
+        </ul>
+        <div id="headerlogo">
+            <a href="out_main.html"><img src="ima	ge/LOGO.png" id="logo"></a>
+        </div>
+    </div>
+    <div id="nav">
+        <ul class="main">
+            <li class="mL"><a href="#"><span style="margin-right: 30px">카테고리</span></a>&nbsp;&nbsp;&nbsp;&nbsp;|
+                <ul class="sub">
+                    <li  class="sub_li"><a href="sneakers.html">운동화</a></li>
+                    <li  class="sub_li"><a href="#">구두</a></li>
+                    <li  class="sub_li"><a href="#">샌들</a></li>
+                    <li  class="sub_li"><a href="#">부츠</a></li>
+                    <li  class="sub_li"><a href="#">나이키</a></li>
+                    <li  class="sub_li"><a href="#">아디다스</a></li>
+                    <li  class="sub_li"><a href="#">퓨마</a></li>
+                    <li  class="sub_li"><a href="#">반스</a></li>
+                </ul>
+            </li>
+            <li class="mL"><a href="front?resource=product&categoryName=sneakers"><span style="margin-left: 25px; margin-right: 16px;">운동화</span></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|</li>
+            <li class="mL"><a href="front?resource=product&categoryName=dressShoes"><span style="margin-left: 25px; margin-right: 16px;">구두</span></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|</li>
+            <li class="mL"><a href="front?resource=product&categoryName=sandal"><span style="margin-left: 16px; margin-right: 25px;">샌들</span></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|</li>
+            <li class="mL"><a href="front?resource=product&categoryName=boots"><span style="margin-left:11px">부츠</span></a>&nbsp;&nbsp;&nbsp;&nbsp;</li>
+        </ul>
+        <a href="shoppingBasket.jsp"><img src="image/basket.png" id="basketimg"></a>
+    <div id="side_search">
+        <form name="searchBox" method="get" action="#" id="searching">
+            <input type="text"
+                   style="width:185px; height:36px; border-radius:18px; background-color:#F7F7F7; border: none;">
+            <input type="image" src="image/search.png" style="float: right; width: 45px; border-radius: 18px"
+                   onclick="goSearch()">
+        </form>
+    </div>
+    </div>
 
 <div class="main">
     <div class="boardForm1" style="box-sizing: border-box; margin:110px 300px 70px 300px;">
 
-        <div class="boardName" style="float: left; display: block; width: 23%;">
+        <div class="boardName" style="float: left; display: block; width: 23%; margin:50px 300px 70px 300px;">
             <h2>마이슈즈</h2>
-            <div class="boardMenu">
+            <div class="boardMenu" style="margin-top:20px;">
                 <ul class="list_menu" style="padding: 10px">
-                    <li style="border: solid 1px gray">
+                    <li style="border: solid 1px gray; width:200px; height:60px; text-align: center; padding-top:20px">
                         <a href="memberOrLi.jsp">주문 내역</a>
                     </li>
-                    <li style="border: solid 1px gray; border-top: none">
-                        <a href="myInfoChange.html">개인 정보 수정</a>
+                    <li style="border: solid 1px gray; border-top: none; width:200px; height:60px; text-align: center; padding-top:20px">
+                        <a href="myInfoChangeReal.jsp">개인 정보 수정</a>
                     </li>
                 </ul>
             </div>
         </div>
 
-        <div class="boardForm2" style="float:left; margin-left:45px;">
+        <div class="boardForm2" style="float:left; margin-left:-345px;">
     	<h2 style="text-align: center; margin: 0px;">개인정보수정</h2>
 
 	 <form method="post" action="/" name="updateForm">
@@ -140,7 +286,7 @@
         <table class="inForm" style="margin: auto;">
             <tbody>
             <tr>
-                <td class="memberCols1" width="140">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp아이디*</td>
+                <th class="memberCols1" width="140">아이디*</th>
                 <td class="memberCols2">
                     <div style="height: 40px">
                         <input type="text" name="id" value="아이디받아서 적기" >                     
@@ -148,29 +294,22 @@
                 </td>
             </tr>
 			
-			<tr>
-                <td class="memberCols1">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp현재 비밀번호*</td>
-                <td class="memberCols2">
-                    <input type="password" name="pwd" option="regPass" placeholder="비밀번호를 입력해주세요">
-                </td>
-            </tr>
-			
             <tr>
-                <td class="memberCols1">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp새 비밀번호*</td>
+                <th class="memberCols1">새 비밀번호*</th>
                 <td class="memberCols2">
                     <input type="password" name="pwd" option="regPass" placeholder="비밀번호를 입력해주세요">
                 </td>
             </tr>
 
             <tr>
-                <td class="memberCols1">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp새 비밀번호확인*</td>
+                <th class="memberCols1">새 비밀번호확인*</th>
                 <td class="memberCols2">
                     <input type="password" name="pwdOk" option="regPass" placeholder="비밀번호를 한번 더 입력해주세요">
                 </td>
             </tr>
 
             <tr>
-                <td class="memberCols1">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp이름*</td>
+                <th class="memberCols1">이름*</th>
                 <td class="memberCols2">
                     <input type="text" name="name" value="이름받아적기">
                     
@@ -178,7 +317,7 @@
             </tr>
 
             <tr>
-                <td class="memberCols1">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp이메일*</td>
+                <th class="memberCols1">이메일*</th>
                 <td class="memberCols2">
                     <input type="text" name="email" size="30" option="regEmail" placeholder="예: marketkurly@kurly.com">
                     <span><input type="button" value="이메일 중복확인"></span>
@@ -187,16 +326,14 @@
             </tr>
             <tr>
                 <th class="telarea">휴대폰*</th>
-					<td><input type="text" max-length="3" class="tel_text" >
-						<span> - </span>
-						<input type="text" max-length="4" class="tel_text"> 
-						<span> - </span>
-						<input type="text" max-length="4" class="tel_text"></td>
+					<td>
+						<input type="text" max-length="10" class="tel_text" id="userTel" name="userTel">
+					</td>
             </tr>
             
             
-            <tr>
-                <td class="memberCols1">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp배송 주소</td>
+            <tr style="height:90px;">
+                <th class="memberCols1">배송 주소</th>
                 <td class="memberCols2">
                     <div style="margin-top: 11px; margin-left: 36px;">
                         <input type="text" placeholder="주소 검색" style="margin-bottom: 5px;" name="address_sub">
@@ -207,19 +344,16 @@
                 </td>
             </tr>
             <tr class="selectMaleFemale">
-                <td class="memberCols1">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp성별</td>
+                <th class="memberCols1">성별</th>
                 <td class="memberCols2">
-                    <div class="group_radio">
-                        <label class="label_radio">
-                            <input type="radio" name="maleFemale" label="성별" value="m" style="margin-left: 36px;">
-                            <span class="text_position">받아서적기</span>
-                        </label>
+                    <div class="sexbox">
+                       <input type="text" style="margin-bottom: 5px;" name="userSex">
                     </div>
                 </td>
             </tr>
 
             <tr class="birth field_birth">
-                <td class="memberCols1">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp생년월일</td>
+                <th class="memberCols1">생년월일</th>
                 <td class="memberCols2">
                     <div class="birth_day">
                         <input type="text" name="birthYear" pattern="[0-9]*" value="" label="생년월일" size="5"
