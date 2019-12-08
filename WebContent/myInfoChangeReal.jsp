@@ -28,14 +28,16 @@
 
         }
 
-        $(document).ready(function () {
+         $(document).ready(function () {
             var idInfo = sessionStorage.getItem("user");
             var infoObj = JSON.parse(idInfo);
 
             document.getElementById("myId").innerText= infoObj.loginId;
 
         })
+ 
 
+	 
 
         $(document).ready(function(){
             $('#section div').hide();
@@ -287,27 +289,8 @@
                             <br><br>
                             아이디<br><br>
                              <span id="myId"></span><br><br>
-                             <input type="text" name="loginId" readonly="readonly" />
-                              <script>
-                              $(document).ready(function(){ 
-                                  let user = sessionStorage.getItem("user");
-                                  if(user === null || user === undefined) {
-                                  
-                                      location.href='/ShoesCase/account/login.html';
-                                  } else {
-                                      
-                                      // id나 특정 정보를 검증해야하는데..... ㅠㅠ 일단 패스 
-                                      let json = JSON.parse(user);
-                                      // 아래 데이터를 맵핑 지여나나나
-                                      console.log(json.loginId);
-                                      
-                                      //location.href='/ShoesCase/account/inMyInfoChange.jsp';
-                                  }
-                                     
-                              });
-                    		</script><br>
-                             	
-                           
+                             <input type="text" name="loginId" id="myId" readonly="readonly" />
+                               <br>                          
                             비밀번호<br><br>
 
                             <input type="password" name="loginPwd">
