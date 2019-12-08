@@ -17,6 +17,21 @@ $(document).ready(function(){
 	$("#basket").click(function(){
 		window.open('popup.html', '', 'status=no, height=200, width=360, left='+ popupX + ', top='+ popupY);
 	}); 
+	
+	$("#number").click(function(){
+		//alert($(this).val());
+		var priceCount = $(this).val();
+		var price = $("#price > span.price").text();
+		var totalPrice = priceCount*price;
+		
+		if(totalPrice<0) {
+			alert("구매수량 error!");
+			$(this).val(0);
+			$(this).focus();
+		}else{
+		$("#total_price > span.tpsT").text(totalPrice);
+		}
+	})
 });
 </script>
 
@@ -185,7 +200,7 @@ $(document).on("click","[value='삭제']",function(){
 			</table>
 			<hr>
 			<div id="total_price">
-					<span class="tpsO">총 상품금액</span><span class="tpsT">${requestScope.goods.totalPrice}</span><span class="tpsTh">원</span>
+					<span class="tpsO">총 상품금액</span><span class="tpsT">${requestScope.goods.price}</span><span class="tpsTh">원</span>
 					<button id="basket" type="button">장바구니 담기</button>
 			</div>
 		</div>
