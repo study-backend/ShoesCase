@@ -15,12 +15,12 @@
 		if(inFoObj==null){
 			document.getElementById("loginState").innerHTML="<li><a href=\"signupForm.jsp\">회원가입</a> ㅣ</li><li><a href=\"loginReal.jsp\"> 로그인</a></li>"
 		}else {
-			document.getElementById("loginState").innerHTML="<li>"+inFoObj.name+"님 ㅣ</li><li><a href=\"../myInfoChangeReal.jsp\">  내 정보 ㅣ</a></li>"+
+			document.getElementById("loginState").innerHTML="<li>"+inFoObj.name+"님 ㅣ</li><li><a href=\"/ShoesCase/myInfoChangeReal.jsp\">  내 정보 ㅣ</a></li>"+
 			"<li><button type='submit' id='logoutb' style='background-color:white; border-style:none; font-size:16px;'>로그아웃</button></li>"
 		}
 
 	}
-			$(function () {
+		$(function () {
             $("#logoutb").on("click",function () {
           
                 sessionStorage.clear();
@@ -33,14 +33,14 @@
         }
 
 $(document).ready(function(){
-	$('#section div').hide();
-	$('#section div').first().show();
-	$('#section div').css('width',1000);
-	$('#section div').css('height',320);
+	$('#section img').hide();
+	$('#section img').first().show();
+	$('#section img').css('width',1200);
+	$('#section img').css('height',320);
 	setInterval(function(){
-		$('#section').append($('#section div').first());
-		$('#section div').last().hide();
-		$('#section div').first().show();
+		$('#section').append($('#section img').first());
+		$('#section img').last().hide();
+		$('#section img').first().show();
 	}, 3000);
 }) 
 
@@ -183,10 +183,7 @@ $(document).ready(function(){
 </div>
 	
 	<div id="section">
-		<div id="one"></div>
- 		<div id="two"></div>
-		<div id="three"></div>
-		<div id="four"></div>
+		
 	</div>
 	
 	<div id="goods">
@@ -194,6 +191,14 @@ $(document).ready(function(){
 			<h2>이 상품 어때요?</h2>
 		</div>
 		<div id="list_goods">
+			
+		</div>
+	</div>
+	<div id="md">
+		<div id="tit_md">
+			<h2>MD의 추천</h2>
+		</div>
+		<div id="list_md">
 			<ul>
 				<li class="gL">
 					<a href="#">
@@ -230,63 +235,6 @@ $(document).ready(function(){
 					</a>
 					<a href="#" id="gL_a">아디다스</a>
 					<span>20,000원</span>	
-				</li>
-			</ul>
-		</div>
-	</div>
-	<div id="md">
-		<div id="tit_md">
-			<h2>MD의 추천</h2>
-		</div>
-		<div id="list_md">
-			<ul>
-				<li class="mL">
-					<a href="#"><div></div></a>
-					<a href="#" id="mL_a">가나다</a>
-					<span>20,000원</span>	
-					<a href="#">
-					<div>
-						<img src="image/mainImage/flower03.jpg">
-					</div>
-					</a>
-					<a href="#" id="mL_a">������</a>
-					<span>20,000��</span>	
-				</li>
-				<li class="mL">
-					<a href="#"><div></div></a>
-					<a href="#" id="mL_a">가나다</a>
-					<span>20,000원</span>	
-					<a href="#">
-					<div>
-						<img src="image/mainImage/bold03.jpg">
-					</div>
-					</a>
-					<a href="#" id="mL_a">������</a>
-					<span>20,000��</span>	
-				</li>
-				<li class="mL">
-					<a href="#"><div></div></a>
-					<a href="#" id="mL_a">가나다</a>
-					<span>20,000원</span>	
-					<a href="#">
-					<div>
-						<img src="image/mainImage/classic.jpg">
-					</div>
-					</a>
-					<a href="#" id="mL_a">������</a>
-					<span>20,000��</span>	
-				</li>
-				<li class="mL">
-					<a href="#"><div></div></a>
-					<a href="#" id="mL_a">가나다</a>
-					<span>20,000원</span>	
-					<a href="#">
-					<div>
-						<img src="image/mainImage/gray.jpg">
-					</div>
-					</a>
-					<a href="#" id="mL_a">������</a>
-					<span>20,000��</span>	
 				</li>
 			</ul>
 		</div>
@@ -362,7 +310,7 @@ $(document).ready(function(){
 				        	 
 							 }
 						 
-						 $("#list_md").html(str);
+						 $("#list_goods").html(str);
 					 };
 					 
 					 if (index === "categoryList"){

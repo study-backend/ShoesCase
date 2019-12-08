@@ -34,7 +34,41 @@
 
         });
 
+        $(function(){
+         	$("#check").click(function() {
 
+        		let str = $("#updateForm").serializeObject();
+        		console.log(str);
+
+        		$.ajax({
+        			type : "post",
+        			url : "/ShoesCase/api/v1",
+        			dataType : "json",
+        			data : {
+        				data : JSON.stringify(str),
+        				resource : "Account",
+        				route : "setAccount"
+        			},
+        			success : function(result) {
+        				console.log(result.message);
+
+        				if (result.statusCode === "Success") {
+        					location.href = 'out_main,html?msg=' + result.message;
+        				} else {
+                            alert("업데이트가 되지 않았습니다.");
+                            console.log(data);
+            				console.log(result.message);
+        				}
+
+        			},
+        			error : function(error) {
+        				console.log(error);
+        				alert("오류 발생");
+        			}
+        		});//ajax끝
+
+        	}) 
+        });
     </script>
     <title>Title</title>
      <style>
@@ -101,8 +135,8 @@
         <div class="boardForm2" style="float:left; margin-left:45px;">
     	<h2 style="text-align: center; margin: 0px;">개인정보수정</h2>
 
-   		 <div class="boardWrite" style="margin-top: 30px">
-   		 <form method="post" action="/">
+	 <form method="post" action="/" name="updateForm">
+   	 <div class="boardWrite" style="margin-top: 30px">
         <table class="inForm" style="margin: auto;">
             <tbody>
             <tr>
@@ -204,12 +238,14 @@
             </tr>
             </tbody>
         </table>
-    </div>
-    <div style="text-align: center;">
+     </div>
+     
+     <div style="text-align: center;">
     
-     <button type="submit" class="m_button" id="check" href.location="inMyInfoChange.jsp"><span>확인</span></button>
-    </form>
+     <button type="submit" class="m_button" id="check" href.location="out_main.html"><span>확인</span></button>
     </div>
+    </form>
+     
 </div>
       
 
