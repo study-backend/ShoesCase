@@ -72,8 +72,8 @@
 	#buy{width:354px; height:56px; margin-top:20px; margin-top:30px; margin-left:450px; color:#FFFFFF; background-color:#5F0080; border-radius:5px; outline:0;}
 
 </style>
-<script type="text/javascript" src="../js/jquery-3.4.1.min.js"></script>
-<script type="text/javascript" src="../js/script.js"></script>
+<script type="text/javascript" src="./js/jquery-3.4.1.min.js"></script>
+<script type="text/javascript" src="./js/script.js"></script>
 <script type="text/javascript">
 $(function(){
 	$("#buy").click(function(){

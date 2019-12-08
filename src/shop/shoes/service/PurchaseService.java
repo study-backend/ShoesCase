@@ -36,4 +36,5 @@ public interface PurchaseService {
 	 * */
 	public List<PurchaseGoodsDTO> selectOrderHistory(String loginId) throws Exception;
 	
+	
 }

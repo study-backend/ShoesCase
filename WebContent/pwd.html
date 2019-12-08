@@ -30,7 +30,7 @@
                         console.log(result.message);
 
                         if(result.statusCode === "Success") {
-                            location.href='foundPwd.html?msg=' + result.message;
+                            location.href='/ShoesCase/foundPwd.html?msg=' + result.message;
                         } else {
                             alert("입력이 잘못되었습니다");
                         }
@@ -260,40 +260,17 @@
 		<form  method="post" action="#" id="pwdsearchForm"> 
 		<div id="login"><h3>비밀번호 찾기</h3></div>
 		<small><b>이름</b></small> <br>
-		<input type="text" class="log" placeholder="고객님의 이름을 입력해주세요."><br><br>
+		<input type="text" class="log" name="name" placeholder="고객님의 이름을 입력해주세요."><br><br>
 		<small><b>아이디<b></b></small> <br>
-		<input type="text" class="log" placeholder="고객님의 아이디를 입력해주세요."><br><br>
+		<input type="text" class="log" name="loginId" placeholder="고객님의 아이디를 입력해주세요."><br><br>
 		<small><b>이메일</b></small> <br>
-		<input type="text" class="log" placeholder="가입 시 등록하신 이메일 주소를 입력해주세요."><br><br>
+		<input type="text" class="log" name="email"  placeholder="가입 시 등록하신 이메일 주소를 입력해주세요."><br><br>
 		<div> 
-			<button type="submit" id="findpwd"><span>확인</span></button>
+			<input type="button" id="findpwd"><span>확인</span></button>
 		</div>
 		</form>	
 	</div>
-	 <script>
-	$(function(){
-			$("#findid").click(function(){
-				$.ajax({
-				type : "post" ,
-				url : "api/v1", 
-				dataType : "json", 
-				data : {data: $("#pwdsearchForm").serialize(),
-				resource: "account",
-				route: "login" 
-				},
-				success : function(result) { 
-					{ result : 0 }
-				},
-				error : function() {
-					alert("아이디 또는 비밀번호를 확인해주세요.");
-				}
-			});//ajax끝
 
-			})
-		});
-	
-	
-	</script>
 	<br><br><br>
 <hr class="footerHr" color="gray"  >
 <div class="footer">
