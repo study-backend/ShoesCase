@@ -143,7 +143,7 @@ $().ready(function() {
 		state = true;
 		  
 		  // 모두 값이 있다면 등록한다
-		  if(state) {
+		 /*  if(state) {
 			  
 			let str = $("#signForm").serializeObject();
 			  console.log(str)
@@ -169,11 +169,24 @@ $().ready(function() {
 					  console.log(err + "- 오류 발생")
 				  }      
 			  }); //ajax 끝
-		  }
+		  } */
 			  
 		  });
 	});
 
+</script>
+<script type="text/javascript">
+function jusoPopup(){
+	var pop = window.open("jusoPopup.jsp","pop","width=570,height=420, scrollbars=yes, resizable=yes"); 
+}
+
+function jusoCallBack(roadFullAddr,roadAddrPart1,addrDetail,roadAddrPart2,engAddr, jibunAddr, zipNo, admCd, rnMgtSn, bdMgtSn,detBdNmList,bdNm,bdKdcd,siNm,sggNm,emdNm,liNm,rn,udrtYn,buldMnnm,buldSlno,mtYn,lnbrMnnm,lnbrSlno,emdNo){
+		// 팝업페이지에서 주소입력한 정보를 받아서, 현 페이지에 정보를 등록합니다.	
+	
+		//var addr = roadFullAddr;
+		//$("#jusovalue").val() = addr;
+		document.form.juso.value = roadFullAddr;
+}
 </script>
 
 </head>
@@ -225,7 +238,7 @@ $().ready(function() {
 	<div class="signUpTitle" style="margin-top: 100px; margin-bottom: 10px">
     <h2 style="text-align: center; margin: 0px; margin-right:10px;">회원가입</h2>
 
-	<form method="post" id="signForm">
+	<form method="post" id="signForm" action="front?resource=userRegist" name="form">
     <div class="boardWrite" style="margin-top: 30px">
         <table class="inForm" style="width: 700px; height:800px; margin: auto;">
             <tbody>
@@ -283,7 +296,8 @@ $().ready(function() {
                 <td class="memberCols1">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp배송 주소</td>
                 <td class="memberCols2">
                     <div style="margin-top: 11px; margin-left: 20px;">
-                        <input type="text" placeholder="주소 검색" style="margin-bottom: 5px;" name="address_sub">
+                        <input type="text" placeholder="주소 검색" style="margin-bottom: 5px; width:450px; " name="juso"><br>
+						<button type="button" onclick="jusoPopup()">주소검색</button>
                     </div>
                     <div>
                         &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp배송가능여부를 확인할 수 있습니다.

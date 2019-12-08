@@ -56,9 +56,10 @@ public class AccountDAOImpl implements AccountDAO {
 		Connection con = null;
 		PreparedStatement ps = null;
 		int result =0;
-		String sql = "INSERT INTO account values(seq_Id.nextval,?,?,?,?,?,?,?,?,?,?, ?,?, ? )";
-		
+		String sql = "INSERT INTO account values(seq_Id.nextval, ?, ?, ?, ?, ?, ?, ?, ?, 1, sysdate, sysdate,sysdate, sysdate )";
+						//아이디seq,  id,pwd, name, phone, email, addr, sex, birthday, termv, termagree, credate, date, deletedate
 		try {
+			
 			con = DbUtil.getConnection();
 			ps = con.prepareStatement(sql);
 		//	ps.setLong(1, account.getAccountId());
@@ -70,11 +71,12 @@ public class AccountDAOImpl implements AccountDAO {
 			ps.setString(6, account.getAddr());
 			ps.setString(7, String.valueOf(account.getSex()));
 			ps.setDate(8, account.getBirthday());
-			ps.setInt(9, account.getTermsVersion());
-			ps.setDate(10, account.getTermsAgreeDate());
-			ps.setDate(11, account.getCreateDate());
-			ps.setDate(12, account.getUpdateDate());
-			ps.setDate(13, account.getDeleteDate());
+			/*
+			 * ps.setInt(9, account.getTermsVersion()); ps.setDate(10,
+			 * account.getTermsAgreeDate()); ps.setDate(11, account.getCreateDate());
+			 * ps.setDate(12, account.getUpdateDate()); ps.setDate(13,
+			 * account.getDeleteDate());
+			 */
 			
 			//ps.setDate(10, account.getLoginDate());
 			//ps.setDate(11, account.getLogoutDate());
