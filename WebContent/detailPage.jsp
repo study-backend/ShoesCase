@@ -17,7 +17,7 @@ $(document).ready(function(){
 	$("#basket").click(function(){
 		window.open('popup.html', '', 'status=no, height=200, width=360, left='+ popupX + ', top='+ popupY);
 	}); 
-	
+
 	
 	$("#number").click(function(){
 		//alert($(this).val());
