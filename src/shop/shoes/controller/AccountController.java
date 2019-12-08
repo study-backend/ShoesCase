@@ -51,7 +51,8 @@ public class AccountController implements Controller{
 						AccountDTO account = new AccountDTO();
 						account.setName(req.getName());
 						account.setEmail(req.getEmail());
-						
+						System.out.println("controller에서 :"+ req.getName());
+						System.out.println("controller에서 :"+ req.getEmail());
 						String id = accountService.idFind(account.getName(), account.getEmail());
 						
 						System.out.println(JsonUtil.toJson(id));

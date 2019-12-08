@@ -13,7 +13,7 @@
 		var inFoObj = JSON.parse(inFo);
 
 		if(inFoObj==null){
-			document.getElementById("loginState").innerHTML="<li><a href=\"signupForm.jsp\">회원가입</a> ㅣ</li><li><a href=\"loginReal.jsp\"> 로그인</a></li>"
+			document.getElementById("loginState").innerHTML="<li><a href=\"/ShoesCase/signupForm.jsp\">회원가입</a> ㅣ</li><li><a href=\"/ShoesCase/loginReal.jsp\"> 로그인</a></li>"
 		}else {
 			document.getElementById("loginState").innerHTML="<li>"+inFoObj.name+"님 ㅣ</li><li><a href=\"/ShoesCase/myInfoChangeReal.jsp\">  내 정보 ㅣ</a></li>"+
 			"<li><button type='submit' id='logoutb' style='background-color:white; border-style:none; font-size:16px;'>로그아웃</button></li>"
@@ -33,14 +33,14 @@
         }
 
 $(document).ready(function(){
-	$('#section img').hide();
-	$('#section img').first().show();
-	$('#section img').css('width',1200);
-	$('#section img').css('height',320);
+	//$('#section div').hide();
+	$('#section div').first().show();
+	$('#section div').css('width',1000);
+	$('#section div').css('height',320);
 	setInterval(function(){
-		$('#section').append($('#section img').first());
-		$('#section img').last().hide();
-		$('#section img').first().show();
+		$('#section').append($('#section div').first());
+		$('#section div').last().hide();
+		$('#section div').first().show();
 	}, 3000);
 }) 
 
@@ -119,8 +119,9 @@ $(document).ready(function(){
 	/* goods */
 	#goods {width:1200px; height:700px; margin:auto;}
 	#goods h2 {width:1200px; height:80px; text-align:center; }
-	#goods ul li {width:230px; height:500px; margin-left:40px; float:left;   }
+	#goods ul li {width:230px; height:500px; margin-left:40px; float:left;}
 	#goods #list_goods div{width:230px; height:350px; display:flex; overflow:hidden; align-items:center; justify-content:center;}
+	#goods #list_goods div img{width:100%; height:100%}
 	#goods #list_goods #gL_a {font-size:30px; display:block;}
 	
 	
@@ -129,6 +130,7 @@ $(document).ready(function(){
 	#md h2 {width:1200px; height:80px; text-align:center;}
 	#md ul li {width:230px; height:500px; margin-left:40px; float:left;}
 	#md #list_md div{width:230px; height:350px; display:flex; overflow:hidden; align-items:center; justify-content:center;}
+	#md #list_md div img{width:100%; height:100%}
 	#md #list_md #mL_a {font-size:30px; display:block;}
 	
 	/* footer */
@@ -148,7 +150,7 @@ $(document).ready(function(){
 		</ul>
 		<div id="headerlogo">
 			<a>
-			<img id="logo" src="https://raw.githubusercontent.com/study-backend/ShoesCase/master/WebContent/image/LOGO.png" url="mainPage.jsp" alt="로고">
+			<img id="logo" src="https://raw.githubusercontent.com/study-backend/ShoesCase/master/WebContent/image/LOGO.png" url="out_main.html" alt="로고">
 			</a>
 		</div>
 	</div>
@@ -173,7 +175,7 @@ $(document).ready(function(){
     </ul>
     <img src="image/basket.png" id="basketimg">
     <div id="side_search">
-        <form name="searchBox" method="get" action="#" id="searching">
+        <form name="searchBox" method="get" action="#" id="searching" url=shopping_basket.html">
             <input type="text"
                    style="width:185px; height:36px; border-radius:18px; background-color:#F7F7F7; border: none;">
             <input type="image" src="image/search.png" style="float: right; width: 45px; border-radius: 18px"
@@ -183,7 +185,10 @@ $(document).ready(function(){
 </div>
 	
 	<div id="section">
-		
+		<div id="one"></div>
+ 		<div id="two"></div>
+		<div id="three"></div>
+		<div id="four"></div>
 	</div>
 	
 	<div id="goods">
@@ -238,8 +243,7 @@ $(document).ready(function(){
 				</li>
 			</ul>
 		</div>
-	</div>
-	
+	</div>	
 	
 	<br><br><br>
 <hr class="footerHr" color="gray"  >
@@ -313,7 +317,7 @@ $(document).ready(function(){
 						 $("#list_goods").html(str);
 					 };
 					 
-					 if (index === "categoryList"){
+					 /* if (index === "categoryList"){
 						 cat +="<ul class='main'>";
 						 cat +="<li class='mL'><a href='#''>카테고리</a>";
 						 cat +="<ul class='sub'>"
@@ -330,7 +334,7 @@ $(document).ready(function(){
 						 
 						 $("#nav").html(cat);
 						 
-					 };
+					 }; */
 					 if (index === "bannerList"){
 						 for (var v of item) {
 							ban +="<img src="+v.img_path+">";

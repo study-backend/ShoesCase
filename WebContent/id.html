@@ -9,10 +9,8 @@
     <script>
         $(function(){
             $("#findid").click(function(){
-
                 let str = $("#idsearchForm").serializeObject();
                 console.log(str);
-
                 $.ajax({
                     type : "get" ,
                     url : "/ShoesCase/api/v1",
@@ -24,62 +22,48 @@
                     //contentType: 'application/json; charset=utf-8',
                     success : function(result) {
                         console.log(result.statusCode);
-
                         if(result.statusCode === "Success") {
                             alert("아이디찾기 성공");
                             location.href='foundId.html?msg=' + result.message;
-
                         } else {
                             alert("입력이 잘못되었습니다");
                         }
-
                     },
                     error : function(error) {
                         console.log(error);
                         alert("오류 발생");
                     }
                 });//ajax끝
-
             })
-
         });
     </script>
     <script>
         function goSearch() {
             document.searchBox.submit();
-
         }
-
     </script>
-
     <title>Insert title here</title>
     <style type="text/css">
         /*공통*/
         #header, #container {
             position: relative;
         }
-
         a {
             color: #000;
             text-decoration: none;
             font-family: 'Noto Sans KR', sans-serif;
         }
-
         a:hover {
             color: #000;
             font-weight: bold;
         }
-
         ul li {
             list-style: none;
         }
-
         h1, h2, h3, h4, h5, p, ul, li {
             margin: 0px;
             padding: 0px;
         }
-
-
         /* header */
         #header {
             width: 1200px;
@@ -87,27 +71,22 @@
 			padding-bottom: 40px;
             margin: auto;
         }
-
         #header #headerlogo {
             display: inline-block;
             margin: auto;
         }
-
         #header ul {
             float: right;
         }
-
         #header ul li {
             margin-left: 10px;
             float: left;
         }
-
         #header #headerlogo {
             margin: auto;
             margin-left: 500px;
             margin-top: 25px;
         }
-
         /* nav */
         #nav {
             width: 1200px;
@@ -117,7 +96,6 @@
             top: 0px;
 			background-color: white;
         }
-
         #nav ul .mL {
             width: 150px;
             height: 50px;
@@ -125,11 +103,9 @@
             font-size: 20px;
 			margin: 0px;
         }
-
         #nav .main > li:hover .sub {
             display: block;
         }
-
         #nav .main .sub {
             position: absolute;
             height: 50px;
@@ -137,12 +113,10 @@
             left: 40px;
             display: none;
         }
-
         #nav .main .sub li {
             width: 80px;
             margin-top: 5px;
         }
-
         #side_search {
             position: absolute;
             right: 220px;
@@ -151,7 +125,6 @@
             border-radius: 18px;
             background-color: #F7F7F7;
         }
-
         #searchimg {
             position: absolute;
             right: 10px;
@@ -159,7 +132,6 @@
             width: 40px;
             height: 30px;
         }
-
         #basketimg {
             position: absolute;
             right: 150px;
@@ -167,7 +139,6 @@
 			bottom: 5px;
             height: 50px;
         }
-
 	/* main */
 	#main{width:355px; height:600px; margin:auto; /* border:1px solid pink; */}
 	#main h3{text-align:center;}
@@ -176,38 +147,30 @@
 	#findid{width:354px; height:56px; margin-top:20px; color:#FFFFFF; background-color:#5F0080; border-radius:5px; outline:0;}
 	#main button span{font-size:16px; }
 	#login{height: 100.5px; margin-top: 50px; font-size:30px}
-
 	/* footer */
         .footer{
             margin-left:400px;
-
         }
-
         #footerTable {
             border: none;
         }
-
         #footerTable td {
             border: none;
         }
-
         .f {
             padding: 8px;
             font-size: 12px;
             margin-left: 200px;
         }
-
         .s {
             padding: 8px;
             font-size: 12px;
             margin-left: 50px;
         }
-
         .footerHr {
             border: 0;
             height: 1px
         }
-
         /*	input#submitIcon {
                 background:url(image/search.png);
                 background-repeat: no-repeat;
@@ -215,8 +178,6 @@
                 height:35px;
                 border: 0;
             }*/
-
-
     </style>
 </head>
 <body>
@@ -265,10 +226,10 @@
 		<form  method="post" action="#" id="idsearchForm"> 
 		<div id="login"><h3>아이디 찾기</h3></div>
 		<small><b>이름</b></small> <br>
-		<input type="text" class="log" placeholder="  고객님의 이름을 입력해주세요."><br><br>
+		<input type="text" class="log" name="name" placeholder="  고객님의 이름을 입력해주세요."><br><br>
 		<small><b>이메일</b></small> <br>
-		<input type="text" class="log" placeholder="  가입 시 등록하신 이메일 주소를 입력해주세요."><br><br>
-		 <button type="submit" id="findid"><span>확인</span></button>
+		<input type="text" class="log" name="email" placeholder="  가입 시 등록하신 이메일 주소를 입력해주세요."><br><br>
+		 <input type="button" id="findid" value="확인">
 		</form>
 	</div>
 <hr class="footerHr" color="gray"  >
@@ -286,7 +247,6 @@
                         
          <address class="copyright mt10">COPYRIGHT © SHOES-CASE KOREA CO,LTD. ALL RIGHTS RESERVED.</address>
    </div>
-
 </td>
 <td>
    <div class="s">
@@ -304,6 +264,5 @@
 </tr>
 </table>
 </div>
-
 </body>
 </html>
