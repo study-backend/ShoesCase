@@ -157,10 +157,10 @@ public class AccountController implements Controller{
 						System.out.println("여기다");
 						LoginRequest req = JsonUtil.fromJson(data, LoginRequest.class);	
 						
-						String pwd = accountService.checkPassword(req.getLoginId(), req.getLoginPwd());
+						AccountDTO pwd = accountService.checkPassword(req.getLoginId(), req.getLoginPwd());
 						
 					      mv.setResultData(true);
-						  ShopResponse res = new ShopResponse(StatusCode.Success, pwd);
+						  ShopResponse res = new ShopResponse(StatusCode.Success, JsonUtil.toJson(pwd));
 						  mv.setResult(JsonUtil.toJson(res));
 		
 						break;
