@@ -376,7 +376,7 @@
      
      <div style="text-align: center;">
     
-     <button type="submit" class="m_button" id="check" href.location="out_main.html"><span>확인</span></button>
+     <input type="button" class="m_button" id="check" href.location="out_main.html"><span>확인</span></button>
     </div>
     </form>
      
