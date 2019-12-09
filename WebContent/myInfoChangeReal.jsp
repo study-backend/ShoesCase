@@ -297,7 +297,7 @@
                         </div>
                         <div style="text-align: center">
                             <br>
-                            <button type="submit" class="m_button" id="check" name="check"><span>확인</span></button>
+                            <input type="button" class="m_button" id="check" name="check" value="확인">
                         </div>
                     </form>
                 </div>
