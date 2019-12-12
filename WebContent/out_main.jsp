@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -7,7 +9,7 @@
           rel="stylesheet">
 <script type="text/javascript" src="js/jquery-3.4.1.min.js"></script>
 <script type="text/javascript" src="js/script.js"></script>
- <script> 
+<script> 
 	window.onload = function () {
 		var inFo = sessionStorage.getItem("user");
 		var inFoObj = JSON.parse(inFo);
@@ -33,7 +35,7 @@
         }
 
 $(document).ready(function(){
-	$('#section div').hide();
+	//$('#section div').hide();
 	$('#section div').first().show();
 	$('#section div').css('width',1000);
 	$('#section div').css('height',320);
@@ -297,15 +299,15 @@ $(document).ready(function(){
 				var cat="";
 				var ban="";
 				 $.each(result, function(index, item){
-					 console.log( "item : " + item);
+					 console.log(item);
 					 if(index === "goodsList"){
 						 for (var v of item) { 
 							 str+="<ul>";
-							 console.log("v.price : " + v.price);
+							 console.log(v.price);
 					        	 str+="<li class='mL'>";
 					        	 str+="<a href='#'>";
 					        	 str+="<div>";
-					        	 str+="<img src='/ShoesCase/image/sneakers/andy.png'>";
+					        	 str+="<img src='image/sneakers/andy.png'>";
 					        	 str+="</div>";
 					        	 str+="</a>";
 					        	 str+="<a href='#' id='mL_a'>"+v.name+"</a>";
@@ -315,7 +317,7 @@ $(document).ready(function(){
 				        	 str+="</ul>";
 				        	 
 							 }
-						 console.log("str" + str);
+						 console.log("goodlist_str" + str);
 						 $("#list_goods").html(str);
 					 };
 					 
@@ -341,7 +343,7 @@ $(document).ready(function(){
 						 for (var v of item) {
 							ban +="<img src="+v.img_path+">";
 						 }
-						 console.log(ban+": ban");
+						 console.log(ban);
 						 $("#section").html(ban);
 					 };			 
 			});
@@ -356,5 +358,6 @@ $(document).ready(function(){
 	</script>
 
 </body>
+
 
 </html>

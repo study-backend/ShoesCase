@@ -297,11 +297,8 @@
                         </div>
                         <div style="text-align: center">
                             <br>
-<<<<<<< HEAD
                             <input type="button" class="m_button" id="check" name="check" value="확인">
-=======
-                            <input type="button" class="m_button" id="check" name="check"><span>확인</span></button>
->>>>>>> branch 'master' of https://github.com/study-backend/ShoesCase.git
+
                         </div>
                     </form>
                 </div>
