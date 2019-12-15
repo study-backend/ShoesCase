@@ -43,5 +43,17 @@ public class BillKeySystem {
 		result = billkeyDao.insert(key);
 		return result;
 	}
+	
+	public int registerCancel(String billKey, Date date) throws Exception {
+		
+		BillKeyDTO key = new BillKeyDTO();
+		key.setCancelDate(date);
+		key.setUpdateDate(date);
+		
+		int result = 0;
+		
+		result = billkeyDao.update(key);
+		return result;
+	}
 
 }

@@ -1,6 +1,7 @@
 package shop.shoes.model;
 
 import java.sql.Date;
+import java.util.List;
 
 public class PurchaseBasketDTO {
 	/*
@@ -27,6 +28,10 @@ public class PurchaseBasketDTO {
 	private Date createDate;
 	private Date updateDate;
 	
+	private PurchaseBasketPaymentDTO payment;
+	private List<PurchaseGoodsDTO> purchaseGoodList;
+	
+
 	public PurchaseBasketDTO() {}
 
 	
@@ -130,5 +135,26 @@ public class PurchaseBasketDTO {
 	public void setUpdateDate(Date updateDate) {
 		this.updateDate = updateDate;
 	}
+	
+	public PurchaseBasketPaymentDTO getPayment() {
+		return payment;
+	}
+
+
+	public void setPayment(PurchaseBasketPaymentDTO payment) {
+		this.payment = payment;
+	}
+
+
+	public List<PurchaseGoodsDTO> getPurchaseGoodList() {
+		return purchaseGoodList;
+	}
+
+
+	public void setPurchaseGoodList(List<PurchaseGoodsDTO> purchaseGoodList) {
+		this.purchaseGoodList = purchaseGoodList;
+	}
+
+
 	
 }

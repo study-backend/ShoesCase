@@ -22,6 +22,15 @@ public interface PurchaseService {
 	public int insertPurchase(List<GoodsDTO> goodsList, PurchaseBasketDTO basket, 
 			PurchaseBasketPaymentDTO payment, AccountDTO account) throws Exception;
 	
+	// 환불
+	public int refund(String billKey, String reason, int refundType, List<PurchaseGoodsDTO> purchaseGoodsList) throws Exception;
+	
+	// 구매 수정 
+	public int changePurchase(String billKey, List<PurchaseGoodsDTO> purchaseGoodsList) throws Exception;
+	
+	// 구매 내역 조회
+	public List<PurchaseBasketDTO> selectPurchaseDetail(AccountDTO account) throws Exception;
+	
 	/**
 	 * 장바구니에서 구매 넘어갈때 들고갈 상품 정보(조회)
 	 * 주문자 정보 조회

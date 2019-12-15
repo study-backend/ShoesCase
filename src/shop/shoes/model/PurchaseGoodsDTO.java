@@ -23,6 +23,8 @@ public class PurchaseGoodsDTO {
     
     private PurchaseBasketDTO purchaseBasket;
     
+    private CancelDTO cancel;
+    
     public PurchaseGoodsDTO() {} 
     
     
@@ -175,5 +177,17 @@ public class PurchaseGoodsDTO {
 	public void setAccountId(long accountId) {
 		this.accountId = accountId;
 	}
+
+
+	public CancelDTO getCancel() {
+		return cancel;
+	}
+
+
+	public void setCancel(CancelDTO cancel) {
+		this.cancel = cancel;
+	}
+	
+	
     
 }

@@ -1,55 +1,56 @@
 package shop.shoes.model;
 
 public class CancelDTO {
-	private int cancelId;
-	private int purchaseGoodsId;
-	private int purchaseBasketId;
+	private long cancelId;
+	private long purchaseGoodsId;
+	private long purchaseBasketId;
 	private int price;
-	private int stateCode;
 	private String reason;
-	private String billKey;
-	private int goodsId;
-	private int itemCount;
-	private String itemSn;
+	private int count;
 	private String createDate;
 	private String updateDate;
+	private long goodsId;
+	private String billKey;
+	private int refundType;
+	private String itemSn;
+
 	
 	public CancelDTO() {}
 
-	public CancelDTO(int cancelId, int purchaseGoodsId, int purchaseBasketId, int price, int stateCode, String reason,
-			String billKey, int goodsId, int itemCount, String itemSn, String createDate, String updateDate) {
+	public CancelDTO(long cancelId, long purchaseGoodsId, long purchaseBasketId, int price, String reason,
+			String billKey, long goodsId, int count, int refundType, String itemSn, String createDate, String updateDate) {
 		super();
 		this.cancelId = cancelId;
 		this.purchaseGoodsId = purchaseGoodsId;
 		this.purchaseBasketId = purchaseBasketId;
 		this.price = price;
-		this.stateCode = stateCode;
 		this.reason = reason;
 		this.billKey = billKey;
 		this.goodsId = goodsId;
-		this.itemCount = itemCount;
+		this.count = count;
 		this.itemSn = itemSn;
 		this.createDate = createDate;
 		this.updateDate = updateDate;
+		this.refundType = refundType;
 	}
 
-	public int getCancelId() {
+	public long getCancelId() {
 		return cancelId;
 	}
 
-	public void setCancelId(int cancelId) {
+	public void setCancelId(long cancelId) {
 		this.cancelId = cancelId;
 	}
 
-	public int getPurchaseGoodsId() {
+	public long getPurchaseGoodsId() {
 		return purchaseGoodsId;
 	}
 
-	public void setPurchaseGoodsId(int purchaseGoodsId) {
+	public void setPurchaseGoodsId(long purchaseGoodsId) {
 		this.purchaseGoodsId = purchaseGoodsId;
 	}
 
-	public int getPurchaseBasketId() {
+	public long getPurchaseBasketId() {
 		return purchaseBasketId;
 	}
 
@@ -65,12 +66,12 @@ public class CancelDTO {
 		this.price = price;
 	}
 
-	public int getStateCode() {
-		return stateCode;
+	public int getRefundType() {
+		return refundType;
 	}
 
-	public void setStateCode(int stateCode) {
-		this.stateCode = stateCode;
+	public void setRefundType(int refundType) {
+		this.refundType = refundType;
 	}
 
 	public String getReason() {
@@ -89,20 +90,20 @@ public class CancelDTO {
 		this.billKey = billKey;
 	}
 
-	public int getGoodsId() {
+	public long getGoodsId() {
 		return goodsId;
 	}
 
-	public void setGoodsId(int goodsId) {
+	public void setGoodsId(long goodsId) {
 		this.goodsId = goodsId;
 	}
 
-	public int getItemCount() {
-		return itemCount;
+	public int getCount() {
+		return count;
 	}
 
-	public void setItemCount(int itemCount) {
-		this.itemCount = itemCount;
+	public void setCount(int count) {
+		this.count = count;
 	}
 
 	public String getItemSn() {

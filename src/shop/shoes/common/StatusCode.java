@@ -21,7 +21,13 @@ public enum StatusCode {
   , Fail_Add_PurchseBasket(30002)
   , Fail_Add_PurchasePayment(30003)
   , Fail_Add_PurchaseGoods(30004)
-  , Fail_Issue_BillKey(30005);
+  , Fail_Issue_BillKey(30005)
+  , Fail_Update_RefundState(3006)
+  , Fail_Add_RefundGoods(30007)
+  , Fail_Cancel_BillKey(30008)
+  , Fail_Not_Exist_Goods(30009)
+  , Fail_Update_BaksetState(30010)
+  , Fail_Add_CancelGoods(30011);
 	
   private int value;
   private StatusCode(int value) {
