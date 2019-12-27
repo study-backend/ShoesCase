@@ -40,6 +40,10 @@ insert into account values(119,'1123zzt','1234','유재석','010-1122-1333','you
 insert into account values(120,'zmtzmt2','1234','박명수','010-1122-333','msms@email.com','관악구 봉천동','남','1992-11-22',1,sysdate, sysdate,sysdate,sysdate);
 
 
+insert into account values(500,'swsw22','1234','김세원2','010-1122-333','byh5112@naver.com','관악구 봉천동','남','1992-11-22',1,sysdate, sysdate,sysdate,sysdate);
+insert into account values(600,'yonghan','1234','배용한2','010-1122-333','k31sw2@hanmail.net','관악구 봉천동','남','1992-11-22',1,sysdate, sysdate,sysdate,sysdate);
+
+
 DROP TABLE REVIEW;
 CREATE TABLE REVIEW(
     REVIEW_ID NUMBER(19) CONSTRAINT id_review_pk PRIMARY KEY,
