@@ -23,7 +23,7 @@ public interface PurchaseService {
 			PurchaseBasketPaymentDTO payment, AccountDTO account) throws Exception;
 	
 	// 환불
-	public int refund(String billKey, String reason, int refundType, List<PurchaseGoodsDTO> purchaseGoodsList) throws Exception;
+	public int refund(String billKey, String reason, int refundType, List<Long> purchaseGoodsList) throws Exception;
 	
 	// 구매 수정 
 	public int changePurchase(String billKey, List<PurchaseGoodsDTO> purchaseGoodsList) throws Exception;

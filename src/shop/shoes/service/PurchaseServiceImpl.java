@@ -11,8 +11,14 @@ import shop.core.BillKeySystem;
 import shop.shoes.common.GlobalException;
 import shop.shoes.common.PurchaseCode;
 import shop.shoes.common.StatusCode;
+import shop.shoes.dao.PruchaseCancelDAO;
+import shop.shoes.dao.PruchaseCancelDAOImpl;
+import shop.shoes.dao.PurchaseBasketDAO;
+import shop.shoes.dao.PurchaseBasketDAOImpl;
 import shop.shoes.dao.PurchaseDAO;
 import shop.shoes.dao.PurchaseDAOImpl;
+import shop.shoes.dao.PurchaseGoodsDAO;
+import shop.shoes.dao.PurchaseGoodsDAOImpl;
 import shop.shoes.model.AccountDTO;
 import shop.shoes.model.CancelDTO;
 import shop.shoes.model.GoodsDTO;
@@ -27,6 +33,10 @@ public class PurchaseServiceImpl implements PurchaseService {
 	private static BillKeySystem keySystem = new BillKeySystem();
 
 	private static PurchaseDAO dao = new PurchaseDAOImpl();
+	private static PurchaseBasketDAO basketDAO = new PurchaseBasketDAOImpl();
+	private static PurchaseGoodsDAO purchaseGoodDAO = new PurchaseGoodsDAOImpl();
+	private static PruchaseCancelDAO purchaseCancelDAO = new PruchaseCancelDAOImpl();
+	
 	
 	@Override
 	public int insertPurchase(List<GoodsDTO> goodsList, PurchaseBasketDTO basket, 
@@ -126,7 +136,7 @@ public class PurchaseServiceImpl implements PurchaseService {
 	}
 
 	@Override
-	public int refund(String billKey, String reason, int refundType, List<PurchaseGoodsDTO> purchaseGoodsList) throws Exception {
+	public int refund(String billKey, String reason, int refundType, List<Long> purchaseGoodIdsList) throws Exception {
 		
 		try {
 			//구매당시의 Billkey를 가져 옴
@@ -134,7 +144,7 @@ public class PurchaseServiceImpl implements PurchaseService {
 			Date cancelDate = DateTimeHelper.sqlDateNow();
 			
 			//해당 BillKey의 Basket 정보를 가져옴
-			PurchaseBasketDTO basket = dao.selectBasketId(billKey);
+			PurchaseBasketDTO basket = basketDAO.selectByBillkey(billKey);
 			//해당 BillKey(basketId )의 Payment 정보를 가져옴 
 			//(취소할 때 refund type을 넣도록 변경)
 			//PurchaseBasketPaymentDTO payment = dao.selectPayment(basket.getBasketId());
@@ -142,11 +152,11 @@ public class PurchaseServiceImpl implements PurchaseService {
 			//해당 Basket 정보의 Goods를 가져옴
 			// 단, 여기서 전체환불인지 부분환불인지 구분한다
 			List<PurchaseGoodsDTO> goodsList = new ArrayList<>();
-			if(purchaseGoodsList.size() == 0) {
-				goodsList = dao.selectPurchaseGoodsList(basket.getBasketId());
+			if(purchaseGoodIdsList.size() == 0) {
+				goodsList = purchaseGoodDAO.selectByBasketId(basket.getBasketId());
 			} else {
-				for(PurchaseGoodsDTO purchaseGoods : purchaseGoodsList) {
-					PurchaseGoodsDTO cancelGoods = dao.selectPurchaseGoods(purchaseGoods.getGoodsId());
+				for(long purchaseGoodsId : purchaseGoodIdsList) {
+					PurchaseGoodsDTO cancelGoods = purchaseGoodDAO.selectById(purchaseGoodsId);
 					goodsList.add(cancelGoods);
 				}
 			}
@@ -156,7 +166,7 @@ public class PurchaseServiceImpl implements PurchaseService {
 
 				//Basket 상태 정보를 update 
 				basket.setStateCode(PurchaseCode.Cancel_Ing.getValue());
-				int basketResult = dao.updateBasket(basket);
+				int basketResult = basketDAO.update(basket);
 				if(basketResult != 1) {
 					throw new GlobalException("환불 상품 수정 실패", StatusCode.Fail_Update_BaksetState);
 				}
@@ -167,7 +177,7 @@ public class PurchaseServiceImpl implements PurchaseService {
 					
 					// 수량만 부분 환불할 경우 대처가 필요하다 (정책상 아예 환불 후 재구매를 할지 아니면 부분 환불을 수량까지 지원할지 정책이 필요함)
 					// 세부 정책이 없기 때문에 수량 환불은 구매 수정으로 따로 API를 만들어 지원한다 / 옥션의 경우 수량 수정은 없고 배송정보 수정만 있다
-					int goodsResult = dao.updateGoods(goods);
+					int goodsResult = purchaseGoodDAO.update(goods);
 					if (goodsResult != 1) {
 						// 완전 존망 ㅠㅜㅜ
 						throw new GlobalException("환불 상품 수정 실패", StatusCode.Fail_Update_RefundState);
@@ -183,7 +193,7 @@ public class PurchaseServiceImpl implements PurchaseService {
 					cancel.setRefundType(refundType);
 					
 					//해당 Goods의 Cancel 정보를 insert
-					int cancelResult = dao.insertCancelGoods(cancel);
+					int cancelResult = purchaseCancelDAO.insert(cancel);
 					if(cancelResult != 1) {
 						throw new GlobalException("환불 상품 수정 실패", StatusCode.Fail_Add_CancelGoods);
 					}
@@ -207,6 +217,7 @@ public class PurchaseServiceImpl implements PurchaseService {
 			// 임시 트랜잭션
 			e.printStackTrace();
 		}
+		return 0;
 				
 	}
 
@@ -224,6 +235,7 @@ public class PurchaseServiceImpl implements PurchaseService {
 	public List<PurchaseBasketDTO> selectPurchaseDetail(AccountDTO account) throws Exception {
 		
 		try {
+			.
 			List<PurchaseBasketDTO> basketList = dao.selectBasketList(account.getAccountId());
 			for(PurchaseBasketDTO basket : basketList) {
 				
